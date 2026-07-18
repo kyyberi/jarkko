@@ -38,7 +38,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Bring me the problem that needs senior attention\./);
   assert.match(html, /Government-wide AI products/);
   assert.match(html, /Maysano/);
-  assert.match(html, /Open Data Product ecosystem/);
+  assert.match(html, /Data Product Standards/);
   assert.match(html, /\/images\/work-maysano\.png/);
   assert.match(html, /\/images\/work-odps\.png/);
   assert.match(html, /\/images\/work-abudhabi\.png/);

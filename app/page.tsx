@@ -156,7 +156,7 @@ export default function Home() {
               <div className="work-index">02</div>
               <div className="work-copy">
                 <div className="work-label">Open standard and SDK</div>
-                <h3>Open Data Product ecosystem</h3>
+                <h3>Data Product Standards</h3>
                 <p>
                   A machine-readable specification family and developer toolkit
                   for interoperable, governed, and agent-ready data products.
