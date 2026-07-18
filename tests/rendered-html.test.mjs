@@ -30,18 +30,18 @@ test("server-renders the professional homepage", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Jarkko Moilanen \| Data Product Pioneer<\/title>/i);
-  assert.match(html, /Building the operating system for data and AI products/);
-  assert.match(html, /Where I Focus/);
-  assert.match(html, /Selected Work/);
-  assert.match(html, /Books &amp; Courses|Books & Courses/);
-  assert.match(html, /Let's build what matters/);
-  assert.match(html, /Government AI/);
+  assert.match(html, /Building the operating system for[\s\S]*data and AI products/);
+  assert.match(html, /Jarkko Moilanen, PhD/);
+  assert.match(html, /Three areas\. One professional body of work\./);
+  assert.match(html, /Built in public, tested in practice\./);
+  assert.match(html, /Writing, books, and courses from the work itself\./);
+  assert.match(html, /Bring me the problem that needs senior attention\./);
+  assert.match(html, /Government-wide AI products/);
   assert.match(html, /Maysano/);
-  assert.match(html, /Open Data Product Specification/);
-  assert.match(html, /Latest Writing/);
+  assert.match(html, /Open Data Product ecosystem/);
+  assert.match(html, /Data product pioneer, standards maintainer/);
   assert.match(html, /Discuss an engagement/);
-  assert.match(html, /\/images\/jarkko-hero-clean\.png/);
-  assert.match(html, /\/images\/hero-skyline\.jpg/);
+  assert.match(html, /\/images\/jarkko-moilanen-portrait\.jpeg/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
 

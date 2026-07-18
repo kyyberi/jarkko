@@ -1,249 +1,301 @@
-const focusAreas = [
-  {
-    icon: "G",
-    title: "Government AI",
-    body: "Leading government-wide AI product initiatives in Abu Dhabi to improve services and outcomes with trusted data.",
-    href: "/work/government-ai",
-  },
-  {
-    icon: "M",
-    title: "Maysano",
-    body: "Building Maysano Platform and Portfolio Studio to design, govern, and deliver AI-ready data products faster.",
-    href: "/work/maysano",
-  },
-  {
-    icon: "O",
-    title: "Open standards & SDK",
-    body: "Maintaining the Open Data Product ecosystem at the Linux Foundation and building the ODPS SDK for practical adoption.",
-    href: "/work/standards-and-sdk",
-  },
-];
-
-const selectedWork = [
-  {
-    image: "/images/maysano-preview.jpg",
-    label: "Maysano",
-    title: "Maysano Platform & Portfolio Studio",
-    body: "Tools that turn business intent into data product portfolios, standards-aligned artifacts, and implementation-ready plans.",
-    action: "See how it works",
-    href: "/work/maysano",
-  },
-  {
-    image: "/images/odps-preview.jpg",
-    label: "Standards",
-    title: "Open Data Product Specification",
-    body: "A vendor-neutral standard and open family of specifications for data products, catalogs, graphs, and more.",
-    action: "Explore the standard",
-    href: "/work/standards-and-sdk",
-  },
-  {
-    image: "/images/work-government.jpg",
-    label: "Government AI",
-    title: "AI Products for Public Value",
-    body: "Designing and delivering AI-powered products that answer real questions and improve how government works.",
-    action: "Read case highlights",
-    href: "/work/government-ai",
-  },
-];
-
-const writing = [
-  ["Jul 15, 2025", "From Data to AI Products: The Missing Layer", "AI products"],
-  ["Jul 02, 2025", "Designing Agent-Ready Data Products", "Data products"],
-  ["Jun 18, 2025", "Why Standards Unlock the Data Economy", "Standards"],
-  ["May 29, 2025", "Talk to Data: Building Answers, Not Dashboards", "Government AI"],
-];
-
-const books = [
-  ["/images/book-masterclass.jpg", "Data Product Masterclass"],
-  ["/images/book-monetization.jpg", "Data Product Monetization"],
-  ["/images/book-governance.jpg", "Minimum Lovable Governance"],
-  ["/images/book-odps.jpg", "Master the ODPS with GPT Tool"],
-];
-
 function Arrow() {
   return <span aria-hidden="true">{"->"}</span>;
 }
 
 export default function Home() {
   return (
-    <main className="site-shell">
-      <header className="topbar" aria-label="Primary navigation">
-        <a className="wordmark" href="/">
+    <div className="shell">
+      <header className="site-header">
+        <a className="wordmark" href="#">
           Jarkko Moilanen<span>.</span>
         </a>
-        <nav>
-          <a href="/work">Work</a>
-          <a href="/insights">Insights</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
+        <nav className="nav" aria-label="Primary">
+          <a href="#work">Work</a>
+          <a href="#insights">Insights</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
         </nav>
       </header>
 
-      <section className="hero" id="home">
-        <div className="hero-copy">
-          <p className="scribble note-left">
-            I connect strategy, data and AI to create value at scale.
-          </p>
-          <h1>Building the operating system for data and AI products</h1>
-          <p className="lead">
-            I help governments and organizations turn data into trusted AI
-            products that deliver measurable public value.
-          </p>
-          <p className="signature" aria-label="Jarkko signature">
-            Jarkko
-          </p>
-          <p className="roles">
-            <span>PhD</span>
-            <span>Author</span>
-            <span>Standards Maintainer</span>
-            <span>Builder</span>
-            <span>Educator</span>
-            <span>Speaker</span>
-          </p>
-        </div>
-
-        <div className="hero-art" aria-hidden="true">
-          <p className="scribble note-right">Building better systems for real impact</p>
-          <img className="skyline" src="/images/hero-skyline.jpg" alt="" />
-          <img className="portrait" src="/images/jarkko-hero-clean.png" alt="" />
-          <div className="stamp">
-            <span>Working on what matters now</span>
-            <small>UAE</small>
-          </div>
-        </div>
-      </section>
-
-      <section className="focus-band" aria-labelledby="focus-title">
-        <div className="focus-title">
-          <h2 id="focus-title" className="scribble">
-            Where I Focus
-          </h2>
-        </div>
-        <div className="focus-grid">
-          {focusAreas.map((area) => (
-            <article className="focus-card" key={area.title}>
-              <div className="focus-icon" aria-hidden="true">
-                {area.icon}
+      <main>
+        <section className="hero" id="about">
+          <div className="hero-copy">
+            <div>
+              <div className="eyebrow">Jarkko Moilanen, PhD</div>
+              <h1>
+                Building the operating system for{" "}
+                <span className="accent">data and AI products</span>
+              </h1>
+              <p className="hero-lede">
+                I connect strategy, data, standards, software, and delivery.
+                The result is a practical system for creating products that
+                organizations trust and leaders understand.
+              </p>
+              <div className="hero-actions">
+                <a className="button primary" href="#work">
+                  Explore my work <Arrow />
+                </a>
+                <a className="button" href="#insights">
+                  Read my thinking <Arrow />
+                </a>
               </div>
-              <h3>{area.title}</h3>
-              <p>{area.body}</p>
-              <a href={area.href}>
-                Explore <Arrow />
+            </div>
+            <div className="availability">
+              <span className="dot" />
+              <span>
+                Available for a limited number of advisory, workshop, and
+                strategic review engagements alongside current leadership
+                commitments.
+              </span>
+            </div>
+          </div>
+
+          <div className="hero-portrait">
+            <img
+              src="/images/jarkko-moilanen-portrait.jpeg"
+              alt="Portrait of Jarkko Moilanen"
+            />
+            <div className="hero-portrait-label">
+              Data product pioneer, standards maintainer, builder, author, and
+              educator.
+            </div>
+          </div>
+        </section>
+
+        <div className="ticker" aria-hidden="true">
+          <div className="ticker-inner">
+            Government AI&nbsp;&nbsp;*&nbsp;&nbsp;Maysano&nbsp;&nbsp;*&nbsp;&nbsp;Open
+            Data Product Specification&nbsp;&nbsp;*&nbsp;&nbsp;Data Product
+            SDK&nbsp;&nbsp;*&nbsp;&nbsp;Books&nbsp;&nbsp;*&nbsp;&nbsp;Courses&nbsp;&nbsp;*&nbsp;&nbsp;
+            Government AI&nbsp;&nbsp;*&nbsp;&nbsp;Maysano&nbsp;&nbsp;*&nbsp;&nbsp;Open
+            Data Product Specification&nbsp;&nbsp;*&nbsp;&nbsp;Data Product
+            SDK&nbsp;&nbsp;*&nbsp;&nbsp;Books&nbsp;&nbsp;*&nbsp;&nbsp;Courses&nbsp;&nbsp;*&nbsp;&nbsp;
+          </div>
+        </div>
+
+        <section className="section">
+          <div className="section-head">
+            <div className="section-kicker">Current focus</div>
+            <h2 className="section-title">
+              Three areas. One professional body of work.
+            </h2>
+          </div>
+          <div className="focus-grid">
+            <article className="focus-item">
+              <div>
+                <div className="focus-number">01</div>
+                <h3>Government-wide AI products</h3>
+                <p>
+                  Leading business-led AI product portfolios, entity
+                  collaboration, data readiness, governance, and delivery in Abu
+                  Dhabi.
+                </p>
+              </div>
+              <a className="text-link" href="/work/government-ai">
+                Explore government AI <Arrow />
               </a>
             </article>
-          ))}
-        </div>
-        <div className="flow-note" aria-label="From vision to measurable value">
-          <p className="scribble">
-            From vision to <strong>measurable value.</strong>
-          </p>
-          <div className="flow-boxes">
-            <span>Strategy</span>
-            <span>Data Products</span>
-            <span>AI Products</span>
-            <small>Public Value</small>
-          </div>
-        </div>
-      </section>
-
-      <section className="section selected-work" id="work">
-        <div className="section-heading">
-          <h2 className="scribble">Selected Work</h2>
-          <a href="/work">
-            View all work <Arrow />
-          </a>
-        </div>
-        <div className="work-grid">
-          {selectedWork.map((item) => (
-            <article className="work-card" key={item.title}>
-              <img src={item.image} alt="" />
-              <p className="card-label">{item.label}</p>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-              <a href={item.href}>
-                {item.action} <Arrow />
+            <article className="focus-item">
+              <div>
+                <div className="focus-number">02</div>
+                <h3>Maysano</h3>
+                <p>
+                  Building the operational platform and Portfolio Studio for
+                  creating, governing, and scaling data product portfolios.
+                </p>
+              </div>
+              <a className="text-link" href="/work/maysano">
+                Explore Maysano <Arrow />
               </a>
             </article>
-          ))}
-        </div>
-      </section>
+            <article className="focus-item">
+              <div>
+                <div className="focus-number">03</div>
+                <h3>Open standards and SDK</h3>
+                <p>
+                  Maintaining the Open Data Product ecosystem and developer
+                  tooling under the Linux Foundation.
+                </p>
+              </div>
+              <a className="text-link" href="/work/standards-and-sdk">
+                Explore standards and SDK <Arrow />
+              </a>
+            </article>
+          </div>
+        </section>
 
-      <section className="section knowledge" id="insights">
-        <div className="writing">
-          <div className="section-heading">
-            <h2 className="scribble">Latest Writing</h2>
-            <a href="/insights/articles">
-              All articles <Arrow />
+        <section className="section" id="work">
+          <div className="section-head">
+            <div className="section-kicker">Selected work</div>
+            <h2 className="section-title">Built in public, tested in practice.</h2>
+          </div>
+          <div className="work-list">
+            <article className="work-row">
+              <div className="work-index">01</div>
+              <div className="work-copy">
+                <div className="work-label">Platform and Portfolio Studio</div>
+                <h3>Maysano</h3>
+                <p>
+                  A connected environment for turning business intent, evidence,
+                  and source material into governed data product portfolios and
+                  operational product systems.
+                </p>
+                <a className="text-link" href="/work/maysano">
+                  See how it works <Arrow />
+                </a>
+              </div>
+              <div className="work-visual visual-maysano">
+                <div className="topline">
+                  <span>MAYSANO / PORTFOLIO</span>
+                  <span>ACTIVE</span>
+                </div>
+                <div className="mini-grid">
+                  <div className="mini-panel">
+                    Objectives<strong>12</strong>
+                  </div>
+                  <div className="mini-panel">
+                    Use cases<strong>28</strong>
+                  </div>
+                  <div className="mini-panel">
+                    Data products<strong>16</strong>
+                  </div>
+                  <div className="mini-panel">
+                    Evidence links<strong>94</strong>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article className="work-row">
+              <div className="work-index">02</div>
+              <div className="work-copy">
+                <div className="work-label">Open standard and SDK</div>
+                <h3>Open Data Product ecosystem</h3>
+                <p>
+                  A machine-readable specification family and developer toolkit
+                  for interoperable, governed, and agent-ready data products.
+                </p>
+                <a className="text-link" href="/work/standards-and-sdk">
+                  Explore the standard <Arrow />
+                </a>
+              </div>
+              <div className="work-visual visual-standard">
+                <span className="line one" />
+                <span className="line two" />
+                <span className="line three" />
+                <span className="line four" />
+                <span className="node main">ODPS</span>
+                <span className="node a">Catalogs</span>
+                <span className="node b">Graphs</span>
+                <span className="node c">Vocabulary</span>
+                <span className="node d">Recipes</span>
+              </div>
+            </article>
+
+            <article className="work-row">
+              <div className="work-index">03</div>
+              <div className="work-copy">
+                <div className="work-label">Government delivery</div>
+                <h3>AI products for public value</h3>
+                <p>
+                  A portfolio approach that connects business questions, data
+                  readiness, product governance, and implementation across
+                  government entities.
+                </p>
+                <a className="text-link" href="/work/government-ai">
+                  Read the case overview <Arrow />
+                </a>
+              </div>
+              <div className="work-visual visual-gov">
+                <div className="big">From use case to public value</div>
+                <div className="foot">
+                  <span>ABU DHABI</span>
+                  <span>PORTFOLIO / GOVERNANCE / DELIVERY</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="section" id="insights">
+          <div className="section-head">
+            <div className="section-kicker">Insights</div>
+            <h2 className="section-title">
+              Writing, books, and courses from the work itself.
+            </h2>
+          </div>
+          <div className="insights-layout">
+            <div className="article-list">
+              {[
+                ["18 Jul 2026", "The operating system for data and AI products"],
+                ["11 Jul 2026", "The SDK is not the lock-in"],
+                ["04 Jul 2026", "Why portfolios matter before AI delivery starts"],
+                [
+                  "27 Jun 2026",
+                  "Agent-ready data products need more than metadata",
+                ],
+              ].map(([date, title]) => (
+                <a className="article-row" href="/insights/articles" key={title}>
+                  <span className="article-date">{date}</span>
+                  <span className="article-title">{title}</span>
+                  <span className="article-arrow">{"->"}</span>
+                </a>
+              ))}
+            </div>
+            <div className="media-stack">
+              <div className="media-item">
+                <div className="media-cover">BOOK</div>
+                <div>
+                  <strong>Data Product Masterclass</strong>
+                  <span>Book and course</span>
+                </div>
+              </div>
+              <div className="media-item">
+                <div className="media-cover cover-accent">COURSE</div>
+                <div>
+                  <strong>Data Product Monetization</strong>
+                  <span>Udemy course</span>
+                </div>
+              </div>
+              <div className="media-item">
+                <div className="media-cover cover-muted">COURSE</div>
+                <div>
+                  <strong>Minimum Lovable Governance</strong>
+                  <span>Udemy course</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="cta" id="contact">
+          <div className="cta-main">
+            <small>Selective availability</small>
+            <h2>Bring me the problem that needs senior attention.</h2>
+            <a href="mailto:jarkko@jarkkomoilanen.com">
+              Discuss an engagement <Arrow />
             </a>
           </div>
-          <div className="writing-list">
-            {writing.map(([date, title, category]) => (
-              <a href="/insights/articles" className="writing-row" key={title}>
-                <span>{date}</span>
-                <strong>{title}</strong>
-                <small>{category}</small>
-              </a>
-            ))}
+          <div className="cta-side">
+            <p>
+              Current availability suits executive advisory, workshops,
+              portfolio reviews, architecture reviews, and clearly scoped
+              strategic assignments.
+            </p>
+            <div className="location">Abu Dhabi, UAE</div>
           </div>
-        </div>
+        </section>
+      </main>
 
-        <div className="books">
-          <div className="section-heading">
-            <h2 className="scribble">Books & Courses</h2>
-            <a href="/insights">
-              View all <Arrow />
-            </a>
-          </div>
-          <div className="book-grid">
-            {books.map(([image, title]) => (
-              <a href="/insights/books" className="book-card" key={title}>
-                <img src={image} alt="" />
-                <span>{title}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="cta-band" id="contact">
-        <div className="cta-scribble">
-          <span className="scribble">Let's build what matters.</span>
-        </div>
-        <div>
-          <p>
-            I accept a limited number of advisory, workshop, and strategic
-            review engagements alongside my current work.
-          </p>
-          <a href="/contact">
-            Discuss an engagement <Arrow />
-          </a>
-        </div>
-      </section>
-
-      <footer className="footer">
-        <div className="socials" aria-label="Social links">
-          <a href="https://www.linkedin.com/">in</a>
-          <a href="https://x.com/">X</a>
-          <a href="https://www.youtube.com/">YouTube</a>
-          <a href="/contact">Mail</a>
-        </div>
-        <form className="newsletter">
-          <label htmlFor="email">Stay in the loop</label>
-          <p>Insights on data products, AI, and standards. No spam.</p>
-          <div>
-            <input id="email" type="email" placeholder="Your email address" />
-            <button type="button">Subscribe</button>
-          </div>
-        </form>
-        <div className="footer-bottom">
-          <span>© 2026 Jarkko Moilanen, PhD</span>
-          <a href="/privacy">Privacy</a>
-          <a href="/terms">Terms</a>
+      <footer>
+        <span>© 2026 Jarkko Moilanen, PhD</span>
+        <div className="footer-links">
+          <a href="https://www.linkedin.com/">LinkedIn</a>
+          <a href="https://github.com/">GitHub</a>
+          <a href="https://medium.com/">Medium</a>
           <a href="/rss">RSS</a>
-          <a href="/sitemap.xml">Sitemap</a>
-          <strong className="scribble">Abu Dhabi, UAE</strong>
         </div>
       </footer>
-    </main>
+    </div>
   );
 }
