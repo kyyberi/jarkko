@@ -243,27 +243,26 @@ export default function Home() {
               ))}
             </div>
             <div className="media-stack">
-              <div className="media-item">
-                <div className="media-cover">BOOK</div>
+              <a
+                className="media-item"
+                href="https://www.udemy.com/user/jarkko-moilanen/"
+              >
+                <div className="media-cover">UDEMY</div>
                 <div>
-                  <strong>Data Product Masterclass</strong>
-                  <span>Book and course</span>
+                  <strong>Udemy courses</strong>
+                  <span>View the complete course listing</span>
                 </div>
-              </div>
-              <div className="media-item">
-                <div className="media-cover cover-accent">COURSE</div>
+              </a>
+              <a
+                className="media-item"
+                href="https://us.amazon.com/stores/Jarkko-Moilanen/author/B0B66HTHLM?ref=ap_rdr&shoppingPortalEnabled=true"
+              >
+                <div className="media-cover cover-accent">AUTHOR</div>
                 <div>
-                  <strong>Data Product Monetization</strong>
-                  <span>Udemy course</span>
+                  <strong>Amazon author profile</strong>
+                  <span>View books and author details</span>
                 </div>
-              </div>
-              <div className="media-item">
-                <div className="media-cover cover-muted">COURSE</div>
-                <div>
-                  <strong>Minimum Lovable Governance</strong>
-                  <span>Udemy course</span>
-                </div>
-              </div>
+              </a>
             </div>
           </div>
         </section>

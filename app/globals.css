@@ -587,15 +587,16 @@ h1 {
 .media-stack {
   display: grid;
   align-content: center;
-  gap: 14px;
+  gap: 18px;
   padding-left: 28px;
 }
 
 .media-item {
   display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 14px;
+  grid-template-columns: 78px 1fr;
+  gap: 18px;
   align-items: center;
+  padding: 10px 0;
 }
 
 .media-cover {
@@ -609,7 +610,7 @@ h1 {
     var(--ink);
   color: var(--white);
   font-family: var(--display);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 900;
   line-height: 1;
 }
@@ -624,13 +625,13 @@ h1 {
 
 .media-item strong {
   display: block;
-  margin-bottom: 4px;
-  font-size: 15px;
+  margin-bottom: 6px;
+  font-size: 18px;
 }
 
 .media-item span {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .cta {

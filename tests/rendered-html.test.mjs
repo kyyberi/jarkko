@@ -40,6 +40,10 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Maysano/);
   assert.match(html, /Open Data Product ecosystem/);
   assert.match(html, /Data product pioneer, standards maintainer/);
+  assert.match(html, /Udemy courses/);
+  assert.match(html, /https:\/\/www\.udemy\.com\/user\/jarkko-moilanen\//);
+  assert.match(html, /Amazon author profile/);
+  assert.match(html, /https:\/\/us\.amazon\.com\/stores\/Jarkko-Moilanen\/author\/B0B66HTHLM/);
   assert.match(html, /Discuss an engagement/);
   assert.match(html, /\/images\/jarkko-moilanen-portrait\.jpeg/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
