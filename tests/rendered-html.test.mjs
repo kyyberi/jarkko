@@ -30,14 +30,18 @@ test("server-renders the professional homepage", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Jarkko Moilanen \| Data Product Pioneer<\/title>/i);
-  assert.match(html, /Building the operating systems for data and AI products/);
-  assert.match(html, /Available for selected advisory engagements/);
+  assert.match(html, /Building the operating system for data and AI products/);
+  assert.match(html, /Where I Focus/);
+  assert.match(html, /Selected Work/);
+  assert.match(html, /Books &amp; Courses|Books & Courses/);
+  assert.match(html, /Let's build what matters/);
   assert.match(html, /Government AI/);
   assert.match(html, /Maysano/);
-  assert.match(html, /Open Data Product Specification Family/);
-  assert.match(html, /Latest thinking/);
-  assert.match(html, /Discuss a strategic engagement/);
-  assert.match(html, /\/images\/jarkko-hero-photo\.png/);
+  assert.match(html, /Open Data Product Specification/);
+  assert.match(html, /Latest Writing/);
+  assert.match(html, /Discuss an engagement/);
+  assert.match(html, /\/images\/jarkko-editorial-brush\.png/);
+  assert.match(html, /\/images\/hero-skyline\.jpg/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
 
