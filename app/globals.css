@@ -96,7 +96,7 @@ a {
 .hero {
   display: grid;
   grid-template-columns: 7fr 5fr;
-  min-height: 760px;
+  min-height: 620px;
   border-bottom: 1px solid var(--ink);
 }
 
@@ -104,7 +104,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(56px, 8vw, 118px) var(--pad) 48px;
+  padding: clamp(42px, 5.6vw, 78px) var(--pad) 38px;
   border-right: 1px solid var(--ink);
 }
 
@@ -127,13 +127,13 @@ a {
 }
 
 h1 {
-  max-width: 860px;
-  margin: 24px 0 22px;
+  max-width: 700px;
+  margin: 20px 0 18px;
   font-family: var(--display);
-  font-size: clamp(64px, 8vw, 126px);
+  font-size: clamp(48px, 5.9vw, 88px);
   font-weight: 900;
-  line-height: 0.86;
-  letter-spacing: -0.075em;
+  line-height: 0.9;
+  letter-spacing: -0.065em;
   text-transform: uppercase;
 }
 
@@ -144,10 +144,10 @@ h1 {
 }
 
 .hero-lede {
-  max-width: 660px;
+  max-width: 600px;
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(20px, 2vw, 29px);
+  font-size: clamp(18px, 1.55vw, 23px);
   line-height: 1.35;
 }
 
@@ -155,7 +155,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
-  margin-top: 38px;
+  margin-top: 30px;
 }
 
 .button {
@@ -185,8 +185,8 @@ h1 {
   grid-template-columns: auto 1fr;
   gap: 14px;
   max-width: 700px;
-  margin-top: 54px;
-  padding-top: 22px;
+  margin-top: 36px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
   font-size: 14px;
   line-height: 1.5;
@@ -203,7 +203,7 @@ h1 {
 
 .hero-portrait {
   position: relative;
-  min-height: 760px;
+  min-height: 620px;
   overflow: hidden;
   background: #d7d0c5;
 }
@@ -723,7 +723,7 @@ footer {
   }
 
   .hero-portrait {
-    min-height: 560px;
+    min-height: 460px;
   }
 
   .focus-grid {
@@ -787,15 +787,15 @@ footer {
   }
 
   .hero-copy {
-    padding-top: 50px;
+    padding-top: 38px;
   }
 
   h1 {
-    font-size: clamp(58px, 18vw, 88px);
+    font-size: clamp(46px, 14vw, 68px);
   }
 
   .hero-lede {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .hero-actions {
@@ -807,7 +807,7 @@ footer {
   }
 
   .hero-portrait {
-    min-height: 520px;
+    min-height: 420px;
   }
 
   .section {
