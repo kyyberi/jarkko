@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Arrow, PageShell, articles, sitePath } from "../../../site";
+import { getArticle, getArticles } from "../../../articles";
+import { Arrow, PageShell, sitePath } from "../../../site";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
-  return articles.map((article) => ({ slug: article.slug }));
+  return getArticles().map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const article = articles.find((candidate) => candidate.slug === slug);
+  const article = getArticle(slug);
 
   if (!article) {
     return {
@@ -30,11 +31,13 @@ export async function generateMetadata({
 
 export default async function ArticleDetail({ params }: PageProps) {
   const { slug } = await params;
-  const article = articles.find((candidate) => candidate.slug === slug);
+  const article = getArticle(slug);
 
   if (!article) notFound();
 
-  const related = articles.filter((candidate) => candidate.slug !== article.slug);
+  const related = getArticles().filter(
+    (candidate) => candidate.slug !== article.slug,
+  );
 
   return (
     <PageShell>

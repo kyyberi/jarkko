@@ -2,13 +2,15 @@ import {
   Arrow,
   Footer,
   Header,
-  articles,
   assetPath,
   sitePath,
   workItems,
 } from "./site";
+import { getArticles } from "./articles";
 
 export default function Home() {
+  const articles = getArticles();
+
   return (
     <div className="shell">
       <Header />

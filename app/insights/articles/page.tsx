@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Arrow, PageShell, articles, sitePath } from "../../site";
+import { getArticles } from "../../articles";
+import { Arrow, PageShell, sitePath } from "../../site";
 
 export const metadata: Metadata = {
   title: "Insights | Jarkko Moilanen",
@@ -8,6 +9,8 @@ export const metadata: Metadata = {
 };
 
 export default function ArticlesIndex() {
+  const articles = getArticles();
+
   return (
     <PageShell>
       <section className="detail-hero editorial">

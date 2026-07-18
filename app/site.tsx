@@ -80,61 +80,6 @@ export const workItems = [
   },
 ];
 
-export const articles = [
-  {
-    slug: "operating-system-data-ai-products",
-    date: "18 Jul 2026",
-    title: "The operating system for data and AI products",
-    category: "Strategy",
-    summary:
-      "Why data and AI initiatives need an operating system that joins strategy, standards, software, governance, and delivery.",
-    body: [
-      "Most organizations do not fail at AI because they lack ideas. They fail because the path from intent to trusted product is fragmented.",
-      "An operating system for data and AI products connects the work: business questions, data readiness, product definitions, standards, governance, and delivery routines.",
-      "The practical result is not another dashboard or catalog. It is a way of working where leaders can see what is being built, teams understand what good looks like, and products can move from concept to measurable value.",
-    ],
-  },
-  {
-    slug: "sdk-is-not-the-lock-in",
-    date: "11 Jul 2026",
-    title: "The SDK is not the lock-in",
-    category: "Standards",
-    summary:
-      "A good SDK should make a standard easier to adopt without trapping teams in one vendor, tool, or workflow.",
-    body: [
-      "The purpose of an SDK is to reduce adoption friction, not to become the center of gravity.",
-      "For data product standards, the lock-in risk comes from opaque formats, private semantics, and workflows that cannot move. A useful SDK should do the opposite: make definitions easier to inspect, validate, exchange, and automate.",
-      "That is why the standard matters more than the tool. The tool is there to help teams practice the standard consistently.",
-    ],
-  },
-  {
-    slug: "why-portfolios-matter-before-ai-delivery-starts",
-    date: "04 Jul 2026",
-    title: "Why portfolios matter before AI delivery starts",
-    category: "AI products",
-    summary:
-      "AI delivery works better when demand is shaped as a portfolio before teams start building individual solutions.",
-    body: [
-      "AI initiatives often begin as a queue of use cases. That looks useful, but a queue alone does not reveal readiness, dependencies, ownership, or value.",
-      "A portfolio view makes the work comparable. It shows which ideas are ready, which need data foundation work, which require governance decisions, and which should not be built yet.",
-      "When the portfolio is clear, delivery teams can focus on products with the best combination of value, feasibility, trust, and operational support.",
-    ],
-  },
-  {
-    slug: "agent-ready-data-products-need-more-than-metadata",
-    date: "27 Jun 2026",
-    title: "Agent-ready data products need more than metadata",
-    category: "Data products",
-    summary:
-      "Agents need product definitions, trust signals, constraints, ownership, and context, not only technical metadata.",
-    body: [
-      "Metadata tells a system what exists. It does not always explain whether a product can be trusted, how it should be used, who owns it, or what decisions it supports.",
-      "Agent-ready data products need richer product context: purpose, audience, semantics, quality expectations, governance constraints, access patterns, and operational ownership.",
-      "That information must be structured enough for machines and clear enough for people. Otherwise agents simply make faster guesses on weak foundations.",
-    ],
-  },
-];
-
 export function Header() {
   return (
     <header className="site-header">
