@@ -174,7 +174,9 @@ export default function Home() {
                 className="media-item"
                 href="https://www.udemy.com/user/jarkko-moilanen/"
               >
-                <div className="media-cover">UDEMY</div>
+                <div className="media-logo">
+                  <img src={`${assetPath}/images/logo-udemy.png`} alt="Udemy" />
+                </div>
                 <div>
                   <strong>Udemy courses</strong>
                   <span>View the complete course listing</span>
@@ -184,7 +186,12 @@ export default function Home() {
                 className="media-item"
                 href="https://us.amazon.com/stores/Jarkko-Moilanen/author/B0B66HTHLM?ref=ap_rdr&shoppingPortalEnabled=true"
               >
-                <div className="media-cover cover-accent">AUTHOR</div>
+                <div className="media-logo">
+                  <img
+                    src={`${assetPath}/images/logo-amazon.png`}
+                    alt="Amazon"
+                  />
+                </div>
                 <div>
                   <strong>Amazon author profile</strong>
                   <span>View books and author details</span>
