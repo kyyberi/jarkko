@@ -249,19 +249,18 @@ h1 {
 
 .portrait-wrap {
   position: relative;
-  min-height: 350px;
+  min-height: 382px;
 }
 
 .portrait {
   position: absolute;
-  right: 52px;
+  right: -42px;
   bottom: 0;
-  width: min(50vw, 520px);
-  height: 352px;
-  object-fit: cover;
-  object-position: center bottom;
-  mix-blend-mode: lighten;
-  filter: saturate(0.94);
+  width: min(58vw, 690px);
+  height: 406px;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: saturate(0.98) contrast(1.02);
 }
 
 .linework {

@@ -37,7 +37,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Open Data Product Specification Family/);
   assert.match(html, /Latest thinking/);
   assert.match(html, /Discuss a strategic engagement/);
-  assert.match(html, /\/images\/jarkko-portrait\.jpg/);
+  assert.match(html, /\/images\/jarkko-hero-photo\.png/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
 

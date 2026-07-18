@@ -141,7 +141,7 @@ export default function Home() {
           <div className="portrait-wrap" aria-hidden="true">
             <div className="linework" />
             <img
-              src="/images/jarkko-portrait.jpg"
+              src="/images/jarkko-hero-photo.png"
               alt=""
               className="portrait"
             />
