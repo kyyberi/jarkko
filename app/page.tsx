@@ -105,7 +105,7 @@ export default function Home() {
         <div className="hero-art" aria-hidden="true">
           <p className="scribble note-right">Building better systems for real impact</p>
           <img className="skyline" src="/images/hero-skyline.jpg" alt="" />
-          <img className="portrait" src="/images/jarkko-hero-collage.png" alt="" />
+          <img className="portrait" src="/images/jarkko-hero-clean.png" alt="" />
           <div className="stamp">
             <span>Working on what matters now</span>
             <small>UAE</small>

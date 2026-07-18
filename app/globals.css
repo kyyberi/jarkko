@@ -87,26 +87,26 @@ img {
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(420px, 0.92fr) minmax(520px, 1.08fr);
-  align-items: center;
+  grid-template-columns: minmax(420px, 0.98fr) minmax(520px, 1.02fr);
+  align-items: start;
   width: min(100% - 110px, 1320px);
-  min-height: 650px;
+  min-height: 720px;
   margin: 0 auto;
 }
 
 .hero-copy {
   position: relative;
   z-index: 3;
-  padding: 72px 0 62px 16px;
+  padding: 72px 0 54px 16px;
 }
 
 .hero h1 {
-  max-width: 585px;
+  max-width: 640px;
   margin: 92px 0 28px;
   color: var(--ink);
-  font-size: clamp(3.35rem, 5.15vw, 5.35rem);
+  font-size: clamp(3.45rem, 5.35vw, 5.65rem);
   font-weight: 920;
-  line-height: 1;
+  line-height: 0.98;
   letter-spacing: -0.052em;
 }
 
@@ -138,7 +138,7 @@ img {
 }
 
 .signature {
-  margin: 18px 0 12px;
+  margin: 42px 0 12px;
   font-size: 3.15rem;
   line-height: 1;
   transform: rotate(-7deg);
@@ -197,7 +197,7 @@ img {
 .hero-art {
   position: relative;
   align-self: stretch;
-  min-height: 650px;
+  min-height: 720px;
 }
 
 .note-right {
@@ -218,12 +218,12 @@ img {
 
 .skyline {
   position: absolute;
-  right: -42px;
-  bottom: 118px;
-  width: 390px;
-  height: 270px;
+  right: -56px;
+  bottom: 126px;
+  width: 420px;
+  height: 292px;
   object-fit: cover;
-  opacity: 0.58;
+  opacity: 0.38;
   filter: saturate(0.92) contrast(0.98);
   -webkit-mask-image:
     linear-gradient(90deg, transparent 0%, #000 25%, #000 86%, transparent 100%),
@@ -237,10 +237,10 @@ img {
 
 .portrait {
   position: absolute;
-  right: 60px;
-  top: 74px;
+  right: 18px;
+  top: 88px;
   z-index: 2;
-  width: min(49vw, 620px);
+  width: min(47vw, 610px);
   max-width: none;
 }
 
@@ -250,8 +250,8 @@ img {
 
 .stamp {
   position: absolute;
-  right: 4px;
-  top: 255px;
+  right: -6px;
+  top: 292px;
   z-index: 4;
   display: grid;
   place-items: center;
