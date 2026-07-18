@@ -2,6 +2,12 @@ function Arrow() {
   return <span aria-hidden="true">{"->"}</span>;
 }
 
+const assetPath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+function sitePath(path: string) {
+  return `${assetPath}${path}`;
+}
+
 export default function Home() {
   return (
     <div className="shell">
@@ -52,7 +58,7 @@ export default function Home() {
 
           <div className="hero-portrait">
             <img
-              src="/images/jarkko-moilanen-portrait.jpeg"
+              src={`${assetPath}/images/jarkko-moilanen-portrait.jpeg`}
               alt="Portrait of Jarkko Moilanen"
             />
             <div className="hero-portrait-label">
@@ -91,7 +97,7 @@ export default function Home() {
                   Dhabi.
                 </p>
               </div>
-              <a className="text-link" href="/work/government-ai">
+              <a className="text-link" href={sitePath("/work/government-ai")}>
                 Explore government AI <Arrow />
               </a>
             </article>
@@ -104,7 +110,7 @@ export default function Home() {
                   creating, governing, and scaling data product portfolios.
                 </p>
               </div>
-              <a className="text-link" href="/work/maysano">
+              <a className="text-link" href={sitePath("/work/maysano")}>
                 Explore Maysano <Arrow />
               </a>
             </article>
@@ -117,7 +123,10 @@ export default function Home() {
                   tooling under the Linux Foundation.
                 </p>
               </div>
-              <a className="text-link" href="/work/standards-and-sdk">
+              <a
+                className="text-link"
+                href={sitePath("/work/standards-and-sdk")}
+              >
                 Explore standards and SDK <Arrow />
               </a>
             </article>
@@ -140,13 +149,13 @@ export default function Home() {
                   and source material into governed data product portfolios and
                   operational product systems.
                 </p>
-                <a className="text-link" href="/work/maysano">
+                <a className="text-link" href={sitePath("/work/maysano")}>
                   See how it works <Arrow />
                 </a>
               </div>
               <div className="work-visual">
                 <img
-                  src="/images/work-maysano.png"
+                  src={`${assetPath}/images/work-maysano.png`}
                   alt="Maysano portfolio flow from business goals to data products"
                 />
               </div>
@@ -161,13 +170,13 @@ export default function Home() {
                   A machine-readable specification family and developer toolkit
                   for interoperable, governed, and agent-ready data products.
                 </p>
-                <a className="text-link" href="/work/standards-and-sdk">
+                <a className="text-link" href={sitePath("/work/standards-and-sdk")}>
                   Explore the standard <Arrow />
                 </a>
               </div>
               <div className="work-visual">
                 <img
-                  src="/images/work-odps.png"
+                  src={`${assetPath}/images/work-odps.png`}
                   alt="Open Data Product Specification family maintained under Linux Foundation"
                 />
               </div>
@@ -183,13 +192,13 @@ export default function Home() {
                   readiness, product governance, and implementation across
                   government entities.
                 </p>
-                <a className="text-link" href="/work/government-ai">
+                <a className="text-link" href={sitePath("/work/government-ai")}>
                   Read the case overview <Arrow />
                 </a>
               </div>
               <div className="work-visual">
                 <img
-                  src="/images/work-abudhabi.png"
+                  src={`${assetPath}/images/work-abudhabi.png`}
                   alt="AI product delivery path from use cases to public value"
                 />
               </div>
@@ -215,7 +224,11 @@ export default function Home() {
                   "Agent-ready data products need more than metadata",
                 ],
               ].map(([date, title]) => (
-                <a className="article-row" href="/insights/articles" key={title}>
+                <a
+                  className="article-row"
+                  href={sitePath("/insights/articles")}
+                  key={title}
+                >
                   <span className="article-date">{date}</span>
                   <span className="article-title">{title}</span>
                   <span className="article-arrow">{"->"}</span>
@@ -272,7 +285,7 @@ export default function Home() {
           <a href="https://www.linkedin.com/">LinkedIn</a>
           <a href="https://github.com/">GitHub</a>
           <a href="https://medium.com/">Medium</a>
-          <a href="/rss">RSS</a>
+          <a href={sitePath("/rss")}>RSS</a>
         </div>
       </footer>
     </div>
