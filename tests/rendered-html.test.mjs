@@ -39,6 +39,9 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Government-wide AI products/);
   assert.match(html, /Maysano/);
   assert.match(html, /Open Data Product ecosystem/);
+  assert.match(html, /\/images\/work-maysano\.png/);
+  assert.match(html, /\/images\/work-odps\.png/);
+  assert.match(html, /\/images\/work-abudhabi\.png/);
   assert.match(html, /Data product pioneer, standards maintainer/);
   assert.match(html, /Udemy courses/);
   assert.match(html, /https:\/\/www\.udemy\.com\/user\/jarkko-moilanen\//);

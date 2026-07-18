@@ -144,25 +144,11 @@ export default function Home() {
                   See how it works <Arrow />
                 </a>
               </div>
-              <div className="work-visual visual-maysano">
-                <div className="topline">
-                  <span>MAYSANO / PORTFOLIO</span>
-                  <span>ACTIVE</span>
-                </div>
-                <div className="mini-grid">
-                  <div className="mini-panel">
-                    Objectives<strong>12</strong>
-                  </div>
-                  <div className="mini-panel">
-                    Use cases<strong>28</strong>
-                  </div>
-                  <div className="mini-panel">
-                    Data products<strong>16</strong>
-                  </div>
-                  <div className="mini-panel">
-                    Evidence links<strong>94</strong>
-                  </div>
-                </div>
+              <div className="work-visual">
+                <img
+                  src="/images/work-maysano.png"
+                  alt="Maysano portfolio flow from business goals to data products"
+                />
               </div>
             </article>
 
@@ -179,16 +165,11 @@ export default function Home() {
                   Explore the standard <Arrow />
                 </a>
               </div>
-              <div className="work-visual visual-standard">
-                <span className="line one" />
-                <span className="line two" />
-                <span className="line three" />
-                <span className="line four" />
-                <span className="node main">ODPS</span>
-                <span className="node a">Catalogs</span>
-                <span className="node b">Graphs</span>
-                <span className="node c">Vocabulary</span>
-                <span className="node d">Recipes</span>
+              <div className="work-visual">
+                <img
+                  src="/images/work-odps.png"
+                  alt="Open Data Product Specification family maintained under Linux Foundation"
+                />
               </div>
             </article>
 
@@ -206,12 +187,11 @@ export default function Home() {
                   Read the case overview <Arrow />
                 </a>
               </div>
-              <div className="work-visual visual-gov">
-                <div className="big">From use case to public value</div>
-                <div className="foot">
-                  <span>ABU DHABI</span>
-                  <span>PORTFOLIO / GOVERNANCE / DELIVERY</span>
-                </div>
+              <div className="work-visual">
+                <img
+                  src="/images/work-abudhabi.png"
+                  alt="AI product delivery path from use cases to public value"
+                />
               </div>
             </article>
           </div>
