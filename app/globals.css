@@ -87,10 +87,10 @@ img {
 .hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(420px, 0.84fr) minmax(520px, 1.16fr);
+  grid-template-columns: minmax(420px, 0.92fr) minmax(520px, 1.08fr);
   align-items: center;
   width: min(100% - 110px, 1320px);
-  min-height: 690px;
+  min-height: 650px;
   margin: 0 auto;
 }
 
@@ -102,12 +102,12 @@ img {
 
 .hero h1 {
   max-width: 585px;
-  margin: 96px 0 30px;
+  margin: 92px 0 28px;
   color: var(--ink);
-  font-size: clamp(4rem, 6.2vw, 6.55rem);
+  font-size: clamp(3.35rem, 5.15vw, 5.35rem);
   font-weight: 920;
-  line-height: 0.96;
-  letter-spacing: -0.055em;
+  line-height: 1;
+  letter-spacing: -0.052em;
 }
 
 .hero h1::after,
@@ -197,7 +197,7 @@ img {
 .hero-art {
   position: relative;
   align-self: stretch;
-  min-height: 690px;
+  min-height: 650px;
 }
 
 .note-right {
@@ -218,10 +218,10 @@ img {
 
 .skyline {
   position: absolute;
-  right: -72px;
-  bottom: 126px;
-  width: 445px;
-  height: 310px;
+  right: -42px;
+  bottom: 118px;
+  width: 390px;
+  height: 270px;
   object-fit: cover;
   opacity: 0.58;
   filter: saturate(0.92) contrast(0.98);
@@ -237,29 +237,21 @@ img {
 
 .portrait {
   position: absolute;
-  right: 90px;
-  bottom: 0;
+  right: 60px;
+  top: 74px;
   z-index: 2;
-  width: min(58vw, 760px);
+  width: min(49vw, 620px);
   max-width: none;
 }
 
 .hero-art::after {
-  content: "";
-  position: absolute;
-  right: 104px;
-  bottom: 4px;
-  z-index: 3;
-  width: 520px;
-  height: 92px;
-  background: #08090d;
-  clip-path: polygon(0 60%, 8% 35%, 23% 70%, 41% 28%, 58% 76%, 76% 30%, 100% 62%, 100% 100%, 0 100%);
+  content: none;
 }
 
 .stamp {
   position: absolute;
-  right: 48px;
-  top: 230px;
+  right: 4px;
+  top: 255px;
   z-index: 4;
   display: grid;
   place-items: center;
@@ -287,10 +279,10 @@ img {
 
 .focus-band {
   display: grid;
-  grid-template-columns: 190px minmax(0, 1fr) 330px;
-  gap: 42px;
-  align-items: center;
-  padding: 44px max(55px, calc((100vw - 1320px) / 2 + 55px));
+  grid-template-columns: 190px repeat(3, minmax(190px, 1fr)) 360px;
+  gap: 30px;
+  align-items: start;
+  padding: 44px max(38px, calc((100vw - 1400px) / 2 + 38px));
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background:
@@ -314,13 +306,12 @@ img {
 }
 
 .focus-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 42px;
+  display: contents;
 }
 
 .focus-card {
   position: relative;
+  min-width: 0;
   padding-left: 0;
 }
 
@@ -348,7 +339,7 @@ img {
 .focus-card p {
   margin: 0 0 18px;
   font-size: 0.93rem;
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 .focus-card a,
@@ -676,7 +667,12 @@ img {
     padding: 36px 22px;
   }
 
-  .focus-grid,
+  .focus-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
   .work-grid {
     grid-template-columns: 1fr;
   }
@@ -770,6 +766,10 @@ img {
 
   .focus-band {
     gap: 28px;
+  }
+
+  .focus-grid {
+    grid-template-columns: 1fr;
   }
 
   .knowledge {
