@@ -1,27 +1,17 @@
-function Arrow() {
-  return <span aria-hidden="true">{"->"}</span>;
-}
-
-const assetPath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
-function sitePath(path: string) {
-  return `${assetPath}${path}`;
-}
+import {
+  Arrow,
+  Footer,
+  Header,
+  articles,
+  assetPath,
+  sitePath,
+  workItems,
+} from "./site";
 
 export default function Home() {
   return (
     <div className="shell">
-      <header className="site-header">
-        <a className="wordmark" href="#">
-          Jarkko Moilanen<span>.</span>
-        </a>
-        <nav className="nav" aria-label="Primary">
-          <a href="#work">Work</a>
-          <a href="#insights">Insights</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
+      <Header />
 
       <main>
         <section className="hero" id="about">
@@ -139,70 +129,22 @@ export default function Home() {
             <h2 className="section-title">Built in public, tested in practice.</h2>
           </div>
           <div className="work-list">
-            <article className="work-row">
-              <div className="work-index">01</div>
-              <div className="work-copy">
-                <div className="work-label">Platform and Portfolio Studio</div>
-                <h3>Maysano</h3>
-                <p>
-                  A connected environment for turning business intent, evidence,
-                  and source material into governed data product portfolios and
-                  operational product systems.
-                </p>
-                <a className="text-link" href={sitePath("/work/maysano")}>
-                  See how it works <Arrow />
-                </a>
-              </div>
-              <div className="work-visual">
-                <img
-                  src={`${assetPath}/images/work-maysano.png`}
-                  alt="Maysano portfolio flow from business goals to data products"
-                />
-              </div>
-            </article>
-
-            <article className="work-row">
-              <div className="work-index">02</div>
-              <div className="work-copy">
-                <div className="work-label">Open standard and SDK</div>
-                <h3>Data Product Standards</h3>
-                <p>
-                  A machine-readable specification family and developer toolkit
-                  for interoperable, governed, and agent-ready data products.
-                </p>
-                <a className="text-link" href={sitePath("/work/standards-and-sdk")}>
-                  Explore the standard <Arrow />
-                </a>
-              </div>
-              <div className="work-visual">
-                <img
-                  src={`${assetPath}/images/work-odps.png`}
-                  alt="Open Data Product Specification family maintained under Linux Foundation"
-                />
-              </div>
-            </article>
-
-            <article className="work-row">
-              <div className="work-index">03</div>
-              <div className="work-copy">
-                <div className="work-label">Government delivery</div>
-                <h3>AI products for public value</h3>
-                <p>
-                  A portfolio approach that connects business questions, data
-                  readiness, product governance, and implementation across
-                  government entities.
-                </p>
-                <a className="text-link" href={sitePath("/work/government-ai")}>
-                  Read the case overview <Arrow />
-                </a>
-              </div>
-              <div className="work-visual">
-                <img
-                  src={`${assetPath}/images/work-abudhabi.png`}
-                  alt="AI product delivery path from use cases to public value"
-                />
-              </div>
-            </article>
+            {workItems.map((item) => (
+              <article className="work-row" key={item.slug}>
+                <div className="work-index">{item.index}</div>
+                <div className="work-copy">
+                  <div className="work-label">{item.label}</div>
+                  <h3>{item.title}</h3>
+                  <p>{item.summary}</p>
+                  <a className="text-link" href={sitePath(`/work/${item.slug}`)}>
+                    {item.cta} <Arrow />
+                  </a>
+                </div>
+                <div className="work-visual">
+                  <img src={`${assetPath}${item.image}`} alt={item.imageAlt} />
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
@@ -215,22 +157,14 @@ export default function Home() {
           </div>
           <div className="insights-layout">
             <div className="article-list">
-              {[
-                ["18 Jul 2026", "The operating system for data and AI products"],
-                ["11 Jul 2026", "The SDK is not the lock-in"],
-                ["04 Jul 2026", "Why portfolios matter before AI delivery starts"],
-                [
-                  "27 Jun 2026",
-                  "Agent-ready data products need more than metadata",
-                ],
-              ].map(([date, title]) => (
+              {articles.map((article) => (
                 <a
                   className="article-row"
-                  href={sitePath("/insights/articles")}
-                  key={title}
+                  href={sitePath(`/insights/articles/${article.slug}`)}
+                  key={article.slug}
                 >
-                  <span className="article-date">{date}</span>
-                  <span className="article-title">{title}</span>
+                  <span className="article-date">{article.date}</span>
+                  <span className="article-title">{article.title}</span>
                   <span className="article-arrow">{"->"}</span>
                 </a>
               ))}
@@ -279,15 +213,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer>
-        <span>© 2026 Jarkko Moilanen, PhD</span>
-        <div className="footer-links">
-          <a href="https://www.linkedin.com/">LinkedIn</a>
-          <a href="https://github.com/">GitHub</a>
-          <a href="https://medium.com/">Medium</a>
-          <a href={sitePath("/rss")}>RSS</a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
