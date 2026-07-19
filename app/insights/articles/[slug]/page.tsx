@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getArticle, getArticles } from "../../../articles";
+import { canonicalPath, DEFAULT_OG_IMAGE } from "../../../seo";
 import { Arrow, PageShell, sitePath } from "../../../site";
 
 type PageProps = {
@@ -19,13 +20,38 @@ export async function generateMetadata({
 
   if (!article) {
     return {
-      title: "Article | Jarkko Moilanen",
+      title: "Article",
     };
   }
 
+  const canonical = canonicalPath(`/insights/articles/${article.slug}`);
+
   return {
-    title: `${article.title} | Jarkko Moilanen`,
+    title: article.title,
     description: article.summary,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: `${article.title} | Jarkko Moilanen`,
+      description: article.summary,
+      url: canonical,
+      type: "article",
+      publishedTime: `${article.isoDate}T00:00:00.000Z`,
+      authors: ["Jarkko Moilanen"],
+      images: [
+        {
+          url: DEFAULT_OG_IMAGE,
+          alt: "Portrait of Jarkko Moilanen",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${article.title} | Jarkko Moilanen`,
+      description: article.summary,
+      images: [DEFAULT_OG_IMAGE],
+    },
   };
 }
 

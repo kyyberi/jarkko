@@ -30,6 +30,17 @@ test("server-renders the professional homepage", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Jarkko Moilanen \| Data Product Pioneer<\/title>/i);
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/"/,
+  );
+  assert.match(html, /<meta name="robots" content="index, follow"/);
+  assert.match(
+    html,
+    /<meta property="og:url" content="https:\/\/jarkkomoilanen\.com\/"/,
+  );
+  assert.match(html, /<meta name="twitter:card" content="summary_large_image"/);
+  assert.match(html, /<link rel="alternate" type="application\/rss\+xml" href="https:\/\/jarkkomoilanen\.com\/rss\.xml"/);
   assert.match(html, /Building the operating system for[\s\S]*data and AI products/);
   assert.match(html, /Jarkko Moilanen, PhD/);
   assert.match(html, /Three areas\. One professional body of work\./);
@@ -60,6 +71,14 @@ test("server-renders work detail pages", async () => {
 
   const html = await response.text();
   assert.match(html, /Data Product Standards/);
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/work\/standards-and-sdk\/"/,
+  );
+  assert.match(
+    html,
+    /<meta property="og:title" content="Data Product Standards \| Jarkko Moilanen"/,
+  );
   assert.match(html, /Open Data Product Specification family maintained under Linux Foundation/);
   assert.match(html, /Connected parts of the operating system/);
 });
@@ -72,8 +91,42 @@ test("server-renders article pages", async () => {
 
   const html = await response.text();
   assert.match(html, /The operating system for data and AI products/);
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/insights\/articles\/operating-system-data-ai-products\/"/,
+  );
+  assert.match(html, /<meta property="og:type" content="article"/);
+  assert.match(
+    html,
+    /<meta property="article:published_time" content="2026-07-18T00:00:00.000Z"/,
+  );
   assert.match(html, /Most organizations do not fail at AI because they lack ideas/);
   assert.match(html, /Related thinking/);
+});
+
+test("server-renders robots and sitemap discovery routes", async () => {
+  const [robots, sitemap] = await Promise.all([
+    render("/robots.txt"),
+    render("/sitemap.xml"),
+  ]);
+
+  assert.equal(robots.status, 200);
+  assert.equal(sitemap.status, 200);
+
+  const robotsText = await robots.text();
+  const sitemapText = await sitemap.text();
+
+  assert.match(robotsText, /User-Agent: \*/);
+  assert.match(robotsText, /Sitemap: https:\/\/jarkkomoilanen\.com\/sitemap\.xml/);
+  assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/<\/loc>/);
+  assert.match(
+    sitemapText,
+    /<loc>https:\/\/jarkkomoilanen\.com\/insights\/articles\/operating-system-data-ai-products\/<\/loc>/,
+  );
+  assert.match(
+    sitemapText,
+    /<loc>https:\/\/jarkkomoilanen\.com\/work\/standards-and-sdk\/<\/loc>/,
+  );
 });
 
 test("removes starter preview wiring", async () => {

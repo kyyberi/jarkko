@@ -1,11 +1,25 @@
 import type { Metadata } from "next";
 import { getArticles } from "../../articles";
+import { canonicalPath } from "../../seo";
 import { Arrow, PageShell, sitePath } from "../../site";
 
 export const metadata: Metadata = {
-  title: "Insights | Jarkko Moilanen",
+  title: "Insights",
   description:
     "Articles on data products, AI product portfolios, open standards, governance, and delivery.",
+  alternates: {
+    canonical: canonicalPath("/insights/articles"),
+    types: {
+      "application/rss+xml": "/rss.xml",
+    },
+  },
+  openGraph: {
+    title: "Insights | Jarkko Moilanen",
+    description:
+      "Articles on data products, AI product portfolios, open standards, governance, and delivery.",
+    url: canonicalPath("/insights/articles"),
+    type: "website",
+  },
 };
 
 export default function ArticlesIndex() {

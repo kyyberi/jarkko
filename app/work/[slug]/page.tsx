@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { canonicalPath } from "../../seo";
 import { Arrow, PageShell, assetPath, sitePath, workItems } from "../../site";
 
 type PageProps = {
@@ -18,13 +19,36 @@ export async function generateMetadata({
 
   if (!item) {
     return {
-      title: "Work | Jarkko Moilanen",
+      title: "Work",
     };
   }
 
+  const canonical = canonicalPath(`/work/${item.slug}`);
+
   return {
-    title: `${item.title} | Jarkko Moilanen`,
+    title: item.title,
     description: item.summary,
+    alternates: {
+      canonical,
+    },
+    openGraph: {
+      title: `${item.title} | Jarkko Moilanen`,
+      description: item.summary,
+      url: canonical,
+      type: "website",
+      images: [
+        {
+          url: item.image,
+          alt: item.imageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${item.title} | Jarkko Moilanen`,
+      description: item.summary,
+      images: [item.image],
+    },
   };
 }
 
