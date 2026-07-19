@@ -129,6 +129,10 @@ test("server-renders the about page", async () => {
   assert.match(html, /Alation/);
   assert.match(html, /BASF/);
   assert.match(html, /Kruger/);
+  assert.match(html, /Government data exchange and API modernization/);
+  assert.match(html, /REST API adoption for X-Road/);
+  assert.match(html, /Finnish-Estonian collaboration/);
+  assert.match(html, /X-Road later adopted/);
   assert.match(html, /THE WORK STARTS WITH A REAL PROBLEM/i);
   assert.match(html, /Discuss a problem/);
   assert.doesNotMatch(html, /Nasdaq/i);

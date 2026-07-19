@@ -137,6 +137,16 @@ export default function AboutPage() {
               practical, staged ODPS adoption approach.
             </p>
           </article>
+          <article>
+            <h3>Government data exchange and API modernization</h3>
+            <p>
+              Helped initiate REST API adoption for X-Road and contributed to
+              the Finnish-Estonian collaboration that established REST support
+              on the government data exchange platform. X-Road later adopted
+              the Open Data Product Specification family that I lead under the
+              Linux Foundation.
+            </p>
+          </article>
         </div>
         <p className="about-method">
           The work usually starts with the business problem, followed by
