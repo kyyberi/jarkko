@@ -46,6 +46,10 @@ export const workItems = [
         title: "Operating environment",
         text: "Designed to support the transition from portfolio thinking into operational product systems that teams can manage, review, and evolve.",
       },
+      {
+        title: "Foundation, not replacement",
+        text: "Maysano does not replace data platforms, catalogs, governance tools, or delivery systems. It sits above them, connecting business intent, portfolio decisions, and product definitions to the existing data management environment.",
+      },
     ],
     outcomes: [
       {

@@ -171,6 +171,8 @@ test("server-renders the Maysano work page as a real platform", async () => {
   assert.match(html, /Structured product definition/);
   assert.match(html, /Governance and readiness/);
   assert.match(html, /Operating environment/);
+  assert.match(html, /Foundation, not replacement/);
+  assert.match(html, /does not replace data platforms, catalogs, governance tools, or delivery systems/);
   assert.match(html, /Business framing/);
   assert.match(html, /Portfolio design/);
   assert.match(html, /Operationalization/);
