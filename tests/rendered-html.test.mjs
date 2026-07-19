@@ -92,6 +92,8 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Proof and links/);
   assert.match(html, /2\.5M\+ users served through national infrastructure/);
   assert.match(html, /Open Data Product standards under the Linux Foundation/);
+  assert.doesNotMatch(css, /font-family:\s*Georgia/);
+  assert.doesNotMatch(css, /\.footer-proof li\s*\{[^}]*font-family:\s*var\(--serif\)/);
   assert.match(html, /\/images\/jarkko-moilanen-portrait\.jpeg/);
   assert.doesNotMatch(html, /class="ticker"|ticker-inner|marquee/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
