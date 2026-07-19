@@ -149,8 +149,8 @@ a {
 
 .hero {
   display: grid;
-  grid-template-columns: 7fr 5fr;
-  min-height: 620px;
+  grid-template-columns: 7.6fr 4.4fr;
+  min-height: 580px;
   border-bottom: 1px solid var(--ink);
 }
 
@@ -257,7 +257,7 @@ h1 {
 
 .hero-portrait {
   position: relative;
-  min-height: 620px;
+  min-height: 580px;
   overflow: hidden;
   background: #d7d0c5;
 }
@@ -1518,7 +1518,7 @@ h1 {
   }
 
   .hero-portrait {
-    min-height: 460px;
+    min-height: 400px;
   }
 
   .focus-grid {
@@ -1610,7 +1610,7 @@ h1 {
   }
 
   .hero-portrait {
-    min-height: 420px;
+    min-height: 360px;
   }
 
   .credibility-band {
