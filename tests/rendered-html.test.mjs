@@ -159,7 +159,9 @@ test("server-renders the government AI work page without operational detail", as
   const html = await response.text();
   assert.match(html, /ABU DHABI GOVERNMENT AI DELIVERY/i);
   assert.match(html, /Building AI products for public value/i);
-  assert.match(html, /Abu Dhabi is working toward an AI-native government/);
+  assert.match(html, /Abu Dhabi aims to become the world&#x27;s first fully AI-native government by 2027/);
+  assert.match(html, /sovereign cloud infrastructure, integrated data, strong cybersecurity/);
+  assert.match(html, /better outcomes for people and communities/);
   assert.match(html, /one of the leads shaping the government AI products portfolio/);
   assert.match(html, /Discuss the approach/);
   assert.match(html, /Priority needs/);

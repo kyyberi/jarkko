@@ -74,9 +74,9 @@ export const workItems = [
       "Public value",
     ],
     focus:
-      "Abu Dhabi is working toward an AI-native government. I contribute to this direction as one of the leads shaping the government AI products portfolio, connecting priority business needs, data readiness, governance, and delivery into a coherent operating model.",
+      "Abu Dhabi aims to become the world's first fully AI-native government by 2027. The goal is to embed AI across government services, operations, and decision-making, supported by sovereign cloud infrastructure, integrated data, strong cybersecurity, and a unified digital framework. I contribute to this direction as one of the leads shaping the government AI products portfolio, connecting priority business needs, data readiness, governance, and delivery into a coherent operating model.",
     detailIntro:
-      "An AI-native government needs more than individual use cases. It needs a portfolio model that helps leaders decide what to pursue, what evidence is required, and what must be ready before delivery begins.",
+      "The ambition is to create a government that acts with greater speed, insight, and responsiveness while delivering better outcomes for people and communities. That needs more than individual use cases. It needs a portfolio model that helps leaders decide what to pursue, what evidence is required, and what must be ready before delivery begins.",
     proof: [
       {
         title: "Portfolio direction",
