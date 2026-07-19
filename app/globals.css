@@ -554,16 +554,22 @@ h1 {
   object-fit: cover;
 }
 
-.government-diagram {
+.work-diagram {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  align-items: center;
+  align-content: center;
+  gap: 28px;
   min-height: 100%;
   padding: clamp(28px, 4vw, 54px);
   background: var(--white);
 }
 
-.government-step {
+.work-diagram-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  align-items: center;
+}
+
+.work-diagram-step {
   position: relative;
   display: grid;
   justify-items: center;
@@ -571,7 +577,7 @@ h1 {
   text-align: center;
 }
 
-.government-step + .government-step::before {
+.work-diagram-step + .work-diagram-step::before {
   content: "->";
   position: absolute;
   top: 22px;
@@ -580,7 +586,7 @@ h1 {
   font-weight: 800;
 }
 
-.government-step span {
+.work-diagram-step span {
   display: grid;
   place-items: center;
   width: 48px;
@@ -591,13 +597,23 @@ h1 {
   font-weight: 900;
 }
 
-.government-step strong {
+.work-diagram-step strong {
   max-width: 110px;
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.08em;
   line-height: 1.15;
   text-transform: uppercase;
+}
+
+.work-diagram-caption {
+  max-width: 520px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.35;
+  text-align: center;
 }
 
 .about-hero {
@@ -1704,12 +1720,12 @@ h1 {
     font-size: 52px;
   }
 
-  .government-diagram {
+  .work-diagram-steps {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
-  .government-step + .government-step::before {
+  .work-diagram-step + .work-diagram-step::before {
     content: "";
     top: -18px;
     left: 50%;

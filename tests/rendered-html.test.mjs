@@ -152,6 +152,31 @@ test("server-renders work detail pages", async () => {
   assert.match(html, /Connected parts of the operating system/);
 });
 
+test("server-renders the Maysano work page as a real platform", async () => {
+  const response = await render("/work/maysano");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /PLATFORM AND PORTFOLIO STUDIO/i);
+  assert.match(html, /Maysano is an available platform and Portfolio Studio/);
+  assert.match(html, /I was the igniter behind Maysano/);
+  assert.match(html, /Book a demo/);
+  assert.match(html, /https:\/\/www\.linkedin\.com\/in\/jarkkomoilanen\//);
+  assert.match(html, /Business goals/);
+  assert.match(html, /Portfolio/);
+  assert.match(html, /Data products/);
+  assert.match(html, /From business intent to governed product systems/);
+  assert.match(html, /A connected environment for turning business intent/);
+  assert.match(html, /Portfolio Studio/);
+  assert.match(html, /Structured product definition/);
+  assert.match(html, /Governance and readiness/);
+  assert.match(html, /Operating environment/);
+  assert.match(html, /Business framing/);
+  assert.match(html, /Portfolio design/);
+  assert.match(html, /Operationalization/);
+  assert.doesNotMatch(html, /concept-only|coming soon|startup/i);
+});
+
 test("server-renders the government AI work page without operational detail", async () => {
   const response = await render("/work/government-ai");
   assert.equal(response.status, 200);

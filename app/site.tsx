@@ -21,17 +21,45 @@ export const workItems = [
     image: "/images/work-maysano.png",
     imageAlt: "Maysano portfolio flow from business goals to data products",
     cta: "See how it works",
+    detailCta: "Book a demo",
+    ctaHref: "https://www.linkedin.com/in/jarkkomoilanen/",
+    diagramSteps: ["Business goals", "Portfolio", "Data products"],
+    diagramCaption: "From business intent to governed product systems.",
     focus:
-      "Maysano turns strategy, discovery, portfolio design, and governance into one operating environment for data product work.",
+      "Maysano is an available platform and Portfolio Studio for turning strategy, discovery, portfolio design, and governance into one operating environment for data product work. I was the igniter behind Maysano, shaping its direction around the practical need to move from business intent and source material into governed portfolios and operational product systems.",
+    detailIntro:
+      "Maysano is designed for teams that need strategy, governance, and delivery to move together. It helps structure the path from early business thinking to implementation-ready product definition.",
     proof: [
-      "Portfolio Studio for business-led data product planning.",
-      "Methods for connecting goals, use cases, evidence, and implementation-ready product definitions.",
-      "Designed for teams that need governance and delivery to move together.",
+      {
+        title: "Portfolio Studio",
+        text: "A business-led environment for shaping portfolio candidates, framing product intent, and organizing the material behind data product decisions.",
+      },
+      {
+        title: "Structured product definition",
+        text: "Methods for connecting goals, use cases, evidence, source documents, and implementation-ready product definitions in one flow.",
+      },
+      {
+        title: "Governance and readiness",
+        text: "A practical way to bring governance, review, and readiness into the same working environment instead of treating them as separate activities.",
+      },
+      {
+        title: "Operating environment",
+        text: "Designed to support the transition from portfolio thinking into operational product systems that teams can manage, review, and evolve.",
+      },
     ],
     outcomes: [
-      "Clearer portfolio decisions",
-      "Reusable product evidence",
-      "Faster governance reviews",
+      {
+        title: "Business framing",
+        text: "Capturing goals, intent, and source material in a form that can be developed into structured product opportunities.",
+      },
+      {
+        title: "Portfolio design",
+        text: "Building governed portfolios that connect evidence, use cases, priorities, and product definitions.",
+      },
+      {
+        title: "Operationalization",
+        text: "Creating the basis for moving approved portfolio work into operational product systems and delivery.",
+      },
     ],
   },
   {

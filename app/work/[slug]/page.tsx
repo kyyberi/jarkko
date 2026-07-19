@@ -77,6 +77,18 @@ export default async function WorkDetail({ params }: PageProps) {
     "detailIntro" in item && typeof item.detailIntro === "string"
       ? item.detailIntro
       : undefined;
+  const diagramCaption =
+    "diagramCaption" in item && typeof item.diagramCaption === "string"
+      ? item.diagramCaption
+      : undefined;
+  const ctaLabel =
+    "detailCta" in item && typeof item.detailCta === "string"
+      ? item.detailCta
+      : item.cta;
+  const ctaHref =
+    "ctaHref" in item && typeof item.ctaHref === "string"
+      ? item.ctaHref
+      : sitePath("/#contact");
 
   return (
     <PageShell>
@@ -85,19 +97,24 @@ export default async function WorkDetail({ params }: PageProps) {
           <div className="section-kicker">{item.label}</div>
           <h1>{item.title}</h1>
           <p>{item.focus}</p>
-          <a className="button primary" href={sitePath("/#contact")}>
-            {item.cta} <Arrow />
+          <a className="button primary" href={ctaHref}>
+            {ctaLabel} <Arrow />
           </a>
         </div>
         <div className="detail-visual">
           {diagramSteps ? (
-            <div className="government-diagram" aria-label={item.imageAlt}>
-              {diagramSteps.map((step, index) => (
-                <div className="government-step" key={step}>
-                  <span>{index + 1}</span>
-                  <strong>{step}</strong>
-                </div>
-              ))}
+            <div className="work-diagram" aria-label={item.imageAlt}>
+              <div className="work-diagram-steps">
+                {diagramSteps.map((step, index) => (
+                  <div className="work-diagram-step" key={step}>
+                    <span>{index + 1}</span>
+                    <strong>{step}</strong>
+                  </div>
+                ))}
+              </div>
+              {diagramCaption ? (
+                <p className="work-diagram-caption">{diagramCaption}</p>
+              ) : null}
             </div>
           ) : (
             <img src={`${assetPath}${item.image}`} alt={item.imageAlt} />
