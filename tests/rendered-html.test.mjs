@@ -116,7 +116,7 @@ test("server-renders the about page", async () => {
   assert.match(html, /Whole-of-government data and AI products/);
   assert.match(html, /Abu Dhabi Government&#x27;s Data Factory/);
   assert.match(html, /measurable public value/);
-  assert.match(html, /Open data product standards/);
+  assert.match(html, /Data product standards/);
   assert.match(html, /Open Data Product Specification[\s\S]*Linux Foundation[\s\S]*BASF[\s\S]*Alation[\s\S]*Kruger/);
   assert.match(html, /270 percent/);
   assert.match(html, /data-product-focused industry platform in Finland/);

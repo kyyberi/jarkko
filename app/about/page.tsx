@@ -78,7 +78,7 @@ export default function AboutPage() {
           </article>
           <article>
             <span>02</span>
-            <h3>Open data product standards</h3>
+            <h3>Data product standards</h3>
             <p>
               Founder and maintainer of the Open Data Product Specification
               family under the Linux Foundation, with adoption and
