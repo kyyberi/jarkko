@@ -614,6 +614,18 @@ h1 {
   line-height: 1.58;
 }
 
+.article-body .article-cta {
+  margin: 44px 0 0;
+  padding: 26px 28px 28px;
+  border: 2px solid var(--ink);
+  background: var(--accent);
+  color: var(--paper);
+  font-family: var(--body);
+  font-size: clamp(17px, 1.35vw, 20px);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
 .article-body h2,
 .article-body h3 {
   margin: 56px 0 0;

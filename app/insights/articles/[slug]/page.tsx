@@ -64,6 +64,11 @@ export default async function ArticleDetail({ params }: PageProps) {
   const related = getArticles().filter(
     (candidate) => candidate.slug !== article.slug,
   );
+  const ctaBlockIndex = article.body.reduce(
+    (lastParagraphIndex, block, index) =>
+      block.type === "paragraph" ? index : lastParagraphIndex,
+    -1,
+  );
 
   return (
     <PageShell>
@@ -75,7 +80,7 @@ export default async function ArticleDetail({ params }: PageProps) {
         <h1>{article.title}</h1>
         <p className="article-summary">{article.summary}</p>
         <div className="article-body">
-          {article.body.map((block) => (
+          {article.body.map((block, index) => (
             block.type === "image" ? (
               <figure className="article-figure" key={block.src}>
                 <img src={block.src} alt={block.alt} />
@@ -88,7 +93,12 @@ export default async function ArticleDetail({ params }: PageProps) {
                 <h3 key={block.text}>{block.text}</h3>
               )
             ) : (
-              <p key={block.text}>{block.text}</p>
+              <p
+                className={index === ctaBlockIndex ? "article-cta" : undefined}
+                key={block.text}
+              >
+                {block.text}
+              </p>
             )
           ))}
         </div>

@@ -108,4 +108,4 @@ A Golden Data Product Portfolio gives organizations a better way to move from sc
 
 The individual portfolios explain what each initiative wants. The Golden Portfolio explains when those initiatives should move forward together. It helps leaders see the larger business capability, the shared data products behind it, and the evidence needed to make a sound decision.
 
-If your organization has many data and AI initiatives competing for attention, the first problem may not be delivery. It may be seeing which ideas belong together. Contact Jarkko if you need help turning scattered initiatives, portfolios, or data product proposals into a clearer strategic case for action.
+If your organization has many data and AI initiatives competing for attention, the first problem may not be delivery. It may be seeing which ideas belong together. Get in touch if you need help turning scattered initiatives, portfolios, or data product proposals into a clearer strategic case for action.

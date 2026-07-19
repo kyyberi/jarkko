@@ -106,6 +106,18 @@ test("server-renders article pages", async () => {
   assert.match(html, /Related thinking/);
 });
 
+test("highlights article closing CTAs", async () => {
+  const response = await render(
+    "/insights/articles/golden-data-product-portfolio",
+  );
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /class="article-cta"/);
+  assert.match(html, /Get in touch if you need help/);
+  assert.doesNotMatch(html, /Contact Jarkko/);
+});
+
 test("server-renders robots and sitemap discovery routes", async () => {
   const [robots, sitemap] = await Promise.all([
     render("/robots.txt"),
