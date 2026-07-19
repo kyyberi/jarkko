@@ -291,28 +291,48 @@ h1 {
   line-height: 1.35;
 }
 
-.ticker {
-  overflow: hidden;
+.credibility-band {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 30px var(--pad);
   border-bottom: 1px solid var(--ink);
   background: var(--ink);
   color: var(--paper);
-  white-space: nowrap;
 }
 
-.ticker-inner {
-  display: inline-block;
-  padding: 14px 0;
+.credibility-item {
+  min-height: 108px;
+  padding: 10px clamp(22px, 3vw, 46px) 6px;
+}
+
+.credibility-item:first-child {
+  padding-left: 0;
+}
+
+.credibility-item + .credibility-item {
+  border-left: 1px solid rgba(243, 240, 233, 0.18);
+}
+
+.credibility-item span {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--accent);
   font-family: var(--display);
+  font-size: 13px;
   font-weight: 900;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  animation: ticker 28s linear infinite;
 }
 
-@keyframes ticker {
-  to {
-    transform: translateX(-50%);
-  }
+.credibility-item strong {
+  display: block;
+  max-width: 420px;
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: clamp(23px, 2.4vw, 34px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
 }
 
 .section {
@@ -1431,6 +1451,21 @@ footer {
     min-height: 420px;
   }
 
+  .credibility-band {
+    grid-template-columns: 1fr;
+    padding-block: 18px;
+  }
+
+  .credibility-item {
+    min-height: 0;
+    padding: 22px 0;
+  }
+
+  .credibility-item + .credibility-item {
+    border-top: 1px solid rgba(243, 240, 233, 0.18);
+    border-left: 0;
+  }
+
   .section {
     padding-block: 54px;
   }
@@ -1543,10 +1578,6 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .ticker-inner {
-    animation: none;
   }
 
   .button,

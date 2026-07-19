@@ -60,16 +60,22 @@ export default function Home() {
           </div>
         </section>
 
-        <div className="ticker" aria-hidden="true">
-          <div className="ticker-inner">
-            Government AI&nbsp;&nbsp;*&nbsp;&nbsp;Maysano&nbsp;&nbsp;*&nbsp;&nbsp;Open
-            Data Product Specification&nbsp;&nbsp;*&nbsp;&nbsp;Data Product
-            SDK&nbsp;&nbsp;*&nbsp;&nbsp;Books&nbsp;&nbsp;*&nbsp;&nbsp;Courses&nbsp;&nbsp;*&nbsp;&nbsp;
-            Government AI&nbsp;&nbsp;*&nbsp;&nbsp;Maysano&nbsp;&nbsp;*&nbsp;&nbsp;Open
-            Data Product Specification&nbsp;&nbsp;*&nbsp;&nbsp;Data Product
-            SDK&nbsp;&nbsp;*&nbsp;&nbsp;Books&nbsp;&nbsp;*&nbsp;&nbsp;Courses&nbsp;&nbsp;*&nbsp;&nbsp;
+        <section className="credibility-band" aria-label="Executive credibility">
+          <div className="credibility-item">
+            <span>Result</span>
+            <strong>270% delivery speed improvement</strong>
           </div>
-        </div>
+          <div className="credibility-item">
+            <span>Scale</span>
+            <strong>
+              2.5M+ users served through national digital infrastructure
+            </strong>
+          </div>
+          <div className="credibility-item">
+            <span>Leadership</span>
+            <strong>Whole-of-government data and AI product work</strong>
+          </div>
+        </section>
 
         <section className="section">
           <div className="section-head">

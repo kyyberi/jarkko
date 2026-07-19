@@ -58,6 +58,14 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /aria-label="Mobile primary"/);
   assert.match(html, /href="\/insights\/articles"/);
   assert.match(html, /href="\/about"/);
+  assert.match(html, /aria-label="Executive credibility"/);
+  assert.match(html, /270% delivery speed improvement/);
+  assert.match(html, /2\.5M\+ users served through national digital infrastructure/);
+  assert.match(html, /Whole-of-government data and AI product work/);
+  assert.ok(
+    html.indexOf("270% delivery speed improvement") <
+      html.indexOf("Three areas. One professional body of work."),
+  );
   assert.match(html, /Three areas\. One professional body of work\./);
   assert.match(html, /Built in public, tested in practice\./);
   assert.match(html, /Writing, books, and courses from the work itself\./);
@@ -77,6 +85,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /\/images\/logo-amazon\.png/);
   assert.match(html, /Discuss an engagement/);
   assert.match(html, /\/images\/jarkko-moilanen-portrait\.jpeg/);
+  assert.doesNotMatch(html, /class="ticker"|ticker-inner|marquee/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
 
