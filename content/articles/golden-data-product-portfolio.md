@@ -3,6 +3,7 @@ title: Golden Data Product Portfolio
 date: 2026-07-19
 category: Data products
 summary: A Golden Data Product Portfolio helps leaders turn many separate data and AI ideas into one stronger implementation case.
+glance: Unconnected ideas often duplicate data, governance, and delivery work. | A portfolio view shows which initiatives depend on the same foundations. | Better decisions can happen before expensive implementation starts.
 status: published
 ---
 

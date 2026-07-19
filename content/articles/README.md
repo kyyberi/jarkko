@@ -10,6 +10,7 @@ title: Your article title
 date: 2026-07-19
 category: Data products
 summary: One short sentence for article listings and RSS.
+glance: First business-value takeaway. | Second business-value takeaway. | Third business-value takeaway.
 status: draft
 ---
 
@@ -39,6 +40,9 @@ status: published  # public on the site, RSS, sitemap, and article route
 ```
 
 Only `status: published` appears publicly.
+
+Use `glance` for the right-rail "At a glance" box on article pages. Keep it to
+2-4 short business-value bullets separated by `|`.
 
 Use this helper to create a draft file:
 

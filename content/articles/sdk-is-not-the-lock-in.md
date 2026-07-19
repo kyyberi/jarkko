@@ -3,6 +3,7 @@ title: The SDK is not the lock-in
 date: 2026-07-11
 category: Standards
 summary: A good SDK should make a standard easier to adopt without trapping teams in one vendor, tool, or workflow.
+glance: SDKs should reduce adoption friction, not become the center of gravity. | Lock-in comes from opaque formats, private semantics, and workflows that cannot move. | The tool should help teams practice the standard consistently.
 status: published
 ---
 

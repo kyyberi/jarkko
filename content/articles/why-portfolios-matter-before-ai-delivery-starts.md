@@ -3,6 +3,7 @@ title: Why portfolios matter before AI delivery starts
 date: 2026-07-04
 category: AI products
 summary: AI delivery works better when demand is shaped as a portfolio before teams start building individual solutions.
+glance: A queue of AI use cases hides readiness, dependencies, ownership, and value. | Portfolio views make ideas comparable before delivery starts. | Teams can focus on products with the best mix of value, feasibility, trust, and support.
 status: published
 ---
 

@@ -137,7 +137,7 @@ test("server-renders article pages", async () => {
   assert.match(html, /https:\/\/www\.linkedin\.com\/sharing\/share-offsite\/\?url=/);
   assert.match(html, /https:\/\/twitter\.com\/intent\/tweet\?url=/);
   assert.match(css, /\/images\/article-header-bg\.webp/);
-  assert.match(html, /Related thinking/);
+  assert.match(html, /Related insights/);
 });
 
 test("server-renders insights index with the editorial header background", async () => {
@@ -179,6 +179,24 @@ test("highlights article closing CTAs", async () => {
   assert.match(html, /https:\/\/www\.linkedin\.com\/in\/jarkkomoilanen\//);
   assert.match(html, /Connect on LinkedIn/);
   assert.doesNotMatch(html, /Contact Jarkko/);
+});
+
+test("server-renders article sidebar from article metadata", async () => {
+  const response = await render(
+    "/insights/articles/golden-data-product-portfolio",
+  );
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /class="article-layout"/);
+  assert.match(html, /class="article-sidebar"/);
+  assert.match(html, /In this article/);
+  assert.match(html, /href="#section-4-the-business-problem"/);
+  assert.match(html, /The Business Problem/);
+  assert.match(html, /At a glance/);
+  assert.match(html, /Unconnected ideas often duplicate data, governance, and delivery work/);
+  assert.match(html, /A portfolio view shows which initiatives depend on the same foundations/);
+  assert.match(html, /Related insights/);
 });
 
 test("server-renders robots and sitemap discovery routes", async () => {

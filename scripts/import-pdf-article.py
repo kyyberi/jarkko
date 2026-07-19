@@ -236,6 +236,7 @@ def render_markdown(
         f"date: {iso_date}",
         f"category: {category}",
         f"summary: {summary}",
+        "glance: First business-value takeaway. | Second business-value takeaway. | Third business-value takeaway.",
         f"status: {status}",
         "---",
     ]

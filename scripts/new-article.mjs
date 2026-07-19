@@ -23,6 +23,8 @@ title: ${title}
 date: ${today}
 category: Data products
 summary: Replace this with one short sentence for listings and RSS.
+glance: First business-value takeaway. | Second business-value takeaway. | Third business-value takeaway.
+status: draft
 ---
 
 First paragraph.

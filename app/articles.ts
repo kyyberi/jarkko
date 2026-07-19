@@ -26,6 +26,7 @@ export type Article = {
   title: string;
   category: string;
   summary: string;
+  glance: string[];
   body: ArticleBlock[];
 };
 
@@ -66,6 +67,7 @@ function parseArticle(slug: string, source: string): Article {
   const isoDate = requireField(frontmatter, "date", slug);
   const category = requireField(frontmatter, "category", slug);
   const summary = requireField(frontmatter, "summary", slug);
+  const glance = parseListField(frontmatter.glance);
   const status = parseStatus(frontmatter, slug);
 
   if (!/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) {
@@ -80,6 +82,7 @@ function parseArticle(slug: string, source: string): Article {
     title,
     category,
     summary,
+    glance,
     body,
   };
 }
@@ -172,6 +175,14 @@ function requireField(
     throw new Error(`Article ${slug} is missing frontmatter field ${field}.`);
   }
   return value;
+}
+
+function parseListField(value?: string) {
+  if (!value) return [];
+  return value
+    .split("|")
+    .map((item) => item.trim())
+    .filter(Boolean);
 }
 
 function formatDisplayDate(isoDate: string) {

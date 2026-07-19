@@ -3,6 +3,7 @@ title: The operating system for data and AI products
 date: 2026-07-18
 category: Strategy
 summary: Why data and AI initiatives need an operating system that joins strategy, standards, software, governance, and delivery.
+glance: AI work fails when strategy, data, governance, and delivery are fragmented. | An operating system connects business questions to trusted product definitions. | Leaders need a clear way to see what is being built and why it matters.
 status: published
 ---
 
