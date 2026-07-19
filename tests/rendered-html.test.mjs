@@ -122,7 +122,10 @@ test("server-renders the about page", async () => {
   assert.match(html, /data-product-focused industry platform in Finland/);
   assert.match(html, /2019 when data product thinking was still taking early shape/);
   assert.match(html, /MPASSid/);
-  assert.match(html, /2\.5 million users across the national education ecosystem/);
+  assert.match(html, /Ministry of Education and Culture/);
+  assert.match(html, /strategic national initiative under ministerial sponsorship/);
+  assert.match(html, /legal changes, broad stakeholder management, and technology development/);
+  assert.match(html, /2\.5 million users and remains in heavy use/);
   assert.match(html, /Alation/);
   assert.match(html, /BASF/);
   assert.match(html, /Kruger/);

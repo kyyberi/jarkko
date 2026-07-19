@@ -99,9 +99,12 @@ export default function AboutPage() {
             <span>04</span>
             <h3>National digital infrastructure</h3>
             <p>
-              Led the MPASSid education identity service in Finland, serving
-              more than 2.5 million users across the national education
-              ecosystem.
+              Led the MPASSid education identity service at Finland&apos;s
+              Ministry of Education and Culture, a strategic national
+              initiative under ministerial sponsorship that included legal
+              changes, broad stakeholder management, and technology
+              development. It serves more than 2.5 million users and remains
+              in heavy use.
             </p>
           </article>
         </div>
