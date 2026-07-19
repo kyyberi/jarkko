@@ -616,6 +616,48 @@ h1 {
   text-align: center;
 }
 
+.work-government-ai .detail-visual {
+  display: grid;
+}
+
+.work-government-ai .work-diagram {
+  place-items: center;
+  min-height: clamp(360px, 38vw, 460px);
+}
+
+.work-government-ai .work-diagram-steps {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.work-government-ai .work-diagram-step {
+  min-width: 150px;
+}
+
+.work-government-ai .work-diagram-step + .work-diagram-step::before {
+  content: "";
+  top: auto;
+  bottom: -17px;
+  left: 50%;
+  width: 1px;
+  height: 12px;
+  background: var(--ink);
+  transform: translateX(-50%);
+}
+
+.work-government-ai .work-diagram-step + .work-diagram-step::after {
+  content: "->";
+  position: absolute;
+  bottom: -27px;
+  left: 50%;
+  color: var(--ink);
+  font-weight: 800;
+  transform: translateX(-50%) rotate(-90deg);
+}
+
 .about-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
@@ -1736,6 +1778,22 @@ h1 {
     width: 1px;
     height: 12px;
     background: var(--ink);
+  }
+
+  .work-government-ai .work-diagram-steps {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .work-government-ai .work-diagram-step + .work-diagram-step::before {
+    top: auto;
+    bottom: -17px;
+    height: 12px;
+    transform: translateX(-50%);
+  }
+
+  .work-government-ai .work-diagram-step + .work-diagram-step::after {
+    bottom: -27px;
   }
 
   .article-row {

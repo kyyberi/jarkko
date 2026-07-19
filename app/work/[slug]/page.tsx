@@ -92,7 +92,7 @@ export default async function WorkDetail({ params }: PageProps) {
 
   return (
     <PageShell>
-      <section className="detail-hero">
+      <section className={`detail-hero work-${item.slug}`}>
         <div>
           <div className="section-kicker">{item.label}</div>
           <h1>{item.title}</h1>
