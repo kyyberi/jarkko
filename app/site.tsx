@@ -101,13 +101,39 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer>
-      <span>© 2026 Jarkko Moilanen, PhD</span>
-      <div className="footer-links">
-        <a href="https://www.linkedin.com/">LinkedIn</a>
-        <a href="https://github.com/kyyberi/jarkko">GitHub</a>
-        <a href="https://medium.com/">Medium</a>
-        <a href={sitePath("/rss.xml")}>RSS</a>
+    <footer className="site-footer">
+      <div className="footer-column footer-identity">
+        <a className="footer-wordmark" href={sitePath("/")}>
+          Jarkko Moilanen<span>.</span>
+        </a>
+        <p>
+          Data product pioneer, standards maintainer, builder, author, and
+          educator working from Abu Dhabi, UAE.
+        </p>
+        <span className="footer-copyright">© 2026 Jarkko Moilanen, PhD</span>
+      </div>
+      <nav className="footer-column footer-nav" aria-label="Footer navigation">
+        <h2>Explore</h2>
+        <a href={sitePath("/#work")}>Selected work</a>
+        <a href={sitePath("/insights/articles")}>Insights</a>
+        <a href={sitePath("/about")}>About</a>
+        <a href={sitePath("/#contact")}>Availability</a>
+      </nav>
+      <div className="footer-column footer-proof">
+        <h2>Proof and links</h2>
+        <ul>
+          <li>270% delivery speed improvement</li>
+          <li>2.5M+ users served through national infrastructure</li>
+          <li>Open Data Product standards under the Linux Foundation</li>
+        </ul>
+        <div className="footer-links">
+          <a href="https://www.linkedin.com/in/jarkkomoilanen/">LinkedIn</a>
+          <a href="https://www.udemy.com/user/jarkko-moilanen/">Udemy</a>
+          <a href="https://us.amazon.com/stores/Jarkko-Moilanen/author/B0B66HTHLM?ref=ap_rdr&shoppingPortalEnabled=true">
+            Amazon
+          </a>
+          <a href={sitePath("/rss.xml")}>RSS</a>
+        </div>
       </div>
     </footer>
   );
