@@ -91,8 +91,8 @@ export default function AboutPage() {
             <h3>Delivery transformation</h3>
             <p>
               Increased delivery speed by 270 percent in one year at Platform
-              of Trust, while strengthening product management, delivery
-              discipline, and organizational focus.
+              of Trust, a data-product-focused industry platform in Finland,
+              in 2019 when data product thinking was still taking early shape.
             </p>
           </article>
           <article>

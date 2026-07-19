@@ -119,7 +119,8 @@ test("server-renders the about page", async () => {
   assert.match(html, /Open data product standards/);
   assert.match(html, /Open Data Product Specification[\s\S]*Linux Foundation[\s\S]*BASF[\s\S]*Alation[\s\S]*Kruger/);
   assert.match(html, /270 percent/);
-  assert.match(html, /product management, delivery discipline, and organizational focus/);
+  assert.match(html, /data-product-focused industry platform in Finland/);
+  assert.match(html, /2019 when data product thinking was still taking early shape/);
   assert.match(html, /MPASSid/);
   assert.match(html, /2\.5 million users across the national education ecosystem/);
   assert.match(html, /Alation/);
