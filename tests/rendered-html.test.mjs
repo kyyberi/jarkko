@@ -144,16 +144,21 @@ test("server-renders work detail pages", async () => {
 
 test("server-renders article pages", async () => {
   const [response, css] = await Promise.all([
-    render("/insights/articles/operating-system-data-ai-products"),
+    render(
+      "/insights/articles/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management",
+    ),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
   ]);
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /The operating system for data and AI products/);
   assert.match(
     html,
-    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/insights\/articles\/operating-system-data-ai-products\/"/,
+    /Agentic Data Product Operations: The Next Maturity Layer for AI Data Product Management/,
+  );
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/insights\/articles\/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management\/"/,
   );
   assert.match(html, /<meta property="og:type" content="article"/);
   assert.match(
@@ -166,9 +171,11 @@ test("server-renders article pages", async () => {
   );
   assert.match(
     html,
-    /<meta property="article:published_time" content="2026-07-18T00:00:00.000Z"/,
+    /<meta property="article:published_time" content="2026-06-25T00:00:00.000Z"/,
   );
-  assert.match(html, /Most organizations do not fail at AI because they lack ideas/);
+  assert.match(html, /AI agents do not remove the need for governance/);
+  assert.match(html, /fragmented-to-governed-operations\.png/);
+  assert.match(html, /catalog-to-operating-workspace\.png/);
   assert.match(html, /class="article-header"/);
   assert.match(html, /Share/);
   assert.match(html, /https:\/\/www\.linkedin\.com\/sharing\/share-offsite\/\?url=/);
@@ -254,7 +261,7 @@ test("server-renders robots and sitemap discovery routes", async () => {
   assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/about\/<\/loc>/);
   assert.match(
     sitemapText,
-    /<loc>https:\/\/jarkkomoilanen\.com\/insights\/articles\/operating-system-data-ai-products\/<\/loc>/,
+    /<loc>https:\/\/jarkkomoilanen\.com\/insights\/articles\/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management\/<\/loc>/,
   );
   assert.match(
     sitemapText,
