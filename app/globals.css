@@ -737,8 +737,6 @@ h1 {
 .article-body h2,
 .article-body h3 {
   margin: 56px 0 0;
-  padding-top: 28px;
-  border-top: 1px solid var(--ink);
   font-family: var(--display);
   font-weight: 900;
   line-height: 1;
@@ -763,8 +761,6 @@ h1 {
 
 .article-figure {
   margin: 34px 0;
-  padding: 0 0 28px;
-  border-bottom: 1px solid var(--line);
 }
 
 .article-figure img {
