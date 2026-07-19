@@ -60,24 +60,54 @@ export const workItems = [
   {
     slug: "government-ai",
     index: "03",
-    label: "Government delivery",
-    title: "AI products for public value",
+    label: "Abu Dhabi Government AI delivery",
+    title: "Building AI products for public value",
     summary:
-      "A portfolio approach that connects business questions, data readiness, product governance, and implementation across government entities.",
+      "From AI ambition to a governed product portfolio",
     image: "/images/work-abudhabi.png",
-    imageAlt: "AI product delivery path from use cases to public value",
-    cta: "Read the case overview",
+    imageAlt: "AI product delivery path from priority needs to public value",
+    cta: "Discuss the approach",
+    diagramSteps: [
+      "Priority needs",
+      "Data readiness",
+      "AI products",
+      "Public value",
+    ],
     focus:
-      "Government AI delivery needs operating models that connect executive intent, use cases, data readiness, governance, and measurable public outcomes.",
+      "Abu Dhabi is working toward an AI-native government. I contribute to this direction as one of the leads shaping the government AI products portfolio, connecting priority business needs, data readiness, governance, and delivery into a coherent operating model.",
+    detailIntro:
+      "An AI-native government needs more than individual use cases. It needs a portfolio model that helps leaders decide what to pursue, what evidence is required, and what must be ready before delivery begins.",
     proof: [
-      "Business-led AI product portfolios across government contexts.",
-      "Operating models for entity collaboration, readiness, governance, and delivery.",
-      "Practical review patterns for moving from use case demand to products people can trust.",
+      {
+        title: "Portfolio direction",
+        text: "Turning strategic priorities and government needs into a managed portfolio of AI product opportunities.",
+      },
+      {
+        title: "Readiness and governance",
+        text: "Establishing the conditions required for responsible delivery, including ownership, data readiness, controls, and clear decision points.",
+      },
+      {
+        title: "Cross-entity delivery",
+        text: "Creating practical ways for government entities, data teams, and delivery partners to work through shared dependencies.",
+      },
+      {
+        title: "Public value",
+        text: "Keeping the portfolio focused on measurable outcomes, service improvement, operational efficiency, and better government decisions.",
+      },
     ],
     outcomes: [
-      "Measurable public value",
-      "Trusted data foundations",
-      "Delivery-ready portfolios",
+      {
+        title: "Portfolio shaping",
+        text: "Structuring AI opportunities around strategic relevance, readiness, ownership, and expected public value.",
+      },
+      {
+        title: "Delivery conditions",
+        text: "Clarifying the governance, data, technical, and organizational conditions required before delivery.",
+      },
+      {
+        title: "Decision support",
+        text: "Giving leaders a clearer basis for prioritization, sequencing, investment, and portfolio review.",
+      },
     ],
   },
 ];

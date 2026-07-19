@@ -7,6 +7,14 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
+function getTitle(value: string | { title: string; text: string }) {
+  return typeof value === "string" ? value : value.title;
+}
+
+function getText(value: string | { title: string; text: string }) {
+  return typeof value === "string" ? undefined : value.text;
+}
+
 export function generateStaticParams() {
   return workItems.map((item) => ({ slug: item.slug }));
 }
@@ -61,6 +69,14 @@ export default async function WorkDetail({ params }: PageProps) {
   if (!item) notFound();
 
   const related = workItems.filter((candidate) => candidate.slug !== item.slug);
+  const diagramSteps =
+    "diagramSteps" in item && Array.isArray(item.diagramSteps)
+      ? item.diagramSteps
+      : undefined;
+  const detailIntro =
+    "detailIntro" in item && typeof item.detailIntro === "string"
+      ? item.detailIntro
+      : undefined;
 
   return (
     <PageShell>
@@ -70,11 +86,22 @@ export default async function WorkDetail({ params }: PageProps) {
           <h1>{item.title}</h1>
           <p>{item.focus}</p>
           <a className="button primary" href={sitePath("/#contact")}>
-            Discuss related work <Arrow />
+            {item.cta} <Arrow />
           </a>
         </div>
         <div className="detail-visual">
-          <img src={`${assetPath}${item.image}`} alt={item.imageAlt} />
+          {diagramSteps ? (
+            <div className="government-diagram" aria-label={item.imageAlt}>
+              {diagramSteps.map((step, index) => (
+                <div className="government-step" key={step}>
+                  <span>{index + 1}</span>
+                  <strong>{step}</strong>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <img src={`${assetPath}${item.image}`} alt={item.imageAlt} />
+          )}
         </div>
       </section>
 
@@ -83,10 +110,20 @@ export default async function WorkDetail({ params }: PageProps) {
           <div>
             <div className="section-kicker">What this covers</div>
             <h2>{item.summary}</h2>
+            {detailIntro ? <p className="detail-intro">{detailIntro}</p> : null}
           </div>
           <div className="evidence-list">
             {item.proof.map((proof) => (
-              <p key={proof}>{proof}</p>
+              <article className="evidence-row" key={getTitle(proof)}>
+                {getText(proof) ? (
+                  <>
+                    <h3>{getTitle(proof)}</h3>
+                    <p>{getText(proof)}</p>
+                  </>
+                ) : (
+                  <p>{getTitle(proof)}</p>
+                )}
+              </article>
             ))}
           </div>
         </div>
@@ -95,9 +132,10 @@ export default async function WorkDetail({ params }: PageProps) {
       <section className="detail-section">
         <div className="outcome-grid">
           {item.outcomes.map((outcome, index) => (
-            <div className="outcome-card" key={outcome}>
+            <div className="outcome-card" key={getTitle(outcome)}>
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <strong>{outcome}</strong>
+              <strong>{getTitle(outcome)}</strong>
+              {getText(outcome) ? <p>{getText(outcome)}</p> : null}
             </div>
           ))}
         </div>

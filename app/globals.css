@@ -554,6 +554,52 @@ h1 {
   object-fit: cover;
 }
 
+.government-diagram {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  min-height: 100%;
+  padding: clamp(28px, 4vw, 54px);
+  background: var(--white);
+}
+
+.government-step {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.government-step + .government-step::before {
+  content: "->";
+  position: absolute;
+  top: 22px;
+  left: -18px;
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.government-step span {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.government-step strong {
+  max-width: 110px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
 .about-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
@@ -746,15 +792,37 @@ h1 {
   text-transform: uppercase;
 }
 
+.detail-intro {
+  max-width: 620px;
+  margin: 24px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(18px, 1.4vw, 22px);
+  line-height: 1.42;
+}
+
 .evidence-list {
   border-top: 1px solid var(--ink);
 }
 
-.evidence-list p {
+.evidence-row {
   margin: 0;
   padding: 24px 0;
   border-bottom: 1px solid var(--line);
+}
+
+.evidence-row h3 {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.evidence-row p {
+  margin: 0;
   color: var(--muted);
+  font-family: var(--serif);
   font-size: clamp(17px, 1.25vw, 20px);
   line-height: 1.45;
 }
@@ -805,6 +873,15 @@ h1 {
   font-size: clamp(26px, 3.4vw, 44px);
   line-height: 1;
   letter-spacing: -0.04em;
+}
+
+.outcome-card p {
+  max-width: 330px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 15px;
+  line-height: 1.45;
 }
 
 .related-card em,
@@ -1625,6 +1702,20 @@ h1 {
 
   .work-index {
     font-size: 52px;
+  }
+
+  .government-diagram {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .government-step + .government-step::before {
+    content: "";
+    top: -18px;
+    left: 50%;
+    width: 1px;
+    height: 12px;
+    background: var(--ink);
   }
 
   .article-row {

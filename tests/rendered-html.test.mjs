@@ -152,6 +152,29 @@ test("server-renders work detail pages", async () => {
   assert.match(html, /Connected parts of the operating system/);
 });
 
+test("server-renders the government AI work page without operational detail", async () => {
+  const response = await render("/work/government-ai");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /ABU DHABI GOVERNMENT AI DELIVERY/i);
+  assert.match(html, /Building AI products for public value/i);
+  assert.match(html, /Abu Dhabi is working toward an AI-native government/);
+  assert.match(html, /one of the leads shaping the government AI products portfolio/);
+  assert.match(html, /Discuss the approach/);
+  assert.match(html, /Priority needs/);
+  assert.match(html, /Data readiness/);
+  assert.match(html, /AI products/);
+  assert.match(html, /Public value/);
+  assert.match(html, /From AI ambition to a governed product portfolio/i);
+  assert.match(html, /Portfolio direction/);
+  assert.match(html, /Readiness and governance/);
+  assert.match(html, /Cross-entity delivery/);
+  assert.match(html, /Decision support/);
+  assert.doesNotMatch(html, /sole lead/i);
+  assert.doesNotMatch(html, /dataset|specific partner|KPI|delivery stage/i);
+});
+
 test("server-renders article pages", async () => {
   const [response, css] = await Promise.all([
     render(
