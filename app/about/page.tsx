@@ -73,7 +73,7 @@ export default function AboutPage() {
             <p>
               Leading portfolio work across Abu Dhabi Government&apos;s Data
               Factory, connecting business priorities, governed data, AI
-              delivery, and measurable value.
+              delivery, and measurable public value.
             </p>
           </article>
           <article>
@@ -81,7 +81,9 @@ export default function AboutPage() {
             <h3>Open data product standards</h3>
             <p>
               Founder and maintainer of the Open Data Product Specification
-              family under the Linux Foundation.
+              family under the Linux Foundation, with adoption and
+              implementation work involving organizations including BASF,
+              Alation, and Kruger.
             </p>
           </article>
           <article>
@@ -89,15 +91,17 @@ export default function AboutPage() {
             <h3>Delivery transformation</h3>
             <p>
               Increased delivery speed by 270 percent in one year at Platform
-              of Trust.
+              of Trust, while strengthening product management, delivery
+              discipline, and organizational focus.
             </p>
           </article>
           <article>
             <span>04</span>
             <h3>National digital infrastructure</h3>
             <p>
-              Led the MPASSid education identity service in Finland, reaching
-              more than 2.5 million users.
+              Led the MPASSid education identity service in Finland, serving
+              more than 2.5 million users across the national education
+              ecosystem.
             </p>
           </article>
         </div>

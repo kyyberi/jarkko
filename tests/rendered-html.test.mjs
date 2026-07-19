@@ -114,10 +114,14 @@ test("server-renders the about page", async () => {
   assert.match(html, /for data and AI products/);
   assert.match(html, /\/images\/jarkko-moilanen-portrait\.jpeg/);
   assert.match(html, /Whole-of-government data and AI products/);
+  assert.match(html, /Abu Dhabi Government&#x27;s Data Factory/);
+  assert.match(html, /measurable public value/);
   assert.match(html, /Open data product standards/);
+  assert.match(html, /Open Data Product Specification[\s\S]*Linux Foundation[\s\S]*BASF[\s\S]*Alation[\s\S]*Kruger/);
   assert.match(html, /270 percent/);
+  assert.match(html, /product management, delivery discipline, and organizational focus/);
   assert.match(html, /MPASSid/);
-  assert.match(html, /2\.5 million users/);
+  assert.match(html, /2\.5 million users across the national education ecosystem/);
   assert.match(html, /Alation/);
   assert.match(html, /BASF/);
   assert.match(html, /Kruger/);
