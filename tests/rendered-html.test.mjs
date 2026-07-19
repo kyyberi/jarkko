@@ -203,6 +203,7 @@ test("server-renders insights index with the editorial header background", async
   );
   assert.match(html, /Writing from the work itself/);
   assert.match(css, /\/images\/insights-header-bg\.webp/);
+  assert.doesNotMatch(css, /\.article-index\s*\{[^}]*border-block:/);
 });
 
 test("highlights article closing CTAs", async () => {

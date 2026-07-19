@@ -763,7 +763,7 @@ h1 {
 .article-index {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-block: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
 }
 
 .related-grid {
