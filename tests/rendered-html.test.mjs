@@ -57,6 +57,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /id="mobile-navigation"/);
   assert.match(html, /aria-label="Mobile primary"/);
   assert.match(html, /href="\/insights\/articles"/);
+  assert.match(html, /href="\/about"/);
   assert.match(html, /Three areas\. One professional body of work\./);
   assert.match(html, /Built in public, tested in practice\./);
   assert.match(html, /Writing, books, and courses from the work itself\./);
@@ -77,6 +78,24 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Discuss an engagement/);
   assert.match(html, /\/images\/jarkko-moilanen-portrait\.jpeg/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
+});
+
+test("server-renders the about page skeleton", async () => {
+  const response = await render("/about");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<title>About \| Jarkko Moilanen<\/title>/);
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/about\/"/,
+  );
+  assert.match(html, /class="about-hero"/);
+  assert.match(html, /Jarkko Moilanen, PhD/);
+  assert.match(html, /Professional focus/);
+  assert.match(html, /Strategy and portfolios/);
+  assert.match(html, /Standards and product systems/);
+  assert.match(html, /Advisory and delivery/);
 });
 
 test("server-renders work detail pages", async () => {
@@ -214,6 +233,7 @@ test("server-renders robots and sitemap discovery routes", async () => {
   assert.match(robotsText, /User-Agent: \*/);
   assert.match(robotsText, /Sitemap: https:\/\/jarkkomoilanen\.com\/sitemap\.xml/);
   assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/<\/loc>/);
+  assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/about\/<\/loc>/);
   assert.match(
     sitemapText,
     /<loc>https:\/\/jarkkomoilanen\.com\/insights\/articles\/operating-system-data-ai-products\/<\/loc>/,

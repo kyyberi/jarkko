@@ -532,6 +532,113 @@ h1 {
   object-fit: cover;
 }
 
+.about-hero {
+  min-height: 440px;
+  padding: 82px var(--pad) 72px;
+  border-bottom: 1px solid var(--ink);
+  background-image:
+    linear-gradient(90deg, rgba(243, 240, 233, 0.98) 0%, rgba(243, 240, 233, 0.9) 62%, rgba(243, 240, 233, 0.58) 100%),
+    url("/images/article-header-bg.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.about-hero > div {
+  max-width: 980px;
+}
+
+.about-hero h1 {
+  max-width: 920px;
+  margin: 18px 0 22px;
+  font-size: clamp(50px, 7.4vw, 104px);
+}
+
+.about-hero p {
+  max-width: 760px;
+  margin: 0 0 30px;
+  font-family: var(--serif);
+  font-size: clamp(19px, 1.8vw, 27px);
+  line-height: 1.35;
+}
+
+.about-section {
+  padding: 70px var(--pad);
+  border-bottom: 1px solid var(--ink);
+}
+
+.about-section.compact {
+  padding-top: 0;
+}
+
+.about-section-head {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 760px);
+  gap: 42px;
+  align-items: start;
+  margin-bottom: 42px;
+}
+
+.about-section-head h2 {
+  margin: 0;
+  font-family: var(--display);
+  font-size: clamp(34px, 4.8vw, 66px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.about-copy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 5vw, 68px);
+  max-width: 1040px;
+  margin-left: min(302px, 24vw);
+}
+
+.about-copy-grid p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.25vw, 20px);
+  line-height: 1.55;
+}
+
+.about-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-block: 1px solid var(--ink);
+}
+
+.about-card-grid article {
+  min-height: 260px;
+  padding: 30px 30px 34px 0;
+}
+
+.about-card-grid article + article {
+  padding-left: 30px;
+  border-left: 1px solid var(--ink);
+}
+
+.about-card-grid span {
+  color: var(--accent);
+  font-family: var(--display);
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.about-card-grid h3 {
+  margin: 28px 0 12px;
+  font-size: 24px;
+  letter-spacing: -0.03em;
+}
+
+.about-card-grid p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
 .detail-section {
   padding: 68px var(--pad);
   border-bottom: 1px solid var(--ink);
@@ -1269,6 +1376,32 @@ footer {
   .detail-section,
   .article-detail {
     padding-block: 54px;
+  }
+
+  .about-hero,
+  .about-section {
+    padding-block: 54px;
+  }
+
+  .about-section-head,
+  .about-copy-grid,
+  .about-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-copy-grid {
+    margin-left: 0;
+  }
+
+  .about-card-grid article {
+    min-height: 0;
+    padding: 28px 0;
+  }
+
+  .about-card-grid article + article {
+    padding-left: 0;
+    border-top: 1px solid var(--ink);
+    border-left: 0;
   }
 
   .article-detail {

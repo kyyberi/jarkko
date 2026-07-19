@@ -91,7 +91,7 @@ export function Header() {
       <nav className="nav" aria-label="Primary">
         <a href={sitePath("/#work")}>Work</a>
         <a href={sitePath("/insights/articles")}>Insights</a>
-        <a href={sitePath("/#about")}>About</a>
+        <a href={sitePath("/about")}>About</a>
         <a href={sitePath("/#contact")}>Contact</a>
       </nav>
       <MobileNav />
