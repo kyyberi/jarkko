@@ -17,7 +17,7 @@ export const workItems = [
     label: "Platform and Portfolio Studio",
     title: "Maysano",
     summary:
-      "A connected environment for turning business intent, evidence, and source material into governed data product portfolios and operational product systems.",
+      "A connected environment for governed data product portfolios.",
     image: "/images/work-maysano.png",
     imageAlt: "Maysano portfolio flow from business goals to data products",
     cta: "See how it works",

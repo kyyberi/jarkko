@@ -166,7 +166,7 @@ test("server-renders the Maysano work page as a real platform", async () => {
   assert.match(html, /Portfolio/);
   assert.match(html, /Data products/);
   assert.match(html, /From business intent to governed product systems/);
-  assert.match(html, /A connected environment for turning business intent/);
+  assert.match(html, /A connected environment for governed data product portfolios/);
   assert.match(html, /Portfolio Studio/);
   assert.match(html, /Structured product definition/);
   assert.match(html, /Governance and readiness/);
