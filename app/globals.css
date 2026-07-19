@@ -426,7 +426,10 @@ h1 {
   gap: 34px;
   align-items: stretch;
   padding: 38px 0;
-  border-bottom: 1px solid var(--ink);
+}
+
+.work-row + .work-row {
+  border-top: 1px solid var(--ink);
 }
 
 .work-index {

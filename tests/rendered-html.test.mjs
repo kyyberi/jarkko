@@ -29,6 +29,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
+  const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
   assert.match(html, /<title>Jarkko Moilanen \| Data Product Pioneer<\/title>/i);
   assert.match(
     html,
@@ -68,6 +69,8 @@ test("server-renders the professional homepage", async () => {
   );
   assert.match(html, /Three areas\. One professional body of work\./);
   assert.match(html, /Built in public, tested in practice\./);
+  assert.doesNotMatch(css, /\.work-row\s*\{[^}]*border-bottom:/);
+  assert.match(css, /\.work-row\s*\+\s*\.work-row\s*\{[^}]*border-top:/);
   assert.match(html, /Writing, books, and courses from the work itself\./);
   assert.match(html, /Bring me the problem that needs senior attention\./);
   assert.match(html, /Government-wide AI products/);
