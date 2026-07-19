@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getArticles } from "../../articles";
-import { canonicalPath } from "../../seo";
+import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo";
 import { Arrow, PageShell, sitePath } from "../../site";
 
 export const metadata: Metadata = {
@@ -19,6 +19,21 @@ export const metadata: Metadata = {
       "Articles on data products, AI product portfolios, open standards, governance, and delivery.",
     url: canonicalPath("/insights/articles"),
     type: "website",
+    images: [
+      {
+        url: DEFAULT_OG_IMAGE,
+        alt: DEFAULT_OG_IMAGE_ALT,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Insights | Jarkko Moilanen",
+    description:
+      "Articles on data products, AI product portfolios, open standards, governance, and delivery.",
+    images: [DEFAULT_OG_IMAGE],
   },
 };
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { canonicalPath } from "../../seo";
+import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo";
 import { Arrow, PageShell, assetPath, sitePath, workItems } from "../../site";
 
 type PageProps = {
@@ -38,8 +38,10 @@ export async function generateMetadata({
       type: "website",
       images: [
         {
-          url: item.image,
-          alt: item.imageAlt,
+          url: DEFAULT_OG_IMAGE,
+          alt: DEFAULT_OG_IMAGE_ALT,
+          width: 1200,
+          height: 630,
         },
       ],
     },
@@ -47,7 +49,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `${item.title} | Jarkko Moilanen`,
       description: item.summary,
-      images: [item.image],
+      images: [DEFAULT_OG_IMAGE],
     },
   };
 }

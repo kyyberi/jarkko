@@ -39,7 +39,15 @@ test("server-renders the professional homepage", async () => {
     html,
     /<meta property="og:url" content="https:\/\/jarkkomoilanen\.com\/"/,
   );
+  assert.match(
+    html,
+    /<meta property="og:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+  );
   assert.match(html, /<meta name="twitter:card" content="summary_large_image"/);
+  assert.match(
+    html,
+    /<meta name="twitter:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+  );
   assert.match(html, /<link rel="alternate" type="application\/rss\+xml" href="https:\/\/jarkkomoilanen\.com\/rss\.xml"/);
   assert.match(html, /googletagmanager\.com\/gtag\/js\?id=G-KZ5N2GTKF5/);
   assert.match(html, /gtag\('config', 'G-KZ5N2GTKF5'\)/);
@@ -81,6 +89,14 @@ test("server-renders work detail pages", async () => {
     html,
     /<meta property="og:title" content="Data Product Standards \| Jarkko Moilanen"/,
   );
+  assert.match(
+    html,
+    /<meta property="og:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+  );
+  assert.match(
+    html,
+    /<meta name="twitter:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+  );
   assert.match(html, /Open Data Product Specification family maintained under Linux Foundation/);
   assert.match(html, /Connected parts of the operating system/);
 });
@@ -99,6 +115,14 @@ test("server-renders article pages", async () => {
     /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/insights\/articles\/operating-system-data-ai-products\/"/,
   );
   assert.match(html, /<meta property="og:type" content="article"/);
+  assert.match(
+    html,
+    /<meta property="og:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+  );
+  assert.match(
+    html,
+    /<meta name="twitter:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+  );
   assert.match(
     html,
     /<meta property="article:published_time" content="2026-07-18T00:00:00.000Z"/,
@@ -121,6 +145,14 @@ test("server-renders insights index with the editorial header background", async
 
   const html = await response.text();
   assert.match(html, /class="detail-hero editorial insights-hero"/);
+  assert.match(
+    html,
+    /<meta property="og:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+  );
+  assert.match(
+    html,
+    /<meta name="twitter:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+  );
   assert.match(html, /Writing from the work itself/);
   assert.match(css, /\/images\/insights-header-bg\.webp/);
 });

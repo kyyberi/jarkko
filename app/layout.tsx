@@ -5,6 +5,7 @@ import "./globals.css";
 import {
   DEFAULT_DESCRIPTION,
   DEFAULT_OG_IMAGE,
+  DEFAULT_OG_IMAGE_ALT,
   DEFAULT_TITLE,
   SITE_NAME,
   SITE_URL,
@@ -57,7 +58,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: DEFAULT_OG_IMAGE,
-        alt: "Portrait of Jarkko Moilanen",
+        alt: DEFAULT_OG_IMAGE_ALT,
+        width: 1200,
+        height: 630,
       },
     ],
   },

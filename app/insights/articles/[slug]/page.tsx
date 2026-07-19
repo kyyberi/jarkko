@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getArticle, getArticles } from "../../../articles";
-import { absoluteUrl, canonicalPath, DEFAULT_OG_IMAGE } from "../../../seo";
+import {
+  absoluteUrl,
+  canonicalPath,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_OG_IMAGE_ALT,
+} from "../../../seo";
 import { Arrow, PageShell, sitePath } from "../../../site";
 
 type PageProps = {
@@ -42,7 +47,9 @@ export async function generateMetadata({
       images: [
         {
           url: DEFAULT_OG_IMAGE,
-          alt: "Portrait of Jarkko Moilanen",
+          alt: DEFAULT_OG_IMAGE_ALT,
+          width: 1200,
+          height: 630,
         },
       ],
     },
