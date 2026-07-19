@@ -108,7 +108,7 @@ export function Footer() {
         </a>
         <p>
           Data product pioneer, standards maintainer, builder, author, and
-          educator working from Abu Dhabi, UAE.
+          educator from Finland, based in Abu Dhabi, UAE since 2022.
         </p>
         <span className="footer-copyright">© 2026 Jarkko Moilanen, PhD</span>
       </div>
