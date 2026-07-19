@@ -80,7 +80,7 @@ test("server-renders the professional homepage", async () => {
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
 
-test("server-renders the about page skeleton", async () => {
+test("server-renders the about page", async () => {
   const response = await render("/about");
   assert.equal(response.status, 200);
 
@@ -91,11 +91,20 @@ test("server-renders the about page skeleton", async () => {
     /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/about\/"/,
   );
   assert.match(html, /class="about-hero"/);
-  assert.match(html, /Jarkko Moilanen, PhD/);
-  assert.match(html, /Professional focus/);
-  assert.match(html, /Strategy and portfolios/);
-  assert.match(html, /Standards and product systems/);
-  assert.match(html, /Advisory and delivery/);
+  assert.match(html, /Building operating systems/);
+  assert.match(html, /for data and AI products/);
+  assert.match(html, /\/images\/jarkko-moilanen-portrait\.jpeg/);
+  assert.match(html, /Whole-of-government data and AI products/);
+  assert.match(html, /Open data product standards/);
+  assert.match(html, /270 percent/);
+  assert.match(html, /MPASSid/);
+  assert.match(html, /2\.5 million users/);
+  assert.match(html, /Alation/);
+  assert.match(html, /BASF/);
+  assert.match(html, /Kruger/);
+  assert.match(html, /THE WORK STARTS WITH A REAL PROBLEM/i);
+  assert.match(html, /Discuss a problem/);
+  assert.doesNotMatch(html, /Nasdaq/i);
 });
 
 test("server-renders work detail pages", async () => {

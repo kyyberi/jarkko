@@ -4,19 +4,19 @@ import {
   DEFAULT_OG_IMAGE_ALT,
   canonicalPath,
 } from "../seo";
-import { Arrow, PageShell, sitePath } from "../site";
+import { Arrow, PageShell, assetPath, sitePath } from "../site";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Jarkko Moilanen, PhD, and the work connecting strategy, standards, software, data, and AI product delivery.",
+    "About Jarkko Moilanen, PhD, and the work connecting strategy, standards, governance, software, and delivery for data and AI products.",
   alternates: {
     canonical: canonicalPath("/about"),
   },
   openGraph: {
     title: "About | Jarkko Moilanen",
     description:
-      "About Jarkko Moilanen, PhD, and the work connecting strategy, standards, software, data, and AI product delivery.",
+      "About Jarkko Moilanen, PhD, and the work connecting strategy, standards, governance, software, and delivery for data and AI products.",
     url: canonicalPath("/about"),
     type: "profile",
     images: [
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "About | Jarkko Moilanen",
     description:
-      "About Jarkko Moilanen, PhD, and the work connecting strategy, standards, software, data, and AI product delivery.",
+      "About Jarkko Moilanen, PhD, and the work connecting strategy, standards, governance, software, and delivery for data and AI products.",
     images: [DEFAULT_OG_IMAGE],
   },
 };
@@ -41,64 +41,117 @@ export default function AboutPage() {
   return (
     <PageShell>
       <section className="about-hero">
-        <div>
+        <div className="about-hero-copy">
           <div className="section-kicker">About</div>
-          <h1>Jarkko Moilanen, PhD</h1>
+          <h1>
+            Building operating systems
+            <span>for data and AI products</span>
+          </h1>
           <p>
-            I work at the point where strategy, standards, software, data, and
-            AI product delivery have to become one practical operating system.
+            I connect strategy, standards, governance, software, and delivery.
+            My work turns fragmented data and AI initiatives into products
+            people trust, leaders understand, and organizations reuse.
           </p>
-          <a className="button primary" href={sitePath("/#contact")}>
-            Discuss an engagement <Arrow />
-          </a>
         </div>
+        <figure className="about-portrait" aria-label="Portrait of Jarkko Moilanen">
+          <img
+            src={`${assetPath}/images/jarkko-moilanen-portrait.jpeg`}
+            alt="Jarkko Moilanen"
+          />
+        </figure>
       </section>
 
       <section className="about-section">
         <div className="about-section-head">
-          <div className="section-kicker">Professional focus</div>
-          <h2>Business value first. Technology in service of delivery.</h2>
+          <div className="section-kicker">Selected results</div>
+          <h2>Proof from public systems, open standards, and delivery.</h2>
         </div>
-        <div className="about-copy-grid">
-          <p>
-            My work connects executive intent, operating models, data product
-            standards, AI product portfolios, and the software environments
-            needed to make delivery repeatable.
-          </p>
-          <p>
-            The common thread is practical adoption: helping organizations move
-            from ideas and fragmented material into clear products, trusted
-            decisions, and measurable value.
-          </p>
-        </div>
-      </section>
-
-      <section className="about-section compact">
-        <div className="about-card-grid">
+        <div className="about-proof-list">
           <article>
             <span>01</span>
-            <h3>Strategy and portfolios</h3>
+            <h3>Whole-of-government data and AI products</h3>
             <p>
-              Turning business questions, use cases, readiness, and governance
-              into portfolios leaders can compare and act on.
+              Leading portfolio work across Abu Dhabi Government&apos;s Data
+              Factory, connecting business priorities, governed data, AI
+              delivery, and measurable value.
             </p>
           </article>
           <article>
             <span>02</span>
-            <h3>Standards and product systems</h3>
+            <h3>Open data product standards</h3>
             <p>
-              Building shared language, specifications, and software patterns
-              for practical data product work.
+              Founder and maintainer of the Open Data Product Specification
+              family under the Linux Foundation.
             </p>
           </article>
           <article>
             <span>03</span>
-            <h3>Advisory and delivery</h3>
+            <h3>Delivery transformation</h3>
             <p>
-              Supporting senior teams when data and AI work needs structure,
-              clarity, and delivery discipline.
+              Increased delivery speed by 270 percent in one year at Platform
+              of Trust.
             </p>
           </article>
+          <article>
+            <span>04</span>
+            <h3>National digital infrastructure</h3>
+            <p>
+              Led the MPASSid education identity service in Finland, reaching
+              more than 2.5 million users.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="about-section about-practical">
+        <div className="about-section-head">
+          <div className="section-kicker">Selected practical work</div>
+          <h2>Focused support where standards meet adoption.</h2>
+        </div>
+        <div className="about-work-list">
+          <article>
+            <h3>Alation</h3>
+            <p>
+              Supported the use of ODPS as part of the foundation for an
+              AI-assisted data product builder.
+            </p>
+          </article>
+          <article>
+            <h3>BASF</h3>
+            <p>
+              Supported business and technical teams in understanding how ODPS
+              fits a complex enterprise data environment.
+            </p>
+          </article>
+          <article>
+            <h3>Kruger</h3>
+            <p>
+              Helped the organization move from early interest toward a
+              practical, staged ODPS adoption approach.
+            </p>
+          </article>
+        </div>
+        <p className="about-method">
+          The work usually starts with the business problem, followed by
+          focused technical sessions and implementation review. Each stage gives
+          the organization a clear point to continue, adjust, or stop.
+        </p>
+      </section>
+
+      <section className="about-closing">
+        <div>
+          <div className="section-kicker">Closing</div>
+          <h2>The work starts with a real problem</h2>
+        </div>
+        <div>
+          <p>
+            I work where data and AI initiatives often break down, between the
+            business case, the data, the standard, the software, governance, and
+            delivery.
+          </p>
+          <a className="button primary" href={sitePath("/#contact")}>
+            Discuss a problem <Arrow />
+          </a>
         </div>
       </section>
     </PageShell>
