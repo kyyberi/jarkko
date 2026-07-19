@@ -921,6 +921,10 @@ h1 {
   border-bottom: 1px solid var(--ink);
 }
 
+.work-standards-and-sdk .outcome-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
 .related-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -969,6 +973,33 @@ h1 {
   font-family: var(--serif);
   font-size: 15px;
   line-height: 1.45;
+}
+
+.related-card p {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.adoption-list {
+  border-top: 1px solid var(--ink);
+}
+
+.adoption-row {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.adoption-row span {
+  color: var(--accent);
+  font-family: var(--display);
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 0.95;
 }
 
 .related-card em,
@@ -1623,6 +1654,23 @@ h1 {
     border-left: 0;
   }
 
+  .work-standards-and-sdk .outcome-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .work-standards-and-sdk .outcome-card + .outcome-card {
+    border-top: 0;
+    border-left: 1px solid var(--ink);
+  }
+
+  .work-standards-and-sdk .outcome-card:nth-child(odd) {
+    border-left: 0;
+  }
+
+  .work-standards-and-sdk .outcome-card:nth-child(n + 3) {
+    border-top: 1px solid var(--ink);
+  }
+
   .insights-layout {
     grid-template-columns: 1fr;
   }
@@ -1682,6 +1730,16 @@ h1 {
 
   .hero-portrait {
     min-height: 360px;
+  }
+
+  .work-standards-and-sdk .outcome-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-standards-and-sdk .outcome-card + .outcome-card,
+  .work-standards-and-sdk .outcome-card:nth-child(n + 3) {
+    border-top: 1px solid var(--ink);
+    border-left: 0;
   }
 
   .hero-portrait-badge {

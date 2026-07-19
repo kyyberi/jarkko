@@ -15,6 +15,10 @@ function getText(value: string | { title: string; text: string }) {
   return typeof value === "string" ? undefined : value.text;
 }
 
+function hasObjectValue(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null;
+}
+
 export function generateStaticParams() {
   return workItems.map((item) => ({ slug: item.slug }));
 }
@@ -89,6 +93,22 @@ export default async function WorkDetail({ params }: PageProps) {
     "ctaHref" in item && typeof item.ctaHref === "string"
       ? item.ctaHref
       : sitePath("/#contact");
+  const adoption =
+    "adoption" in item && hasObjectValue(item.adoption)
+      ? item.adoption
+      : undefined;
+  const adoptionRows =
+    adoption && "rows" in adoption && Array.isArray(adoption.rows)
+      ? adoption.rows
+      : [];
+  const relatedHeading =
+    "relatedHeading" in item && typeof item.relatedHeading === "string"
+      ? item.relatedHeading
+      : "Connected parts of the operating system.";
+  const relatedDescriptions =
+    "relatedDescriptions" in item && hasObjectValue(item.relatedDescriptions)
+      ? (item.relatedDescriptions as Record<string, string>)
+      : {};
 
   return (
     <PageShell>
@@ -122,7 +142,7 @@ export default async function WorkDetail({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="detail-section">
+      <section className={`detail-section work-section work-${item.slug}`}>
         <div className="detail-grid">
           <div>
             <div className="section-kicker">What this covers</div>
@@ -146,7 +166,7 @@ export default async function WorkDetail({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="detail-section">
+      <section className={`detail-section work-section work-${item.slug}`}>
         <div className="outcome-grid">
           {item.outcomes.map((outcome, index) => (
             <div className="outcome-card" key={getTitle(outcome)}>
@@ -158,10 +178,43 @@ export default async function WorkDetail({ params }: PageProps) {
         </div>
       </section>
 
-      <section className="detail-section">
+      {adoption ? (
+        <section className={`detail-section work-section work-${item.slug}`}>
+          <div className="detail-grid">
+            <div>
+              <div className="section-kicker">
+                {"label" in adoption && typeof adoption.label === "string"
+                  ? adoption.label
+                  : "Adoption and implementation"}
+              </div>
+              <h2>
+                {"title" in adoption && typeof adoption.title === "string"
+                  ? adoption.title
+                  : "From open standard to operational use."}
+              </h2>
+              {"intro" in adoption && typeof adoption.intro === "string" ? (
+                <p className="detail-intro">{adoption.intro}</p>
+              ) : null}
+            </div>
+            <div className="evidence-list adoption-list">
+              {adoptionRows.map((row, index) => (
+                <article className="evidence-row adoption-row" key={getTitle(row)}>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <div>
+                    <h3>{getTitle(row)}</h3>
+                    {getText(row) ? <p>{getText(row)}</p> : null}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <section className={`detail-section work-section work-${item.slug}`}>
         <div className="section-head compact">
           <div className="section-kicker">Related work</div>
-          <h2 className="section-title">Connected parts of the operating system.</h2>
+          <h2 className="section-title">{relatedHeading}</h2>
         </div>
         <div className="related-grid">
           {related.map((relatedItem) => (
@@ -172,6 +225,9 @@ export default async function WorkDetail({ params }: PageProps) {
             >
               <span>{relatedItem.label}</span>
               <strong>{relatedItem.title}</strong>
+              {typeof relatedDescriptions[relatedItem.slug] === "string" ? (
+                <p>{relatedDescriptions[relatedItem.slug]}</p>
+              ) : null}
               <em>
                 View work <Arrow />
               </em>

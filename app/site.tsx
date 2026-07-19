@@ -72,22 +72,82 @@ export const workItems = [
     label: "Open standard and SDK",
     title: "Data Product Standards",
     summary:
-      "A machine-readable specification family and developer toolkit for interoperable, governed, and agent-ready data products.",
+      "An open standard and toolkit for governed, interoperable, agent-ready data products.",
     image: "/images/work-odps.png",
     imageAlt: "Open Data Product Specification family maintained under Linux Foundation",
     cta: "Explore the standard",
     focus:
-      "The standards work gives teams a shared language for catalogs, graphs, vocabularies, recipes, and implementation-ready product metadata.",
+      "The Open Data Product Specification family gives organizations a shared, machine-readable foundation for defining, governing, exchanging, and implementing data products across platforms and teams.",
+    detailIntro:
+      "The standard connects business meaning, governance requirements, technical metadata, and implementation guidance. It helps people, platforms, automation, and AI agents interpret data products consistently.",
     proof: [
-      "Open Data Product Specification family maintained under the Linux Foundation.",
-      "SDK and recipes that help teams create, validate, and exchange data product definitions.",
-      "Vendor-neutral foundations for interoperable catalogs and AI-ready product operations.",
+      {
+        title: "Open standard",
+        text: "A vendor-neutral specification family maintained under the Linux Foundation for describing data products, catalogs, relationships, vocabularies, and reusable implementation recipes.",
+      },
+      {
+        title: "Developer toolkit",
+        text: "An SDK, command-line tools, validation methods, and agent interfaces for creating, checking, transforming, and exchanging data product definitions.",
+      },
+      {
+        title: "Interoperability",
+        text: "A shared structure that helps data products move between catalogs, governance environments, delivery platforms, and organizational boundaries without losing meaning.",
+      },
+      {
+        title: "Business and technical alignment",
+        text: "A common product definition that connects objectives, ownership, governance, quality, service expectations, and implementation metadata.",
+      },
     ],
     outcomes: [
-      "Portable definitions",
-      "Agent-ready metadata",
-      "Open implementation paths",
+      {
+        title: "Portable definitions",
+        text: "Data product definitions that remain consistent across platforms, tools, organizational boundaries, and implementation environments.",
+      },
+      {
+        title: "Agent-ready metadata",
+        text: "Structured metadata that AI agents and automation tools can validate, interpret, compare, and use.",
+      },
+      {
+        title: "Open implementation paths",
+        text: "Vendor-neutral specifications, SDK support, recipes, and reference methods that reduce dependence on one platform.",
+      },
+      {
+        title: "Governed products",
+        text: "Built-in support for ownership, quality, service levels, policy, access, and lifecycle expectations.",
+      },
     ],
+    adoption: {
+      label: "Adoption and implementation",
+      title: "From open standard to operational use.",
+      intro:
+        "I founded and continue to lead the Open Data Product Specification family. The work grew from a practical need for data products to remain understandable and usable across business teams, technical systems, vendors, and national boundaries.",
+      rows: [
+        {
+          title: "Enterprise adoption",
+          text: "Applied in data product work involving organizations including BASF, Alation, and Kruger across enterprise, platform, and industrial contexts.",
+        },
+        {
+          title: "Platform integration",
+          text: "Used as a foundation for platform-level data product definitions, including AI-assisted product creation and machine-readable exchange.",
+        },
+        {
+          title: "Government data exchange",
+          text: "Adopted by X-Road, the government data exchange technology developed through Estonian and Finnish collaboration and used internationally.",
+        },
+        {
+          title: "Open ecosystem",
+          text: "Extended through specifications for catalogs, graphs, vocabularies, recipes, and an open SDK for developers and AI agents.",
+        },
+      ],
+    },
+    relatedHeading:
+      "Connected parts of the data product operating system.",
+    relatedDescriptions: {
+      maysano:
+        "Maysano turns business intent, source material, portfolio design, and governance into structured data product portfolios and operational product systems.",
+      "government-ai":
+        "Portfolio work connecting government priorities, governed data, readiness, and AI product delivery.",
+    },
   },
   {
     slug: "government-ai",

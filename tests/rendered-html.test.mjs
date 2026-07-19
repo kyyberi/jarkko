@@ -160,8 +160,30 @@ test("server-renders work detail pages", async () => {
     html,
     /<meta name="twitter:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
   );
-  assert.match(html, /Open Data Product Specification family maintained under Linux Foundation/);
-  assert.match(html, /Connected parts of the operating system/);
+  assert.match(html, /OPEN STANDARD AND SDK/i);
+  assert.match(html, /shared, machine-readable foundation for defining, governing, exchanging, and implementing data products/);
+  assert.match(html, /An open standard and toolkit for governed, interoperable, agent-ready data products/);
+  assert.match(html, /people, platforms, automation, and AI agents interpret data products consistently/);
+  assert.match(html, /Open standard/);
+  assert.match(html, /maintained under the Linux Foundation/);
+  assert.match(html, /Developer toolkit/);
+  assert.match(html, /Interoperability/);
+  assert.match(html, /Business and technical alignment/);
+  assert.match(html, /Portable definitions/);
+  assert.match(html, /Agent-ready metadata/);
+  assert.match(html, /Open implementation paths/);
+  assert.match(html, /Governed products/);
+  assert.match(html, /Adoption and implementation/i);
+  assert.match(html, /I founded and continue to lead the Open Data Product Specification family/);
+  assert.match(html, /Enterprise adoption/);
+  assert.match(html, /BASF, Alation, and Kruger/);
+  assert.match(html, /Platform integration/);
+  assert.match(html, /Government data exchange/);
+  assert.match(html, /Adopted by X-Road/);
+  assert.match(html, /Open ecosystem/);
+  assert.match(html, /Connected parts of the data product operating system/);
+  assert.match(html, /Maysano turns business intent, source material, portfolio design, and governance/);
+  assert.match(html, /Portfolio work connecting government priorities, governed data, readiness, and AI product delivery/);
 });
 
 test("server-renders the Maysano work page as a real platform", async () => {
