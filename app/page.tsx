@@ -53,9 +53,12 @@ export default function Home() {
               src={`${assetPath}/images/jarkko-moilanen-portrait.jpeg`}
               alt="Portrait of Jarkko Moilanen"
             />
-            <div className="hero-portrait-label">
-              Data product pioneer, standards maintainer, builder, author, and
-              educator from Finland, based in Abu Dhabi, UAE since 2022.
+            <div className="hero-portrait-badge">
+              <div className="hero-portrait-label">
+                Data product pioneer, standards maintainer, builder, author,
+                and educator from Finland, based in Abu Dhabi, UAE since 2022.
+              </div>
+              <span className="uae-flag" role="img" aria-label="UAE flag" />
             </div>
           </div>
         </section>
