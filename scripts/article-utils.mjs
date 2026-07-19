@@ -3,6 +3,7 @@ import { join } from "node:path";
 
 export const root = process.cwd();
 export const articlesDirectory = join(root, "content", "articles");
+const articleStatuses = ["draft", "ready", "published"];
 
 export function getArticles() {
   return readdirSync(articlesDirectory)
@@ -12,6 +13,7 @@ export function getArticles() {
       const source = readFileSync(join(articlesDirectory, fileName), "utf8");
       return parseArticle(slug, source);
     })
+    .filter((article) => article.status === "published")
     .sort((a, b) => b.isoDate.localeCompare(a.isoDate));
 }
 
@@ -49,12 +51,30 @@ function parseArticle(slug, source) {
   const isoDate = required(frontmatter, "date", slug);
   const category = required(frontmatter, "category", slug);
   const summary = required(frontmatter, "summary", slug);
+  const status = parseStatus(frontmatter, slug);
 
   if (!/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) {
     throw new Error(`Article ${slug} date must use YYYY-MM-DD.`);
   }
 
-  return { slug, title, isoDate, category, summary };
+  return {
+    slug,
+    status,
+    title,
+    isoDate,
+    category,
+    summary,
+  };
+}
+
+function parseStatus(frontmatter, slug) {
+  const status = frontmatter.status;
+  if (!status && frontmatter.draft === "true") return "draft";
+  if (!status) return "published";
+  if (articleStatuses.includes(status)) return status;
+  throw new Error(
+    `Article ${slug} status must be one of: ${articleStatuses.join(", ")}.`,
+  );
 }
 
 function required(frontmatter, field, slug) {

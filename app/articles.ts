@@ -15,6 +15,7 @@ export type ArticleBlock =
 
 export type Article = {
   slug: string;
+  status: ArticleStatus;
   date: string;
   isoDate: string;
   title: string;
@@ -24,6 +25,8 @@ export type Article = {
 };
 
 const articlesDirectory = join(process.cwd(), "content", "articles");
+const articleStatuses = ["draft", "ready", "published"] as const;
+type ArticleStatus = (typeof articleStatuses)[number];
 
 export function getArticles(): Article[] {
   return readdirSync(articlesDirectory)
@@ -33,6 +36,7 @@ export function getArticles(): Article[] {
       const source = readFileSync(join(articlesDirectory, fileName), "utf8");
       return parseArticle(slug, source);
     })
+    .filter((article) => article.status === "published")
     .sort((a, b) => b.isoDate.localeCompare(a.isoDate));
 }
 
@@ -57,6 +61,7 @@ function parseArticle(slug: string, source: string): Article {
   const isoDate = requireField(frontmatter, "date", slug);
   const category = requireField(frontmatter, "category", slug);
   const summary = requireField(frontmatter, "summary", slug);
+  const status = parseStatus(frontmatter, slug);
 
   if (!/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) {
     throw new Error(`Article ${slug} date must use YYYY-MM-DD.`);
@@ -64,6 +69,7 @@ function parseArticle(slug: string, source: string): Article {
 
   return {
     slug,
+    status,
     date: formatDisplayDate(isoDate),
     isoDate,
     title,
@@ -71,6 +77,21 @@ function parseArticle(slug: string, source: string): Article {
     summary,
     body,
   };
+}
+
+function parseStatus(
+  frontmatter: Record<string, string>,
+  slug: string,
+): ArticleStatus {
+  const status = frontmatter.status;
+  if (!status && frontmatter.draft === "true") return "draft";
+  if (!status) return "published";
+  if (articleStatuses.includes(status as ArticleStatus)) {
+    return status as ArticleStatus;
+  }
+  throw new Error(
+    `Article ${slug} status must be one of: ${articleStatuses.join(", ")}.`,
+  );
 }
 
 function parseBodyBlock(slug: string, block: string): ArticleBlock | undefined {

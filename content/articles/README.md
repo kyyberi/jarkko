@@ -10,6 +10,7 @@ title: Your article title
 date: 2026-07-19
 category: Data products
 summary: One short sentence for article listings and RSS.
+status: draft
 ---
 
 First paragraph.
@@ -19,11 +20,21 @@ First paragraph.
 Second paragraph.
 ```
 
-That file becomes:
+Published files become:
 
 ```text
 /insights/articles/your-article-title/
 ```
+
+Use `status` to control publishing:
+
+```text
+status: draft      # private working draft
+status: ready      # reviewed, still private
+status: published  # public on the site, RSS, sitemap, and article route
+```
+
+Only `status: published` appears publicly.
 
 Use this helper to create a draft file:
 
@@ -51,6 +62,14 @@ npm run import:pdf-article -- "/path/to/article.pdf" \
 ```
 
 The PDF importer creates a Markdown draft. Review it before publishing because PDF text extraction may include broken line joins or source-site chrome.
+
+PDF imports always include:
+
+```md
+status: draft
+```
+
+Change to `status: ready` while reviewing if useful. Change to `status: published` only when publishing.
 
 ## Article Images
 

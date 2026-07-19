@@ -3,6 +3,7 @@ title: The SDK is not the lock-in
 date: 2026-07-11
 category: Standards
 summary: A good SDK should make a standard easier to adopt without trapping teams in one vendor, tool, or workflow.
+status: published
 ---
 
 The purpose of an SDK is to reduce adoption friction, not to become the center of gravity.

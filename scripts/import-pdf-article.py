@@ -75,6 +75,7 @@ def main() -> int:
         iso_date=args.date,
         category=args.category,
         summary=summary,
+        status="draft",
         body=body,
         image_names=image_names,
     )
@@ -225,6 +226,7 @@ def render_markdown(
     iso_date: str,
     category: str,
     summary: str,
+    status: str,
     body: list[str],
     image_names: list[str],
 ) -> str:
@@ -234,6 +236,7 @@ def render_markdown(
         f"date: {iso_date}",
         f"category: {category}",
         f"summary: {summary}",
+        f"status: {status}",
         "---",
     ]
     sections = ["\n".join(frontmatter), *body]

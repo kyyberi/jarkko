@@ -3,6 +3,7 @@ title: The operating system for data and AI products
 date: 2026-07-18
 category: Strategy
 summary: Why data and AI initiatives need an operating system that joins strategy, standards, software, governance, and delivery.
+status: published
 ---
 
 Most organizations do not fail at AI because they lack ideas. They fail because the path from intent to trusted product is fragmented.

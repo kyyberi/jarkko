@@ -3,6 +3,7 @@ title: Agent-ready data products need more than metadata
 date: 2026-06-27
 category: Data products
 summary: Agents need product definitions, trust signals, constraints, ownership, and context, not only technical metadata.
+status: published
 ---
 
 Metadata tells a system what exists. It does not always explain whether a product can be trusted, how it should be used, who owns it, or what decisions it supports.
