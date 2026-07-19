@@ -31,6 +31,27 @@ Use this helper to create a draft file:
 npm run new:article -- "Your article title"
 ```
 
+To create a draft from a PDF export:
+
+```bash
+npm run import:pdf-article -- "/path/to/article.pdf" \
+  --title "Article title" \
+  --date 2026-07-19 \
+  --category "Data products" \
+  --summary "One short sentence for listings and RSS."
+```
+
+You can also copy supplied illustrations while creating the draft:
+
+```bash
+npm run import:pdf-article -- "/path/to/article.pdf" \
+  --title "Article title" \
+  --image "/path/to/illustration-1.png" \
+  --image "/path/to/illustration-2.png"
+```
+
+The PDF importer creates a Markdown draft. Review it before publishing because PDF text extraction may include broken line joins or source-site chrome.
+
 ## Article Images
 
 Put article illustrations in:
