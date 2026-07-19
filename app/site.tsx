@@ -1,3 +1,5 @@
+import { MobileNav } from "./mobile-nav";
+
 export function Arrow() {
   return <span aria-hidden="true">{"->"}</span>;
 }
@@ -92,6 +94,7 @@ export function Header() {
         <a href={sitePath("/#about")}>About</a>
         <a href={sitePath("/#contact")}>Contact</a>
       </nav>
+      <MobileNav />
     </header>
   );
 }

@@ -53,6 +53,10 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /gtag\('config', 'G-KZ5N2GTKF5'\)/);
   assert.match(html, /Building the operating system for[\s\S]*data and AI products/);
   assert.match(html, /Jarkko Moilanen, PhD/);
+  assert.match(html, /aria-label="Open navigation menu"/);
+  assert.match(html, /id="mobile-navigation"/);
+  assert.match(html, /aria-label="Mobile primary"/);
+  assert.match(html, /href="\/insights\/articles"/);
   assert.match(html, /Three areas\. One professional body of work\./);
   assert.match(html, /Built in public, tested in practice\./);
   assert.match(html, /Writing, books, and courses from the work itself\./);
