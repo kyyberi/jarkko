@@ -668,7 +668,6 @@ h1 {
 .article-body {
   max-width: 920px;
   margin: 58px var(--pad) 76px;
-  border-top: 1px solid var(--ink);
 }
 
 .article-body p {
