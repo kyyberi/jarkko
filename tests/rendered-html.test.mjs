@@ -133,7 +133,13 @@ test("highlights article closing CTAs", async () => {
 
   const html = await response.text();
   assert.match(html, /class="article-cta"/);
+  assert.match(html, /class="article-signoff"/);
+  assert.match(html, /\/images\/jarkko-signature\.png/);
+  assert.match(html, /Signature of Dr\. Jarkko Moilanen/);
+  assert.match(html, /Dr\. Jarkko Moilanen/);
   assert.match(html, /Get in touch if you need help/);
+  assert.match(html, /https:\/\/www\.linkedin\.com\/in\/jarkkomoilanen\//);
+  assert.match(html, /Connect on LinkedIn/);
   assert.doesNotMatch(html, /Contact Jarkko/);
 });
 

@@ -678,16 +678,61 @@ h1 {
   line-height: 1.58;
 }
 
+.article-ending {
+  margin: 46px 0 0;
+}
+
+.article-signoff {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  margin: 0 0 28px;
+}
+
+.article-signoff img {
+  display: block;
+  width: min(250px, 62vw);
+  height: auto;
+}
+
+.article-signoff span {
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
 .article-body .article-cta {
-  margin: 44px 0 0;
+  display: grid;
+  gap: 18px;
+  margin: 0;
   padding: 26px 28px 28px;
   border: 2px solid var(--ink);
   background: var(--accent);
   color: var(--paper);
+}
+
+.article-body .article-cta p {
+  margin: 0;
   font-family: var(--body);
   font-size: clamp(17px, 1.35vw, 20px);
   font-weight: 700;
   line-height: 1.45;
+}
+
+.article-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .article-body h2,

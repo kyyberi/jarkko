@@ -72,6 +72,7 @@ export default async function ArticleDetail({ params }: PageProps) {
       block.type === "paragraph" ? index : lastParagraphIndex,
     -1,
   );
+  const linkedInProfileUrl = "https://www.linkedin.com/in/jarkkomoilanen/";
 
   return (
     <PageShell>
@@ -116,13 +117,24 @@ export default async function ArticleDetail({ params }: PageProps) {
               ) : (
                 <h3 key={block.text}>{block.text}</h3>
               )
+            ) : index === ctaBlockIndex ? (
+              <div className="article-ending" key={block.text}>
+                <div className="article-signoff" aria-label="Article author">
+                  <img
+                    src={sitePath("/images/jarkko-signature.png")}
+                    alt="Signature of Dr. Jarkko Moilanen"
+                  />
+                  <span>Dr. Jarkko Moilanen</span>
+                </div>
+                <aside className="article-cta" aria-label="Article call to action">
+                  <p>{block.text}</p>
+                  <a href={linkedInProfileUrl} rel="noreferrer" target="_blank">
+                    Connect on LinkedIn <Arrow />
+                  </a>
+                </aside>
+              </div>
             ) : (
-              <p
-                className={index === ctaBlockIndex ? "article-cta" : undefined}
-                key={block.text}
-              >
-                {block.text}
-              </p>
+              <p key={block.text}>{block.text}</p>
             )
           ))}
         </div>
