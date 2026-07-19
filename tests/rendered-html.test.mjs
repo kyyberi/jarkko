@@ -106,6 +106,19 @@ test("server-renders article pages", async () => {
   assert.match(html, /Related thinking/);
 });
 
+test("server-renders insights index with the editorial header background", async () => {
+  const [response, css] = await Promise.all([
+    render("/insights/articles"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /class="detail-hero editorial insights-hero"/);
+  assert.match(html, /Writing from the work itself/);
+  assert.match(css, /\/images\/insights-header-bg\.webp/);
+});
+
 test("highlights article closing CTAs", async () => {
   const response = await render(
     "/insights/articles/golden-data-product-portfolio",

@@ -27,7 +27,7 @@ export default function ArticlesIndex() {
 
   return (
     <PageShell>
-      <section className="detail-hero editorial">
+      <section className="detail-hero editorial insights-hero">
         <div>
           <div className="section-kicker">Insights</div>
           <h1>Writing from the work itself.</h1>
