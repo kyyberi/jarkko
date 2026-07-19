@@ -616,6 +616,27 @@ h1 {
   line-height: 1.55;
 }
 
+.article-figure {
+  margin: 34px 0;
+  padding: 0 0 28px;
+  border-bottom: 1px solid var(--line);
+}
+
+.article-figure img {
+  display: block;
+  width: 100%;
+  border: 2px solid var(--ink);
+  background: var(--white);
+}
+
+.article-figure figcaption {
+  max-width: 760px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 .section-head.compact {
   margin-bottom: 34px;
 }

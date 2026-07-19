@@ -75,8 +75,15 @@ export default async function ArticleDetail({ params }: PageProps) {
         <h1>{article.title}</h1>
         <p className="article-summary">{article.summary}</p>
         <div className="article-body">
-          {article.body.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
+          {article.body.map((block) => (
+            block.type === "image" ? (
+              <figure className="article-figure" key={block.src}>
+                <img src={block.src} alt={block.alt} />
+                {block.caption ? <figcaption>{block.caption}</figcaption> : null}
+              </figure>
+            ) : (
+              <p key={block.text}>{block.text}</p>
+            )
           ))}
         </div>
       </article>

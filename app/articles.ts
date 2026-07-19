@@ -1,5 +1,17 @@
-import { readFileSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+
+export type ArticleBlock =
+  | {
+      type: "paragraph";
+      text: string;
+    }
+  | {
+      type: "image";
+      src: string;
+      alt: string;
+      caption?: string;
+    };
 
 export type Article = {
   slug: string;
@@ -8,7 +20,7 @@ export type Article = {
   title: string;
   category: string;
   summary: string;
-  body: string[];
+  body: ArticleBlock[];
 };
 
 const articlesDirectory = join(process.cwd(), "content", "articles");
@@ -38,8 +50,8 @@ function parseArticle(slug: string, source: string): Article {
   const body = match[2]
     .trim()
     .split(/\n{2,}/)
-    .map((paragraph) => paragraph.replace(/\s*\n\s*/g, " ").trim())
-    .filter(Boolean);
+    .map((block) => parseBodyBlock(slug, block))
+    .filter((block): block is ArticleBlock => Boolean(block));
 
   const title = requireField(frontmatter, "title", slug);
   const isoDate = requireField(frontmatter, "date", slug);
@@ -59,6 +71,43 @@ function parseArticle(slug: string, source: string): Article {
     summary,
     body,
   };
+}
+
+function parseBodyBlock(slug: string, block: string): ArticleBlock | undefined {
+  const trimmed = block.trim();
+  if (!trimmed) return undefined;
+
+  const image = trimmed.match(/^!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]+)")?\)$/);
+  if (image) {
+    return {
+      type: "image",
+      alt: image[1].trim(),
+      src: resolveImageSrc(slug, image[2].trim()),
+      caption: image[3]?.trim(),
+    };
+  }
+
+  return {
+    type: "paragraph",
+    text: trimmed.replace(/\s*\n\s*/g, " ").trim(),
+  };
+}
+
+function resolveImageSrc(slug: string, source: string) {
+  if (/^https?:\/\//.test(source)) return source;
+
+  const src = source.startsWith("/")
+    ? source
+    : `/images/articles/${slug}/${source.replace(/^\.\//, "")}`;
+
+  const publicPath = join(process.cwd(), "public", src.replace(/^\//, ""));
+  if (!existsSync(publicPath)) {
+    throw new Error(
+      `Article ${slug} references missing image ${src}. Place it in public/images/articles/${slug}/.`,
+    );
+  }
+
+  return src;
 }
 
 function parseFrontmatter(source: string): Record<string, string> {

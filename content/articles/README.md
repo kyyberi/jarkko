@@ -14,6 +14,8 @@ summary: One short sentence for article listings and RSS.
 
 First paragraph.
 
+![Useful illustration alt text](image-file.png "Optional caption")
+
 Second paragraph.
 ```
 
@@ -28,6 +30,34 @@ Use this helper to create a draft file:
 ```bash
 npm run new:article -- "Your article title"
 ```
+
+## Article Images
+
+Put article illustrations in:
+
+```text
+public/images/articles/<article-slug>/
+```
+
+Inside the Markdown file, either reference the full site path:
+
+```md
+![Portfolio flow](/images/articles/my-article/portfolio-flow.png "Portfolio flow from strategy to products")
+```
+
+Or reference only the filename:
+
+```md
+![Portfolio flow](portfolio-flow.png "Portfolio flow from strategy to products")
+```
+
+Filename-only image paths are resolved to:
+
+```text
+/images/articles/<article-slug>/portfolio-flow.png
+```
+
+The build fails if a local article image is referenced but missing.
 
 Before pushing, run:
 
