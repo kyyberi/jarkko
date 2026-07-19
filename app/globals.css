@@ -300,8 +300,8 @@ h1 {
 }
 
 .uae-flag {
-  flex: 0 0 76px;
-  width: 76px;
+  flex: 0 0 104px;
+  width: 104px;
   min-height: 100%;
   border: 1px solid var(--ink);
   border-left: 0;
@@ -1695,8 +1695,8 @@ h1 {
   }
 
   .uae-flag {
-    flex-basis: 62px;
-    width: 62px;
+    flex-basis: 82px;
+    width: 82px;
   }
 
   .credibility-band {
