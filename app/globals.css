@@ -749,9 +749,42 @@ h1 {
 }
 
 .article-signoff span {
+  margin-left: min(34px, 8vw);
   font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.04em;
+}
+
+.article-ending-share {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 24px min(34px, 8vw);
+}
+
+.article-ending-share span,
+.article-ending-share a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--ink);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-ending-share span {
+  border-color: transparent;
+  padding-left: 0;
+  color: var(--muted);
+}
+
+.article-ending-share a {
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .article-body .article-cta {

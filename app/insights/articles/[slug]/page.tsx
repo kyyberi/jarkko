@@ -133,6 +133,23 @@ export default async function ArticleDetail({ params }: PageProps) {
                   />
                   <span>Dr. Jarkko Moilanen</span>
                 </div>
+                <div className="article-ending-share" aria-label="Share this article">
+                  <span>Share this article</span>
+                  <a
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedArticleUrl}`}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    LinkedIn
+                  </a>
+                  <a
+                    href={`https://twitter.com/intent/tweet?url=${encodedArticleUrl}&text=${encodedShareText}`}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    X
+                  </a>
+                </div>
                 <aside className="article-cta" aria-label="Article call to action">
                   <p>{block.text}</p>
                   <a href={linkedInProfileUrl} rel="noreferrer" target="_blank">
