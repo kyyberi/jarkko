@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getArticle, getArticles } from "../../../articles";
-import { canonicalPath, DEFAULT_OG_IMAGE } from "../../../seo";
+import { absoluteUrl, canonicalPath, DEFAULT_OG_IMAGE } from "../../../seo";
 import { Arrow, PageShell, sitePath } from "../../../site";
 
 type PageProps = {
@@ -64,6 +64,9 @@ export default async function ArticleDetail({ params }: PageProps) {
   const related = getArticles().filter(
     (candidate) => candidate.slug !== article.slug,
   );
+  const articleUrl = absoluteUrl(canonicalPath(`/insights/articles/${article.slug}`));
+  const encodedArticleUrl = encodeURIComponent(articleUrl);
+  const encodedShareText = encodeURIComponent(`${article.title} | Jarkko Moilanen`);
   const ctaBlockIndex = article.body.reduce(
     (lastParagraphIndex, block, index) =>
       block.type === "paragraph" ? index : lastParagraphIndex,
@@ -73,12 +76,33 @@ export default async function ArticleDetail({ params }: PageProps) {
   return (
     <PageShell>
       <article className="article-detail">
-        <div className="article-meta">
-          <span>{article.date}</span>
-          <span>{article.category}</span>
-        </div>
-        <h1>{article.title}</h1>
-        <p className="article-summary">{article.summary}</p>
+        <header className="article-header">
+          <div>
+            <div className="article-meta">
+              <span>{article.date}</span>
+              <span>{article.category}</span>
+            </div>
+            <h1>{article.title}</h1>
+            <p className="article-summary">{article.summary}</p>
+            <div className="article-share" aria-label="Share this article">
+              <span>Share</span>
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodedArticleUrl}`}
+                rel="noreferrer"
+                target="_blank"
+              >
+                LinkedIn
+              </a>
+              <a
+                href={`https://twitter.com/intent/tweet?url=${encodedArticleUrl}&text=${encodedShareText}`}
+                rel="noreferrer"
+                target="_blank"
+              >
+                X
+              </a>
+            </div>
+          </div>
+        </header>
         <div className="article-body">
           {article.body.map((block, index) => (
             block.type === "image" ? (

@@ -86,9 +86,10 @@ test("server-renders work detail pages", async () => {
 });
 
 test("server-renders article pages", async () => {
-  const response = await render(
-    "/insights/articles/operating-system-data-ai-products",
-  );
+  const [response, css] = await Promise.all([
+    render("/insights/articles/operating-system-data-ai-products"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
   assert.equal(response.status, 200);
 
   const html = await response.text();
@@ -103,6 +104,11 @@ test("server-renders article pages", async () => {
     /<meta property="article:published_time" content="2026-07-18T00:00:00.000Z"/,
   );
   assert.match(html, /Most organizations do not fail at AI because they lack ideas/);
+  assert.match(html, /class="article-header"/);
+  assert.match(html, /Share/);
+  assert.match(html, /https:\/\/www\.linkedin\.com\/sharing\/share-offsite\/\?url=/);
+  assert.match(html, /https:\/\/twitter\.com\/intent\/tweet\?url=/);
+  assert.match(css, /\/images\/article-header-bg\.webp/);
   assert.match(html, /Related thinking/);
 });
 
