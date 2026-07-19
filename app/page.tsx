@@ -55,7 +55,7 @@ export default function Home() {
             />
             <div className="hero-portrait-label">
               Data product pioneer, standards maintainer, builder, author, and
-              educator.
+              educator from Finland, based in Abu Dhabi, UAE since 2022.
             </div>
           </div>
         </section>
