@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import {
   DEFAULT_DESCRIPTION,
@@ -10,6 +11,7 @@ import {
 } from "./seo";
 
 const assetPath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const googleAnalyticsId = "G-KZ5N2GTKF5";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -77,6 +79,18 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}');
+          `}
+        </Script>
         {children}
       </body>
     </html>

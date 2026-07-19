@@ -41,6 +41,8 @@ test("server-renders the professional homepage", async () => {
   );
   assert.match(html, /<meta name="twitter:card" content="summary_large_image"/);
   assert.match(html, /<link rel="alternate" type="application\/rss\+xml" href="https:\/\/jarkkomoilanen\.com\/rss\.xml"/);
+  assert.match(html, /googletagmanager\.com\/gtag\/js\?id=G-KZ5N2GTKF5/);
+  assert.match(html, /gtag\('config', 'G-KZ5N2GTKF5'\)/);
   assert.match(html, /Building the operating system for[\s\S]*data and AI products/);
   assert.match(html, /Jarkko Moilanen, PhD/);
   assert.match(html, /Three areas\. One professional body of work\./);
