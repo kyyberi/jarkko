@@ -213,7 +213,7 @@ export default function Home() {
           <div className="cta-main">
             <small>Selective availability</small>
             <h2>Bring me the problem that needs senior attention.</h2>
-            <a href="mailto:jarkko@jarkkomoilanen.com">
+            <a href="https://www.linkedin.com/in/jarkkomoilanen/">
               Discuss an engagement <Arrow />
             </a>
           </div>
