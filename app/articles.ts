@@ -7,6 +7,11 @@ export type ArticleBlock =
       text: string;
     }
   | {
+      type: "heading";
+      level: 2 | 3;
+      text: string;
+    }
+  | {
       type: "image";
       src: string;
       alt: string;
@@ -105,6 +110,15 @@ function parseBodyBlock(slug: string, block: string): ArticleBlock | undefined {
       alt: image[1].trim(),
       src: resolveImageSrc(slug, image[2].trim()),
       caption: image[3]?.trim(),
+    };
+  }
+
+  const heading = trimmed.match(/^(#{2,3})\s+(.+)$/);
+  if (heading) {
+    return {
+      type: "heading",
+      level: heading[1].length as 2 | 3,
+      text: heading[2].trim(),
     };
   }
 

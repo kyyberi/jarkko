@@ -81,6 +81,12 @@ export default async function ArticleDetail({ params }: PageProps) {
                 <img src={block.src} alt={block.alt} />
                 {block.caption ? <figcaption>{block.caption}</figcaption> : null}
               </figure>
+            ) : block.type === "heading" ? (
+              block.level === 2 ? (
+                <h2 key={block.text}>{block.text}</h2>
+              ) : (
+                <h3 key={block.text}>{block.text}</h3>
+              )
             ) : (
               <p key={block.text}>{block.text}</p>
             )

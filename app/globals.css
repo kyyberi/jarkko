@@ -616,6 +616,33 @@ h1 {
   line-height: 1.55;
 }
 
+.article-body h2,
+.article-body h3 {
+  margin: 56px 0 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--ink);
+  font-family: var(--display);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.article-body h2 {
+  max-width: 840px;
+  font-size: clamp(32px, 4vw, 56px);
+}
+
+.article-body h3 {
+  max-width: 720px;
+  font-size: clamp(25px, 3vw, 38px);
+}
+
+.article-body h2 + p,
+.article-body h3 + p {
+  margin-top: 18px;
+}
+
 .article-figure {
   margin: 34px 0;
   padding: 0 0 28px;

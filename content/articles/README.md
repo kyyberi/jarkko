@@ -15,6 +15,10 @@ status: draft
 
 First paragraph.
 
+## Section heading
+
+Section paragraph.
+
 ![Useful illustration alt text](image-file.png "Optional caption")
 
 Second paragraph.
