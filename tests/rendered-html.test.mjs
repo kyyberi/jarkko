@@ -287,6 +287,7 @@ test("server-renders article pages", async () => {
   assert.match(html, /https:\/\/www\.linkedin\.com\/sharing\/share-offsite\/\?url=/);
   assert.match(html, /https:\/\/twitter\.com\/intent\/tweet\?url=/);
   assert.match(css, /\/images\/article-header-bg\.webp/);
+  assert.match(css, /\.article-image-button\s*\{[^}]*width:\s*min\(90%, 100%\)/);
   assert.match(css, /\.article-image-modal\s*\{[^}]*backdrop-filter:\s*blur\(8px\)/);
   assert.doesNotMatch(css, /\.article-figure img\s*\{[^}]*border:\s*2px solid var\(--ink\)/);
   assert.match(html, /Related insights/);

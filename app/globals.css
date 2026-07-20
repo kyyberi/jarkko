@@ -1260,7 +1260,8 @@ h1 {
 
 .article-image-button {
   display: block;
-  width: 100%;
+  width: min(90%, 100%);
+  margin-inline: auto;
   padding: 0;
   border: 1px solid rgba(23, 23, 23, 0.16);
   border-radius: 6px;
