@@ -23,6 +23,12 @@ export const workItems = [
     cta: "See how it works",
     detailCta: "Book a demo",
     ctaHref: "https://www.linkedin.com/in/jarkkomoilanen/",
+    externalLinks: [
+      {
+        label: "Maysano",
+        href: "https://maysano.com",
+      },
+    ],
     diagramSteps: ["Business goals", "Portfolio", "Data products"],
     diagramCaption: "From business intent to governed product systems.",
     focus:
@@ -76,6 +82,16 @@ export const workItems = [
     image: "/images/work-odps.png",
     imageAlt: "Open Data Product Specification family maintained under Linux Foundation",
     cta: "Explore the standard",
+    externalLinks: [
+      {
+        label: "Open Data Product Specification",
+        href: "https://opendataproducts.org",
+      },
+      {
+        label: "SDK",
+        href: "https://opendataproducts.org/sdk",
+      },
+    ],
     focus:
       "The Open Data Product Specification family gives organizations a shared, machine-readable foundation for defining, governing, exchanging, and implementing data products across platforms and teams.",
     detailIntro:

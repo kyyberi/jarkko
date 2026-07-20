@@ -566,6 +566,22 @@ h1 {
   line-height: 1.35;
 }
 
+.detail-hero p a,
+.detail-section p a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.14em;
+}
+
+.detail-hero p a:hover,
+.detail-hero p a:focus-visible,
+.detail-section p a:hover,
+.detail-section p a:focus-visible {
+  color: var(--accent);
+}
+
 .detail-visual {
   overflow: hidden;
   border: 2px solid var(--ink);

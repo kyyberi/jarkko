@@ -162,6 +162,8 @@ test("server-renders work detail pages", async () => {
   );
   assert.match(html, /OPEN STANDARD AND SDK/i);
   assert.match(html, /shared, machine-readable foundation for defining, governing, exchanging, and implementing data products/);
+  assert.match(html, /href="https:\/\/opendataproducts\.org"/);
+  assert.match(html, /href="https:\/\/opendataproducts\.org\/sdk"/);
   assert.match(html, /An open standard and toolkit for governed, interoperable, agent-ready data products/);
   assert.match(html, /people, platforms, automation, and AI agents interpret data products consistently/);
   assert.match(html, /Open standard/);
@@ -174,7 +176,7 @@ test("server-renders work detail pages", async () => {
   assert.match(html, /Open implementation paths/);
   assert.match(html, /Governed products/);
   assert.match(html, /Adoption and implementation/i);
-  assert.match(html, /I founded and continue to lead the Open Data Product Specification family/);
+  assert.match(html, /I founded and continue to lead the[\s\S]*Open Data Product Specification[\s\S]*family/);
   assert.match(html, /Enterprise adoption/);
   assert.match(html, /BASF, Alation, and Kruger/);
   assert.match(html, /Platform integration/);
@@ -192,8 +194,9 @@ test("server-renders the Maysano work page as a real platform", async () => {
 
   const html = await response.text();
   assert.match(html, /PLATFORM AND PORTFOLIO STUDIO/i);
-  assert.match(html, /Maysano is an available platform and Portfolio Studio/);
-  assert.match(html, /I was the igniter behind Maysano/);
+  assert.match(html, /Maysano[\s\S]*is an available platform and Portfolio Studio/);
+  assert.match(html, /href="https:\/\/maysano\.com"/);
+  assert.match(html, /I was the igniter behind[\s\S]*Maysano/);
   assert.match(html, /Book a demo/);
   assert.match(html, /https:\/\/www\.linkedin\.com\/in\/jarkkomoilanen\//);
   assert.match(html, /Business goals/);
