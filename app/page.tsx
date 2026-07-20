@@ -50,7 +50,7 @@ export default function Home() {
 
           <div className="hero-portrait">
             <img
-              src={`${assetPath}/images/jarkko-moilanen-portrait.jpeg`}
+              src={`${assetPath}/images/jarkko-hero-abudhabi-2026.jpeg`}
               alt="Portrait of Jarkko Moilanen"
             />
             <div className="hero-portrait-badge">
