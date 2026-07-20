@@ -281,11 +281,14 @@ test("server-renders article pages", async () => {
   assert.match(html, /AI agents do not remove the need for governance/);
   assert.match(html, /fragmented-to-governed-operations\.png/);
   assert.match(html, /catalog-to-operating-workspace\.png/);
+  assert.match(html, /class="article-image-button"/);
   assert.match(html, /class="article-header"/);
   assert.match(html, /Share/);
   assert.match(html, /https:\/\/www\.linkedin\.com\/sharing\/share-offsite\/\?url=/);
   assert.match(html, /https:\/\/twitter\.com\/intent\/tweet\?url=/);
   assert.match(css, /\/images\/article-header-bg\.webp/);
+  assert.match(css, /\.article-image-modal\s*\{[^}]*backdrop-filter:\s*blur\(8px\)/);
+  assert.doesNotMatch(css, /\.article-figure img\s*\{[^}]*border:\s*2px solid var\(--ink\)/);
   assert.match(html, /Related insights/);
 });
 

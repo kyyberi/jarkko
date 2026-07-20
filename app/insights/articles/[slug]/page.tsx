@@ -8,6 +8,7 @@ import {
   DEFAULT_OG_IMAGE_ALT,
 } from "../../../seo";
 import { Arrow, PageShell, sitePath } from "../../../site";
+import { ArticleImage } from "./article-image";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -141,8 +142,11 @@ export default async function ArticleDetail({ params }: PageProps) {
             {article.body.map((block, index) => (
               block.type === "image" ? (
                 <figure className="article-figure" key={block.src}>
-                  <img src={block.src} alt={block.alt} />
-                  {block.caption ? <figcaption>{block.caption}</figcaption> : null}
+                  <ArticleImage
+                    alt={block.alt}
+                    caption={block.caption}
+                    src={block.src}
+                  />
                 </figure>
               ) : block.type === "heading" ? (
                 block.level === 2 ? (
