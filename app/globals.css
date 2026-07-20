@@ -1631,6 +1631,14 @@ h1 {
   line-height: 1.45;
 }
 
+.cta-side .cta-company {
+  margin-top: 24px;
+  color: rgba(255, 253, 248, 0.72);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
 .location {
   margin-top: 40px;
   color: #c58b7e;
@@ -1672,10 +1680,17 @@ h1 {
 
 .footer-identity p {
   max-width: 430px;
-  margin: 0 0 26px;
+  margin: 0 0 18px;
   color: rgba(244, 239, 231, 0.72);
   font-size: 15px;
   line-height: 1.55;
+}
+
+.footer-identity .footer-company {
+  margin-bottom: 26px;
+  color: rgba(244, 239, 231, 0.62);
+  font-size: 13px;
+  line-height: 1.6;
 }
 
 .footer-copyright {

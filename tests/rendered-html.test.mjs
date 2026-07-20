@@ -80,6 +80,10 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /\/images\/work-odps\.png/);
   assert.match(html, /\/images\/work-abudhabi\.png/);
   assert.match(html, /Data product pioneer, standards maintainer[\s\S]*from Finland, based in Abu Dhabi, UAE since 2022/);
+  assert.match(html, /Owner of company in UAE, Data Maestro Academy FZE LLC/);
+  assert.match(html, /Business-ID: 262443655888/);
+  assert.match(html, /Amber Gem Tower, 26th Floor, Ajman/);
+  assert.match(html, /United Arab Emirates/);
   assert.match(html, /Udemy courses/);
   assert.match(html, /https:\/\/www\.udemy\.com\/user\/jarkko-moilanen\//);
   assert.match(html, /\/images\/logo-udemy\.png/);
@@ -88,6 +92,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /\/images\/logo-amazon\.png/);
   assert.match(html, /Discuss an engagement/);
   assert.match(html, /aria-label="Contact channels"/);
+  assert.match(html, /International advisory, workshop, and review engagements can be[\s\S]*billed through Data Maestro Academy FZE LLC in the UAE/);
   assert.match(html, /Contact in LinkedIn/);
   assert.match(html, /https:\/\/www\.linkedin\.com\/in\/jarkkomoilanen\//);
   assert.match(html, /Send a WhatsApp message/);

@@ -248,6 +248,15 @@ export function Footer() {
           Data product pioneer, standards maintainer, builder, author, and
           educator from Finland, based in Abu Dhabi, UAE since 2022.
         </p>
+        <p className="footer-company">
+          Owner of company in UAE, Data Maestro Academy FZE LLC
+          <br />
+          Business-ID: 262443655888
+          <br />
+          Amber Gem Tower, 26th Floor, Ajman
+          <br />
+          United Arab Emirates
+        </p>
         <span className="footer-copyright">© 2026 Jarkko Moilanen, PhD</span>
       </div>
       <nav className="footer-column footer-nav" aria-label="Footer navigation">

@@ -232,6 +232,10 @@ export default function Home() {
               portfolio reviews, architecture reviews, and clearly scoped
               strategic assignments.
             </p>
+            <p className="cta-company">
+              International advisory, workshop, and review engagements can be
+              billed through Data Maestro Academy FZE LLC in the UAE.
+            </p>
             <div className="location">Abu Dhabi, UAE</div>
           </div>
         </section>
