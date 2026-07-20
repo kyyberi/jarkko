@@ -46,8 +46,11 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: `${assetPath}/favicon.svg`,
-    shortcut: `${assetPath}/favicon.svg`,
+    icon: [
+      { url: `${assetPath}/favicon.ico`, sizes: "any" },
+      { url: `${assetPath}/favicon.svg`, type: "image/svg+xml" },
+    ],
+    shortcut: `${assetPath}/favicon.ico`,
   },
   openGraph: {
     title: DEFAULT_TITLE,
