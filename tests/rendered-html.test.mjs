@@ -91,6 +91,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /https:\/\/us\.amazon\.com\/stores\/Jarkko-Moilanen\/author\/B0B66HTHLM/);
   assert.match(html, /\/images\/logo-amazon\.png/);
   assert.match(html, /Discuss an engagement/);
+  assert.doesNotMatch(html, /Discuss an engagement\s*<span aria-hidden="true">-&gt;<\/span>/);
   assert.match(html, /aria-label="Contact channels"/);
   assert.match(html, /International advisory, workshop, and review engagements can be[\s\S]*billed through Data Maestro Academy FZE LLC in the UAE/);
   assert.match(html, /Contact in LinkedIn/);
