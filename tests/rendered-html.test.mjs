@@ -99,7 +99,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Open Data Product standards under the Linux Foundation/);
   assert.doesNotMatch(css, /font-family:\s*Georgia/);
   assert.doesNotMatch(css, /\.footer-proof li\s*\{[^}]*font-family:\s*var\(--serif\)/);
-  assert.match(html, /\/images\/jarkko-moilanen-portrait\.jpeg/);
+  assert.match(html, /\/images\/jarkko-hero-abudhabi-2026\.jpeg/);
   assert.doesNotMatch(html, /class="ticker"|ticker-inner|marquee/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
@@ -117,7 +117,7 @@ test("server-renders the about page", async () => {
   assert.match(html, /class="about-hero"/);
   assert.match(html, /Building operating systems/);
   assert.match(html, /for data and AI products/);
-  assert.match(html, /\/images\/jarkko-moilanen-portrait\.jpeg/);
+  assert.match(html, /\/images\/jarkko-hero-abudhabi-2026\.jpeg/);
   assert.match(html, /Whole-of-government data and AI products/);
   assert.match(html, /Abu Dhabi Government&#x27;s Data Factory/);
   assert.match(html, /measurable public value/);
