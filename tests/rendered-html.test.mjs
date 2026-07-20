@@ -87,7 +87,12 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /https:\/\/us\.amazon\.com\/stores\/Jarkko-Moilanen\/author\/B0B66HTHLM/);
   assert.match(html, /\/images\/logo-amazon\.png/);
   assert.match(html, /Discuss an engagement/);
+  assert.match(html, /aria-label="Contact channels"/);
+  assert.match(html, /Contact in LinkedIn/);
   assert.match(html, /https:\/\/www\.linkedin\.com\/in\/jarkkomoilanen\//);
+  assert.match(html, /Send a WhatsApp message/);
+  assert.match(html, /https:\/\/wa\.me\/971509718065/);
+  assert.doesNotMatch(html, /\+971509718065/);
   assert.match(html, /aria-label="Footer navigation"/);
   assert.match(html, /Proof and links/);
   assert.match(html, /2\.5M\+ users served through national infrastructure/);

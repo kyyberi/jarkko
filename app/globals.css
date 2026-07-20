@@ -1509,11 +1509,29 @@ h1 {
   text-transform: uppercase;
 }
 
-.cta-main a {
-  display: inline-block;
+.cta-lead {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding-bottom: 6px;
   border-bottom: 3px solid var(--ink);
   font-weight: 900;
+}
+
+.cta-channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 22px;
+  margin-top: 22px;
+}
+
+.cta-channels a {
+  display: inline-block;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .cta-side {

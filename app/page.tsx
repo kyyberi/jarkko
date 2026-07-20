@@ -216,9 +216,15 @@ export default function Home() {
           <div className="cta-main">
             <small>Selective availability</small>
             <h2>Bring me the problem that needs senior attention.</h2>
-            <a href="https://www.linkedin.com/in/jarkkomoilanen/">
-              Discuss an engagement <Arrow />
-            </a>
+            <div className="cta-lead">Discuss an engagement <Arrow /></div>
+            <div className="cta-channels" aria-label="Contact channels">
+              <a href="https://www.linkedin.com/in/jarkkomoilanen/">
+                Contact in LinkedIn <Arrow />
+              </a>
+              <a href="https://wa.me/971509718065">
+                Send a WhatsApp message <Arrow />
+              </a>
+            </div>
           </div>
           <div className="cta-side">
             <p>
