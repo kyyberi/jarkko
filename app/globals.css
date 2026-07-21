@@ -172,17 +172,17 @@ a {
   z-index: -1;
   background:
     linear-gradient(
-      45deg,
+      100deg,
       rgba(243, 240, 233, 0) 0%,
-      rgba(255, 253, 248, 0.86) 28%,
-      rgba(139, 63, 50, 0.24) 48%,
-      rgba(255, 253, 248, 0.76) 66%,
+      rgba(255, 253, 248, 0.54) 30%,
+      rgba(139, 63, 50, 0.095) 50%,
+      rgba(255, 253, 248, 0.46) 68%,
       rgba(243, 240, 233, 0) 100%
     );
-  background-size: 220% 220%;
-  background-position: 0% 100%;
-  opacity: 0.94;
-  animation: hero-gradient-wave 14s ease-in-out infinite;
+  background-size: 240% 100%;
+  background-position: 100% 50%;
+  opacity: 0.52;
+  animation: hero-gradient-emerge-slide 22s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -190,14 +190,26 @@ a {
   position: relative;
 }
 
-@keyframes hero-gradient-wave {
+@keyframes hero-gradient-emerge-slide {
   0% {
-    background-position: 0% 100%;
+    background-position: 100% 50%;
+    opacity: 0;
   }
 
-  29%,
+  20% {
+    background-position: 86% 50%;
+    opacity: 0.52;
+  }
+
+  70% {
+    background-position: 18% 50%;
+    opacity: 0.52;
+  }
+
+  88%,
   100% {
-    background-position: 100% 0%;
+    background-position: 0% 50%;
+    opacity: 0;
   }
 }
 
