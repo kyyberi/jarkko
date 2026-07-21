@@ -200,6 +200,16 @@ a {
   }
 }
 
+@keyframes accent-gradient-drift {
+  from {
+    background-position: 0% 50%;
+  }
+
+  to {
+    background-position: 100% 50%;
+  }
+}
+
 .eyebrow {
   display: flex;
   align-items: center;
@@ -231,8 +241,23 @@ h1 {
 
 .accent {
   display: inline-block;
+  background:
+    linear-gradient(
+      105deg,
+      #7d342b 0%,
+      var(--accent) 34%,
+      #b65a48 52%,
+      var(--accent) 68%,
+      #713026 100%
+    );
+  background-size: 260% 100%;
+  background-position: 0% 50%;
   color: var(--accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: accent-gradient-drift 8s ease-in-out infinite alternate;
   transform: rotate(-1deg);
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-lede {
@@ -2105,5 +2130,12 @@ h1 {
 
   .hero-copy::before {
     animation: none;
+  }
+
+  .accent {
+    animation: none;
+    background: none;
+    color: var(--accent);
+    -webkit-text-fill-color: currentColor;
   }
 }
