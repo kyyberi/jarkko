@@ -168,13 +168,21 @@ a {
 .hero-copy::before {
   content: "";
   position: absolute;
-  inset: -18% -12%;
+  inset: 0;
   z-index: -1;
-  background-image: url("data:image/svg+xml,%3Csvg width='560' height='180' viewBox='0 0 560 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-20 80C55 30 125 30 200 80S345 130 420 80 565 30 640 80' fill='none' stroke='%238b3f32' stroke-width='1.4' stroke-linecap='round' opacity='.28'/%3E%3Cpath d='M-20 118C55 68 125 68 200 118S345 168 420 118 565 68 640 118' fill='none' stroke='%23171717' stroke-width='1' stroke-linecap='round' opacity='.12'/%3E%3C/svg%3E");
-  background-size: 560px 180px;
-  opacity: 0.34;
-  transform: translate3d(-24px, 0, 0);
-  animation: hero-wave-drift 18s ease-in-out infinite alternate;
+  background:
+    linear-gradient(
+      105deg,
+      rgba(243, 240, 233, 0) 0%,
+      rgba(255, 253, 248, 0.68) 28%,
+      rgba(139, 63, 50, 0.105) 48%,
+      rgba(255, 253, 248, 0.54) 66%,
+      rgba(243, 240, 233, 0) 100%
+    );
+  background-size: 220% 100%;
+  background-position: 0% 50%;
+  opacity: 0.72;
+  animation: hero-gradient-wave 14s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
@@ -182,13 +190,13 @@ a {
   position: relative;
 }
 
-@keyframes hero-wave-drift {
+@keyframes hero-gradient-wave {
   from {
-    transform: translate3d(-34px, -8px, 0);
+    background-position: 0% 50%;
   }
 
   to {
-    transform: translate3d(28px, 10px, 0);
+    background-position: 100% 50%;
   }
 }
 
