@@ -182,7 +182,7 @@ a {
   background-size: 220% 220%;
   background-position: 0% 100%;
   opacity: 0.94;
-  animation: hero-gradient-wave 14s ease-in-out infinite alternate;
+  animation: hero-gradient-wave 14s ease-in-out infinite;
   pointer-events: none;
 }
 
