@@ -191,11 +191,12 @@ a {
 }
 
 @keyframes hero-gradient-wave {
-  from {
+  0% {
     background-position: 0% 100%;
   }
 
-  to {
+  29%,
+  100% {
     background-position: 100% 0%;
   }
 }
