@@ -53,12 +53,17 @@ export default function Home() {
               src={`${assetPath}/images/jarkko-hero-abudhabi-2026.jpeg`}
               alt="Portrait of Jarkko Moilanen"
             />
-            <div className="hero-portrait-badge">
-              <div className="hero-portrait-label">
+            <div className="hero-caption">
+              <div className="hero-caption__text">
                 Data product pioneer, standards maintainer, builder, author,
-                and educator from Finland, based in Abu Dhabi, UAE since 2022.
+                and educator from Finland, based in{" "}
+                <strong>Abu Dhabi, UAE</strong> since 2022.
               </div>
-              <span className="uae-flag" role="img" aria-label="UAE flag" />
+              <img
+                className="hero-caption__flag"
+                src={`${assetPath}/images/uae-flag.svg`}
+                alt="United Arab Emirates flag"
+              />
             </div>
           </div>
         </section>

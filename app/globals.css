@@ -277,42 +277,43 @@ h1 {
   pointer-events: none;
 }
 
-.hero-portrait-badge {
+.hero-caption {
   position: absolute;
-  bottom: 48px;
-  left: 50%;
+  right: clamp(24px, 4vw, 52px);
+  bottom: clamp(36px, 5vw, 64px);
   z-index: 2;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  width: min(430px, calc(100% - 48px));
-  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+  width: fit-content;
+  max-width: min(390px, calc(100% - 48px));
+  padding: 16px 16px 15px 18px;
+  border: 1px solid rgba(255, 253, 248, 0.42);
+  border-radius: 12px;
+  background: rgba(255, 253, 248, 0.88);
+  box-shadow: 0 18px 44px rgba(23, 23, 23, 0.18);
+  backdrop-filter: blur(6px);
 }
 
-.hero-portrait-label {
-  flex: 1 1 auto;
-  max-width: 300px;
-  padding: 12px 14px;
-  border: 1px solid var(--ink);
-  background: rgba(243, 240, 233, 0.92);
-  font-size: 15px;
-  line-height: 1.35;
+.hero-caption__text {
+  color: rgba(23, 23, 23, 0.86);
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: left;
 }
 
-.uae-flag {
-  flex: 0 0 104px;
-  width: 104px;
-  min-height: 100%;
-  border: 1px solid var(--ink);
-  border-left: 0;
-  background:
-    linear-gradient(90deg, #c8102e 0 28%, transparent 28%),
-    linear-gradient(
-      to bottom,
-      #00732f 0 33.333%,
-      #ffffff 33.333% 66.666%,
-      #000000 66.666% 100%
-    );
+.hero-caption__text strong {
+  font-weight: 900;
+}
+
+.hero-caption__flag {
+  display: block;
+  width: 40px;
+  height: 20px;
+  margin-top: 2px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(23, 23, 23, 0.12);
 }
 
 .credibility-band {
@@ -1873,19 +1874,20 @@ h1 {
     border-left: 0;
   }
 
-  .hero-portrait-badge {
-    bottom: 24px;
-    width: min(340px, calc(100% - 32px));
+  .hero-caption {
+    right: 18px;
+    bottom: 28px;
+    max-width: min(330px, calc(100% - 36px));
+    padding: 14px 14px 13px 15px;
   }
 
-  .hero-portrait-label {
-    padding: 10px 12px;
-    font-size: 14px;
+  .hero-caption__text {
+    font-size: 12.5px;
   }
 
-  .uae-flag {
-    flex-basis: 82px;
-    width: 82px;
+  .hero-caption__flag {
+    width: 34px;
+    height: 17px;
   }
 
   .credibility-band {
