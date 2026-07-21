@@ -174,14 +174,14 @@ a {
     linear-gradient(
       105deg,
       rgba(243, 240, 233, 0) 0%,
-      rgba(255, 253, 248, 0.68) 28%,
-      rgba(139, 63, 50, 0.105) 48%,
-      rgba(255, 253, 248, 0.54) 66%,
+      rgba(255, 253, 248, 0.78) 28%,
+      rgba(139, 63, 50, 0.16) 48%,
+      rgba(255, 253, 248, 0.66) 66%,
       rgba(243, 240, 233, 0) 100%
     );
   background-size: 220% 100%;
   background-position: 0% 50%;
-  opacity: 0.72;
+  opacity: 0.84;
   animation: hero-gradient-wave 14s ease-in-out infinite alternate;
   pointer-events: none;
 }
