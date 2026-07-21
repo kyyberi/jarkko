@@ -321,9 +321,9 @@ h1 {
   bottom: clamp(36px, 5vw, 64px);
   z-index: 2;
   width: fit-content;
-  max-width: min(360px, calc(100% - 48px));
+  max-width: min(380px, calc(100% - 48px));
   min-height: 0;
-  padding: 15px 58px 15px 18px;
+  padding: 16px 84px 16px 18px;
   border: 1px solid rgba(255, 253, 248, 0.42);
   border-radius: 12px;
   background: rgba(255, 253, 248, 0.88);
@@ -332,7 +332,7 @@ h1 {
 }
 
 .hero-caption__text {
-  max-width: 284px;
+  max-width: 276px;
   color: rgba(23, 23, 23, 0.86);
   font-size: 13px;
   line-height: 1.45;
@@ -346,10 +346,10 @@ h1 {
 .hero-caption__flag {
   display: block;
   position: absolute;
-  top: 15px;
-  right: 16px;
-  width: 28px;
-  height: 14px;
+  top: 18px;
+  right: 20px;
+  width: 48px;
+  height: 24px;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(23, 23, 23, 0.12);
 }
@@ -1915,20 +1915,20 @@ h1 {
   .hero-caption {
     right: 18px;
     bottom: 28px;
-    max-width: min(318px, calc(100% - 36px));
-    padding: 14px 50px 13px 15px;
+    max-width: min(334px, calc(100% - 36px));
+    padding: 14px 68px 13px 15px;
   }
 
   .hero-caption__text {
-    max-width: 252px;
+    max-width: 236px;
     font-size: 12.5px;
   }
 
   .hero-caption__flag {
-    top: 14px;
-    right: 14px;
-    width: 26px;
-    height: 13px;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 20px;
   }
 
   .credibility-band {
