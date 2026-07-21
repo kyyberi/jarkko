@@ -155,11 +155,41 @@ a {
 }
 
 .hero-copy {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
   padding: clamp(42px, 5.6vw, 78px) var(--pad) 38px;
   border-right: 1px solid var(--ink);
+}
+
+.hero-copy::before {
+  content: "";
+  position: absolute;
+  inset: -18% -12%;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg width='560' height='180' viewBox='0 0 560 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M-20 80C55 30 125 30 200 80S345 130 420 80 565 30 640 80' fill='none' stroke='%238b3f32' stroke-width='1.4' stroke-linecap='round' opacity='.28'/%3E%3Cpath d='M-20 118C55 68 125 68 200 118S345 168 420 118 565 68 640 118' fill='none' stroke='%23171717' stroke-width='1' stroke-linecap='round' opacity='.12'/%3E%3C/svg%3E");
+  background-size: 560px 180px;
+  opacity: 0.34;
+  transform: translate3d(-24px, 0, 0);
+  animation: hero-wave-drift 18s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.hero-copy > * {
+  position: relative;
+}
+
+@keyframes hero-wave-drift {
+  from {
+    transform: translate3d(-34px, -8px, 0);
+  }
+
+  to {
+    transform: translate3d(28px, 10px, 0);
+  }
 }
 
 .eyebrow {
@@ -262,7 +292,7 @@ h1 {
   background: #d7d0c5;
 }
 
-.hero-portrait img {
+.hero-portrait > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -282,13 +312,10 @@ h1 {
   right: clamp(24px, 4vw, 52px);
   bottom: clamp(36px, 5vw, 64px);
   z-index: 2;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 14px;
-  align-items: start;
   width: fit-content;
-  max-width: min(390px, calc(100% - 48px));
-  padding: 16px 16px 15px 18px;
+  max-width: min(360px, calc(100% - 48px));
+  min-height: 0;
+  padding: 15px 58px 15px 18px;
   border: 1px solid rgba(255, 253, 248, 0.42);
   border-radius: 12px;
   background: rgba(255, 253, 248, 0.88);
@@ -297,6 +324,7 @@ h1 {
 }
 
 .hero-caption__text {
+  max-width: 284px;
   color: rgba(23, 23, 23, 0.86);
   font-size: 13px;
   line-height: 1.45;
@@ -309,9 +337,11 @@ h1 {
 
 .hero-caption__flag {
   display: block;
-  width: 40px;
-  height: 20px;
-  margin-top: 2px;
+  position: absolute;
+  top: 15px;
+  right: 16px;
+  width: 28px;
+  height: 14px;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(23, 23, 23, 0.12);
 }
@@ -1877,17 +1907,20 @@ h1 {
   .hero-caption {
     right: 18px;
     bottom: 28px;
-    max-width: min(330px, calc(100% - 36px));
-    padding: 14px 14px 13px 15px;
+    max-width: min(318px, calc(100% - 36px));
+    padding: 14px 50px 13px 15px;
   }
 
   .hero-caption__text {
+    max-width: 252px;
     font-size: 12.5px;
   }
 
   .hero-caption__flag {
-    width: 34px;
-    height: 17px;
+    top: 14px;
+    right: 14px;
+    width: 26px;
+    height: 13px;
   }
 
   .credibility-band {
@@ -2060,5 +2093,9 @@ h1 {
   .button,
   .nav a::after {
     transition: none;
+  }
+
+  .hero-copy::before {
+    animation: none;
   }
 }
