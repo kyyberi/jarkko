@@ -172,15 +172,15 @@ a {
   z-index: -1;
   background:
     linear-gradient(
-      105deg,
+      45deg,
       rgba(243, 240, 233, 0) 0%,
       rgba(255, 253, 248, 0.86) 28%,
       rgba(139, 63, 50, 0.24) 48%,
       rgba(255, 253, 248, 0.76) 66%,
       rgba(243, 240, 233, 0) 100%
     );
-  background-size: 220% 100%;
-  background-position: 0% 50%;
+  background-size: 220% 220%;
+  background-position: 0% 100%;
   opacity: 0.94;
   animation: hero-gradient-wave 14s ease-in-out infinite alternate;
   pointer-events: none;
@@ -192,11 +192,11 @@ a {
 
 @keyframes hero-gradient-wave {
   from {
-    background-position: 0% 50%;
+    background-position: 0% 100%;
   }
 
   to {
-    background-position: 100% 50%;
+    background-position: 100% 0%;
   }
 }
 
