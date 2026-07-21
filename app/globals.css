@@ -472,7 +472,7 @@ h1 {
 .focus-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-block: 1px solid var(--ink);
+  border-top: 1px solid var(--ink);
 }
 
 .focus-item {

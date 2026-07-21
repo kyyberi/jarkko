@@ -69,6 +69,8 @@ test("server-renders the professional homepage", async () => {
   );
   assert.match(html, /Three areas\. One professional body of work\./);
   assert.match(html, /Built in public, tested in practice\./);
+  assert.doesNotMatch(css, /\.focus-grid\s*\{[^}]*border-block:/);
+  assert.match(css, /\.focus-grid\s*\{[^}]*border-top:/);
   assert.doesNotMatch(css, /\.work-row\s*\{[^}]*border-bottom:/);
   assert.match(css, /\.work-row\s*\+\s*\.work-row\s*\{[^}]*border-top:/);
   assert.match(html, /Writing, books, and courses from the work itself\./);
