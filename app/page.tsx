@@ -203,7 +203,7 @@ export default function Home() {
                 </div>
                 <div className="media-card-copy">
                   <div className="section-kicker">COURSES</div>
-                  <h3>Learners across 56 countries</h3>
+                  <h3>5 Masterclasses & Learners across 56 countries</h3>
                   <p>
                     Five Udemy courses covering data product foundations,
                     monetization, minimum lovable governance, the Open Data

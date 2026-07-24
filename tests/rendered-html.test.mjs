@@ -105,7 +105,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Business-ID: 262443655888/);
   assert.match(html, /Amber Gem Tower, 26th Floor, Ajman/);
   assert.match(html, /United Arab Emirates/);
-  assert.match(html, /Learners across 56 countries/);
+  assert.match(html, /5 Masterclasses &amp; Learners across 56 countries/);
   assert.match(html, /Five Udemy courses covering data product foundations/);
   assert.match(html, /5 courses · Ratings from 4\.44 to 4\.74/);
   assert.match(html, /Explore courses/);
