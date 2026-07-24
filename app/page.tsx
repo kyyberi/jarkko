@@ -84,6 +84,10 @@ export default function Home() {
             <span>Leadership</span>
             <strong>Whole-of-government data and AI product work</strong>
           </div>
+          <div className="credibility-item">
+            <span>Reach</span>
+            <strong>Data product thinking moving into practice across 56 countries</strong>
+          </div>
         </section>
 
         <section className="section">

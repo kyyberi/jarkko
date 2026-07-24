@@ -394,7 +394,7 @@ h1 {
 
 .credibility-band {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   padding: 30px var(--pad);
   border-bottom: 1px solid var(--ink);
   background: var(--ink);
@@ -430,7 +430,7 @@ h1 {
   max-width: 420px;
   color: var(--paper);
   font-family: var(--display);
-  font-size: clamp(23px, 2.4vw, 34px);
+  font-size: clamp(22px, 2vw, 31px);
   font-weight: 900;
   line-height: 1.04;
   letter-spacing: -0.035em;
@@ -2050,6 +2050,19 @@ h1 {
     border-top: 1px solid var(--ink);
   }
 
+  .credibility-band {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .credibility-item:nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .credibility-item:nth-child(n + 3) {
+    border-top: 1px solid rgba(243, 240, 233, 0.18);
+  }
+
   .article-archive-head {
     grid-template-columns: 1fr;
     align-items: start;
@@ -2172,6 +2185,10 @@ h1 {
   .credibility-item + .credibility-item {
     border-top: 1px solid rgba(243, 240, 233, 0.18);
     border-left: 0;
+  }
+
+  .credibility-item:nth-child(n + 3) {
+    border-top: 1px solid rgba(243, 240, 233, 0.18);
   }
 
   .section {
