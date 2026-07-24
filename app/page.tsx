@@ -194,19 +194,51 @@ export default function Home() {
                 <span className="article-arrow">{"->"}</span>
               </a>
             </div>
-            <div className="media-stack">
-              <a
-                className="media-item"
-                href="https://www.udemy.com/user/jarkko-moilanen/"
-              >
-                <div className="media-logo">
+            <aside className="media-stack" aria-label="Teaching and publishing">
+              <div className="course-evidence">
+                <div className="media-logo course-evidence-logo">
                   <img src={`${assetPath}/images/logo-udemy.png`} alt="Udemy" />
                 </div>
-                <div>
-                  <strong>Udemy courses</strong>
-                  <span>View the complete course listing</span>
+                <div className="course-evidence-copy">
+                  <div className="section-kicker">COURSES</div>
+                  <h3>Data product knowledge, structured for practice</h3>
+                  <p>
+                    I teach data product management through five Udemy courses
+                    covering foundations, monetization, minimum lovable
+                    governance, the Open Data Product Specification, and
+                    scalable value management with the open-source SDK.
+                  </p>
                 </div>
-              </a>
+                <dl className="course-evidence-grid">
+                  <div>
+                    <dt>5</dt>
+                    <dd>Published courses</dd>
+                  </div>
+                  <div>
+                    <dt>4.44–4.74</dt>
+                    <dd>Ratings across established courses</dd>
+                  </div>
+                  <div>
+                    <dt>56</dt>
+                    <dd>Countries reached</dd>
+                  </div>
+                  <div>
+                    <dt>12</dt>
+                    <dd>Languages used by learners</dd>
+                  </div>
+                </dl>
+                <p className="course-evidence-note">
+                  The courses turn standards, methods, and delivery experience
+                  into practical learning for data product leaders, architects,
+                  product managers, and engineers.
+                </p>
+                <a
+                  className="text-link"
+                  href="https://www.udemy.com/user/jarkko-moilanen/"
+                >
+                  Explore all courses <Arrow />
+                </a>
+              </div>
               <a
                 className="media-item"
                 href="https://us.amazon.com/stores/Jarkko-Moilanen/author/B0B66HTHLM?ref=ap_rdr&shoppingPortalEnabled=true"
@@ -222,7 +254,7 @@ export default function Home() {
                   <span>View books and author details</span>
                 </div>
               </a>
-            </div>
+            </aside>
           </div>
         </section>
 

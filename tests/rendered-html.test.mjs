@@ -99,9 +99,20 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Business-ID: 262443655888/);
   assert.match(html, /Amber Gem Tower, 26th Floor, Ajman/);
   assert.match(html, /United Arab Emirates/);
-  assert.match(html, /Udemy courses/);
+  assert.match(html, /Data product knowledge, structured for practice/);
+  assert.match(html, /five Udemy courses covering foundations/);
+  assert.match(html, /Published courses/);
+  assert.match(html, /4\.44–4\.74/);
+  assert.match(html, /Ratings across established courses/);
+  assert.match(html, /Countries reached/);
+  assert.match(html, /Languages used by learners/);
+  assert.match(html, /Explore all courses/);
   assert.match(html, /https:\/\/www\.udemy\.com\/user\/jarkko-moilanen\//);
   assert.match(html, /\/images\/logo-udemy\.png/);
+  assert.doesNotMatch(
+    html,
+    /enrollment|students|monthly activity|course prices|revenue/i,
+  );
   assert.match(html, /Amazon author profile/);
   assert.match(html, /https:\/\/us\.amazon\.com\/stores\/Jarkko-Moilanen\/author\/B0B66HTHLM/);
   assert.match(html, /\/images\/logo-amazon\.png/);
