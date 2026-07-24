@@ -10,6 +10,7 @@ import { getArticles } from "./articles";
 
 export default function Home() {
   const articles = getArticles();
+  const homepageArticles = articles.slice(0, 3);
 
   return (
     <div className="shell">
@@ -173,7 +174,7 @@ export default function Home() {
           </div>
           <div className="insights-layout">
             <div className="article-list">
-              {articles.map((article) => (
+              {homepageArticles.map((article) => (
                 <a
                   className="article-row"
                   href={sitePath(`/insights/articles/${article.slug}`)}
@@ -184,6 +185,14 @@ export default function Home() {
                   <span className="article-arrow">{"->"}</span>
                 </a>
               ))}
+              <a
+                className="article-row article-row-all"
+                href={sitePath("/insights/articles")}
+              >
+                <span className="article-date">Archive</span>
+                <span className="article-title">Browse all insights</span>
+                <span className="article-arrow">{"->"}</span>
+              </a>
             </div>
             <div className="media-stack">
               <a

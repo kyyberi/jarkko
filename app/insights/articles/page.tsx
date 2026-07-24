@@ -39,6 +39,9 @@ export const metadata: Metadata = {
 
 export default function ArticlesIndex() {
   const articles = getArticles();
+  const categories = Array.from(
+    new Set(articles.map((article) => article.category)),
+  ).sort((a, b) => a.localeCompare(b));
 
   return (
     <PageShell>
@@ -55,23 +58,62 @@ export default function ArticlesIndex() {
       </section>
 
       <section className="detail-section">
-        <div className="article-index">
-          {articles.map((article) => (
-            <a
-              className="article-card"
-              href={sitePath(`/insights/articles/${article.slug}`)}
-              key={article.slug}
-            >
-              <span>{article.date}</span>
-              <strong>{article.title}</strong>
-              <p>{article.summary}</p>
-              <em>
-                Read article <Arrow />
-              </em>
-            </a>
-          ))}
+        <div className="article-archive-head">
+          <div>
+            <div className="section-kicker">Archive</div>
+            <h2>Browse by subject.</h2>
+            <p>{articles.length} published insights across {categories.length} subjects.</p>
+          </div>
+          <nav className="article-category-nav" aria-label="Article categories">
+            {categories.map((category) => (
+              <a href={`#${categorySlug(category)}`} key={category}>
+                {category}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <div className="article-category-groups">
+          {categories.map((category) => {
+            const categoryArticles = articles.filter(
+              (article) => article.category === category,
+            );
+
+            return (
+              <section
+                className="article-category-group"
+                id={categorySlug(category)}
+                key={category}
+              >
+                <div className="article-index-label">
+                  <span>{category}</span>
+                  <strong>{categoryArticles.length}</strong>
+                </div>
+                <div className="article-index compact">
+                  {categoryArticles.map((article) => (
+                    <a
+                      className="article-card"
+                      href={sitePath(`/insights/articles/${article.slug}`)}
+                      key={article.slug}
+                    >
+                      <span>{article.date}</span>
+                      <strong>{article.title}</strong>
+                      <p>{article.summary}</p>
+                      <em>
+                        Read article <Arrow />
+                      </em>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
         </div>
       </section>
     </PageShell>
   );
+}
+
+function categorySlug(category: string) {
+  return `category-${category.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
 }

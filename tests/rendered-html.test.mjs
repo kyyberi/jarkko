@@ -74,6 +74,14 @@ test("server-renders the professional homepage", async () => {
   assert.doesNotMatch(css, /\.work-row\s*\{[^}]*border-bottom:/);
   assert.match(css, /\.work-row\s*\+\s*\.work-row\s*\{[^}]*border-top:/);
   assert.match(html, /Writing, books, and courses from the work itself\./);
+  assert.equal((html.match(/class="article-row/g) ?? []).length, 4);
+  assert.match(html, /class="article-row article-row-all"/);
+  assert.match(html, /Browse all insights/);
+  assert.match(html, /From Data Product Portfolio to Shared Memory for AI Agents/);
+  assert.doesNotMatch(
+    html,
+    /9 Actions We Took to Make Open Data Product Vocabulary AI-Agent-First/,
+  );
   assert.match(html, /Bring me the problem that needs senior attention\./);
   assert.match(html, /Government-wide AI products/);
   assert.match(html, /Maysano/);
@@ -324,6 +332,15 @@ test("server-renders insights index with the editorial header background", async
     /<meta name="twitter:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
   );
   assert.match(html, /Writing from the work itself/);
+  assert.match(html, /aria-label="Article categories"/);
+  assert.match(html, /href="#category-ai-products"/);
+  assert.match(html, /href="#category-data-products"/);
+  assert.match(html, /href="#category-standards"/);
+  assert.match(html, /id="category-ai-products"/);
+  assert.match(html, /id="category-data-products"/);
+  assert.match(html, /id="category-standards"/);
+  assert.match(html, /From Data Product Portfolio to Shared Memory for AI Agents/);
+  assert.match(html, /9 Actions We Took to Make Open Data Product Vocabulary AI-Agent-First/);
   assert.match(css, /\/images\/insights-header-bg\.webp/);
   assert.doesNotMatch(css, /\.article-index\s*\{[^}]*border-block:/);
 });
