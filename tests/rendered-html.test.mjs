@@ -75,6 +75,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(css, /\.work-row\s*\+\s*\.work-row\s*\{[^}]*border-top:/);
   assert.match(html, /Writing, books, and courses from the work itself\./);
   assert.equal((html.match(/class="article-row/g) ?? []).length, 4);
+  assert.doesNotMatch(html, /class="article-arrow"/);
   assert.match(html, /class="article-row article-row-all"/);
   assert.match(html, /Browse all insights/);
   assert.match(html, /From Data Product Portfolio to Shared Memory for AI Agents/);

@@ -1561,11 +1561,29 @@ h1 {
 
 .article-row {
   display: grid;
-  grid-template-columns: 130px 1fr auto;
+  grid-template-columns: 130px minmax(0, 1fr) 42px;
   gap: 20px;
   align-items: center;
   padding: 22px 24px 22px 0;
   border-bottom: 1px solid var(--line);
+}
+
+.article-row::after {
+  content: "";
+  grid-column: 3;
+  justify-self: end;
+  width: 24px;
+  height: 1px;
+  background: var(--ink);
+  transition:
+    width 180ms ease,
+    background 180ms ease;
+}
+
+.article-row:hover::after,
+.article-row:focus-visible::after {
+  width: 38px;
+  background: var(--accent);
 }
 
 .article-row:last-child {
@@ -1589,11 +1607,6 @@ h1 {
   font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 1.2;
-}
-
-.article-arrow {
-  color: var(--ink);
-  font-size: 26px;
 }
 
 .article-archive-head {
@@ -2291,7 +2304,7 @@ h1 {
   }
 
   .article-row {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) 34px;
   }
 
   .article-date {

@@ -182,7 +182,6 @@ export default function Home() {
                 >
                   <span className="article-date">{article.date}</span>
                   <span className="article-title">{article.title}</span>
-                  <span className="article-arrow">{"->"}</span>
                 </a>
               ))}
               <a
@@ -191,7 +190,6 @@ export default function Home() {
               >
                 <span className="article-date">Archive</span>
                 <span className="article-title">Browse all insights</span>
-                <span className="article-arrow">{"->"}</span>
               </a>
             </div>
             <aside className="media-stack" aria-label="Teaching and publishing">
