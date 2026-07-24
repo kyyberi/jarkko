@@ -1551,12 +1551,11 @@ h1 {
 
 .insights-layout {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  border-block: 1px solid var(--ink);
+  gap: 32px;
 }
 
 .article-list {
-  border-right: 1px solid var(--ink);
+  border-block: 1px solid var(--ink);
 }
 
 .article-row {
@@ -1693,16 +1692,18 @@ h1 {
 
 .media-stack {
   display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
   align-content: center;
-  gap: 18px;
-  padding-left: 28px;
+  gap: 28px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--ink);
 }
 
 .course-evidence {
   display: grid;
   gap: 20px;
-  padding: 24px 0 26px;
-  border-bottom: 1px solid var(--line);
+  padding-right: 28px;
+  border-right: 1px solid var(--ink);
 }
 
 .course-evidence-logo {
@@ -1773,7 +1774,8 @@ h1 {
   grid-template-columns: 112px 1fr;
   gap: 18px;
   align-items: center;
-  padding: 10px 0;
+  align-self: start;
+  padding: 0;
 }
 
 .media-logo {
@@ -2048,15 +2050,6 @@ h1 {
     border-top: 1px solid var(--ink);
   }
 
-  .insights-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .article-list {
-    border-right: 0;
-    border-bottom: 1px solid var(--ink);
-  }
-
   .article-archive-head {
     grid-template-columns: 1fr;
     align-items: start;
@@ -2067,14 +2060,14 @@ h1 {
   }
 
   .media-stack {
-    grid-template-columns: minmax(0, 1.35fr) minmax(220px, 0.65fr);
-    align-items: start;
-    padding: 28px 0;
+    grid-template-columns: 1fr;
   }
 
   .course-evidence {
-    padding-top: 0;
-    border-bottom: 0;
+    padding-right: 0;
+    padding-bottom: 28px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .course-evidence-grid {
@@ -2323,14 +2316,6 @@ h1 {
 
   .article-category-nav a {
     text-align: center;
-  }
-
-  .media-stack {
-    grid-template-columns: 1fr;
-  }
-
-  .course-evidence {
-    border-bottom: 1px solid var(--line);
   }
 
   .site-footer {

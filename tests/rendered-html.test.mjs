@@ -77,6 +77,10 @@ test("server-renders the professional homepage", async () => {
   assert.equal((html.match(/class="article-row/g) ?? []).length, 4);
   assert.doesNotMatch(html, /class="article-arrow"/);
   assert.match(html, /class="article-row article-row-all"/);
+  assert.ok(
+    html.indexOf('class="article-list"') <
+      html.indexOf('class="media-stack" aria-label="Teaching and publishing"'),
+  );
   assert.match(html, /Browse all insights/);
   assert.match(html, /From Data Product Portfolio to Shared Memory for AI Agents/);
   assert.doesNotMatch(
