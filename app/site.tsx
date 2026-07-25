@@ -247,7 +247,7 @@ export function Footer() {
         <p>
           Data product pioneer, standards maintainer, builder, author, and
           educator with Finnish roots, based in Abu Dhabi, UAE since 2022, and
-          Vietnamese family ties pulling the retirement map toward Vietnam.
+          Vietnamese family ties pointing part of the future toward Vietnam.
         </p>
         <p className="footer-company">
           Owner of company in UAE, Data Maestro Academy FZE LLC

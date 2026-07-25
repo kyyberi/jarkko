@@ -59,7 +59,7 @@ export default function Home() {
                 Data product pioneer, standards maintainer, builder, author,
                 and educator with Finnish roots, based in{" "}
                 <strong>Abu Dhabi, UAE</strong> since 2022, and Vietnamese
-                family ties pulling the retirement map toward Vietnam.
+                family ties pointing part of the future toward Vietnam.
               </div>
               <div className="hero-caption__flags" aria-label="International roots">
                 <img

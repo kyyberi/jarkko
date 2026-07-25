@@ -95,7 +95,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /\/images\/work-maysano\.png/);
   assert.match(html, /\/images\/work-odps\.png/);
   assert.match(html, /\/images\/work-abudhabi\.png/);
-  assert.match(html, /Data product pioneer, standards maintainer[\s\S]*Finnish roots[\s\S]*Abu Dhabi, UAE[\s\S]*Vietnamese family ties[\s\S]*Vietnam/);
+  assert.match(html, /Data product pioneer, standards maintainer[\s\S]*Finnish roots[\s\S]*Abu Dhabi, UAE[\s\S]*Vietnamese family ties pointing part of the future toward Vietnam/);
   assert.match(html, /class="hero-caption"/);
   assert.match(html, /<strong>Abu Dhabi, UAE<\/strong>/);
   assert.match(html, /class="hero-caption__flags" aria-label="International roots"/);
