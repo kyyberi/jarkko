@@ -57,14 +57,27 @@ export default function Home() {
             <div className="hero-caption">
               <div className="hero-caption__text">
                 Data product pioneer, standards maintainer, builder, author,
-                and educator from Finland, based in{" "}
-                <strong>Abu Dhabi, UAE</strong> since 2022.
+                and educator with Finnish roots, based in{" "}
+                <strong>Abu Dhabi, UAE</strong> since 2022, and Vietnamese
+                family ties pulling the retirement map toward Vietnam.
               </div>
-              <img
-                className="hero-caption__flag"
-                src={`${assetPath}/images/uae-flag.svg`}
-                alt="United Arab Emirates flag"
-              />
+              <div className="hero-caption__flags" aria-label="International roots">
+                <img
+                  className="hero-caption__flag"
+                  src={`${assetPath}/images/finland-flag.svg`}
+                  alt="Finland flag"
+                />
+                <img
+                  className="hero-caption__flag"
+                  src={`${assetPath}/images/uae-flag.svg`}
+                  alt="United Arab Emirates flag"
+                />
+                <img
+                  className="hero-caption__flag"
+                  src={`${assetPath}/images/vietnam-flag.svg`}
+                  alt="Vietnam flag"
+                />
+              </div>
             </div>
           </div>
         </section>

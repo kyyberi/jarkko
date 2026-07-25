@@ -246,7 +246,8 @@ export function Footer() {
         </a>
         <p>
           Data product pioneer, standards maintainer, builder, author, and
-          educator from Finland, based in Abu Dhabi, UAE since 2022.
+          educator with Finnish roots, based in Abu Dhabi, UAE since 2022, and
+          Vietnamese family ties pulling the retirement map toward Vietnam.
         </p>
         <p className="footer-company">
           Owner of company in UAE, Data Maestro Academy FZE LLC

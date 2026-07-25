@@ -95,11 +95,16 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /\/images\/work-maysano\.png/);
   assert.match(html, /\/images\/work-odps\.png/);
   assert.match(html, /\/images\/work-abudhabi\.png/);
-  assert.match(html, /Data product pioneer, standards maintainer[\s\S]*from Finland, based in[\s\S]*Abu Dhabi, UAE[\s\S]*since 2022/);
+  assert.match(html, /Data product pioneer, standards maintainer[\s\S]*Finnish roots[\s\S]*Abu Dhabi, UAE[\s\S]*Vietnamese family ties[\s\S]*Vietnam/);
   assert.match(html, /class="hero-caption"/);
   assert.match(html, /<strong>Abu Dhabi, UAE<\/strong>/);
+  assert.match(html, /class="hero-caption__flags" aria-label="International roots"/);
+  assert.match(html, /\/images\/finland-flag\.svg/);
   assert.match(html, /\/images\/uae-flag\.svg/);
+  assert.match(html, /\/images\/vietnam-flag\.svg/);
+  assert.match(html, /Finland flag/);
   assert.match(html, /United Arab Emirates flag/);
+  assert.match(html, /Vietnam flag/);
   assert.doesNotMatch(html, /hero-portrait-badge|hero-portrait-label|class="uae-flag"/);
   assert.match(html, /Owner of company in UAE, Data Maestro Academy FZE LLC/);
   assert.match(html, /Business-ID: 262443655888/);
