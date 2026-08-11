@@ -51,7 +51,8 @@ export function getArticle(slug: string): Article | undefined {
 }
 
 function parseArticle(slug: string, source: string): Article {
-  const match = source.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  const normalizedSource = source.replace(/\r\n/g, "\n");
+  const match = normalizedSource.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) {
     throw new Error(`Article ${slug} is missing frontmatter.`);
   }

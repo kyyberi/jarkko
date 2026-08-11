@@ -83,7 +83,10 @@ test("server-renders the professional homepage", async () => {
       html.indexOf('class="media-stack" aria-label="Teaching and publishing"'),
   );
   assert.match(html, /Browse all insights/);
-  assert.match(html, /From Data Product Portfolio to Shared Memory for AI Agents/);
+  assert.match(
+    html,
+    /What Anthropic Dreaming Tells Us About the Future of Data Product Portfolios/,
+  );
   assert.doesNotMatch(
     html,
     /9 Actions We Took to Make Open Data Product Vocabulary AI-Agent-First/,

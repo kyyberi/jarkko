@@ -27,7 +27,8 @@ export function slugify(value) {
 }
 
 function parseArticle(slug, source) {
-  const match = source.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  const normalizedSource = source.replace(/\r\n/g, "\n");
+  const match = normalizedSource.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) {
     throw new Error(`Article ${slug} is missing frontmatter.`);
   }
