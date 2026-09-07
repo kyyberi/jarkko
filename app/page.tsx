@@ -157,7 +157,7 @@ export default function Home() {
             <article className="focus-item">
               <div>
                 <div className="focus-number">04</div>
-                <h3>School of AI</h3>
+                <h3>School 4 AI</h3>
                 <p>
                   Building a community learning initiative in Vietnam where
                   young people learn practical AI and English by creating
@@ -165,7 +165,7 @@ export default function Home() {
                 </p>
               </div>
               <a className="text-link" href={sitePath("/work/school-of-ai")}>
-                Explore School of AI <Arrow />
+                Explore School 4 AI <Arrow />
               </a>
             </article>
           </div>

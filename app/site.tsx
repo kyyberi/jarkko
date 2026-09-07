@@ -222,18 +222,18 @@ export const workItems = [
     slug: "school-of-ai",
     index: "04",
     label: "Community AI education",
-    title: "School of AI",
+    title: "School 4 AI",
     summary:
       "A community learning initiative for young people to learn AI and English through practice.",
     image: "/images/work-school4ai.webp",
     imageAlt:
       "Vietnamese young people learning AI and English through a community activity",
     cta: "Visit the initiative",
-    detailCta: "Visit School4AI",
+    detailCta: "Visit School 4 AI",
     ctaHref: "https://school4ai.net",
     externalLinks: [
       {
-        label: "School4AI",
+        label: "School 4 AI",
         href: "https://school4ai.net",
       },
     ],
@@ -241,7 +241,7 @@ export const workItems = [
     diagramCaption:
       "A practical weekend format for AI, English, teamwork, and visible outcomes.",
     focus:
-      "School4AI is a community learning initiative I am building for young people, starting from Yen Bai, Vietnam. The goal is to help participants learn practical AI, use English in real situations, work in teams, and create something they can show to others.",
+      "School 4 AI is a community learning initiative I am building for young people, starting from Yen Bai, Vietnam. The goal is to help participants learn practical AI, use English in real situations, work in teams, and create something they can show to others.",
     detailIntro:
       "The initiative is being shaped as a weekend activity rather than a long course. It is designed around hands-on work, age-aware grouping, parent visibility, and community support from people who can help with venues, devices, food, mentoring, or project ideas.",
     proof: [
@@ -259,7 +259,7 @@ export const workItems = [
       },
       {
         title: "Independent initiative",
-        text: "School of AI is an independent community learning initiative, not a formal school, official credential, or replacement for regular education.",
+        text: "School 4 AI is an independent community learning initiative, not a formal school, official credential, or replacement for regular education.",
       },
     ],
     outcomes: [

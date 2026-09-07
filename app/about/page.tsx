@@ -148,7 +148,7 @@ export default function AboutPage() {
             </p>
           </article>
           <article>
-            <h3>School of AI</h3>
+            <h3>School 4 AI</h3>
             <p>
               Initiated a community learning model in Vietnam where young
               people can learn practical AI and English through weekend
