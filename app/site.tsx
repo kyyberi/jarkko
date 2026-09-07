@@ -218,6 +218,79 @@ export const workItems = [
       },
     ],
   },
+  {
+    slug: "school-of-ai",
+    index: "04",
+    label: "Community AI education",
+    title: "School of AI",
+    summary:
+      "A community learning initiative for young people to learn AI and English through practice.",
+    image: "/images/work-school4ai.webp",
+    imageAlt:
+      "Vietnamese young people learning AI and English through a community activity",
+    cta: "Visit the initiative",
+    detailCta: "Visit School4AI",
+    ctaHref: "https://school4ai.net",
+    externalLinks: [
+      {
+        label: "School4AI",
+        href: "https://school4ai.net",
+      },
+    ],
+    diagramSteps: ["Learn", "Try", "Build", "Present"],
+    diagramCaption:
+      "A practical weekend format for AI, English, teamwork, and visible outcomes.",
+    focus:
+      "School4AI is a community learning initiative I am building for young people, starting from Yen Bai, Vietnam. The goal is to help participants learn practical AI, use English in real situations, work in teams, and create something they can show to others.",
+    detailIntro:
+      "The initiative is being shaped as a weekend activity rather than a long course. It is designed around hands-on work, age-aware grouping, parent visibility, and community support from people who can help with venues, devices, food, mentoring, or project ideas.",
+    proof: [
+      {
+        title: "Community-first model",
+        text: "The first activities are planned from Yen Bai with a model that can adapt to other local communities over time.",
+      },
+      {
+        title: "Practical learning",
+        text: "Participants use AI and English through hands-on exercises, teamwork, small product building, and final presentation.",
+      },
+      {
+        title: "Parent and safety focus",
+        text: "The initiative sets expectations for parent consent, supervised shared spaces, emergency contact information, age-appropriate grouping, and clear communication about tools and activities.",
+      },
+      {
+        title: "Independent initiative",
+        text: "School of AI is an independent community learning initiative, not a formal school, official credential, or replacement for regular education.",
+      },
+    ],
+    outcomes: [
+      {
+        title: "AI confidence",
+        text: "Young people get early, responsible exposure to AI tools through practical activities.",
+      },
+      {
+        title: "English in context",
+        text: "English becomes part of the work itself instead of a separate classroom subject.",
+      },
+      {
+        title: "Visible result",
+        text: "Each participant should leave with a small product, a presentation experience, and proof of participation.",
+      },
+      {
+        title: "Local support",
+        text: "Parents, teachers, technologists, businesses, and volunteers can contribute through practical support.",
+      },
+    ],
+    relatedHeading:
+      "Connected parts of the same education and product-building thread.",
+    relatedDescriptions: {
+      maysano:
+        "The same practical product mindset appears in Maysano, where ideas become structured portfolios and governed product systems.",
+      "standards-and-sdk":
+        "Open standards and SDK work support the machine-readable foundation behind modern data and AI product practice.",
+      "government-ai":
+        "Government AI delivery keeps the same focus on responsible use, practical value, and visible outcomes.",
+    },
+  },
 ];
 
 export function Header() {

@@ -147,6 +147,15 @@ export default function AboutPage() {
               Linux Foundation.
             </p>
           </article>
+          <article>
+            <h3>School of AI</h3>
+            <p>
+              Initiated a community learning model in Vietnam where young
+              people can learn practical AI and English through weekend
+              activities, teamwork, product building, and parent-visible
+              participation.
+            </p>
+          </article>
         </div>
         <p className="about-method">
           The work usually starts with the business problem, followed by
