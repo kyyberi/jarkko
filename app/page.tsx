@@ -42,9 +42,8 @@ export default function Home() {
             <div className="availability">
               <span className="dot" />
               <span>
-                Available for a limited number of advisory, workshop, and
-                strategic review engagements alongside current leadership
-                commitments.
+                Available for advisory, workshop, and strategic review
+                engagements that need sustained senior attention.
               </span>
             </div>
           </div>
@@ -277,7 +276,7 @@ export default function Home() {
 
         <section className="cta" id="contact">
           <div className="cta-main">
-            <small>Selective availability</small>
+            <small>Available for new challenges</small>
             <h2>Bring me the problem that needs senior attention.</h2>
             <div className="cta-lead">Discuss an engagement</div>
             <div className="cta-channels" aria-label="Contact channels">
@@ -291,9 +290,9 @@ export default function Home() {
           </div>
           <div className="cta-side">
             <p>
-              Current availability suits executive advisory, workshops,
-              portfolio reviews, architecture reviews, and clearly scoped
-              strategic assignments.
+              I now have the time needed for executive advisory, workshops,
+              portfolio reviews, architecture reviews, and strategic assignments
+              that deserve proper senior attention.
             </p>
             <p className="cta-company">
               International advisory, workshop, and review engagements can be
