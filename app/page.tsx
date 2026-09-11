@@ -42,8 +42,7 @@ export default function Home() {
             <div className="availability">
               <span className="dot" />
               <span>
-                Available for advisory, workshop, and strategic review
-                engagements that need sustained senior attention.
+                Open to permanent roles as well as contract-based work.
               </span>
             </div>
           </div>
