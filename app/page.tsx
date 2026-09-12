@@ -12,6 +12,8 @@ const engagementOptions = [
   {
     title: "AI Portfolio Review",
     engagement: "2-week review",
+    pricingLabel: "Typical investment",
+    price: "AED 35K–50K",
     question: "Too many AI ideas, pilots and competing priorities?",
     text:
       "I review your AI portfolio, ownership, value, KPIs, dependencies and delivery status.",
@@ -24,10 +26,14 @@ const engagementOptions = [
     ],
     bestFor:
       "Organisations that need to decide where to invest next.",
+    scopeNote:
+      "Typical scope assumes one organisation or major business unit, up to around 15 initiatives and a defined group of stakeholders.",
   },
   {
     title: "Agentic AI Architecture Sprint",
     engagement: "3 to 4-week sprint",
+    pricingLabel: "Typical investment",
+    price: "AED 65K–95K",
     question:
       "You know where AI agents might help, but the architecture and implementation path remain unclear.",
     text:
@@ -42,10 +48,14 @@ const engagementOptions = [
     ],
     bestFor:
       "Teams moving beyond chatbot experiments into operational AI agents.",
+    scopeNote:
+      "Typical scope covers a defined business domain and two to three target workflows. Production implementation is scoped separately.",
   },
   {
     title: "AI Product Operating Model",
     engagement: "4 to 6-week engagement",
+    pricingLabel: "Typical investment",
+    price: "AED 90K–130K",
     question:
       "AI pilots are being built, but ownership, decisions and delivery do not scale.",
     text:
@@ -60,14 +70,18 @@ const engagementOptions = [
     ],
     bestFor:
       "Organisations moving from isolated AI projects toward a managed AI product portfolio.",
+    scopeNote:
+      "Typical scope covers a medium-to-large organisation or a defined set of business functions. Group-wide or multi-entity transformation is scoped separately.",
   },
   {
     title: "Fractional AI Product Leadership",
     engagement: "1 to 3 days per week",
+    pricingLabel: "From",
+    price: "AED 25K/month",
     question:
       "You need senior AI product leadership now, without starting a long executive hiring process.",
     text:
-      "I step into the organisation and work directly with executives, product owners, architects and engineering teams.",
+      "I work directly with executives, product owners, architects and engineering teams.",
     outcomes: [
       "Set portfolio direction",
       "Prioritise investment",
@@ -79,6 +93,7 @@ const engagementOptions = [
     outcomeLabel: "Typical scope",
     bestFor:
       "Transformation programmes that need senior leadership connected directly to delivery.",
+    scopeNote: "Monthly fee depends on the agreed commitment level.",
   },
 ];
 
@@ -269,6 +284,10 @@ export default function Home() {
                   <h3>{option.title}</h3>
                 </div>
                 <span className="engagement-label">{option.engagement}</span>
+                <div className="engagement-price">
+                  <span>{option.pricingLabel}</span>
+                  <strong>{option.price}</strong>
+                </div>
                 <p className="engagement-question">{option.question}</p>
                 <p>{option.text}</p>
                 <div className="engagement-outcomes">
@@ -283,9 +302,18 @@ export default function Home() {
                   <span>Best for</span>
                   <p>{option.bestFor}</p>
                 </div>
+                <p className="engagement-scope-note">{option.scopeNote}</p>
               </article>
             ))}
           </div>
+          <p className="engagement-disclaimer">
+            Typical investment ranges are indicative. Final scope and fee are
+            agreed before kickoff and depend on organisation size, stakeholder
+            count, systems involved, regulatory requirements and onsite needs.
+            Production implementation, third-party costs and specialist
+            services are quoted separately. Prices exclude 5% UAE VAT where
+            applicable.
+          </p>
           <div className="engagement-close">
             <div>
               <h3>Not sure which engagement fits?</h3>
