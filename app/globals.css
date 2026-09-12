@@ -653,7 +653,7 @@ h1 {
 .engagement-price {
   display: grid;
   gap: 3px;
-  margin-bottom: 18px;
+  margin-top: 22px;
 }
 
 .engagement-price span {
@@ -667,7 +667,7 @@ h1 {
 .engagement-price strong {
   color: var(--accent);
   font-family: var(--display);
-  font-size: clamp(30px, 3.1vw, 42px);
+  font-size: clamp(28px, 2.7vw, 38px);
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.035em;
@@ -755,7 +755,7 @@ h1 {
 }
 
 .engagement-scope-note {
-  margin-top: 18px;
+  margin-top: 16px;
   padding-top: 14px;
   border-top: 1px solid rgba(24, 24, 24, 0.16);
   font-size: 13px;

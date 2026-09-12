@@ -284,10 +284,6 @@ export default function Home() {
                   <h3>{option.title}</h3>
                 </div>
                 <span className="engagement-label">{option.engagement}</span>
-                <div className="engagement-price">
-                  <span>{option.pricingLabel}</span>
-                  <strong>{option.price}</strong>
-                </div>
                 <p className="engagement-question">{option.question}</p>
                 <p>{option.text}</p>
                 <div className="engagement-outcomes">
@@ -301,6 +297,10 @@ export default function Home() {
                 <div className="engagement-best">
                   <span>Best for</span>
                   <p>{option.bestFor}</p>
+                </div>
+                <div className="engagement-price">
+                  <span>{option.pricingLabel}</span>
+                  <strong>{option.price}</strong>
                 </div>
                 <p className="engagement-scope-note">{option.scopeNote}</p>
               </article>
