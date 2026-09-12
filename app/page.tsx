@@ -52,14 +52,18 @@ export default function Home() {
           <div className="hero-copy">
             <div>
               <div className="eyebrow">Jarkko Moilanen, PhD</div>
-              <h1>
-                Building the operating system for{" "}
-                <span className="accent">data and AI products</span>
+              <h1 className="hero-title">
+                AI product leadership
+                <br />
+                from strategy
+                <br />
+                to <span className="accent">working systems</span>
               </h1>
               <p className="hero-lede">
-                I connect strategy, data, standards, software, and delivery.
-                The result is a practical system for creating products that
-                organizations trust and leaders understand.
+                I help government and enterprise teams turn AI and data
+                initiatives into products that work. I lead strategy, portfolios
+                and operating models, and I also work hands-on with AI agents,
+                agent harnesses, MCP, APIs and knowledge graphs.
               </p>
               <div className="hero-actions">
                 <a className="button primary" href="#engagements">
@@ -73,7 +77,8 @@ export default function Home() {
             <div className="availability">
               <span className="dot" />
               <span>
-                Open to permanent roles as well as contract-based work.
+                Available for consulting, fractional leadership and focused
+                delivery through my UAE company.
               </span>
             </div>
           </div>

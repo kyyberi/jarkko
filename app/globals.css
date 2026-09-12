@@ -252,6 +252,11 @@ h1 {
   text-transform: uppercase;
 }
 
+.hero-title {
+  max-width: 820px;
+  font-size: clamp(42px, 5.2vw, 76px);
+}
+
 .accent {
   display: inline-block;
   background:
