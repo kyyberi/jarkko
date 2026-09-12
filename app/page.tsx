@@ -8,6 +8,37 @@ import {
 } from "./site";
 import { getArticles } from "./articles";
 
+const engagementOptions = [
+  {
+    title: "AI Product and Portfolio Review",
+    text:
+      "A focused review of your AI initiatives, product portfolio, priorities, ownership, KPIs and delivery model.",
+    useful:
+      "Useful when you have many AI ideas or pilots, but need a clear view of what to build, scale, stop or restructure.",
+  },
+  {
+    title: "Agentic AI Architecture",
+    text:
+      "Turn an AI agent idea into a practical architecture and product direction.",
+    useful:
+      "I work hands-on with AI agents, agent harnesses, MCP, APIs, structured data and knowledge graphs. The engagement connects business goals with architecture, governance and an implementation path.",
+  },
+  {
+    title: "AI Operating Model",
+    text:
+      "Define how AI products move from ideas into owned, governed and measurable products.",
+    useful:
+      "This covers product ownership, portfolio management, decision rights, delivery, KPIs, lifecycle management and adoption.",
+  },
+  {
+    title: "Fractional AI Product Leadership",
+    text:
+      "Senior product leadership for a defined period without adding a permanent executive role.",
+    useful:
+      "I work across executives, business teams, product teams and engineers to move AI initiatives from discussion into delivery.",
+  },
+];
+
 export default function Home() {
   const articles = getArticles();
   const homepageArticles = articles.slice(0, 3);
@@ -31,11 +62,11 @@ export default function Home() {
                 organizations trust and leaders understand.
               </p>
               <div className="hero-actions">
-                <a className="button primary" href="#work">
-                  Explore my work <Arrow />
+                <a className="button primary" href="#engagements">
+                  Work with me <Arrow />
                 </a>
-                <a className="button" href="#insights">
-                  Read my thinking <Arrow />
+                <a className="button" href="#work">
+                  Explore my work <Arrow />
                 </a>
               </div>
             </div>
@@ -98,6 +129,61 @@ export default function Home() {
           <div className="credibility-item">
             <span>Reach</span>
             <strong>Data product thinking moving into practice across 56 countries</strong>
+          </div>
+        </section>
+
+        <section className="section engagement-section" id="engagements">
+          <div className="section-head engagement-head">
+            <div className="section-kicker">Ways to work with me</div>
+            <div>
+              <h2 className="section-title">Lead + Build</h2>
+              <p className="engagement-intro">
+                I work with organisations that need senior AI and data product
+                leadership, but also someone who understands how the technology
+                is built.
+              </p>
+            </div>
+          </div>
+          <div className="engagement-signal" aria-label="Engagement focus">
+            <div>
+              <span>Lead</span>
+              <p>
+                Executive leadership, AI product strategy, portfolio management,
+                and operating models.
+              </p>
+            </div>
+            <div>
+              <span>Build</span>
+              <p>
+                AI agents, agent harnesses, MCP, APIs and SDKs, knowledge
+                graphs, and hands-on prototyping.
+              </p>
+            </div>
+          </div>
+          <div className="engagement-grid">
+            {engagementOptions.map((option, index) => (
+              <article className="engagement-card" key={option.title}>
+                <span className="engagement-number">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3>{option.title}</h3>
+                <p>{option.text}</p>
+                <p>{option.useful}</p>
+              </article>
+            ))}
+          </div>
+          <div className="engagement-close">
+            <div>
+              <h3>Need something different?</h3>
+              <p>
+                Bring me the problem. Short advisory sessions, architecture
+                reviews, workshops and focused assignments are also available
+                through my UAE company.
+              </p>
+            </div>
+            <a className="button primary" href="#contact">
+              Discuss an engagement <Arrow />
+            </a>
           </div>
         </section>
 
