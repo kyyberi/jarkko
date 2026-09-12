@@ -258,7 +258,6 @@ h1 {
 }
 
 .accent {
-  display: inline-block;
   background:
     linear-gradient(
       105deg,
@@ -274,7 +273,6 @@ h1 {
   -webkit-background-clip: text;
   background-clip: text;
   animation: accent-gradient-drift 8s ease-in-out infinite alternate;
-  transform: rotate(-1deg);
   -webkit-text-fill-color: transparent;
 }
 
