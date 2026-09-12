@@ -2003,18 +2003,32 @@ h1 {
 
 .cta-channels {
   display: flex;
-  flex-wrap: wrap;
-  gap: 14px 22px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
   margin-top: 22px;
 }
 
 .cta-channels a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   color: var(--ink);
   font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.1;
 }
 
 .cta-side {

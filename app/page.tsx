@@ -39,6 +39,47 @@ const engagementOptions = [
   },
 ];
 
+function ContactIcon({ type }: { type: "email" | "linkedin" | "whatsapp" }) {
+  if (type === "email") {
+    return (
+      <svg
+        aria-hidden="true"
+        className="contact-icon"
+        viewBox="0 0 24 24"
+      >
+        <path d="M4 6h16v12H4z" />
+        <path d="m4 7 8 6 8-6" />
+      </svg>
+    );
+  }
+
+  if (type === "linkedin") {
+    return (
+      <svg
+        aria-hidden="true"
+        className="contact-icon"
+        viewBox="0 0 24 24"
+      >
+        <path d="M6 9v10" />
+        <path d="M6 5.5v.1" />
+        <path d="M11 19v-6.2c0-2.1 1.2-3.8 3.4-3.8 2.1 0 3.6 1.5 3.6 4.2V19" />
+        <path d="M11 9v10" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      aria-hidden="true"
+      className="contact-icon"
+      viewBox="0 0 24 24"
+    >
+      <path d="M5 19.5 6.1 16A7.6 7.6 0 1 1 9 18.3z" />
+      <path d="M9.5 8.5c.6 3 2.5 5 5 6l1.6-1.5" />
+    </svg>
+  );
+}
+
 export default function Home() {
   const articles = getArticles();
   const homepageArticles = articles.slice(0, 3);
@@ -381,13 +422,16 @@ export default function Home() {
             <div className="cta-lead">Discuss an engagement</div>
             <div className="cta-channels" aria-label="Contact channels">
               <a href="mailto:work@jarkkomoilanen.com">
-                Email work@jarkkomoilanen.com <Arrow />
+                <ContactIcon type="email" />
+                <span>Email work@jarkkomoilanen.com</span>
               </a>
               <a href="https://www.linkedin.com/in/jarkkomoilanen/">
-                Contact in LinkedIn <Arrow />
+                <ContactIcon type="linkedin" />
+                <span>Contact in LinkedIn</span>
               </a>
               <a href="https://wa.me/971509718065">
-                Send a WhatsApp message <Arrow />
+                <ContactIcon type="whatsapp" />
+                <span>Send a WhatsApp message</span>
               </a>
             </div>
           </div>
