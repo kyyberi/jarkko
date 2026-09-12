@@ -480,6 +480,8 @@ h1 {
 }
 
 .engagement-head {
+  grid-template-columns: 260px minmax(0, 1fr) minmax(320px, 0.52fr);
+  align-items: stretch;
   margin-bottom: 34px;
 }
 
@@ -489,6 +491,60 @@ h1 {
   font-family: var(--serif);
   font-size: clamp(20px, 1.7vw, 27px);
   line-height: 1.35;
+}
+
+.engagement-billing {
+  position: relative;
+  min-height: 230px;
+  margin: 0;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  background: var(--white);
+}
+
+.engagement-billing img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.engagement-billing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(23, 23, 23, 0.58), transparent 58%);
+  pointer-events: none;
+}
+
+.engagement-billing figcaption {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 1;
+  color: var(--white);
+}
+
+.engagement-billing span {
+  display: block;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.engagement-billing strong {
+  display: block;
+  max-width: 260px;
+  margin-top: 8px;
+  font-family: var(--display);
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
 }
 
 .engagement-signal {
@@ -2159,6 +2215,19 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .engagement-head {
+    grid-template-columns: 1fr;
+  }
+
+  .engagement-billing {
+    max-width: 520px;
+    min-height: 260px;
+  }
+
+  .engagement-billing img {
+    min-height: 260px;
+  }
+
   .engagement-signal div + div {
     padding-left: 0;
     border-top: 1px solid var(--ink);
@@ -2295,6 +2364,15 @@ h1 {
 
   .engagement-section {
     scroll-margin-top: 64px;
+  }
+
+  .engagement-billing {
+    max-width: none;
+    min-height: 220px;
+  }
+
+  .engagement-billing img {
+    min-height: 220px;
   }
 
   .engagement-signal div {

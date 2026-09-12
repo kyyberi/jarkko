@@ -143,6 +143,16 @@ export default function Home() {
                 is built.
               </p>
             </div>
+            <figure className="engagement-billing">
+              <img
+                src={`${assetPath}/images/hero-skyline.jpg`}
+                alt="Abu Dhabi skyline, representing UAE-based engagement billing"
+              />
+              <figcaption>
+                <span>UAE company exists for billing</span>
+                <strong>Data Maestro Academy FZE LLC</strong>
+              </figcaption>
+            </figure>
           </div>
           <div className="engagement-signal" aria-label="Engagement focus">
             <div>
