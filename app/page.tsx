@@ -12,30 +12,30 @@ const engagementOptions = [
   {
     title: "AI Product and Portfolio Review",
     text:
-      "A focused review of your AI initiatives, product portfolio, priorities, ownership, KPIs and delivery model.",
+      "For organisations with many AI ideas, pilots or products, but no clear view of priorities, ownership, value or next steps.",
     useful:
-      "Useful when you have many AI ideas or pilots, but need a clear view of what to build, scale, stop or restructure.",
+      "Outcome: a clear portfolio view, recommendations on what to scale, stop, combine or fix, plus ownership and KPI gaps.",
   },
   {
     title: "Agentic AI Architecture",
     text:
-      "Turn an AI agent idea into a practical architecture and product direction.",
+      "For teams moving from chatbot experiments to agents that work with business data and knowledge.",
     useful:
-      "I work hands-on with AI agents, agent harnesses, MCP, APIs, structured data and knowledge graphs. The engagement connects business goals with architecture, governance and an implementation path.",
+      "Outcome: a practical architecture covering agents, agent harnesses, MCP, APIs, knowledge graphs, governance and implementation direction.",
   },
   {
-    title: "AI Operating Model",
+    title: "AI Product Operating Model",
     text:
-      "Define how AI products move from ideas into owned, governed and measurable products.",
+      "For organisations struggling to move AI initiatives from idea to owned product.",
     useful:
-      "This covers product ownership, portfolio management, decision rights, delivery, KPIs, lifecycle management and adoption.",
+      "Outcome: clear roles, decision rights, portfolio governance, product ownership, delivery flow, KPIs and lifecycle management.",
   },
   {
     title: "Fractional AI Product Leadership",
     text:
-      "Senior product leadership for a defined period without adding a permanent executive role.",
+      "For organisations that need senior AI product leadership now, without hiring a permanent executive first.",
     useful:
-      "I work across executives, business teams, product teams and engineers to move AI initiatives from discussion into delivery.",
+      "Outcome: direct leadership across executives, product teams and engineers, from prioritisation and architecture through delivery and adoption.",
   },
 ];
 
