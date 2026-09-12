@@ -10,32 +10,75 @@ import { getArticles } from "./articles";
 
 const engagementOptions = [
   {
-    title: "AI Product and Portfolio Review",
+    title: "AI Portfolio Review",
+    engagement: "2-week review",
+    question: "Too many AI ideas, pilots and competing priorities?",
     text:
-      "For organisations with many AI ideas, pilots or products, but no clear view of priorities, ownership, value or next steps.",
-    useful:
-      "Outcome: a clear portfolio view, recommendations on what to scale, stop, combine or fix, plus ownership and KPI gaps.",
+      "I review your AI portfolio, ownership, value, KPIs, dependencies and delivery status.",
+    outcomes: [
+      "A prioritised portfolio",
+      "Scale, stop, merge and fix recommendations",
+      "Ownership and KPI gaps",
+      "Executive decision brief",
+      "90-day action plan",
+    ],
+    bestFor:
+      "Organisations that need to decide where to invest next.",
   },
   {
-    title: "Agentic AI Architecture",
+    title: "Agentic AI Architecture Sprint",
+    engagement: "3 to 4-week sprint",
+    question:
+      "You know where AI agents might help, but the architecture and implementation path remain unclear.",
     text:
-      "For teams moving from chatbot experiments to agents that work with business data and knowledge.",
-    useful:
-      "Outcome: a practical architecture covering agents, agent harnesses, MCP, APIs, knowledge graphs, governance and implementation direction.",
+      "I work with your business and technical teams to define the agent architecture across models, agent harnesses, MCP, APIs, enterprise data and knowledge graphs.",
+    outcomes: [
+      "Target architecture",
+      "Agent and tool boundaries",
+      "Data and knowledge design",
+      "Governance approach",
+      "Implementation backlog",
+      "Prototype direction",
+    ],
+    bestFor:
+      "Teams moving beyond chatbot experiments into operational AI agents.",
   },
   {
     title: "AI Product Operating Model",
+    engagement: "4 to 6-week engagement",
+    question:
+      "AI pilots are being built, but ownership, decisions and delivery do not scale.",
     text:
-      "For organisations struggling to move AI initiatives from idea to owned product.",
-    useful:
-      "Outcome: clear roles, decision rights, portfolio governance, product ownership, delivery flow, KPIs and lifecycle management.",
+      "I design the operating model that connects business priorities, AI product ownership, engineering, governance and portfolio decisions.",
+    outcomes: [
+      "Roles and decision rights",
+      "Product lifecycle",
+      "Portfolio governance",
+      "Delivery flow",
+      "KPI model",
+      "Operating cadence",
+    ],
+    bestFor:
+      "Organisations moving from isolated AI projects toward a managed AI product portfolio.",
   },
   {
     title: "Fractional AI Product Leadership",
+    engagement: "1 to 3 days per week",
+    question:
+      "You need senior AI product leadership now, without starting a long executive hiring process.",
     text:
-      "For organisations that need senior AI product leadership now, without hiring a permanent executive first.",
-    useful:
-      "Outcome: direct leadership across executives, product teams and engineers, from prioritisation and architecture through delivery and adoption.",
+      "I step into the organisation and work directly with executives, product owners, architects and engineering teams.",
+    outcomes: [
+      "Set portfolio direction",
+      "Prioritise investment",
+      "Shape AI products",
+      "Review architecture",
+      "Fix ownership and delivery gaps",
+      "Move priority products toward adoption",
+    ],
+    outcomeLabel: "Typical scope",
+    bestFor:
+      "Transformation programmes that need senior leadership connected directly to delivery.",
   },
 ];
 
@@ -223,22 +266,34 @@ export default function Home() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3>{option.title}</h3>
+                <span className="engagement-label">{option.engagement}</span>
+                <p className="engagement-question">{option.question}</p>
                 <p>{option.text}</p>
-                <p>{option.useful}</p>
+                <div className="engagement-outcomes">
+                  <span>{option.outcomeLabel ?? "You leave with"}</span>
+                  <ul>
+                    {option.outcomes.map((outcome) => (
+                      <li key={outcome}>{outcome}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="engagement-best">
+                  <span>Best for</span>
+                  <p>{option.bestFor}</p>
+                </div>
               </article>
             ))}
           </div>
           <div className="engagement-close">
             <div>
-              <h3>Need something different?</h3>
+              <h3>Not sure which engagement fits?</h3>
               <p>
-                Bring me the problem. Short advisory sessions, architecture
-                reviews, workshops and focused assignments are also available
-                through my UAE company.
+                Send me the problem you are facing. I will tell you where I
+                think I add value and where I do not.
               </p>
             </div>
-            <a className="button primary" href="#contact">
-              Discuss an engagement <Arrow />
+            <a className="button primary" href="mailto:work@jarkkomoilanen.com">
+              Discuss your situation <Arrow />
             </a>
           </div>
         </section>

@@ -626,11 +626,21 @@ h1 {
 
 .engagement-card h3 {
   max-width: 520px;
-  margin: 28px 0 16px;
+  margin: 28px 0 12px;
   font-family: var(--display);
   font-size: clamp(28px, 3.5vw, 44px);
   line-height: 0.98;
   letter-spacing: -0.045em;
+}
+
+.engagement-label {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .engagement-card p {
@@ -643,6 +653,74 @@ h1 {
 
 .engagement-card p + p {
   margin-top: 14px;
+}
+
+.engagement-question {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.engagement-card .engagement-question + p {
+  margin-top: 12px;
+}
+
+.engagement-outcomes {
+  max-width: 620px;
+  margin-top: 18px;
+}
+
+.engagement-outcomes span {
+  display: block;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.engagement-outcomes ul {
+  display: grid;
+  gap: 7px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.engagement-outcomes li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.engagement-outcomes li::before {
+  position: absolute;
+  top: 0.55em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  content: "";
+}
+
+.engagement-best {
+  margin-top: 18px;
+}
+
+.engagement-best span {
+  display: block;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.engagement-best p {
+  margin-top: 8px;
+  color: var(--ink);
+  font-weight: 800;
 }
 
 .engagement-close {
