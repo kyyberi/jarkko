@@ -262,10 +262,12 @@ export default function Home() {
           <div className="engagement-grid">
             {engagementOptions.map((option, index) => (
               <article className="engagement-card" key={option.title}>
-                <span className="engagement-number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3>{option.title}</h3>
+                <div className="engagement-heading">
+                  <span className="engagement-number">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <h3>{option.title}</h3>
+                </div>
                 <span className="engagement-label">{option.engagement}</span>
                 <p className="engagement-question">{option.question}</p>
                 <p>{option.text}</p>
