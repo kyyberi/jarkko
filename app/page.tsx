@@ -380,6 +380,9 @@ export default function Home() {
             <h2>Bring me the problem that needs senior attention.</h2>
             <div className="cta-lead">Discuss an engagement</div>
             <div className="cta-channels" aria-label="Contact channels">
+              <a href="mailto:work@jarkkomoilanen.com">
+                Email work@jarkkomoilanen.com <Arrow />
+              </a>
               <a href="https://www.linkedin.com/in/jarkkomoilanen/">
                 Contact in LinkedIn <Arrow />
               </a>

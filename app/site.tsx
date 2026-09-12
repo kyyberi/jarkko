@@ -348,6 +348,7 @@ export function Footer() {
           <li>Open Data Product standards under the Linux Foundation</li>
         </ul>
         <div className="footer-links">
+          <a href="mailto:work@jarkkomoilanen.com">Email</a>
           <a href="https://www.linkedin.com/in/jarkkomoilanen/">LinkedIn</a>
           <a href="https://www.udemy.com/user/jarkko-moilanen/">Udemy</a>
           <a href="https://us.amazon.com/stores/Jarkko-Moilanen/author/B0B66HTHLM?ref=ap_rdr&shoppingPortalEnabled=true">
