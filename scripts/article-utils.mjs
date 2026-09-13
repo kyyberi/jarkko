@@ -4,10 +4,11 @@ import { join } from "node:path";
 export const root = process.cwd();
 export const articlesDirectory = join(root, "content", "articles");
 const articleStatuses = ["draft", "ready", "published"];
+const articleFileNamePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*\.md$/;
 
 export function getArticles() {
   return readdirSync(articlesDirectory)
-    .filter((fileName) => fileName.endsWith(".md") && fileName !== "README.md")
+    .filter((fileName) => articleFileNamePattern.test(fileName))
     .map((fileName) => {
       const slug = fileName.replace(/\.md$/, "");
       const source = readFileSync(join(articlesDirectory, fileName), "utf8");

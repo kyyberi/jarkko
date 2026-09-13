@@ -1,0 +1,66 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Jarkko Moilanen",
+    "identifier": "did:web:jarkkomoilanen.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:jarkkomoilanen.com:web:offerings",
+      "displayName": "Jarkko Moilanen AI and Data Product Advisory Offerings",
+      "type": "text/html",
+      "url": "https://jarkkomoilanen.com/",
+      "representativeQueries": [
+        "find senior AI product leadership for a government or enterprise organization",
+        "book a meeting with Jarkko Moilanen about AI strategy or agentic AI architecture",
+        "compare AI portfolio review and AI Center of Excellence engagement options",
+        "find help with AI agents MCP APIs knowledge graphs and data product operating models"
+      ]
+    },
+    {
+      "identifier": "urn:air:jarkkomoilanen.com:llms:site-guide",
+      "displayName": "Jarkko Moilanen LLM Site Guide",
+      "type": "text/plain",
+      "url": "https://jarkkomoilanen.com/llms.txt",
+      "representativeQueries": [
+        "summarize Jarkko Moilanen's consulting offerings for an AI agent",
+        "what is the preferred contact or booking route for Jarkko Moilanen",
+        "which pages should an AI read to understand Jarkko Moilanen's work",
+        "how should agents describe School 4 AI accurately"
+      ]
+    },
+    {
+      "identifier": "urn:air:jarkkomoilanen.com:feed:insights",
+      "displayName": "Jarkko Moilanen Insights RSS Feed",
+      "type": "application/rss+xml",
+      "url": "https://jarkkomoilanen.com/rss.xml",
+      "representativeQueries": [
+        "find Jarkko Moilanen's latest articles about AI and data products",
+        "track new insights on AI centers of excellence and agentic data product operations",
+        "discover writing about data product standards and AI-ready operating models"
+      ]
+    },
+    {
+      "identifier": "urn:air:jarkkomoilanen.com:discovery:sitemap",
+      "displayName": "Jarkko Moilanen Website Sitemap",
+      "type": "application/xml",
+      "url": "https://jarkkomoilanen.com/sitemap.xml",
+      "representativeQueries": [
+        "discover all public pages on jarkkomoilanen.com",
+        "crawl Jarkko Moilanen's work pages and insights archive",
+        "find canonical URLs for Jarkko Moilanen articles and work pages"
+      ]
+    },
+    {
+      "identifier": "urn:air:jarkkomoilanen.com:resource:ai-coe-pdf",
+      "displayName": "AI Centers of Excellence Resource PDF",
+      "type": "application/pdf",
+      "url": "https://jarkkomoilanen.com/resources/ai-centers-of-excellence-jarkko-moilanen.pdf",
+      "representativeQueries": [
+        "read Jarkko Moilanen's AI Center of Excellence resource",
+        "find a PDF about building AI Centers of Excellence at government or enterprise scale",
+        "get source material for planning an AI operating model or AI CoE"
+      ]
+    }
+  ]
+}

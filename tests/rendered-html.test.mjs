@@ -518,6 +518,14 @@ test("server-renders robots and sitemap discovery routes", async () => {
   const sitemapText = await sitemap.text();
 
   assert.match(robotsText, /User-Agent: \*/);
+  assert.match(
+    robotsText,
+    /Content-Signal: ai-train=no, search=yes, ai-input=yes/,
+  );
+  assert.match(
+    robotsText,
+    /Agentmap: https:\/\/jarkkomoilanen\.com\/\.well-known\/ai-catalog\.json/,
+  );
   assert.match(robotsText, /Sitemap: https:\/\/jarkkomoilanen\.com\/sitemap\.xml/);
   assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/<\/loc>/);
   assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/about\/<\/loc>/);
@@ -529,6 +537,31 @@ test("server-renders robots and sitemap discovery routes", async () => {
     sitemapText,
     /<loc>https:\/\/jarkkomoilanen\.com\/work\/standards-and-sdk\/<\/loc>/,
   );
+});
+
+test("publishes an ARD manifest for agent discovery", async () => {
+  const source = await readFile(
+    new URL("../public/.well-known/ai-catalog.json", import.meta.url),
+    "utf8",
+  );
+  const catalog = JSON.parse(source);
+
+  assert.equal(catalog.specVersion, "1.0");
+  assert.equal(catalog.host.displayName, "Jarkko Moilanen");
+  assert.equal(catalog.host.identifier, "did:web:jarkkomoilanen.com");
+  assert.ok(Array.isArray(catalog.entries));
+  assert.ok(catalog.entries.length >= 1);
+
+  for (const entry of catalog.entries) {
+    assert.match(entry.identifier, /^urn:air:jarkkomoilanen\.com:[a-z0-9-]+:[a-z0-9-]+$/);
+    assert.equal(typeof entry.displayName, "string");
+    assert.match(entry.type, /^[a-z0-9!#$&^_.+-]+\/[a-z0-9!#$&^_.+-]+$/i);
+    assert.equal("url" in entry, true);
+    assert.equal("data" in entry, false);
+    assert.ok(Array.isArray(entry.representativeQueries));
+    assert.ok(entry.representativeQueries.length >= 2);
+    assert.ok(entry.representativeQueries.length <= 5);
+  }
 });
 
 test("removes starter preview wiring", async () => {

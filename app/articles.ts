@@ -32,11 +32,12 @@ export type Article = {
 
 const articlesDirectory = join(process.cwd(), "content", "articles");
 const articleStatuses = ["draft", "ready", "published"] as const;
+const articleFileNamePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*\.md$/;
 type ArticleStatus = (typeof articleStatuses)[number];
 
 export function getArticles(): Article[] {
   return readdirSync(articlesDirectory)
-    .filter((fileName) => fileName.endsWith(".md") && fileName !== "README.md")
+    .filter((fileName) => articleFileNamePattern.test(fileName))
     .map((fileName) => {
       const slug = fileName.replace(/\.md$/, "");
       const source = readFileSync(join(articlesDirectory, fileName), "utf8");
