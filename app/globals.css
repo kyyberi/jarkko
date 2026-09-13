@@ -554,17 +554,6 @@ h1 {
   border-bottom: 1px solid var(--ink);
   background: var(--paper);
   font-family: var(--font-geist-sans), var(--body);
-  transition:
-    background 180ms ease,
-    box-shadow 180ms ease,
-    transform 180ms ease;
-}
-
-.engagement-card:hover,
-.engagement-card:focus-within {
-  background: var(--white);
-  box-shadow: 5px 5px 0 var(--accent);
-  transform: translate(-3px, -3px);
 }
 
 .engagement-heading {
@@ -2730,11 +2719,6 @@ h1 {
 
   .engagement-price strong {
     font-size: clamp(30px, 8.5vw, 34px);
-  }
-
-  .engagement-card:hover,
-  .engagement-card:focus-within {
-    transform: none;
   }
 
   .engagement-close {
