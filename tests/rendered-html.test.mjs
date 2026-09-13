@@ -92,7 +92,7 @@ test("server-renders the professional homepage", async () => {
     /9 Actions We Took to Make Open Data Product Vocabulary AI-Agent-First/,
   );
   assert.match(html, /Bring me the problem that needs senior attention\./);
-  assert.match(html, /Government-wide AI products/);
+  assert.match(html, /AI products at Scale/);
   assert.match(html, /Maysano/);
   assert.match(html, /Data Product Standards/);
   assert.match(html, /\/images\/work-maysano\.png/);
@@ -142,9 +142,25 @@ test("server-renders the professional homepage", async () => {
   assert.ok(
     html.indexOf("Ways to work with me") < html.indexOf("What people say"),
   );
+  assert.ok(
+    html.indexOf("Ways to work with me") <
+      html.indexOf("Selected organizations I have worked with"),
+  );
+  assert.ok(
+    html.indexOf("Selected organizations I have worked with") <
+      html.indexOf("What people say"),
+  );
   assert.ok(html.indexOf("What people say") < html.indexOf("Current focus"));
+  assert.match(html, /Across government, enterprise data, AI, and broader data initiatives/);
+  assert.match(html, /dozens of Abu Dhabi Government entities/);
+  assert.match(html, /Alation/);
+  assert.match(html, /BASF/);
+  assert.match(html, /Kruger/);
+  assert.match(html, /Nasdaq/);
+  assert.match(html, /VesoAI/);
+  assert.match(html, /Abu Dhabi Government/);
   assert.equal((html.match(/class="testimonial-card"/g) ?? []).length, 5);
-  assert.equal((html.match(/Recommendation on LinkedIn/g) ?? []).length, 5);
+  assert.doesNotMatch(html, /Recommendation on LinkedIn/);
   assert.ok(html.indexOf("Toni Luhti") < html.indexOf("Matti Saastamoinen"));
   assert.ok(html.indexOf("Matti Saastamoinen") < html.indexOf("Baraa Zaid"));
   assert.ok(html.indexOf("Baraa Zaid") < html.indexOf("Rebecca Elias Poozhipuram"));

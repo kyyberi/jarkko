@@ -828,7 +828,60 @@ h1 {
   color: var(--ink);
 }
 
+.organization-proof-section {
+  padding-block: 44px 34px;
+  border-bottom: 0;
+  background: var(--paper);
+}
+
+.organization-proof-head {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+  gap: 34px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.organization-proof-head h2 {
+  max-width: 520px;
+  margin: 0;
+  font-family: var(--font-geist-sans), var(--body);
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+.organization-proof-head p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.organization-proof-list {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.organization-proof-list li {
+  min-width: 0;
+  color: var(--ink);
+  font-family: var(--font-geist-sans), var(--body);
+  font-size: clamp(16px, 1.35vw, 19px);
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: normal;
+  white-space: nowrap;
+}
+
 .testimonials-section {
+  padding-top: 34px;
   background: var(--paper);
 }
 
@@ -882,8 +935,7 @@ h1 {
   overflow-wrap: break-word;
 }
 
-.testimonial-person span,
-.testimonial-source {
+.testimonial-person span {
   display: block;
   color: var(--accent);
   font-size: 12px;
@@ -915,11 +967,6 @@ h1 {
   font-weight: 400;
   line-height: 1.48;
   overflow-wrap: break-word;
-}
-
-.testimonial-source {
-  margin: auto 0 0;
-  padding-top: 4px;
 }
 
 .testimonials-more {
@@ -2548,6 +2595,15 @@ h1 {
     gap: 22px;
   }
 
+  .organization-proof-head {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .organization-proof-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
@@ -2716,6 +2772,27 @@ h1 {
 
   .engagement-close {
     padding: 24px 20px;
+  }
+
+  .organization-proof-section {
+    padding-block: 34px 26px;
+  }
+
+  .organization-proof-head h2 {
+    font-size: 22px;
+  }
+
+  .organization-proof-head p {
+    font-size: 15px;
+  }
+
+  .organization-proof-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 18px;
+  }
+
+  .organization-proof-list li {
+    font-size: 16px;
   }
 
   .testimonials-intro {

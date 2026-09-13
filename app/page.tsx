@@ -148,6 +148,15 @@ const testimonials = [
 const visibleTestimonials = testimonials.slice(0, 3);
 const additionalTestimonials = testimonials.slice(3);
 
+const credibilityOrganizations = [
+  "Alation",
+  "BASF",
+  "Kruger",
+  "Nasdaq",
+  "VesoAI",
+  "Abu Dhabi Government",
+];
+
 function ContactIcon({
   type,
 }: {
@@ -232,7 +241,7 @@ export default function Home() {
                 I help government and enterprise teams turn AI and data
                 initiatives into products that work. I lead strategy, portfolios
                 and operating models, and I also work hands-on with AI agents,
-                agent harnesses, MCP, APIs and knowledge graphs.
+                agent harnesses, MCP, APIs and knowledge graphs and ontologies.
               </p>
               <div className="hero-actions">
                 <a className="button primary" href="#engagements">
@@ -414,6 +423,27 @@ export default function Home() {
         </section>
 
         <section
+          className="section organization-proof-section"
+          aria-labelledby="organization-proof-title"
+        >
+          <div className="organization-proof-head">
+            <h2 id="organization-proof-title">
+              Selected organizations I have worked with
+            </h2>
+            <p>
+              Across government, enterprise data, AI, and broader data
+              initiatives, including work across dozens of Abu Dhabi Government
+              entities.
+            </p>
+          </div>
+          <ul className="organization-proof-list">
+            {credibilityOrganizations.map((organization) => (
+              <li key={organization}>{organization}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section
           className="section testimonials-section"
           aria-labelledby="testimonials-title"
         >
@@ -444,7 +474,6 @@ export default function Home() {
                     </blockquote>
                   ))}
                 </div>
-                <p className="testimonial-source">Recommendation on LinkedIn</p>
               </article>
             ))}
           </div>
@@ -465,9 +494,6 @@ export default function Home() {
                       </blockquote>
                     ))}
                   </div>
-                  <p className="testimonial-source">
-                    Recommendation on LinkedIn
-                  </p>
                 </article>
               ))}
             </div>
@@ -485,7 +511,7 @@ export default function Home() {
             <article className="focus-item">
               <div>
                 <div className="focus-number">01</div>
-                <h3>Government-wide AI products</h3>
+                <h3>AI products at Scale</h3>
                 <p>
                   Leading business-led AI product portfolios, entity
                   collaboration, data readiness, governance, and delivery in Abu
