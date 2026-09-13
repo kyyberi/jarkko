@@ -62,7 +62,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /aria-label="Executive credibility"/);
   assert.match(html, /270% delivery speed improvement/);
   assert.match(html, /2\.5M\+ users served through national digital infrastructure/);
-  assert.match(html, /Whole-of-government data and AI product work/);
+  assert.match(html, /Scaled Data and AI product work/);
   assert.match(html, /Data product thinking moving into practice across 56 countries/);
   assert.ok(
     html.indexOf("270% delivery speed improvement") <

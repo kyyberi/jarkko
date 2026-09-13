@@ -307,7 +307,7 @@ export default function Home() {
           </div>
           <div className="credibility-item">
             <span>Leadership</span>
-            <strong>Whole-of-government data and AI product work</strong>
+            <strong>Scaled Data and AI product work</strong>
           </div>
           <div className="credibility-item">
             <span>Reach</span>
