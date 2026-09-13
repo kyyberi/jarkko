@@ -172,52 +172,8 @@ a {
   clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
 }
 
-.hero-copy::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background:
-    linear-gradient(
-      100deg,
-      rgba(243, 240, 233, 0) 0%,
-      rgba(255, 253, 248, 0.54) 30%,
-      rgba(139, 63, 50, 0.095) 50%,
-      rgba(255, 253, 248, 0.46) 68%,
-      rgba(243, 240, 233, 0) 100%
-    );
-  background-size: 240% 100%;
-  background-position: 100% 50%;
-  opacity: 0.52;
-  animation: hero-gradient-emerge-slide 22s ease-in-out infinite;
-  pointer-events: none;
-}
-
 .hero-copy > * {
   position: relative;
-}
-
-@keyframes hero-gradient-emerge-slide {
-  0% {
-    background-position: 100% 50%;
-    opacity: 0;
-  }
-
-  20% {
-    background-position: 86% 50%;
-    opacity: 0.52;
-  }
-
-  70% {
-    background-position: 18% 50%;
-    opacity: 0.52;
-  }
-
-  88%,
-  100% {
-    background-position: 0% 50%;
-    opacity: 0;
-  }
 }
 
 @keyframes accent-gradient-drift {
@@ -2983,10 +2939,6 @@ h1 {
   .button,
   .nav a::after {
     transition: none;
-  }
-
-  .hero-copy::before {
-    animation: none;
   }
 
   .accent {
