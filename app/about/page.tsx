@@ -2,21 +2,22 @@ import type { Metadata } from "next";
 import {
   DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_ALT,
+  PROFILE_DESCRIPTION,
   canonicalPath,
 } from "../seo";
 import { Arrow, PageShell, assetPath, sitePath } from "../site";
 
 export const metadata: Metadata = {
-  title: "About",
-  description:
-    "About Jarkko Moilanen, PhD, and the work connecting strategy, standards, governance, software, and delivery for data and AI products.",
+  title: {
+    absolute: "About Jarkko Moilanen | Senior AI & Data Product Leader",
+  },
+  description: PROFILE_DESCRIPTION,
   alternates: {
     canonical: canonicalPath("/about"),
   },
   openGraph: {
-    title: "About | Jarkko Moilanen",
-    description:
-      "About Jarkko Moilanen, PhD, and the work connecting strategy, standards, governance, software, and delivery for data and AI products.",
+    title: "About Jarkko Moilanen | Senior AI & Data Product Leader",
+    description: PROFILE_DESCRIPTION,
     url: canonicalPath("/about"),
     type: "profile",
     images: [
@@ -30,9 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About | Jarkko Moilanen",
-    description:
-      "About Jarkko Moilanen, PhD, and the work connecting strategy, standards, governance, software, and delivery for data and AI products.",
+    title: "About Jarkko Moilanen | Senior AI & Data Product Leader",
+    description: PROFILE_DESCRIPTION,
     images: [DEFAULT_OG_IMAGE],
   },
 };

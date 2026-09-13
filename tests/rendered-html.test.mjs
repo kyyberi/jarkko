@@ -30,7 +30,14 @@ test("server-renders the professional homepage", async () => {
 
   const html = await response.text();
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
-  assert.match(html, /<title>Jarkko Moilanen \| Data Product Pioneer<\/title>/i);
+  assert.match(
+    html,
+    /<title>Jarkko Moilanen \| Senior AI &amp; Data Product Leader<\/title>/i,
+  );
+  assert.match(
+    html,
+    /<meta name="description" content="Senior AI and data product leader helping government and enterprise teams scale AI strategy, portfolios, Centers of Excellence, operating models, agents, MCP, APIs, and knowledge graphs\."/,
+  );
   assert.match(
     html,
     /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/"/,
@@ -50,9 +57,14 @@ test("server-renders the professional homepage", async () => {
     /<meta name="twitter:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
   );
   assert.match(html, /<link rel="alternate" type="application\/rss\+xml" href="https:\/\/jarkkomoilanen\.com\/rss\.xml"/);
+  assert.match(html, /<script type="application\/ld\+json">/);
+  assert.match(html, /"@type":"Person"/);
+  assert.match(html, /"jobTitle":"Senior AI and Data Product Leader"/);
+  assert.match(html, /"AI Centers of Excellence"/);
+  assert.match(html, /"Model Context Protocol"/);
   assert.match(html, /googletagmanager\.com\/gtag\/js\?id=G-KZ5N2GTKF5/);
   assert.match(html, /gtag\('config', 'G-KZ5N2GTKF5'\)/);
-  assert.match(html, /Building the operating system for[\s\S]*data and AI products/);
+  assert.match(html, /AI product leadership[\s\S]*from strategy[\s\S]*working systems/);
   assert.match(html, /Jarkko Moilanen, PhD/);
   assert.match(html, /aria-label="Open navigation menu"/);
   assert.match(html, /id="mobile-navigation"/);
@@ -66,9 +78,9 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Data product thinking moving into practice across 56 countries/);
   assert.ok(
     html.indexOf("270% delivery speed improvement") <
-      html.indexOf("Three areas. One professional body of work."),
+      html.indexOf("Four areas. One professional body of work."),
   );
-  assert.match(html, /Three areas\. One professional body of work\./);
+  assert.match(html, /Four areas\. One professional body of work\./);
   assert.match(html, /Built in public, tested in practice\./);
   assert.doesNotMatch(css, /\.focus-grid\s*\{[^}]*border-block:/);
   assert.match(css, /\.focus-grid\s*\{[^}]*border-top:/);
@@ -113,6 +125,16 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Business-ID: 262443655888/);
   assert.match(html, /Amber Gem Tower, 26th Floor, Ajman/);
   assert.match(html, /United Arab Emirates/);
+  assert.match(html, /I lead AI strategy,[\s\S]*Centers of Excellence and operating models/);
+  assert.match(html, /AI Center of Excellence setup/);
+  assert.match(html, /AI Center of Excellence &amp; Operating Model/);
+  assert.match(html, /AI initiatives are growing, but ownership, prioritisation, governance and delivery do not scale/);
+  assert.match(html, /I design or strengthen your AI Center of Excellence/);
+  assert.match(html, /AI CoE mandate and scope/);
+  assert.match(html, /AI opportunity intake and prioritisation/);
+  assert.match(html, /KPI and value model/);
+  assert.match(html, /90-day implementation plan/);
+  assert.match(html, /managed enterprise AI capability/);
   assert.match(html, /5 Masterclasses &amp; Learners across 56 countries/);
   assert.match(html, /Five Udemy courses covering data product foundations/);
   assert.match(html, /5 courses · Ratings from 4\.44 to 4\.74/);
@@ -200,7 +222,14 @@ test("server-renders the about page", async () => {
   assert.equal(response.status, 200);
 
   const html = await response.text();
-  assert.match(html, /<title>About \| Jarkko Moilanen<\/title>/);
+  assert.match(
+    html,
+    /<title>About Jarkko Moilanen \| Senior AI &amp; Data Product Leader<\/title>/,
+  );
+  assert.match(
+    html,
+    /<meta name="description" content="Jarkko Moilanen is a senior AI and data product leader based in Abu Dhabi, helping government and enterprise teams turn AI and data initiatives into governed products at scale\."/,
+  );
   assert.match(
     html,
     /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/about\/"/,
@@ -260,7 +289,7 @@ test("server-renders work detail pages", async () => {
   assert.match(html, /shared, machine-readable foundation for defining, governing, exchanging, and implementing data products/);
   assert.match(html, /href="https:\/\/opendataproducts\.org"/);
   assert.match(html, /href="https:\/\/opendataproducts\.org\/sdk"/);
-  assert.match(html, /An open standard and toolkit for governed, interoperable, agent-ready data products/);
+  assert.match(html, /Open standards and SDKs for governed, interoperable, agent-ready data products/);
   assert.match(html, /people, platforms, automation, and AI agents interpret data products consistently/);
   assert.match(html, /Open standard/);
   assert.match(html, /maintained under the Linux Foundation/);
@@ -299,7 +328,7 @@ test("server-renders the Maysano work page as a real platform", async () => {
   assert.match(html, /Portfolio/);
   assert.match(html, /Data products/);
   assert.match(html, /From business intent to governed product systems/);
-  assert.match(html, /A connected environment for governed data product portfolios/);
+  assert.match(html, /Portfolio Studio for turning strategy, discovery, governance, and data product decisions into a working operating environment/);
   assert.match(html, /Portfolio Studio/);
   assert.match(html, /Structured product definition/);
   assert.match(html, /Governance and readiness/);
@@ -329,7 +358,7 @@ test("server-renders the government AI work page without operational detail", as
   assert.match(html, /Data readiness/);
   assert.match(html, /AI products/);
   assert.match(html, /Public value/);
-  assert.match(html, /From AI ambition to a governed product portfolio/i);
+  assert.match(html, /Senior portfolio work shaping AI products at scale across Abu Dhabi Government priorities/i);
   assert.match(html, /Portfolio direction/);
   assert.match(html, /Readiness and governance/);
   assert.match(html, /Cross-entity delivery/);

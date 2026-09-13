@@ -7,6 +7,8 @@ import {
   DEFAULT_OG_IMAGE,
   DEFAULT_OG_IMAGE_ALT,
   DEFAULT_TITLE,
+  LINKEDIN_PROFILE_URL,
+  PROFILE_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
 } from "./seo";
@@ -23,6 +25,60 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      description: DEFAULT_DESCRIPTION,
+      publisher: {
+        "@id": `${SITE_URL}/#person`,
+      },
+      inLanguage: "en",
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#person`,
+      name: SITE_NAME,
+      honorificSuffix: "PhD",
+      url: SITE_URL,
+      image: `${SITE_URL}/images/jarkko-hero-abudhabi-2026.jpeg`,
+      jobTitle: "Senior AI and Data Product Leader",
+      description: PROFILE_DESCRIPTION,
+      sameAs: [
+        LINKEDIN_PROFILE_URL,
+        "https://www.udemy.com/user/jarkko-moilanen/",
+        "https://us.amazon.com/stores/Jarkko-Moilanen/author/B0B66HTHLM",
+      ],
+      knowsAbout: [
+        "AI strategy",
+        "Data products",
+        "AI product portfolios",
+        "AI Centers of Excellence",
+        "Operating models",
+        "AI agents",
+        "Model Context Protocol",
+        "APIs",
+        "Knowledge graphs",
+        "Ontologies",
+        "Data governance",
+      ],
+      worksFor: {
+        "@type": "Organization",
+        name: "Data Maestro Academy FZE LLC",
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Abu Dhabi",
+        addressCountry: "AE",
+      },
+    },
+  ],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -97,6 +153,12 @@ export default function RootLayout({
             gtag('config', '${googleAnalyticsId}');
           `}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
         {children}
       </body>
     </html>

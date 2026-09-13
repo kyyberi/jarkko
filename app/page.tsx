@@ -54,24 +54,27 @@ const engagementOptions = [
       "Typical scope covers a defined business domain and two to three target workflows. Production implementation is scoped separately.",
   },
   {
-    title: "AI Product Operating Model",
+    title: "AI Center of Excellence & Operating Model",
     engagement: "4 to 6-week engagement",
     pricingLabel: "Typical investment",
     price: "AED 90K–130K",
     question:
-      "AI pilots are being built, but ownership, decisions and delivery do not scale.",
+      "AI initiatives are growing, but ownership, prioritisation, governance and delivery do not scale.",
     text:
-      "I design the operating model that connects business priorities, AI product ownership, engineering, governance and portfolio decisions.",
+      "I design or strengthen your AI Center of Excellence and the operating model around it. We connect business priorities, AI product ownership, engineering, governance, portfolio decisions and value measurement.",
     outcomes: [
+      "AI CoE mandate and scope",
       "Roles and decision rights",
+      "AI opportunity intake and prioritisation",
       "Product lifecycle",
       "Portfolio governance",
-      "Delivery flow",
-      "KPI model",
+      "Delivery model",
+      "KPI and value model",
       "Operating cadence",
+      "90-day implementation plan",
     ],
     bestFor:
-      "Organisations moving from isolated AI projects toward a managed AI product portfolio.",
+      "Organisations moving from scattered AI initiatives and pilots toward a managed enterprise AI capability.",
     scopeNote:
       "Typical scope covers a medium-to-large organisation or a defined set of business functions. Group-wide or multi-entity transformation is scoped separately.",
   },
@@ -239,9 +242,10 @@ export default function Home() {
               </h1>
               <p className="hero-lede">
                 I help government and enterprise teams turn AI and data
-                initiatives into products that work. I lead strategy, portfolios
-                and operating models, and I also work hands-on with AI agents,
-                agent harnesses, MCP, APIs and knowledge graphs and ontologies.
+                initiatives into products that work. I lead AI strategy,
+                portfolios, Centers of Excellence and operating models, and I
+                also work hands-on with AI agents, agent harnesses, MCP, APIs
+                and knowledge graphs.
               </p>
               <div className="hero-actions">
                 <a className="button primary" href="#engagements">
@@ -341,8 +345,8 @@ export default function Home() {
             <div>
               <span>Lead</span>
               <p>
-                Executive leadership, AI product strategy, portfolio management,
-                and operating models.
+                Executive leadership, AI strategy, AI Center of Excellence
+                setup, product portfolio management, and operating models.
               </p>
             </div>
             <div>

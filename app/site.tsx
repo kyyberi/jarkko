@@ -17,7 +17,7 @@ export const workItems = [
     label: "Platform and Portfolio Studio",
     title: "Maysano",
     summary:
-      "A connected environment for governed data product portfolios.",
+      "Portfolio Studio for turning strategy, discovery, governance, and data product decisions into a working operating environment.",
     image: "/images/work-maysano.png",
     imageAlt: "Maysano portfolio flow from business goals to data products",
     cta: "See how it works",
@@ -78,7 +78,7 @@ export const workItems = [
     label: "Open standard and SDK",
     title: "Data Product Standards",
     summary:
-      "An open standard and toolkit for governed, interoperable, agent-ready data products.",
+      "Open standards and SDKs for governed, interoperable, agent-ready data products across platforms, teams, and organizations.",
     image: "/images/work-odps.png",
     imageAlt: "Open Data Product Specification family maintained under Linux Foundation",
     cta: "Explore the standard",
@@ -171,7 +171,7 @@ export const workItems = [
     label: "Abu Dhabi Government AI delivery",
     title: "Building AI products for public value",
     summary:
-      "From AI ambition to a governed product portfolio",
+      "Senior portfolio work shaping AI products at scale across Abu Dhabi Government priorities, data readiness, governance, and delivery.",
     image: "/images/work-abudhabi.png",
     imageAlt: "AI product delivery path from priority needs to public value",
     cta: "Discuss the approach",
@@ -224,7 +224,7 @@ export const workItems = [
     label: "Community AI education",
     title: "School 4 AI",
     summary:
-      "A community learning initiative for young people to learn AI and English through practice.",
+      "A community learning initiative helping young people learn practical AI, English, teamwork, and product building through visible outcomes.",
     image: "/images/work-school4ai.webp",
     imageAlt:
       "Vietnamese young people learning AI and English through a community activity",
