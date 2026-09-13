@@ -102,7 +102,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Browse all insights/);
   assert.match(
     html,
-    /What Anthropic Dreaming Tells Us About the Future of Data Product Portfolios/,
+    /AI Center of Excellence: What I Learned Building AI at Government Scale/,
   );
   assert.doesNotMatch(
     html,
@@ -158,7 +158,7 @@ test("server-renders the professional homepage", async () => {
   assert.equal((html.match(/class="engagement-action"/g) ?? []).length, 4);
   assert.match(html, /Book a 30-minute call/);
   assert.match(html, /Discuss an engagement/);
-  assert.equal((html.match(/Book a meeting/g) ?? []).length, 2);
+  assert.equal((html.match(/Book a meeting/g) ?? []).length, 4);
   assert.doesNotMatch(html, /Discuss an engagement\s*<span aria-hidden="true">-&gt;<\/span>/);
   assert.ok(
     html.indexOf("Ways to work with me") < html.indexOf("What people say"),
