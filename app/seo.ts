@@ -1,12 +1,13 @@
 export const SITE_URL = "https://jarkkomoilanen.com";
 export const SITE_NAME = "Jarkko Moilanen";
+export const STATIC_ASSET_VERSION = "20260913-hero-panel";
 
 export const DEFAULT_TITLE =
   "Jarkko Moilanen | Senior AI & Data Product Leader";
 export const DEFAULT_DESCRIPTION =
   "Senior AI and data product leader helping government and enterprise teams scale AI strategy, portfolios, Centers of Excellence, operating models, agents, MCP, APIs, and knowledge graphs.";
 
-export const DEFAULT_OG_IMAGE = "/images/social-share.jpg";
+export const DEFAULT_OG_IMAGE = versionedPublicPath("/images/social-share.jpg");
 export const DEFAULT_OG_IMAGE_ALT =
   "Jarkko Moilanen social preview for data and AI product work";
 
@@ -15,6 +16,11 @@ export const PROFILE_DESCRIPTION =
 
 export const LINKEDIN_PROFILE_URL =
   "https://www.linkedin.com/in/jarkkomoilanen/";
+
+export function versionedPublicPath(path: string) {
+  const separator = path.includes("?") ? "&" : "?";
+  return `${path}${separator}v=${STATIC_ASSET_VERSION}`;
+}
 
 export function absoluteUrl(path: string) {
   return new URL(path, SITE_URL).toString();

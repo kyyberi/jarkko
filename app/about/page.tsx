@@ -5,7 +5,7 @@ import {
   PROFILE_DESCRIPTION,
   canonicalPath,
 } from "../seo";
-import { Arrow, PageShell, assetPath, sitePath } from "../site";
+import { Arrow, PageShell, publicAssetPath, sitePath } from "../site";
 
 export const metadata: Metadata = {
   title: {
@@ -55,7 +55,7 @@ export default function AboutPage() {
         </div>
         <figure className="about-portrait" aria-label="Portrait of Jarkko Moilanen">
           <img
-            src={`${assetPath}/images/jarkko-hero-abudhabi-2026.jpeg`}
+            src={publicAssetPath("/images/jarkko-hero-abudhabi-2026.jpeg")}
             alt="Jarkko Moilanen"
           />
         </figure>

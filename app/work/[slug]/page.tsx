@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo";
-import { Arrow, PageShell, assetPath, sitePath, workItems } from "../../site";
+import { Arrow, PageShell, publicAssetPath, sitePath, workItems } from "../../site";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -197,7 +197,7 @@ export default async function WorkDetail({ params }: PageProps) {
               ) : null}
             </div>
           ) : (
-            <img src={`${assetPath}${item.image}`} alt={item.imageAlt} />
+            <img src={publicAssetPath(item.image)} alt={item.imageAlt} />
           )}
         </div>
       </section>

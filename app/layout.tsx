@@ -11,6 +11,7 @@ import {
   PROFILE_DESCRIPTION,
   SITE_NAME,
   SITE_URL,
+  versionedPublicPath,
 } from "./seo";
 
 const assetPath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
@@ -103,10 +104,10 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: `${assetPath}/favicon.ico`, sizes: "any" },
-      { url: `${assetPath}/favicon.svg`, type: "image/svg+xml" },
+      { url: `${assetPath}${versionedPublicPath("/favicon.ico")}`, sizes: "any" },
+      { url: `${assetPath}${versionedPublicPath("/favicon.svg")}`, type: "image/svg+xml" },
     ],
-    shortcut: `${assetPath}/favicon.ico`,
+    shortcut: `${assetPath}${versionedPublicPath("/favicon.ico")}`,
   },
   openGraph: {
     title: DEFAULT_TITLE,

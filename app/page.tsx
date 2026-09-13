@@ -2,7 +2,7 @@ import {
   Arrow,
   Footer,
   Header,
-  assetPath,
+  publicAssetPath,
   sitePath,
   workItems,
 } from "./site";
@@ -267,12 +267,12 @@ export default function Home() {
 
           <div className="hero-portrait">
             <img
-              src={`${assetPath}/images/jarkko-hero-abudhabi-2026.jpeg`}
+              src={publicAssetPath("/images/jarkko-hero-abudhabi-2026.jpeg")}
               alt="Portrait of Jarkko Moilanen"
             />
             <div className="hero-residency-badge">
               <img
-                src={`${assetPath}/images/uae-flag.svg`}
+                src={publicAssetPath("/images/uae-flag.svg")}
                 alt="United Arab Emirates flag"
               />
               <span>4+ years in UAE</span>
@@ -314,7 +314,7 @@ export default function Home() {
             </div>
             <figure className="engagement-billing">
               <img
-                src={`${assetPath}/images/hero-skyline.jpg`}
+                src={publicAssetPath("/images/hero-skyline.jpg")}
                 alt="Abu Dhabi skyline, representing UAE-based engagement billing"
               />
               <figcaption>
@@ -572,7 +572,7 @@ export default function Home() {
                   </a>
                 </div>
                 <div className="work-visual">
-                  <img src={`${assetPath}${item.image}`} alt={item.imageAlt} />
+                  <img src={publicAssetPath(item.image)} alt={item.imageAlt} />
                 </div>
               </article>
             ))}
@@ -609,7 +609,7 @@ export default function Home() {
             <aside className="media-stack" aria-label="Teaching and publishing">
               <article className="media-card">
                 <div className="media-logo">
-                  <img src={`${assetPath}/images/logo-udemy.png`} alt="Udemy" />
+                  <img src={publicAssetPath("/images/logo-udemy.png")} alt="Udemy" />
                 </div>
                 <div className="media-card-copy">
                   <div className="section-kicker">COURSES</div>
@@ -634,7 +634,7 @@ export default function Home() {
               <article className="media-card">
                 <div className="media-logo">
                   <img
-                    src={`${assetPath}/images/logo-amazon.png`}
+                    src={publicAssetPath("/images/logo-amazon.png")}
                     alt="Amazon"
                   />
                 </div>

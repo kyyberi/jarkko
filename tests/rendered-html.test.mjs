@@ -2,6 +2,11 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
+const staticAssetVersion = "20260913-hero-panel";
+const socialShareImagePattern = new RegExp(
+  `https:\\/\\/jarkkomoilanen\\.com\\/images\\/social-share\\.jpg\\?v=${staticAssetVersion}`,
+);
+
 async function render(path = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
@@ -49,12 +54,12 @@ test("server-renders the professional homepage", async () => {
   );
   assert.match(
     html,
-    /<meta property="og:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+    socialShareImagePattern,
   );
   assert.match(html, /<meta name="twitter:card" content="summary_large_image"/);
   assert.match(
     html,
-    /<meta name="twitter:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+    socialShareImagePattern,
   );
   assert.match(html, /<link rel="alternate" type="application\/rss\+xml" href="https:\/\/jarkkomoilanen\.com\/rss\.xml"/);
   assert.match(html, /<script type="application\/ld\+json">/);
@@ -273,11 +278,11 @@ test("server-renders work detail pages", async () => {
   );
   assert.match(
     html,
-    /<meta property="og:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+    socialShareImagePattern,
   );
   assert.match(
     html,
-    /<meta name="twitter:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+    socialShareImagePattern,
   );
   assert.match(html, /OPEN STANDARD AND SDK/i);
   assert.match(html, /shared, machine-readable foundation for defining, governing, exchanging, and implementing data products/);
@@ -382,11 +387,11 @@ test("server-renders article pages", async () => {
   assert.match(html, /<meta property="og:type" content="article"/);
   assert.match(
     html,
-    /<meta property="og:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+    socialShareImagePattern,
   );
   assert.match(
     html,
-    /<meta name="twitter:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+    socialShareImagePattern,
   );
   assert.match(
     html,
@@ -418,11 +423,11 @@ test("server-renders insights index with the editorial header background", async
   assert.match(html, /class="detail-hero editorial insights-hero"/);
   assert.match(
     html,
-    /<meta property="og:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+    socialShareImagePattern,
   );
   assert.match(
     html,
-    /<meta name="twitter:image" content="https:\/\/jarkkomoilanen\.com\/images\/social-share\.jpg"/,
+    socialShareImagePattern,
   );
   assert.match(html, /Writing from the work itself/);
   assert.match(html, /aria-label="Article categories"/);

@@ -1,10 +1,15 @@
 import { MobileNav } from "./mobile-nav";
+import { versionedPublicPath } from "./seo";
 
 export function Arrow() {
   return <span aria-hidden="true">{"->"}</span>;
 }
 
 export const assetPath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+export function publicAssetPath(path: string) {
+  return `${assetPath}${versionedPublicPath(path)}`;
+}
 
 export function sitePath(path: string) {
   return `${assetPath}${path}`;
