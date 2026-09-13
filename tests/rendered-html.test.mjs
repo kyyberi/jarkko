@@ -130,6 +130,12 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /View books and author profile/);
   assert.match(html, /https:\/\/us\.amazon\.com\/stores\/Jarkko-Moilanen\/author\/B0B66HTHLM/);
   assert.match(html, /\/images\/logo-amazon\.png/);
+  assert.equal(
+    (html.match(/href="https:\/\/calendly\.com\/work-jarkkomoilanen\/30min"/g) ?? []).length,
+    4,
+  );
+  assert.equal((html.match(/class="engagement-action"/g) ?? []).length, 4);
+  assert.match(html, /Book a 30-minute call/);
   assert.match(html, /Discuss an engagement/);
   assert.doesNotMatch(html, /Discuss an engagement\s*<span aria-hidden="true">-&gt;<\/span>/);
   assert.match(html, /aria-label="Contact channels"/);

@@ -8,6 +8,8 @@ import {
 } from "./site";
 import { getArticles } from "./articles";
 
+const calendlyBookingUrl = "https://calendly.com/work-jarkkomoilanen/30min";
+
 const engagementOptions = [
   {
     title: "AI Portfolio Review",
@@ -303,6 +305,16 @@ export default function Home() {
                   <strong>{option.price}</strong>
                 </div>
                 <p className="engagement-scope-note">{option.scopeNote}</p>
+                <div className="engagement-action">
+                  <a
+                    className="button primary"
+                    href={calendlyBookingUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Book a 30-minute call <Arrow />
+                  </a>
+                </div>
               </article>
             ))}
           </div>

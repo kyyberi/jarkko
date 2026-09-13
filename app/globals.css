@@ -598,6 +598,8 @@ h1 {
 }
 
 .engagement-card {
+  display: flex;
+  flex-direction: column;
   min-height: 330px;
   padding: 28px clamp(24px, 3vw, 38px) 32px;
   border-right: 1px solid var(--ink);
@@ -772,6 +774,17 @@ h1 {
   font-size: 15px;
   font-weight: 400;
   line-height: 1.5;
+}
+
+.engagement-action {
+  display: flex;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.engagement-action .button {
+  width: 100%;
+  justify-content: center;
 }
 
 .engagement-disclaimer {
