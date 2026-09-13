@@ -149,20 +149,27 @@ a {
 
 .hero {
   display: grid;
-  grid-template-columns: 7.6fr 4.4fr;
-  min-height: 580px;
+  position: relative;
+  grid-template-columns: 1fr;
+  min-height: 640px;
+  overflow: hidden;
   border-bottom: 1px solid var(--ink);
+  background: var(--white);
 }
 
 .hero-copy {
   position: relative;
+  z-index: 2;
   isolation: isolate;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: min(62%, 820px);
   overflow: hidden;
-  padding: clamp(42px, 5.6vw, 78px) var(--pad) 38px;
-  border-right: 1px solid var(--ink);
+  min-height: 640px;
+  padding: clamp(42px, 5.4vw, 76px) clamp(54px, 4.8vw, 80px) 38px var(--pad);
+  background: rgba(255, 253, 248, 0.96);
+  clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
 }
 
 .hero-copy::before {
@@ -253,9 +260,9 @@ h1 {
 }
 
 .hero-title {
-  max-width: 820px;
+  max-width: 760px;
   padding-right: 0.08em;
-  font-size: clamp(42px, 5.2vw, 76px);
+  font-size: clamp(46px, 5.1vw, 78px);
 }
 
 .accent {
@@ -278,7 +285,7 @@ h1 {
 }
 
 .hero-lede {
-  max-width: 600px;
+  max-width: 650px;
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(18px, 1.55vw, 23px);
@@ -318,7 +325,7 @@ h1 {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 14px;
-  max-width: 700px;
+  max-width: 610px;
   margin-top: 36px;
   padding-top: 18px;
   border-top: 1px solid var(--line);
@@ -336,8 +343,11 @@ h1 {
 }
 
 .hero-portrait {
-  position: relative;
-  min-height: 580px;
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: 1;
+  width: 52%;
+  min-height: 640px;
   overflow: hidden;
   background: #d7d0c5;
 }
@@ -346,7 +356,7 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 34%;
+  object-position: 51% 34%;
 }
 
 .hero-portrait::after {
@@ -357,46 +367,28 @@ h1 {
   pointer-events: none;
 }
 
-.hero-caption {
+.hero-residency-badge {
   position: absolute;
-  right: clamp(24px, 4vw, 52px);
-  bottom: clamp(36px, 5vw, 64px);
+  top: clamp(24px, 3vw, 38px);
+  right: clamp(24px, 3.6vw, 48px);
   z-index: 2;
-  width: fit-content;
-  max-width: min(430px, calc(100% - 48px));
-  min-height: 0;
-  padding: 16px 84px 16px 18px;
-  border: 1px solid rgba(255, 253, 248, 0.42);
-  border-radius: 12px;
-  background: rgba(255, 253, 248, 0.88);
-  box-shadow: 0 18px 44px rgba(23, 23, 23, 0.18);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: rgba(255, 253, 248, 0.92);
+  box-shadow: 0 14px 36px rgba(23, 23, 23, 0.14);
   backdrop-filter: blur(6px);
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
 }
 
-.hero-caption__text {
-  max-width: 326px;
-  color: rgba(23, 23, 23, 0.86);
-  font-size: 13px;
-  line-height: 1.45;
-  text-align: left;
-}
-
-.hero-caption__text strong {
-  font-weight: 900;
-}
-
-.hero-caption__flags {
-  position: absolute;
-  top: 18px;
-  right: 20px;
-  display: grid;
-  gap: 5px;
-}
-
-.hero-caption__flag {
+.hero-residency-badge img {
   display: block;
-  width: 48px;
-  height: 24px;
+  width: 40px;
+  height: 22px;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(23, 23, 23, 0.12);
 }
@@ -2488,12 +2480,15 @@ h1 {
   }
 
   .hero-copy {
-    border-right: 0;
-    border-bottom: 1px solid var(--ink);
+    width: 68%;
+    min-height: 600px;
+    padding-right: clamp(44px, 8vw, 84px);
+    border-bottom: 0;
   }
 
   .hero-portrait {
-    min-height: 400px;
+    width: 50%;
+    min-height: 600px;
   }
 
   .focus-grid {
@@ -2658,6 +2653,11 @@ h1 {
 
   .hero-copy {
     padding-top: 38px;
+    width: 100%;
+    min-height: auto;
+    padding-right: var(--pad);
+    border-bottom: 1px solid var(--ink);
+    clip-path: none;
   }
 
   h1 {
@@ -2677,6 +2677,8 @@ h1 {
   }
 
   .hero-portrait {
+    position: relative;
+    width: 100%;
     min-height: 360px;
   }
 
@@ -2690,27 +2692,16 @@ h1 {
     border-left: 0;
   }
 
-  .hero-caption {
+  .hero-residency-badge {
     right: 18px;
-    bottom: 28px;
-    max-width: min(344px, calc(100% - 36px));
-    padding: 14px 68px 13px 15px;
+    top: 18px;
+    padding: 9px 12px;
+    font-size: 14px;
   }
 
-  .hero-caption__text {
-    max-width: 252px;
-    font-size: 12.5px;
-  }
-
-  .hero-caption__flags {
-    top: 16px;
-    right: 16px;
-    gap: 4px;
-  }
-
-  .hero-caption__flag {
-    width: 40px;
-    height: 20px;
+  .hero-residency-badge img {
+    width: 34px;
+    height: 19px;
   }
 
   .credibility-band {

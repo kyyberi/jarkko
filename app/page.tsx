@@ -270,30 +270,12 @@ export default function Home() {
               src={`${assetPath}/images/jarkko-hero-abudhabi-2026.jpeg`}
               alt="Portrait of Jarkko Moilanen"
             />
-            <div className="hero-caption">
-              <div className="hero-caption__text">
-                Data product pioneer, standards maintainer, builder, author,
-                and educator with Finnish roots, based in{" "}
-                <strong>Abu Dhabi, UAE</strong> since 2022, and Vietnamese
-                family ties pointing part of the future toward Vietnam.
-              </div>
-              <div className="hero-caption__flags" aria-label="International roots">
-                <img
-                  className="hero-caption__flag"
-                  src={`${assetPath}/images/finland-flag.svg`}
-                  alt="Finland flag"
-                />
-                <img
-                  className="hero-caption__flag"
-                  src={`${assetPath}/images/uae-flag.svg`}
-                  alt="United Arab Emirates flag"
-                />
-                <img
-                  className="hero-caption__flag"
-                  src={`${assetPath}/images/vietnam-flag.svg`}
-                  alt="Vietnam flag"
-                />
-              </div>
+            <div className="hero-residency-badge">
+              <img
+                src={`${assetPath}/images/uae-flag.svg`}
+                alt="United Arab Emirates flag"
+              />
+              <span>4+ years in UAE</span>
             </div>
           </div>
         </section>
