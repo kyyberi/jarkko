@@ -168,7 +168,7 @@ a {
   overflow: hidden;
   min-height: 640px;
   padding: clamp(42px, 5.4vw, 76px) clamp(54px, 4.8vw, 80px) 38px var(--pad);
-  background: rgba(255, 253, 248, 0.96);
+  background: var(--white);
   clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
 }
 
