@@ -128,7 +128,11 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /AI Center of Excellence setup/);
   assert.match(html, /AI Center of Excellence &amp; Operating Model/);
   assert.match(html, /AI initiatives are growing, but ownership, prioritisation, governance and delivery do not scale/);
-  assert.match(html, /I design or strengthen your AI Center of Excellence/);
+  assert.match(html, /I design or strengthen your[\s\S]*AI Center of Excellence/);
+  assert.match(
+    html,
+    /href="\/insights\/articles\/ai-center-of-excellence-government-scale\/"[\s\S]*AI Center of Excellence/,
+  );
   assert.match(html, /AI CoE mandate and scope/);
   assert.match(html, /AI opportunity intake and prioritisation/);
   assert.match(html, /KPI and value model/);

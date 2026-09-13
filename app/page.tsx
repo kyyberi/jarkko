@@ -61,7 +61,20 @@ const engagementOptions = [
     question:
       "AI initiatives are growing, but ownership, prioritisation, governance and delivery do not scale.",
     text:
-      "I design or strengthen your AI Center of Excellence and the operating model around it. We connect business priorities, AI product ownership, engineering, governance, portfolio decisions and value measurement.",
+      <>
+        I design or strengthen your{" "}
+        <a
+          className="text-link"
+          href={sitePath(
+            "/insights/articles/ai-center-of-excellence-government-scale/",
+          )}
+        >
+          AI Center of Excellence
+        </a>{" "}
+        and the operating model around it. We connect business priorities, AI
+        product ownership, engineering, governance, portfolio decisions and
+        value measurement.
+      </>,
     outcomes: [
       "AI CoE mandate and scope",
       "Roles and decision rights",
