@@ -139,6 +139,28 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Discuss an engagement/);
   assert.equal((html.match(/Book a meeting/g) ?? []).length, 2);
   assert.doesNotMatch(html, /Discuss an engagement\s*<span aria-hidden="true">-&gt;<\/span>/);
+  assert.ok(
+    html.indexOf("Ways to work with me") < html.indexOf("What people say"),
+  );
+  assert.ok(html.indexOf("What people say") < html.indexOf("Current focus"));
+  assert.equal((html.match(/class="testimonial-card"/g) ?? []).length, 5);
+  assert.equal((html.match(/Recommendation on LinkedIn/g) ?? []).length, 5);
+  assert.ok(html.indexOf("Toni Luhti") < html.indexOf("Matti Saastamoinen"));
+  assert.ok(html.indexOf("Matti Saastamoinen") < html.indexOf("Baraa Zaid"));
+  assert.ok(html.indexOf("Baraa Zaid") < html.indexOf("Rebecca Elias Poozhipuram"));
+  assert.match(html, /Feedback from executives, engineers, clients, and delivery professionals/);
+  assert.match(html, /Toni Luhti/);
+  assert.match(html, /Matti Saastamoinen/);
+  assert.match(html, /Baraa Zaid/);
+  assert.match(html, /Rebecca Elias Poozhipuram/);
+  assert.match(html, /Preeti Singh/);
+  assert.match(html, /Show more recommendations/);
+  assert.match(html, /one of the only very technical people who really understand business/);
+  assert.match(html, /bringing bright ideas and very agilely making them happen/);
+  assert.match(html, /excellent example of what a leader should be/);
+  assert.match(html, /translate business expectations into simple technical requirements/);
+  assert.match(html, /clear vision and is extremely passionate/);
+  assert.match(html, /best client I had worked with/);
   assert.match(html, /aria-label="Contact channels"/);
   assert.match(html, /International advisory, workshop, and review engagements can be[\s\S]*billed through Data Maestro Academy FZE LLC in the UAE/);
   assert.match(html, /Contact in LinkedIn/);
@@ -252,8 +274,8 @@ test("server-renders the Maysano work page as a real platform", async () => {
 
   const html = await response.text();
   assert.match(html, /PLATFORM AND PORTFOLIO STUDIO/i);
-  assert.match(html, /Maysano[\s\S]*is an available platform and Portfolio Studio/);
-  assert.match(html, /href="https:\/\/maysano\.com"/);
+  assert.match(html, /Maysano Studio[\s\S]*is an available platform/);
+  assert.match(html, /href="https:\/\/studio\.maysano\.com"/);
   assert.match(html, /I was the igniter behind[\s\S]*Maysano/);
   assert.match(html, /Book a demo/);
   assert.match(html, /https:\/\/www\.linkedin\.com\/in\/jarkkomoilanen\//);

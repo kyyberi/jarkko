@@ -99,6 +99,55 @@ const engagementOptions = [
   },
 ];
 
+const testimonials = [
+  {
+    name: "Toni Luhti",
+    role: "VP-level Executive",
+    relationship: "Managed Jarkko directly",
+    quotes: [
+      "Jarkko is one of the only very technical people who really understand business, who has a genuine passion to achieve all the given goals and to lead the entire organization's data strategy in a better direction by his own example.",
+    ],
+  },
+  {
+    name: "Matti Saastamoinen",
+    role: "COO, Aplika",
+    relationship: "Managed Jarkko directly",
+    quotes: [
+      "In the first year of the Open Data Tampere Region project he was one of the key persons bringing bright ideas and very agilely making them happen.",
+      "Jarkko can hack, talk, listen, analyze, perform, and is a reliable and hard working character.",
+    ],
+  },
+  {
+    name: "Baraa Zaid",
+    role: "Lead AI Engineer, Abu Dhabi Department of Government Enablement",
+    relationship: "Reported to Jarkko directly",
+    quotes: [
+      "Dr. Jarkko is an excellent example of what a leader should be. He promotes a culture of transparency, collaboration and clear communication.",
+      "His ability to translate business expectations into simple technical requirements and vice versa makes him ideal for both business people and developers.",
+    ],
+  },
+  {
+    name: "Rebecca Elias Poozhipuram",
+    role: "Former User Acquisition Manager, Wolt",
+    relationship: "Worked with Jarkko across teams",
+    quotes: [
+      "Jarkko has a clear vision and is extremely passionate about whatever he takes up. He is analytical and very articulate.",
+      "What makes him stand apart is his ability to break down complex problems and his seamless communication skills.",
+    ],
+  },
+  {
+    name: "Preeti Singh",
+    role: "Project Manager / Senior Business Analyst",
+    relationship: "Worked with Jarkko as a client",
+    quotes: [
+      "He pushes himself as well as the team to think out of the box while keeping the focus on the target. He is the best client I had worked with.",
+    ],
+  },
+];
+
+const visibleTestimonials = testimonials.slice(0, 3);
+const additionalTestimonials = testimonials.slice(3);
+
 function ContactIcon({
   type,
 }: {
@@ -362,6 +411,67 @@ export default function Home() {
               Book a meeting <Arrow />
             </a>
           </div>
+        </section>
+
+        <section
+          className="section testimonials-section"
+          aria-labelledby="testimonials-title"
+        >
+          <div className="section-head testimonials-head">
+            <div className="section-kicker">Third-party proof</div>
+            <div>
+              <h2 className="section-title" id="testimonials-title">
+                What people say
+              </h2>
+              <p className="testimonials-intro">
+                Feedback from executives, engineers, clients, and delivery
+                professionals I have worked with.
+              </p>
+            </div>
+          </div>
+          <div className="testimonials-grid">
+            {visibleTestimonials.map((testimonial) => (
+              <article className="testimonial-card" key={testimonial.name}>
+                <div className="testimonial-person">
+                  <h3>{testimonial.name}</h3>
+                  <p>{testimonial.role}</p>
+                  <span>{testimonial.relationship}</span>
+                </div>
+                <div className="testimonial-quotes">
+                  {testimonial.quotes.map((quote) => (
+                    <blockquote key={quote}>
+                      <p>{quote}</p>
+                    </blockquote>
+                  ))}
+                </div>
+                <p className="testimonial-source">Recommendation on LinkedIn</p>
+              </article>
+            ))}
+          </div>
+          <details className="testimonials-more">
+            <summary>Show more recommendations</summary>
+            <div className="testimonials-grid testimonials-grid-secondary">
+              {additionalTestimonials.map((testimonial) => (
+                <article className="testimonial-card" key={testimonial.name}>
+                  <div className="testimonial-person">
+                    <h3>{testimonial.name}</h3>
+                    <p>{testimonial.role}</p>
+                    <span>{testimonial.relationship}</span>
+                  </div>
+                  <div className="testimonial-quotes">
+                    {testimonial.quotes.map((quote) => (
+                      <blockquote key={quote}>
+                        <p>{quote}</p>
+                      </blockquote>
+                    ))}
+                  </div>
+                  <p className="testimonial-source">
+                    Recommendation on LinkedIn
+                  </p>
+                </article>
+              ))}
+            </div>
+          </details>
         </section>
 
         <section className="section">

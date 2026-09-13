@@ -25,14 +25,14 @@ export const workItems = [
     ctaHref: "https://www.linkedin.com/in/jarkkomoilanen/",
     externalLinks: [
       {
-        label: "Maysano",
-        href: "https://maysano.com",
+        label: "Maysano Studio",
+        href: "https://studio.maysano.com",
       },
     ],
     diagramSteps: ["Business goals", "Portfolio", "Data products"],
     diagramCaption: "From business intent to governed product systems.",
     focus:
-      "Maysano is an available platform and Portfolio Studio for turning strategy, discovery, portfolio design, and governance into one operating environment for data product work. I was the igniter behind Maysano, shaping its direction around the practical need to move from business intent and source material into governed portfolios and operational product systems.",
+      "Maysano Studio is an available platform for turning strategy, discovery, portfolio design, and governance into one operating environment for data product work. I was the igniter behind Maysano, shaping its direction around the practical need to move from business intent and source material into governed portfolios and operational product systems.",
     detailIntro:
       "Maysano is designed for teams that need strategy, governance, and delivery to move together. It helps structure the path from early business thinking to implementation-ready product definition.",
     proof: [
