@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import type { ReactNode } from "react";
 import { getArticle, getArticles } from "../../../articles";
 import {
   absoluteUrl,
@@ -21,6 +22,41 @@ function headingId(text: string, index: number) {
     .replace(/^-|-$/g, "");
 
   return `section-${index}-${slug || "article-section"}`;
+}
+
+function renderArticleText(text: string): ReactNode[] {
+  const parts: ReactNode[] = [];
+  const linkPattern = /\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]+)\)/g;
+  let cursor = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = linkPattern.exec(text))) {
+    const [source, label, rawHref] = match;
+    if (match.index > cursor) {
+      parts.push(text.slice(cursor, match.index));
+    }
+
+    const isExternal = rawHref.startsWith("http");
+    const href = isExternal ? rawHref : sitePath(rawHref);
+    parts.push(
+      <a
+        className="article-text-link"
+        href={href}
+        key={`${rawHref}-${match.index}`}
+        rel={isExternal ? "noreferrer" : undefined}
+        target={isExternal ? "_blank" : undefined}
+      >
+        {label}
+      </a>,
+    );
+    cursor = match.index + source.length;
+  }
+
+  if (cursor < text.length) {
+    parts.push(text.slice(cursor));
+  }
+
+  return parts;
 }
 
 export function generateStaticParams() {
@@ -185,14 +221,14 @@ export default async function ArticleDetail({ params }: PageProps) {
                     </a>
                   </div>
                   <aside className="article-cta" aria-label="Article call to action">
-                    <p>{block.text}</p>
+                    <p>{renderArticleText(block.text)}</p>
                     <a href={linkedInProfileUrl} rel="noreferrer" target="_blank">
                       Connect on LinkedIn <Arrow />
                     </a>
                   </aside>
                 </div>
               ) : (
-                <p key={block.text}>{block.text}</p>
+                <p key={block.text}>{renderArticleText(block.text)}</p>
               )
             ))}
           </div>

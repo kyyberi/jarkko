@@ -416,6 +416,26 @@ test("server-renders article pages", async () => {
   assert.match(html, /Related insights/);
 });
 
+test("server-renders article resource links", async () => {
+  await access(
+    new URL(
+      "../public/resources/ai-centers-of-excellence-jarkko-moilanen.pdf",
+      import.meta.url,
+    ),
+  );
+
+  const response = await render(
+    "/insights/articles/ai-center-of-excellence-government-scale",
+  );
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(
+    html,
+    /href="\/resources\/ai-centers-of-excellence-jarkko-moilanen\.pdf"[\s\S]*AI Centers of Excellence: Operating Model, Economics, and Implementation Blueprint\./,
+  );
+});
+
 test("server-renders insights index with the editorial header background", async () => {
   const [response, css] = await Promise.all([
     render("/insights/articles"),

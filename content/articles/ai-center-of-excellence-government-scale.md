@@ -135,6 +135,6 @@ It is not a room full of AI experts. It is the operating system that moves an or
 
 When the ambition is to become AI-native, that operating system matters as much as the AI itself.
 
-This article condenses the main argument from the full whitepaper, AI Centers of Excellence: Operating Model, Economics, and Implementation Blueprint.
+This article condenses the main argument from the full whitepaper, [AI Centers of Excellence: Operating Model, Economics, and Implementation Blueprint.](/resources/ai-centers-of-excellence-jarkko-moilanen.pdf)
 
 If your organization is trying to move from scattered AI experiments to a repeatable AI product portfolio, get in touch and we can discuss the operating model, governance, and delivery system that should sit around the technology.
