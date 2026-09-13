@@ -99,7 +99,26 @@ const engagementOptions = [
   },
 ];
 
-function ContactIcon({ type }: { type: "email" | "linkedin" | "whatsapp" }) {
+function ContactIcon({
+  type,
+}: {
+  type: "calendar" | "email" | "linkedin" | "whatsapp";
+}) {
+  if (type === "calendar") {
+    return (
+      <svg
+        aria-hidden="true"
+        className="contact-icon"
+        viewBox="0 0 24 24"
+      >
+        <path d="M5 5h14v14H5z" />
+        <path d="M8 3v4" />
+        <path d="M16 3v4" />
+        <path d="M5 10h14" />
+      </svg>
+    );
+  }
+
   if (type === "email") {
     return (
       <svg
@@ -334,8 +353,13 @@ export default function Home() {
                 think I add value and where I do not.
               </p>
             </div>
-            <a className="button primary" href="mailto:work@jarkkomoilanen.com">
-              Discuss your situation <Arrow />
+            <a
+              className="button primary"
+              href={calendlyBookingUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Book a meeting <Arrow />
             </a>
           </div>
         </section>
@@ -518,6 +542,14 @@ export default function Home() {
             <h2>Bring me the problem that needs senior attention.</h2>
             <div className="cta-lead">Discuss an engagement</div>
             <div className="cta-channels" aria-label="Contact channels">
+              <a
+                href={calendlyBookingUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <ContactIcon type="calendar" />
+                <span>Book a meeting</span>
+              </a>
               <a href="mailto:work@jarkkomoilanen.com">
                 <ContactIcon type="email" />
                 <span>Email work@jarkkomoilanen.com</span>

@@ -132,11 +132,12 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /\/images\/logo-amazon\.png/);
   assert.equal(
     (html.match(/href="https:\/\/calendly\.com\/work-jarkkomoilanen\/30min"/g) ?? []).length,
-    4,
+    6,
   );
   assert.equal((html.match(/class="engagement-action"/g) ?? []).length, 4);
   assert.match(html, /Book a 30-minute call/);
   assert.match(html, /Discuss an engagement/);
+  assert.equal((html.match(/Book a meeting/g) ?? []).length, 2);
   assert.doesNotMatch(html, /Discuss an engagement\s*<span aria-hidden="true">-&gt;<\/span>/);
   assert.match(html, /aria-label="Contact channels"/);
   assert.match(html, /International advisory, workshop, and review engagements can be[\s\S]*billed through Data Maestro Academy FZE LLC in the UAE/);
