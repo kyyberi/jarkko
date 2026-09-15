@@ -76,6 +76,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /aria-label="Mobile primary"/);
   assert.match(html, /href="\/insights\/articles"/);
   assert.match(html, /href="\/about"/);
+  assert.match(html, /href="\/services\/odps"/);
   assert.match(html, /aria-label="Executive credibility"/);
   assert.match(html, /270% delivery speed improvement/);
   assert.match(html, /2\.5M\+ users served through national digital infrastructure/);
@@ -126,7 +127,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /United Arab Emirates/);
   assert.match(html, /I lead AI strategy,[\s\S]*Centers of Excellence and operating models/);
   assert.match(html, /AI Center of Excellence setup/);
-  assert.match(html, /AI Center of Excellence &amp; Operating Model/);
+  assert.match(html, /AI Product Operating Model/);
   assert.match(html, /AI initiatives are growing, but ownership, prioritisation, governance and delivery do not scale/);
   assert.match(html, /I design or strengthen your[\s\S]*AI Center of Excellence/);
   assert.match(
@@ -138,6 +139,14 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /KPI and value model/);
   assert.match(html, /90-day implementation plan/);
   assert.match(html, /managed enterprise AI capability/);
+  assert.match(html, /\$10K–\$15K/);
+  assert.match(html, /\$18K–\$25K/);
+  assert.match(html, /Priced by scope/);
+  assert.match(html, /From[\s\S]*\$8K\/month/);
+  assert.doesNotMatch(html, /AED 35K|AED 65K|AED 90K|AED 25K/);
+  assert.match(html, /ODPS Enterprise Services/);
+  assert.match(html, /Explore ODPS services/);
+  assert.match(html, /Open Data Product Specification family/);
   assert.match(html, /5 Masterclasses &amp; Learners across 56 countries/);
   assert.match(html, /Five Udemy courses covering data product foundations/);
   assert.match(html, /5 courses · Ratings from 4\.44 to 4\.74/);
@@ -311,9 +320,53 @@ test("server-renders work detail pages", async () => {
   assert.match(html, /Government data exchange/);
   assert.match(html, /Adopted by X-Road/);
   assert.match(html, /Open ecosystem/);
+  assert.match(html, /ODPS Enterprise Services/);
+  assert.match(html, /href="\/services\/odps"/);
   assert.match(html, /Connected parts of the data product operating system/);
   assert.match(html, /Maysano turns business intent, source material, portfolio design, and governance/);
   assert.match(html, /Portfolio work connecting government priorities, governed data, readiness, and AI product delivery/);
+});
+
+test("server-renders the ODPS enterprise services page", async () => {
+  const response = await render("/services/odps");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(
+    html,
+    /<title>ODPS Enterprise Services \| Jarkko Moilanen<\/title>/,
+  );
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/services\/odps\/"/,
+  );
+  assert.match(html, /OPEN DATA PRODUCT STANDARDS/i);
+  assert.match(html, /Adopt data product standards with the person who created them/);
+  assert.match(html, /maintain the standards family under LF AI &amp; Data/);
+  assert.match(html, /The standard stays open/);
+  assert.match(html, /Creator of ODPS/);
+  assert.match(html, /Open-source Python SDK and MCP tooling/);
+  assert.match(html, /ODPS Enterprise Readiness Assessment/);
+  assert.match(html, /ODPS Adoption &amp; Implementation/);
+  assert.match(html, /Agent-Ready Data Product Architecture/);
+  assert.match(html, /ODPS Expert Advisory/);
+  assert.match(html, /\$20K–\$40K/);
+  assert.match(html, /From \$50K/);
+  assert.match(html, /\$35K–\$70K/);
+  assert.match(html, /From \$8K\/month/);
+  assert.match(html, /The standard is open\. Deep implementation experience is scarce\./);
+  assert.match(html, /Tested against real enterprise needs\./);
+  assert.match(html, /Alation/);
+  assert.match(html, /BASF/);
+  assert.match(html, /Kruger/);
+  assert.match(html, /ODPS engagement or wider AI transformation/);
+  assert.match(html, /existing AI consulting engagements/);
+  assert.match(html, /Commercial consulting,[\s\S]*Data Maestro Academy FZE LLC/);
+  assert.match(html, /commercial services[\s\S]*are not required to use it/);
+  assert.match(html, /Discuss an ODPS engagement/);
+  assert.match(html, /Explore the ODPS standards/);
+  assert.match(html, /href="https:\/\/opendataproducts\.org"/);
+  assert.doesNotMatch(html, /AED 35K|AED 65K|AED 90K|AED 25K/);
 });
 
 test("server-renders the Maysano work page as a real platform", async () => {
@@ -536,6 +589,10 @@ test("server-renders robots and sitemap discovery routes", async () => {
   assert.match(
     sitemapText,
     /<loc>https:\/\/jarkkomoilanen\.com\/work\/standards-and-sdk\/<\/loc>/,
+  );
+  assert.match(
+    sitemapText,
+    /<loc>https:\/\/jarkkomoilanen\.com\/services\/odps\/<\/loc>/,
   );
 });
 

@@ -15,7 +15,7 @@ const engagementOptions = [
     title: "AI Portfolio Review",
     engagement: "2-week review",
     pricingLabel: "Typical investment",
-    price: "AED 35K–50K",
+    price: "$10K–$15K",
     question: "Too many AI ideas, pilots and competing priorities?",
     text:
       "I review your AI portfolio, ownership, value, KPIs, dependencies and delivery status.",
@@ -35,7 +35,7 @@ const engagementOptions = [
     title: "Agentic AI Architecture Sprint",
     engagement: "3 to 4-week sprint",
     pricingLabel: "Typical investment",
-    price: "AED 65K–95K",
+    price: "$18K–$25K",
     question:
       "You know where AI agents might help, but the architecture and implementation path remain unclear.",
     text:
@@ -54,10 +54,10 @@ const engagementOptions = [
       "Typical scope covers a defined business domain and two to three target workflows. Production implementation is scoped separately.",
   },
   {
-    title: "AI Center of Excellence & Operating Model",
+    title: "AI Product Operating Model",
     engagement: "4 to 6-week engagement",
     pricingLabel: "Typical investment",
-    price: "AED 90K–130K",
+    price: "Priced by scope",
     question:
       "AI initiatives are growing, but ownership, prioritisation, governance and delivery do not scale.",
     text:
@@ -95,7 +95,7 @@ const engagementOptions = [
     title: "Fractional AI Product Leadership",
     engagement: "1 to 3 days per week",
     pricingLabel: "From",
-    price: "AED 25K/month",
+    price: "$8K/month",
     question:
       "You need senior AI product leadership now, without starting a long executive hiring process.",
     text:
@@ -419,6 +419,20 @@ export default function Home() {
               Book a meeting <Arrow />
             </a>
           </div>
+          <article className="specialist-service-entry">
+            <div>
+              <div className="section-kicker">Open Data Product Standards</div>
+              <h3>ODPS Enterprise Services</h3>
+              <p>
+                Specialist assessment, adoption, implementation and advisory
+                services for organizations evaluating or operationalizing the
+                Open Data Product Specification family.
+              </p>
+            </div>
+            <a className="button primary" href={sitePath("/services/odps")}>
+              Explore ODPS services <Arrow />
+            </a>
+          </article>
         </section>
 
         <section
@@ -548,6 +562,12 @@ export default function Home() {
                 href={sitePath("/work/standards-and-sdk")}
               >
                 Explore standards and SDK <Arrow />
+              </a>
+              <a
+                className="text-link"
+                href={sitePath("/services/odps")}
+              >
+                ODPS Enterprise Services <Arrow />
               </a>
             </article>
             <article className="focus-item">

@@ -31,6 +31,15 @@ function getExternalLinks(item: (typeof workItems)[number]) {
     : [];
 }
 
+function getServiceLink(item: (typeof workItems)[number]) {
+  return "serviceLink" in item &&
+    hasObjectValue(item.serviceLink) &&
+    typeof item.serviceLink.label === "string" &&
+    typeof item.serviceLink.href === "string"
+    ? item.serviceLink
+    : undefined;
+}
+
 function renderLinkedText(
   text: string,
   links: Array<{ label: string; href: string }>,
@@ -133,6 +142,7 @@ export default async function WorkDetail({ params }: PageProps) {
 
   const related = workItems.filter((candidate) => candidate.slug !== item.slug);
   const externalLinks = getExternalLinks(item);
+  const serviceLink = getServiceLink(item);
   const diagramSteps =
     "diagramSteps" in item && Array.isArray(item.diagramSteps)
       ? item.diagramSteps
@@ -180,6 +190,11 @@ export default async function WorkDetail({ params }: PageProps) {
           <a className="button primary" href={ctaHref}>
             {ctaLabel} <Arrow />
           </a>
+          {serviceLink ? (
+            <a className="button" href={sitePath(serviceLink.href)}>
+              {serviceLink.label} <Arrow />
+            </a>
+          ) : null}
         </div>
         <div className="detail-visual">
           {diagramSteps ? (

@@ -18,12 +18,15 @@ Alternative contact: email work@jarkkomoilanen.com.
 
 ## Main offerings
 
-- AI Portfolio Review: a 2-week review for organizations with too many AI ideas, pilots, and competing priorities. Typical investment: AED 35K-50K. Outcome: prioritized portfolio, scale/stop/merge/fix recommendations, ownership and KPI gaps, executive decision brief, and 90-day action plan.
-- Agentic AI Architecture Sprint: a 3 to 4-week sprint for teams moving beyond chatbot experiments into operational AI agents. Typical investment: AED 65K-95K. Outcome: target architecture, agent and tool boundaries, data and knowledge design, governance approach, implementation backlog, and prototype direction.
-- AI Center of Excellence and Operating Model: a 4 to 6-week engagement for organizations moving from scattered AI initiatives toward a managed enterprise AI capability. Typical investment: AED 90K-130K. Outcome: AI CoE mandate, decision rights, opportunity intake, portfolio governance, KPI/value model, operating cadence, and 90-day implementation plan.
-- Fractional AI Product Leadership: senior AI product leadership 1 to 3 days per week. From AED 25K/month. Focus: portfolio direction, investment prioritization, AI product shaping, architecture review, ownership gaps, delivery gaps, and adoption.
+- AI Portfolio Review: a 2-week review for organizations with too many AI ideas, pilots, and competing priorities. Typical investment: $10K-$15K. Outcome: prioritized portfolio, scale/stop/merge/fix recommendations, ownership and KPI gaps, executive decision brief, and 90-day action plan.
+- Agentic AI Architecture Sprint: a 3 to 4-week sprint for teams moving beyond chatbot experiments into operational AI agents. Typical investment: $18K-$25K. Outcome: target architecture, agent and tool boundaries, data and knowledge design, governance approach, implementation backlog, and prototype direction.
+- AI Product Operating Model: a 4 to 6-week engagement for organizations moving from scattered AI initiatives toward a managed enterprise AI capability. Priced by scope. Outcome: AI CoE mandate, decision rights, opportunity intake, portfolio governance, KPI/value model, operating cadence, and 90-day implementation plan.
+- Fractional AI Product Leadership: senior AI product leadership 1 to 3 days per week. From $8K/month. Focus: portfolio direction, investment prioritization, AI product shaping, architecture review, ownership gaps, delivery gaps, and adoption.
+- ODPS Enterprise Services: specialist assessment, adoption, implementation, agent-ready data product architecture, and advisory services for organizations evaluating or operationalizing the Open Data Product Specification family. Typical investments include $20K-$40K for readiness assessment, from $50K for adoption and implementation, $35K-$70K for agent-ready data product architecture, and from $8K/month for expert advisory.
 
 Prices are indicative, exclude 5% UAE VAT where applicable, and depend on scope, stakeholder count, systems involved, regulatory requirements, and onsite needs.
+
+ODPS remains an open standard maintained under LF AI & Data. Commercial consulting, advisory, and implementation services are provided independently by Jarkko Moilanen through Data Maestro Academy FZE LLC and are not required to use ODPS.
 
 ## Core expertise
 
@@ -47,6 +50,7 @@ Prices are indicative, exclude 5% UAE VAT where applicable, and depend on scope,
 ## Important pages
 
 - Homepage and offerings: https://jarkkomoilanen.com/
+- ODPS Enterprise Services: https://jarkkomoilanen.com/services/odps/
 - Contact and availability: https://jarkkomoilanen.com/#contact
 - Work overview: https://jarkkomoilanen.com/#work
 - About: https://jarkkomoilanen.com/about/

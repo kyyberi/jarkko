@@ -18,6 +18,18 @@
       ]
     },
     {
+      "identifier": "urn:air:jarkkomoilanen.com:web:odps-services",
+      "displayName": "ODPS Enterprise Services",
+      "type": "text/html",
+      "url": "https://jarkkomoilanen.com/services/odps/",
+      "representativeQueries": [
+        "find ODPS enterprise readiness assessment and adoption services",
+        "work with the creator of the Open Data Product Specification",
+        "evaluate ODPS for enterprise architecture governance catalogs and AI agents",
+        "get advisory support for ODPS implementation SDK automation and MCP tooling"
+      ]
+    },
+    {
       "identifier": "urn:air:jarkkomoilanen.com:llms:site-guide",
       "displayName": "Jarkko Moilanen LLM Site Guide",
       "type": "text/plain",

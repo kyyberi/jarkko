@@ -169,6 +169,10 @@ export const workItems = [
       "government-ai":
         "Portfolio work connecting government priorities, governed data, readiness, and AI product delivery.",
     },
+    serviceLink: {
+      label: "ODPS Enterprise Services",
+      href: "/services/odps",
+    },
   },
   {
     slug: "government-ai",
@@ -306,6 +310,7 @@ export function Header() {
       </a>
       <nav className="nav" aria-label="Primary">
         <a href={sitePath("/#work")}>Work</a>
+        <a href={sitePath("/services/odps")}>Services</a>
         <a href={sitePath("/insights/articles")}>Insights</a>
         <a href={sitePath("/about")}>About</a>
         <a href={sitePath("/#contact")}>Contact</a>
@@ -341,6 +346,7 @@ export function Footer() {
       <nav className="footer-column footer-nav" aria-label="Footer navigation">
         <h2>Explore</h2>
         <a href={sitePath("/#work")}>Selected work</a>
+        <a href={sitePath("/services/odps")}>ODPS Enterprise Services</a>
         <a href={sitePath("/insights/articles")}>Insights</a>
         <a href={sitePath("/about")}>About</a>
         <a href={sitePath("/#contact")}>Availability</a>
