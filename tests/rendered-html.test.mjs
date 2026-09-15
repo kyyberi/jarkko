@@ -348,8 +348,16 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /Jarkko Moilanen with data product interface elements/);
   assert.match(html, /maintain the standards family under LF AI &amp; Data/);
   assert.match(html, /The standard stays open/);
-  assert.match(html, /Creator of ODPS/);
-  assert.match(html, /Open-source Python SDK and MCP tooling/);
+  assert.match(html, /FOUNDER &amp; MAINTAINER OF ODPS/);
+  assert.match(html, /LINUX FOUNDATION AI &amp; DATA PROJECT/);
+  assert.match(html, /ENTERPRISE ADOPTION ACROSS INDUSTRIES/);
+  assert.match(html, /OPEN-SOURCE SDK, MCP &amp; AGENT TOOLING/);
+  assert.match(html, /BUILT FOR PEOPLE, PLATFORMS &amp; AI AGENTS/);
+  assert.match(html, /What industry leaders say about ODPS/);
+  assert.match(html, /We at BASF built our group-wide Data Product concept largely on ODPS/);
+  assert.match(html, /Ron Tolido/);
+  assert.match(html, /Petteri Kivimäki/);
+  assert.match(html, /Michael Eichenseer/);
   assert.match(html, /ODPS Enterprise Readiness Assessment/);
   assert.match(html, /ODPS Adoption &amp; Implementation/);
   assert.match(html, /Agent-Ready Data Product Architecture/);

@@ -5,11 +5,37 @@ import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo
 const calendlyBookingUrl = "https://calendly.com/work-jarkkomoilanen/30min";
 
 const proofItems = [
-  "Creator of ODPS",
-  "Maintained under LF AI & Data",
-  "Enterprise adoption and evaluation",
-  "Open-source Python SDK and MCP tooling",
-  "Data products designed for people, platforms and AI agents",
+  "FOUNDER & MAINTAINER OF ODPS",
+  "LINUX FOUNDATION AI & DATA PROJECT",
+  "ENTERPRISE ADOPTION ACROSS INDUSTRIES",
+  "OPEN-SOURCE SDK, MCP & AGENT TOOLING",
+  "BUILT FOR PEOPLE, PLATFORMS & AI AGENTS",
+];
+
+const odpsTestimonials = [
+  {
+    quote:
+      "“We at BASF built our group-wide Data Product concept largely on ODPS and extended it to our specific needs.”",
+    name: "Manfred Sorg",
+    role: "Group Data Office, BASF",
+  },
+  {
+    quote: "“ODPS makes product thinking concrete for data and AI.”",
+    name: "Ron Tolido",
+    role: "CTO and Executive VP, Techstraordinary",
+  },
+  {
+    quote:
+      "“Extending X-Road OAS service descriptions with ODPS makes data product-related metadata available in the service catalogue more unified.”",
+    name: "Petteri Kivimäki",
+    role: "CTO, Nordic Institute for Interoperability Solutions",
+  },
+  {
+    quote:
+      "“ODPS makes sense if you have multiple data products requiring consistent governance, want to scale governance without headcount…”",
+    name: "Michael Eichenseer",
+    role: "Data Engineer, Codecentric",
+  },
 ];
 
 const services = [
@@ -177,6 +203,33 @@ export default function OdpsServicesPage() {
         {proofItems.map((item) => (
           <span key={item}>{item}</span>
         ))}
+      </section>
+
+      <section
+        className="section odps-testimonials-section"
+        aria-labelledby="odps-testimonials-title"
+      >
+        <div className="section-head odps-testimonials-head">
+          <div>
+            <div className="section-kicker">ODPS evidence</div>
+            <h2 className="section-title" id="odps-testimonials-title">
+              What industry leaders say about ODPS
+            </h2>
+          </div>
+        </div>
+        <div className="odps-testimonials-grid">
+          {odpsTestimonials.map((testimonial) => (
+            <article className="odps-testimonial" key={testimonial.name}>
+              <blockquote>
+                <p>{testimonial.quote}</p>
+              </blockquote>
+              <footer>
+                <strong>{testimonial.name}</strong>
+                <span>{testimonial.role}</span>
+              </footer>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="section service-family-section">
