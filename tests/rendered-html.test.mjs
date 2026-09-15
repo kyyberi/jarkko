@@ -344,6 +344,8 @@ test("server-renders the ODPS enterprise services page", async () => {
   );
   assert.match(html, /OPEN DATA PRODUCT STANDARDS/i);
   assert.match(html, /Adopt data product standards with the person who created them/);
+  assert.match(html, /\/images\/odps-services-hero\.jpg/);
+  assert.match(html, /Jarkko Moilanen with data product interface elements/);
   assert.match(html, /maintain the standards family under LF AI &amp; Data/);
   assert.match(html, /The standard stays open/);
   assert.match(html, /Creator of ODPS/);

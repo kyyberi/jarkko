@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Arrow, PageShell, sitePath } from "../../site";
+import { Arrow, PageShell, publicAssetPath, sitePath } from "../../site";
 import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo";
 
 const calendlyBookingUrl = "https://calendly.com/work-jarkkomoilanen/30min";
@@ -138,7 +138,7 @@ export default function OdpsServicesPage() {
   return (
     <PageShell>
       <section className="service-hero odps-service-hero">
-        <div>
+        <div className="service-hero-copy">
           <div className="section-kicker">Open Data Product Standards</div>
           <h1>Adopt data product standards with the person who created them.</h1>
           <p>
@@ -165,11 +165,18 @@ export default function OdpsServicesPage() {
             </a>
           </div>
         </div>
-        <aside className="service-proof-strip" aria-label="ODPS proof">
-          {proofItems.map((item) => (
-            <span key={item}>{item}</span>
-          ))}
-        </aside>
+        <figure className="service-hero-image">
+          <img
+            src={publicAssetPath("/images/odps-services-hero.jpg")}
+            alt="Jarkko Moilanen with data product interface elements"
+          />
+        </figure>
+      </section>
+
+      <section className="service-proof-strip" aria-label="ODPS proof">
+        {proofItems.map((item) => (
+          <span key={item}>{item}</span>
+        ))}
       </section>
 
       <section className="section service-family-section">

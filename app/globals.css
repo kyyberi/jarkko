@@ -796,19 +796,32 @@ h1 {
 }
 
 .service-hero {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.46fr);
-  gap: clamp(28px, 5vw, 76px);
-  align-items: stretch;
-  padding: 76px var(--pad);
+  grid-template-columns: 1fr;
+  min-height: 720px;
+  overflow: hidden;
   border-bottom: 1px solid var(--ink);
   background: var(--white);
+}
+
+.service-hero-copy {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: min(68%, 980px);
+  min-height: 720px;
+  padding: clamp(48px, 5.4vw, 82px) clamp(64px, 5vw, 92px) 56px var(--pad);
+  background: var(--white);
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
 }
 
 .service-hero h1 {
   max-width: 1020px;
   margin: 18px 0 28px;
-  font-size: clamp(50px, 6.5vw, 92px);
+  font-size: clamp(46px, 5.7vw, 82px);
 }
 
 .service-hero p {
@@ -826,11 +839,33 @@ h1 {
   margin-top: 34px;
 }
 
+.service-hero-image {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: 1;
+  width: 52%;
+  min-height: 720px;
+  margin: 0;
+  overflow: hidden;
+  border: 0;
+  background: #d7d0c5;
+}
+
+.service-hero-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 720px;
+  object-fit: cover;
+  object-position: 50% 38%;
+}
+
 .service-proof-strip {
   display: grid;
-  align-content: stretch;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   border-top: 1px solid var(--ink);
   border-left: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
   background: var(--paper);
 }
 
@@ -840,7 +875,6 @@ h1 {
   min-height: 82px;
   padding: 20px 24px;
   border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
   color: var(--ink);
   font-family: var(--display);
   font-size: clamp(23px, 2.2vw, 31px);
@@ -2846,11 +2880,30 @@ h1 {
   }
 
   .service-hero {
-    padding-block: 54px;
+    min-height: auto;
   }
 
   .service-hero h1 {
     font-size: clamp(46px, 13vw, 68px);
+  }
+
+  .service-hero-copy {
+    width: 100%;
+    min-height: auto;
+    padding: 54px var(--pad);
+    border-bottom: 1px solid var(--ink);
+    clip-path: none;
+  }
+
+  .service-hero-image {
+    position: relative;
+    width: 100%;
+    min-height: 430px;
+  }
+
+  .service-hero-image img {
+    min-height: 430px;
+    object-position: 50% 34%;
   }
 
   .service-hero-actions,
