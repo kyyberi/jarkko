@@ -89,6 +89,7 @@ test("server-renders the professional homepage", async () => {
       html.indexOf("Four areas. One professional body of work."),
   );
   assert.match(html, /Four areas\. One professional body of work\./);
+  assert.match(html, /\/images\/jarkko-current-focus\.webp/);
   assert.match(html, /Built in public, tested in practice\./);
   assert.doesNotMatch(css, /\.focus-grid\s*\{[^}]*border-block:/);
   assert.match(css, /\.focus-grid\s*\{[^}]*border-top:/);

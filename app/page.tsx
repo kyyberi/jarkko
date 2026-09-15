@@ -519,12 +519,20 @@ export default function Home() {
           </details>
         </section>
 
-        <section className="section">
-          <div className="section-head">
-            <div className="section-kicker">Current focus</div>
-            <h2 className="section-title">
-              Four areas. One professional body of work.
-            </h2>
+        <section className="section focus-section">
+          <div className="section-head focus-head">
+            <figure className="focus-portrait">
+              <img
+                src={publicAssetPath("/images/jarkko-current-focus.webp")}
+                alt="Jarkko Moilanen"
+              />
+            </figure>
+            <div className="focus-title-copy">
+              <div className="section-kicker">Current focus</div>
+              <h2 className="section-title">
+                Four areas. One professional body of work.
+              </h2>
+            </div>
           </div>
           <div className="focus-grid">
             <article className="focus-item">
