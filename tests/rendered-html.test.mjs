@@ -502,7 +502,7 @@ test("server-renders article resource links", async () => {
   );
 });
 
-test("server-renders insights index with the editorial header background", async () => {
+test("server-renders insights index with the editorial portrait hero", async () => {
   const [response, css] = await Promise.all([
     render("/insights/articles"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
@@ -520,6 +520,9 @@ test("server-renders insights index with the editorial header background", async
     socialShareImagePattern,
   );
   assert.match(html, /Writing from the work itself/);
+  assert.match(html, /class="insights-hero-image"/);
+  assert.match(html, /\/images\/insights-hero-portrait\.webp/);
+  assert.match(html, /alt="Jarkko Moilanen"/);
   assert.match(html, /aria-label="Article categories"/);
   assert.match(html, /href="#category-ai-products"/);
   assert.match(html, /href="#category-data-products"/);
@@ -529,7 +532,7 @@ test("server-renders insights index with the editorial header background", async
   assert.match(html, /id="category-standards"/);
   assert.match(html, /From Data Product Portfolio to Shared Memory for AI Agents/);
   assert.match(html, /9 Actions We Took to Make Open Data Product Vocabulary AI-Agent-First/);
-  assert.match(css, /\/images\/insights-header-bg\.webp/);
+  assert.match(css, /\.insights-hero-image/);
   assert.doesNotMatch(css, /\.article-index\s*\{[^}]*border-block:/);
 });
 

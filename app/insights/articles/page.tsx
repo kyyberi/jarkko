@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getArticles } from "../../articles";
 import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo";
-import { Arrow, PageShell, sitePath } from "../../site";
+import { Arrow, PageShell, publicAssetPath, sitePath } from "../../site";
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -46,7 +46,7 @@ export default function ArticlesIndex() {
   return (
     <PageShell>
       <section className="detail-hero editorial insights-hero">
-        <div>
+        <div className="insights-hero-copy">
           <div className="section-kicker">Insights</div>
           <h1>Writing from the work itself.</h1>
           <p>
@@ -55,6 +55,12 @@ export default function ArticlesIndex() {
             practical.
           </p>
         </div>
+        <figure className="insights-hero-image">
+          <img
+            src={publicAssetPath("/images/insights-hero-portrait.webp")}
+            alt="Jarkko Moilanen"
+          />
+        </figure>
       </section>
 
       <section className="detail-section">
