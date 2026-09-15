@@ -266,7 +266,7 @@ export default function OdpsServicesPage() {
       <section className="section service-family-section">
         <div className="section-head">
           <div className="section-kicker">ODPS Enterprise Services</div>
-          <h2 className="section-title">How to become part of the suçcess story</h2>
+          <h2 className="section-title">How to become part of the success story</h2>
         </div>
         <div className="engagement-grid">
           {services.map((service, index) => (
