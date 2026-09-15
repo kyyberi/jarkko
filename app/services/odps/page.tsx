@@ -99,7 +99,7 @@ const services = [
     ],
     bestFor:
       "Organizations already working with ODPS that need senior specialist guidance without a full implementation engagement.",
-    price: "From $8K/month",
+    price: "From $2.5K/day",
   },
 ];
 

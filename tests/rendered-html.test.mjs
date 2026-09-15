@@ -353,7 +353,7 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /\$20K–\$40K/);
   assert.match(html, /From \$50K/);
   assert.match(html, /\$35K–\$70K/);
-  assert.match(html, /From \$8K\/month/);
+  assert.match(html, /From \$2\.5K\/day/);
   assert.match(html, /The standard is open\. Deep implementation experience is scarce\./);
   assert.match(html, /Tested against real enterprise needs\./);
   assert.match(html, /Alation/);
