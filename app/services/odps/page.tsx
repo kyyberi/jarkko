@@ -4,12 +4,31 @@ import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo
 
 const calendlyBookingUrl = "https://calendly.com/work-jarkkomoilanen/30min";
 
-const proofItems = [
-  "FOUNDER & MAINTAINER OF ODPS",
-  "LINUX FOUNDATION AI & DATA PROJECT",
-  "ENTERPRISE ADOPTION ACROSS INDUSTRIES",
-  "OPEN-SOURCE SDK, MCP & AGENT TOOLING",
-  "BUILT FOR PEOPLE, PLATFORMS & AI AGENTS",
+const odpsProofMetrics = [
+  {
+    kicker: "ODPS business ecosystem",
+    value: "$177B+",
+    label: "Annual business footprint",
+    description:
+      "Commercial organizations with documented ODPS adoption or implementation",
+  },
+  {
+    value: "15",
+    label: "Named organizations",
+    description:
+      "Publicly identified adoption, implementation or integration records",
+  },
+  {
+    value: "7",
+    label: "Strong adoption signals",
+    description:
+      "High-confidence public cases including BASF, Alation, NATO, FIWARE and NIIS",
+  },
+  {
+    value: "$184B",
+    label: "Total quantified footprint",
+    description: "Including institutional economic activity",
+  },
 ];
 
 const odpsTestimonials = [
@@ -196,36 +215,52 @@ export default function OdpsServicesPage() {
         </figure>
       </section>
 
-      <section className="service-proof-strip" aria-label="ODPS proof">
-        {proofItems.map((item) => (
-          <span key={item}>{item}</span>
-        ))}
-      </section>
-
       <section
-        className="odps-testimonials-section"
+        className="odps-proof-matrix"
         aria-labelledby="odps-testimonials-title"
       >
-        <div className="odps-testimonials-head">
-          <div className="section-kicker">ODPS evidence</div>
-          <h2 id="odps-testimonials-title">
-            What industry leaders say
-          </h2>
-        </div>
-        <div className="odps-testimonials-grid">
-          {odpsTestimonials.map((testimonial) => (
-            <article className="odps-testimonial" key={testimonial.name}>
-              <h3>{testimonial.label}</h3>
-              <blockquote>
-                <p>{testimonial.quote}</p>
-              </blockquote>
-              <footer>
-                <strong>{testimonial.name}</strong>
-                <span>{testimonial.role}</span>
-              </footer>
+        <div className="odps-proof-metrics">
+          {odpsProofMetrics.map((metric) => (
+            <article className="odps-proof-metric" key={metric.label}>
+              {metric.kicker ? (
+                <div className="section-kicker">{metric.kicker}</div>
+              ) : null}
+              <strong>{metric.value}</strong>
+              <h2>{metric.label}</h2>
+              <p>{metric.description}</p>
             </article>
           ))}
         </div>
+        <div className="odps-testimonials-section">
+          <div className="odps-testimonials-head">
+            <div className="section-kicker">ODPS evidence</div>
+            <h2 id="odps-testimonials-title">
+              What industry leaders say
+            </h2>
+            <p>
+              Documented adoption spans enterprise, public-sector architecture,
+              open-source tooling and interoperability platforms.
+            </p>
+          </div>
+          <div className="odps-testimonials-grid">
+            {odpsTestimonials.map((testimonial) => (
+              <article className="odps-testimonial" key={testimonial.name}>
+                <h3>{testimonial.label}</h3>
+                <blockquote>
+                  <p>{testimonial.quote}</p>
+                </blockquote>
+                <footer>
+                  <strong>{testimonial.name}</strong>
+                  <span>{testimonial.role}</span>
+                </footer>
+              </article>
+            ))}
+          </div>
+        </div>
+        <p className="odps-proof-note">
+          Figures based on publicly documented adoption cases and available
+          financial data.
+        </p>
       </section>
 
       <section className="section service-family-section">
