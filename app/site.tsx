@@ -324,6 +324,12 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="site-footer">
+      <figure className="footer-portrait">
+        <img
+          src={publicAssetPath("/images/jarkko-hero-abudhabi-2026.webp")}
+          alt="Jarkko Moilanen"
+        />
+      </figure>
       <div className="footer-column footer-identity">
         <a className="footer-wordmark" href={sitePath("/")}>
           Jarkko Moilanen<span>.</span>
