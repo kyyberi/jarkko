@@ -904,11 +904,11 @@ h1 {
 }
 
 .odps-proof-metric {
-  display: flex;
+  display: grid;
+  grid-template-rows: 28px 86px minmax(72px, auto) 1fr;
   min-width: 0;
   min-height: 306px;
-  flex-direction: column;
-  justify-content: flex-end;
+  align-content: start;
   padding: clamp(24px, 2.5vw, 34px);
   border-right: 1px solid var(--line);
   background: rgba(255, 253, 248, 0.54);
@@ -919,12 +919,15 @@ h1 {
 }
 
 .odps-proof-metric .section-kicker {
-  margin-bottom: auto;
+  grid-row: 1;
+  align-self: start;
 }
 
 .odps-proof-metric strong {
   display: block;
-  margin: 16px 0 10px;
+  grid-row: 2;
+  align-self: end;
+  margin: 0 0 10px;
   color: var(--ink);
   font-family: var(--display);
   font-size: clamp(52px, 6.4vw, 88px);
@@ -935,6 +938,7 @@ h1 {
 }
 
 .odps-proof-metric h2 {
+  grid-row: 3;
   margin: 0;
   padding-bottom: 18px;
   border-bottom: 1px solid var(--line);
@@ -946,6 +950,7 @@ h1 {
 }
 
 .odps-proof-metric p {
+  grid-row: 4;
   margin: 18px 0 0;
   color: var(--muted);
   font-family: var(--serif);
