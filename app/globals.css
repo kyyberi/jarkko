@@ -857,7 +857,7 @@ h1 {
   height: 100%;
   min-height: 720px;
   object-fit: cover;
-  object-position: 50% 38%;
+  object-position: 38% 38%;
 }
 
 .service-proof-strip {
