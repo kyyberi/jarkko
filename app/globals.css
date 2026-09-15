@@ -1073,6 +1073,30 @@ h1 {
   background: rgba(255, 253, 248, 0.42);
 }
 
+.service-family-head {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 58px);
+  align-items: center;
+  margin-bottom: 52px;
+}
+
+.service-family-image {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #d7d0c5;
+}
+
+.service-family-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
 .service-copy p {
   max-width: 780px;
   margin: 0 0 18px;
@@ -3230,6 +3254,15 @@ h1 {
   .service-hero-actions,
   .odps-service-cta .hero-actions {
     display: grid;
+  }
+
+  .service-family-head {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .service-family-image {
+    max-width: 520px;
   }
 
   .odps-testimonials-section {

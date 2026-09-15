@@ -264,9 +264,16 @@ export default function OdpsServicesPage() {
       </section>
 
       <section className="section service-family-section">
-        <div className="section-head">
-          <div className="section-kicker">ODPS Enterprise Services</div>
-          <h2 className="section-title">How to become part of the success story</h2>
+        <div className="service-family-head">
+          <figure className="service-family-image">
+            <img
+              src={publicAssetPath("/images/odps-success-story.jpg")}
+              alt="Jarkko Moilanen with data product interface visuals"
+            />
+          </figure>
+          <h2 className="section-title">
+            How to become part of the success story
+          </h2>
         </div>
         <div className="engagement-grid">
           {services.map((service, index) => (
