@@ -310,7 +310,8 @@ export function Header() {
       </a>
       <nav className="nav" aria-label="Primary">
         <a href={sitePath("/#work")}>Work</a>
-        <a href={sitePath("/services/odps")}>Services</a>
+        <a href={sitePath("/#engagements")}>AI Products</a>
+        <a href={sitePath("/services/odps")}>Data Products</a>
         <a href={sitePath("/insights/articles")}>Insights</a>
         <a href={sitePath("/about")}>About</a>
         <a href={sitePath("/#contact")}>Contact</a>
