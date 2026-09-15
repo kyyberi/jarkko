@@ -627,11 +627,18 @@ export default function Home() {
         </section>
 
         <section className="section" id="insights">
-          <div className="section-head">
-            <div className="section-kicker">Insights</div>
-            <h2 className="section-title">
-              Writing, books, and courses from the work itself.
-            </h2>
+          <div className="section-head focus-head insights-head">
+            <figure className="focus-portrait insights-portrait">
+              <img
+                src={publicAssetPath("/images/insights-hero-portrait.webp")}
+                alt="Jarkko Moilanen"
+              />
+            </figure>
+            <div className="focus-title-copy insights-title-copy">
+              <h2 className="section-title">
+                Writing, books, and courses from the work itself.
+              </h2>
+            </div>
           </div>
           <div className="insights-layout">
             <div className="article-list">

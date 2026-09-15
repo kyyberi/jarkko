@@ -1326,6 +1326,18 @@ h1 {
   max-width: 860px;
 }
 
+.insights-head {
+  margin-bottom: 42px;
+}
+
+.insights-portrait {
+  background: #d7e7ee;
+}
+
+.insights-portrait img {
+  object-position: 50% 38%;
+}
+
 .focus-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
