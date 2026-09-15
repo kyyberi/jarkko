@@ -14,27 +14,24 @@ const proofItems = [
 
 const odpsTestimonials = [
   {
+    label: "BASF",
     quote:
       "“We at BASF built our group-wide Data Product concept largely on ODPS and extended it to our specific needs.”",
     name: "Manfred Sorg",
     role: "Group Data Office, BASF",
   },
   {
+    label: "Ron Tolido",
     quote: "“ODPS makes product thinking concrete for data and AI.”",
     name: "Ron Tolido",
     role: "CTO and Executive VP, Techstraordinary",
   },
   {
+    label: "NIIS",
     quote:
       "“Extending X-Road OAS service descriptions with ODPS makes data product-related metadata available in the service catalogue more unified.”",
     name: "Petteri Kivimäki",
     role: "CTO, Nordic Institute for Interoperability Solutions",
-  },
-  {
-    quote:
-      "“ODPS makes sense if you have multiple data products requiring consistent governance, want to scale governance without headcount…”",
-    name: "Michael Eichenseer",
-    role: "Data Engineer, Codecentric",
   },
 ];
 
@@ -206,20 +203,19 @@ export default function OdpsServicesPage() {
       </section>
 
       <section
-        className="section odps-testimonials-section"
+        className="odps-testimonials-section"
         aria-labelledby="odps-testimonials-title"
       >
-        <div className="section-head odps-testimonials-head">
-          <div>
-            <div className="section-kicker">ODPS evidence</div>
-            <h2 className="section-title" id="odps-testimonials-title">
-              What industry leaders say about ODPS
-            </h2>
-          </div>
+        <div className="odps-testimonials-head">
+          <div className="section-kicker">ODPS evidence</div>
+          <h2 id="odps-testimonials-title">
+            What industry leaders say
+          </h2>
         </div>
         <div className="odps-testimonials-grid">
           {odpsTestimonials.map((testimonial) => (
             <article className="odps-testimonial" key={testimonial.name}>
+              <h3>{testimonial.label}</h3>
               <blockquote>
                 <p>{testimonial.quote}</p>
               </blockquote>

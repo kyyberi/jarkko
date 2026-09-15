@@ -354,11 +354,13 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /ENTERPRISE ADOPTION ACROSS INDUSTRIES/);
   assert.match(html, /OPEN-SOURCE SDK, MCP &amp; AGENT TOOLING/);
   assert.match(html, /BUILT FOR PEOPLE, PLATFORMS &amp; AI AGENTS/);
-  assert.match(html, /What industry leaders say about ODPS/);
+  assert.match(html, /What industry leaders say/);
+  assert.match(html, /BASF/);
+  assert.match(html, /NIIS/);
   assert.match(html, /We at BASF built our group-wide Data Product concept largely on ODPS/);
   assert.match(html, /Ron Tolido/);
   assert.match(html, /Petteri Kivimäki/);
-  assert.match(html, /Michael Eichenseer/);
+  assert.doesNotMatch(html, /Michael Eichenseer|Codecentric/);
   assert.match(html, /ODPS Enterprise Readiness Assessment/);
   assert.match(html, /ODPS Adoption &amp; Implementation/);
   assert.match(html, /Agent-Ready Data Product Architecture/);

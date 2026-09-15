@@ -913,26 +913,38 @@ h1 {
 
 .odps-testimonials-section {
   scroll-margin-top: 88px;
-  padding-block: clamp(46px, 5vw, 70px);
+  display: grid;
+  grid-template-columns: minmax(220px, 0.22fr) minmax(0, 0.78fr);
+  border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
   background: var(--white);
 }
 
 .odps-testimonials-head {
-  margin-bottom: 26px;
+  display: flex;
+  min-width: 0;
+  min-height: 300px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 24px var(--pad);
+  border-right: 1px solid var(--ink);
 }
 
-.odps-testimonials-head .section-title {
-  max-width: 980px;
-  font-size: clamp(30px, 3.6vw, 46px);
-  line-height: 1;
+.odps-testimonials-head h2 {
+  max-width: 260px;
+  margin: 12px 0 0;
+  font-family: var(--display);
+  font-size: clamp(30px, 3vw, 42px);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
 }
 
 .odps-testimonials-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--ink);
-  border-left: 1px solid var(--ink);
+  min-width: 0;
 }
 
 .odps-testimonial {
@@ -940,12 +952,25 @@ h1 {
   min-width: 0;
   min-height: 300px;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 34px;
-  padding: clamp(26px, 2.6vw, 38px);
-  border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  justify-content: center;
+  gap: 16px;
+  padding: 22px clamp(18px, 1.9vw, 28px);
   background: rgba(255, 253, 248, 0.72);
+}
+
+.odps-testimonial + .odps-testimonial {
+  border-left: 1px solid var(--ink);
+}
+
+.odps-testimonial h3 {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 .odps-testimonial blockquote {
@@ -957,15 +982,15 @@ h1 {
   margin: 0;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: clamp(23px, 2vw, 31px);
-  line-height: 1.18;
+  font-size: clamp(21px, 1.75vw, 25px);
+  line-height: 1.2;
   text-wrap: pretty;
 }
 
 .odps-testimonial footer {
   display: grid;
-  gap: 7px;
-  padding-top: 18px;
+  gap: 5px;
+  padding-top: 6px;
   border-top: 1px solid rgba(24, 24, 24, 0.16);
 }
 
@@ -977,9 +1002,9 @@ h1 {
 }
 
 .odps-testimonial span {
-  max-width: 320px;
+  max-width: 300px;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.35;
 }
@@ -2870,12 +2895,32 @@ h1 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .odps-testimonials-section {
+    grid-template-columns: 1fr;
+  }
+
+  .odps-testimonials-head {
+    min-height: 0;
+    padding-block: 24px;
+    border-right: 0;
+    border-bottom: 1px solid var(--ink);
+  }
+
+  .odps-testimonials-head h2 {
+    max-width: 520px;
+  }
+
   .odps-testimonials-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .odps-testimonial {
-    min-height: 260px;
+    min-height: 220px;
+  }
+
+  .odps-testimonial:nth-child(3) {
+    border-top: 1px solid var(--ink);
+    border-left: 0;
   }
 
   .testimonials-head {
@@ -3131,7 +3176,7 @@ h1 {
   }
 
   .odps-testimonials-section {
-    padding-block: 42px;
+    display: grid;
   }
 
   .odps-testimonials-grid {
@@ -3140,12 +3185,26 @@ h1 {
 
   .odps-testimonial {
     min-height: 0;
-    gap: 24px;
-    padding: 24px 20px;
+    gap: 14px;
+    padding: 22px 20px;
+    border-left: 0;
+  }
+
+  .odps-testimonial + .odps-testimonial {
+    border-top: 1px solid var(--ink);
+    border-left: 0;
+  }
+
+  .odps-testimonial:nth-child(3) {
+    border-top: 1px solid var(--ink);
   }
 
   .odps-testimonial blockquote p {
-    font-size: clamp(21px, 7vw, 26px);
+    font-size: clamp(20px, 6vw, 24px);
+  }
+
+  .odps-testimonial footer {
+    padding-top: 4px;
   }
 
   .organization-proof-section {
