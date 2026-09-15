@@ -19,7 +19,7 @@ Maysano brings these parts together around one clear area: the company's data pr
 
 The result is more than a catalog. It becomes shared memory that agents can use.
 
-![A static catalog becomes shared memory when data products are connected to business goals, owners, evidence, signals, and actions.](screenshot-2026-07-24-at-08-16-03-graph-based-ai-memory-poc.png "Maysano turns a static catalog into a connected product graph that agents can use as shared memory.")
+![A static catalog becomes shared memory when data products are connected to business goals, owners, evidence, signals, and actions.](screenshot-2026-07-24-at-08-16-03-graph-based-ai-memory-poc.webp "Maysano turns a static catalog into a connected product graph that agents can use as shared memory.")
 
 ## Starting from one node
 
@@ -47,7 +47,7 @@ A replayable run shows what the agent did step by step. It records which recipe 
 
 The first Maysano version will show this as a slow-motion visual run. The viewer will see the agent move through the graph, collect context, follow the recipe, and decide what should happen next. This is more than a visual effect. It gives business, data, governance, and engineering teams a shared view of the agent's work. They see which information guided the result and whether the agent followed the approved process.
 
-![An ODPR recipe gives an agent a replayable path through data product context, evidence, and approved actions.](screenshot-2026-07-24-at-08-16-13-graph-based-ai-memory-poc.png "A replayable agent run follows a recipe through data product, use case, objective, owner, evidence, and action steps.")
+![An ODPR recipe gives an agent a replayable path through data product context, evidence, and approved actions.](screenshot-2026-07-24-at-08-16-13-graph-based-ai-memory-poc.webp "A replayable agent run follows a recipe through data product, use case, objective, owner, evidence, and action steps.")
 
 ## How Maysano is different
 

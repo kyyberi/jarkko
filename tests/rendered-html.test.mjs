@@ -4,7 +4,7 @@ import test from "node:test";
 
 const staticAssetVersion = "20260913-hero-panel";
 const socialShareImagePattern = new RegExp(
-  `https:\\/\\/jarkkomoilanen\\.com\\/images\\/social-share\\.jpg\\?v=${staticAssetVersion}`,
+  `https:\\/\\/jarkkomoilanen\\.com\\/images\\/social-share\\.webp\\?v=${staticAssetVersion}`,
 );
 
 async function render(path = "/") {
@@ -115,9 +115,9 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /AI products at Scale/);
   assert.match(html, /Maysano/);
   assert.match(html, /Data Product Standards/);
-  assert.match(html, /\/images\/work-maysano\.png/);
-  assert.match(html, /\/images\/work-odps\.png/);
-  assert.match(html, /\/images\/work-abudhabi\.png/);
+  assert.match(html, /\/images\/work-maysano\.webp/);
+  assert.match(html, /\/images\/work-odps\.webp/);
+  assert.match(html, /\/images\/work-abudhabi\.webp/);
   assert.match(html, /class="hero-residency-badge"/);
   assert.match(html, /\/images\/uae-flag\.svg/);
   assert.match(html, /United Arab Emirates flag/);
@@ -154,7 +154,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /5 courses · Ratings from 4\.44 to 4\.74/);
   assert.match(html, /Explore courses/);
   assert.match(html, /https:\/\/www\.udemy\.com\/user\/jarkko-moilanen\//);
-  assert.match(html, /\/images\/logo-udemy\.png/);
+  assert.match(html, /\/images\/logo-udemy\.webp/);
   assert.doesNotMatch(html, /class="course-evidence-grid"/);
   assert.doesNotMatch(html, /Published courses|Countries reached|Languages used by learners/);
   assert.doesNotMatch(
@@ -165,7 +165,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Published work on data products, platform thinking, APIs/);
   assert.match(html, /View books and author profile/);
   assert.match(html, /https:\/\/us\.amazon\.com\/stores\/Jarkko-Moilanen\/author\/B0B66HTHLM/);
-  assert.match(html, /\/images\/logo-amazon\.png/);
+  assert.match(html, /\/images\/logo-amazon\.webp/);
   assert.equal(
     (html.match(/href="https:\/\/calendly\.com\/work-jarkkomoilanen\/30min"/g) ?? []).length,
     6,
@@ -226,7 +226,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Open Data Product standards under the Linux Foundation/);
   assert.doesNotMatch(css, /font-family:\s*Georgia/);
   assert.doesNotMatch(css, /\.footer-proof li\s*\{[^}]*font-family:\s*var\(--serif\)/);
-  assert.match(html, /\/images\/jarkko-hero-abudhabi-2026\.jpeg/);
+  assert.match(html, /\/images\/jarkko-hero-abudhabi-2026\.webp/);
   assert.doesNotMatch(html, /class="ticker"|ticker-inner|marquee/i);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton|Your site is taking shape/);
 });
@@ -251,7 +251,7 @@ test("server-renders the about page", async () => {
   assert.match(html, /class="about-hero"/);
   assert.match(html, /Building operating systems/);
   assert.match(html, /for data and AI products/);
-  assert.match(html, /\/images\/jarkko-hero-abudhabi-2026\.jpeg/);
+  assert.match(html, /\/images\/jarkko-hero-abudhabi-2026\.webp/);
   assert.match(html, /Whole-of-government data and AI products/);
   assert.match(html, /Abu Dhabi Government&#x27;s Data Factory/);
   assert.match(html, /measurable public value/);
@@ -344,7 +344,7 @@ test("server-renders the ODPS enterprise services page", async () => {
   );
   assert.match(html, /OPEN DATA PRODUCT STANDARDS/i);
   assert.match(html, /Adopt data product standards with the person who created them/);
-  assert.match(html, /\/images\/odps-services-hero\.jpg/);
+  assert.match(html, /\/images\/odps-services-hero\.webp/);
   assert.match(html, /Jarkko Moilanen with data product interface elements/);
   assert.match(html, /maintain the standards family under LF AI &amp; Data/);
   assert.match(html, /The standard stays open/);
@@ -459,8 +459,8 @@ test("server-renders article pages", async () => {
     /<meta property="article:published_time" content="2026-06-25T00:00:00.000Z"/,
   );
   assert.match(html, /AI agents do not remove the need for governance/);
-  assert.match(html, /fragmented-to-governed-operations\.png/);
-  assert.match(html, /catalog-to-operating-workspace\.png/);
+  assert.match(html, /fragmented-to-governed-operations\.webp/);
+  assert.match(html, /catalog-to-operating-workspace\.webp/);
   assert.match(html, /class="article-image-button"/);
   assert.match(html, /class="article-header"/);
   assert.match(html, /Share/);
@@ -533,7 +533,7 @@ test("highlights article closing CTAs", async () => {
   const html = await response.text();
   assert.match(html, /class="article-cta"/);
   assert.match(html, /class="article-signoff"/);
-  assert.match(html, /\/images\/jarkko-signature\.png/);
+  assert.match(html, /\/images\/jarkko-signature\.webp/);
   assert.match(html, /Signature of Dr\. Jarkko Moilanen/);
   assert.match(html, /Dr\. Jarkko Moilanen/);
   assert.match(html, /class="article-ending-share"/);

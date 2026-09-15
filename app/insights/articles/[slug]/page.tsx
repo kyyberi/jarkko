@@ -198,7 +198,7 @@ export default async function ArticleDetail({ params }: PageProps) {
                 <div className="article-ending" key={block.text}>
                   <div className="article-signoff" aria-label="Article author">
                     <img
-                      src={sitePath("/images/jarkko-signature.png")}
+                      src={sitePath("/images/jarkko-signature.webp")}
                       alt="Signature of Dr. Jarkko Moilanen"
                     />
                     <span>Dr. Jarkko Moilanen</span>

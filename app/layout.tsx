@@ -47,7 +47,7 @@ const structuredData = {
       name: SITE_NAME,
       honorificSuffix: "PhD",
       url: SITE_URL,
-      image: `${SITE_URL}/images/jarkko-hero-abudhabi-2026.jpeg`,
+      image: `${SITE_URL}/images/jarkko-hero-abudhabi-2026.webp`,
       jobTitle: "Senior AI and Data Product Leader",
       description: PROFILE_DESCRIPTION,
       sameAs: [

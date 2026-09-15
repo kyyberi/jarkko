@@ -15,7 +15,7 @@ Many organizations still treat AI agents as a separate class of technology. AI t
 
 That approach starts to weaken when agents move into real business operations. A production agent needs purpose, ownership, measurable outcomes, defined consumers, access rules, quality expectations, lifecycle management, and clear relationships to the data and services it depends on. These are also core concerns of ODPS, which makes the connection between AI agents and data-product thinking increasingly direct.
 
-![AI agents and data products converge around shared product context such as ownership, interfaces, quality, governance, lifecycle, and outcomes.](chatgpt-image-aug-25-2026-02-24-31-am-1.png "AI agents and data products both need product context when they become reusable business capabilities.")
+![AI agents and data products converge around shared product context such as ownership, interfaces, quality, governance, lifecycle, and outcomes.](chatgpt-image-aug-25-2026-02-24-31-am-1.webp "AI agents and data products both need product context when they become reusable business capabilities.")
 
 ## The Boundary Is Getting Thinner
 
@@ -45,7 +45,7 @@ The connection becomes more useful when we move beyond ODPS itself. The Open Dat
 
 ODPS defines the product. ODPC organizes products into catalogs and portfolios. ODPG connects products to use cases, objectives, KPIs, signals, and other relationships. ODPV provides shared terminology. Draft ODPR adds repeatable workflow contracts for people, platforms, and AI agents.
 
-![The ODPS family connects product definitions, catalogs, vocabularies, graphs, and workflow contracts.](chatgpt-image-aug-25-2026-02-24-32-am-2.png "ODPS works with ODPC, ODPV, ODPG, and ODPR to describe products, portfolios, vocabulary, context graphs, and workflows.")
+![The ODPS family connects product definitions, catalogs, vocabularies, graphs, and workflow contracts.](chatgpt-image-aug-25-2026-02-24-32-am-2.webp "ODPS works with ODPC, ODPV, ODPG, and ODPR to describe products, portfolios, vocabulary, context graphs, and workflows.")
 
 Together, these standards provide a useful structure for enterprise AI. An agent does not exist alone. It belongs to a portfolio, serves particular use cases, contributes to objectives, depends on other products, reacts to signals, uses organizational vocabulary, and participates in workflows.
 
@@ -65,7 +65,7 @@ The Medium article points toward the other direction: AI agents themselves becom
 
 These two directions meet naturally. An AI agent consumes products described through structured product context, while the agent itself also needs enough product context to be understood, governed, measured, and managed. That is why AI increases the relevance of product standards rather than reducing it.
 
-![Agent readiness has two directions: AI-readable data products and AI agents managed as products.](chatgpt-image-aug-25-2026-02-24-33-am-3.png "ODPS helps both sides meet through shared product context aligned on value, standards, and lifecycle.")
+![Agent readiness has two directions: AI-readable data products and AI agents managed as products.](chatgpt-image-aug-25-2026-02-24-33-am-3.webp "ODPS helps both sides meet through shared product context aligned on value, standards, and lifecycle.")
 
 ## The Agent Is Part of a Product System
 

@@ -11,7 +11,7 @@ We are officially announcing the release candidates of the extended ODPS standar
 
 This is more than a documentation update. It is a shift from one specification into a family of standards that can help people, platforms, and AI agents describe, organize, connect, and interpret data products.
 
-![The ODPS family becomes an alphabet for data products across humans, platforms, and AI agents.](odps-family-alphabet.png "The ODPS family gives data products a shared language.")
+![The ODPS family becomes an alphabet for data products across humans, platforms, and AI agents.](odps-family-alphabet.webp "The ODPS family gives data products a shared language.")
 
 ## The problem is not only data access
 
@@ -29,7 +29,7 @@ Together, the release candidates form a standards family for describing products
 
 That is why I like the alphabet metaphor. Like an alphabet, each part of the ODPS family has its own role. One letter alone has limited value. The value comes when the letters are combined into a language that people and systems use. ODPS, ODPC, ODPG, and ODPV follow the same logic. Each standard has a clear purpose, but the real value comes when they are used together.
 
-![The extended ODPS family links product definitions, catalogs, value graphs, and vocabulary into structured context for AI agents.](extended-odps-family.png "ODPS, ODPC, ODPG, and ODPV create structured context for AI agents.")
+![The extended ODPS family links product definitions, catalogs, value graphs, and vocabulary into structured context for AI agents.](extended-odps-family.webp "ODPS, ODPC, ODPG, and ODPV create structured context for AI agents.")
 
 ## What each standard does
 
@@ -61,7 +61,7 @@ The SDK also includes MCP support. This means agent hosts and MCP-capable tools 
 
 This is an important step because the ODPS family is not only meant to be read by people. It is meant to be used by AI agents as structured context. With MCP support, the standards become available as practical tools for agent workflows, helping agents work across ODPS, ODPC, ODPG, and ODPV with a consistent interface.
 
-![The SDK gives AI agents an operational layer for loading, validating, explaining, searching, traversing, and summarizing ODPS family documents.](sdk-standards-operational-layer.png "The SDK turns the standards family into a practical operating layer.")
+![The SDK gives AI agents an operational layer for loading, validating, explaining, searching, traversing, and summarizing ODPS family documents.](sdk-standards-operational-layer.webp "The SDK turns the standards family into a practical operating layer.")
 
 ## From documentation to context layer
 

@@ -119,7 +119,7 @@ The objective is not permanent dependence on the CoE. The objective is to make s
 
 The first three months should produce a working delivery system, not a large organizational design exercise.
 
-![A 90-day AI Center of Excellence plan with mandate, common decisions, and delivery evidence across three phases.](screenshot-2026-09-13-at-12-12-28-ai-center-of-excellence-article-jarkko-moilanen-pdf.png "The first 90 days should establish mandate and visibility, common decision paths, and delivery evidence from two or three priority AI products.")
+![A 90-day AI Center of Excellence plan with mandate, common decisions, and delivery evidence across three phases.](screenshot-2026-09-13-at-12-12-28-ai-center-of-excellence-article-jarkko-moilanen-pdf.webp "The first 90 days should establish mandate and visibility, common decision paths, and delivery evidence from two or three priority AI products.")
 
 At day 90, leadership should review the evidence. Weak initiatives should stop. Strong ones should receive production funding. The CoE should publish its first standards, service catalogue, scorecard, and delivery roadmap.
 

@@ -13,7 +13,7 @@ That foundation is still useful. Maysano still needs catalogs and the data manag
 
 The important question changed. It was no longer only, "Which data products do we have?" It also became, "Why do they exist, what do they support, what affects them, and what should happen next?"
 
-![Maysano moves from a product-centered catalog view to a graph-based operating model and reviewed shared memory for agents.](screenshot-2026-07-25-at-10-54-17-chatgpt-maysano.png "A catalog manages product inventory. A graph represents the operating model around products, goals, policies, signals, decisions, and agent memory.")
+![Maysano moves from a product-centered catalog view to a graph-based operating model and reviewed shared memory for agents.](screenshot-2026-07-25-at-10-54-17-chatgpt-maysano.webp "A catalog manages product inventory. A graph represents the operating model around products, goals, policies, signals, decisions, and agent memory.")
 
 ## What catalogs handle well
 
@@ -53,7 +53,7 @@ This makes the portfolio easier to explore from different perspectives. It also 
 
 The graph was not chosen because graphs sound more modern than catalogs. It was chosen because the problem itself was relational.
 
-![Catalog and graph serve different roles in Maysano: inventory and lifecycle on one side, operating context and relationships on the other.](screenshot-2026-07-25-at-11-01-54-chatgpt-maysano.png "The catalog remains the inventory layer. The graph becomes the operating environment for intent, dependencies, decisions, and next actions.")
+![Catalog and graph serve different roles in Maysano: inventory and lifecycle on one side, operating context and relationships on the other.](screenshot-2026-07-25-at-11-01-54-chatgpt-maysano.webp "The catalog remains the inventory layer. The graph becomes the operating environment for intent, dependencies, decisions, and next actions.")
 
 ## From updated catalog to living portfolio
 
@@ -73,7 +73,7 @@ An agent might infer that a product supports a business objective. That inferenc
 
 The same principle applies to ownership, product status, governance conditions, dependencies, and business alignment. The graph contains both state and knowledge. State records where the work currently stands. Knowledge records what the organization has accepted as meaningful.
 
-![Agent inferences become shared memory only after review and approval in the managed graph.](screenshot-2026-07-25-at-10-53-12-chatgpt-maysano.png "Maysano separates agent inference from accepted memory so later agents can rely on reviewed context.")
+![Agent inferences become shared memory only after review and approval in the managed graph.](screenshot-2026-07-25-at-10-53-12-chatgpt-maysano.webp "Maysano separates agent inference from accepted memory so later agents can rely on reviewed context.")
 
 This gives agents continuity across runs without allowing temporary model outputs to become authoritative by default. Agents can inspect the objective behind a product, the policies that apply, the signals affecting its priority, and the recipe governing the work. They do not need to rebuild the same understanding from separate prompts and disconnected documents each time they act.
 

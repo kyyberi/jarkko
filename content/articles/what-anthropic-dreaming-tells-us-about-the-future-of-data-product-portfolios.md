@@ -11,7 +11,7 @@ Anthropic has attracted attention with a feature called "Dreaming." The name sou
 
 A recent article by Jaroslaw Wasowski takes a more critical view. Much of the value, he argues, comes from something surprisingly straightforward: persistent context, stored in relatively simple structures, cleaned periodically, and presented back to the model when needed. He also raises an important question about vendor dependency. If accumulated memory becomes essential to how your AI works, who owns that context, and how easily can it move to another model or platform?
 
-![Anthropic Dreaming consolidates raw history from past sessions into curated memory for future work.](screenshot-2026-08-11-at-12-16-44-chatgpt-portfolio-builder-10-minutes.png "Anthropic Dreaming periodically consolidates accumulated session history into cleaner, structured memory.")
+![Anthropic Dreaming consolidates raw history from past sessions into curated memory for future work.](screenshot-2026-08-11-at-12-16-44-chatgpt-portfolio-builder-10-minutes.webp "Anthropic Dreaming periodically consolidates accumulated session history into cleaner, structured memory.")
 
 That discussion matters far beyond AI agent memory. It describes a problem we see constantly in data product portfolio management. Organizations already have huge amounts of context. The problem is that most of it does not persist in a form that supports the next decision.
 
@@ -47,7 +47,7 @@ A common AI approach is to put documents into a retrieval system and let a model
 
 Studio takes a different approach. The first step is to turn fragmented business inputs into structured portfolio context. Business objectives, use cases, signals, and data product needs become explicit objects. Their relationships become explicit as well. The resulting portfolio has catalog and graph representations supported by open data product specifications such as ODPS, ODPC, and ODPG.
 
-![Fragmented business material becomes persistent portfolio context, a structured portfolio, a graph, and a foundation for AI decisions.](screenshot-2026-08-11-at-12-15-07-chatgpt-portfolio-builder-10-minutes.png "Maysano transforms fragmented business material into structured portfolio context and a graph that supports AI analysis and decisions.")
+![Fragmented business material becomes persistent portfolio context, a structured portfolio, a graph, and a foundation for AI decisions.](screenshot-2026-08-11-at-12-15-07-chatgpt-portfolio-builder-10-minutes.webp "Maysano transforms fragmented business material into structured portfolio context and a graph that supports AI analysis and decisions.")
 
 The model then reasons over that structure. Instead of asking only, "What does this document say?", leaders can ask:
 
@@ -97,7 +97,7 @@ If each phase produces a separate document and then forgets the previous phase, 
 
 Studio therefore treats portfolio creation, portfolio conversation, approval preparation, export to delivery, and outcome monitoring as parts of one connected workflow. The portfolio is the context carried through that workflow.
 
-![A seven-step portfolio workflow carries persistent context from business goals through delivery to outcome monitoring.](screenshot-2026-08-11-at-12-07-05-chatgpt-portfolio-builder-10-minutes.png "Persistent portfolio context connects business goals, portfolio building, AI conversation, boardroom preparation, approval, delivery, and outcome monitoring.")
+![A seven-step portfolio workflow carries persistent context from business goals through delivery to outcome monitoring.](screenshot-2026-08-11-at-12-07-05-chatgpt-portfolio-builder-10-minutes.webp "Persistent portfolio context connects business goals, portfolio building, AI conversation, boardroom preparation, approval, delivery, and outcome monitoring.")
 
 ## The boardroom needs memory too
 

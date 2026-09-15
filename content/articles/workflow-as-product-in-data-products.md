@@ -15,7 +15,7 @@ These activities form the workflow around the technical product. That workflow d
 
 Workflow as Product in Data Products starts from a simple claim: the end-to-end workflow from business need to measurable outcome should receive product-level attention. It has users, owners, inputs, decisions, quality needs, governance, dependencies, feedback, and measurable performance.
 
-![A connected workflow keeps business context attached from decision to Jira delivery and outcome measurement.](screenshot-2026-08-09-at-11-42-02-workflow-as-product-in-data-products-why-the-process-around-the-product-matters-by-dr-jarkko-moilanen-maysano-aug-2026-medium.png "When handoffs lose context, delivery can drift away from the business reason for the product.")
+![A connected workflow keeps business context attached from decision to Jira delivery and outcome measurement.](screenshot-2026-08-09-at-11-42-02-workflow-as-product-in-data-products-why-the-process-around-the-product-matters-by-dr-jarkko-moilanen-maysano-aug-2026-medium.webp "When handoffs lose context, delivery can drift away from the business reason for the product.")
 
 The idea connects several established areas of research. Decision-science research highlights business problem framing and decision design. DORA emphasizes end-to-end value streams and the risks created by handoffs. McKinsey links mature product operating models, especially ways of working, with stronger business performance. MIT CISR extends data-product ownership into adoption, reuse, continuous improvement, and value realization. NIST treats governance as a lifecycle activity rather than a one-time approval event.
 
@@ -155,7 +155,7 @@ That workflow includes the business problem, source evidence, use-case developme
 
 A broader definition of a data product follows from this principle. A data product consists of the technical asset, the business context that gives it purpose, the workflow that moves it from need to delivery, the governance that maintains trust, and the feedback process that determines whether it creates value.
 
-![Workflow as Product connects business intent, product definition, delivery, adoption, and feedback into one lifecycle.](screenshot-2026-08-09-at-11-42-13-workflow-as-product-in-data-products-why-the-process-around-the-product-matters-by-dr-jarkko-moilanen-maysano-aug-2026-medium.png "Context travels with the data product from intent through decision, delivery, adoption, and feedback.")
+![Workflow as Product connects business intent, product definition, delivery, adoption, and feedback into one lifecycle.](screenshot-2026-08-09-at-11-42-13-workflow-as-product-in-data-products-why-the-process-around-the-product-matters-by-dr-jarkko-moilanen-maysano-aug-2026-medium.webp "Context travels with the data product from intent through decision, delivery, adoption, and feedback.")
 
 ## What This Means for Maysano Studio
 

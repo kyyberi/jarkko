@@ -55,7 +55,7 @@ export default function AboutPage() {
         </div>
         <figure className="about-portrait" aria-label="Portrait of Jarkko Moilanen">
           <img
-            src={publicAssetPath("/images/jarkko-hero-abudhabi-2026.jpeg")}
+            src={publicAssetPath("/images/jarkko-hero-abudhabi-2026.webp")}
             alt="Jarkko Moilanen"
           />
         </figure>

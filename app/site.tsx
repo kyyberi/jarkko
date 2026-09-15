@@ -23,7 +23,7 @@ export const workItems = [
     title: "Maysano",
     summary:
       "Portfolio Studio for turning strategy, discovery, governance, and data product decisions into a working operating environment.",
-    image: "/images/work-maysano.png",
+    image: "/images/work-maysano.webp",
     imageAlt: "Maysano portfolio flow from business goals to data products",
     cta: "See how it works",
     detailCta: "Book a demo",
@@ -84,7 +84,7 @@ export const workItems = [
     title: "Data Product Standards",
     summary:
       "Open standards and SDKs for governed, interoperable, agent-ready data products across platforms, teams, and organizations.",
-    image: "/images/work-odps.png",
+    image: "/images/work-odps.webp",
     imageAlt: "Open Data Product Specification family maintained under Linux Foundation",
     cta: "Explore the standard",
     externalLinks: [
@@ -181,7 +181,7 @@ export const workItems = [
     title: "Building AI products for public value",
     summary:
       "Senior portfolio work shaping AI products at scale across Abu Dhabi Government priorities, data readiness, governance, and delivery.",
-    image: "/images/work-abudhabi.png",
+    image: "/images/work-abudhabi.webp",
     imageAlt: "AI product delivery path from priority needs to public value",
     cta: "Discuss the approach",
     diagramSteps: [

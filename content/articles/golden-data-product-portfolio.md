@@ -21,7 +21,7 @@ Most organizations review data and AI initiatives one by one. That makes local s
 
 The risk is not only wasted technology spend. The bigger risk is weak business design. Separate teams can build duplicated pipelines, overlapping data products, repeated governance work, and competing definitions for the same thing.
 
-![Before and after consolidation of duplicated pipelines into shared data products](consolidation-before-implementation.png "The value comes from consolidation before implementation.")
+![Before and after consolidation of duplicated pipelines into shared data products](consolidation-before-implementation.webp "The value comes from consolidation before implementation.")
 
 The value comes from consolidation before implementation. Leaders need to see where several initiatives point toward one shared capability. Then they can decide what should be built once, what should stay separate, and who should own each part.
 
@@ -33,7 +33,7 @@ It is not the implementation plan. It is not a catalog. It is not a single sourc
 
 The source portfolios stay intact. The Golden Portfolio references the strongest and most reusable parts of them. It also preserves where each part came from, who owns it, what evidence supports it, and why it was included.
 
-![Several initiative portfolios feeding one Golden Data Product Portfolio candidate](golden-portfolio-candidate.png "Several initiative portfolios reveal one stronger implementation candidate.")
+![Several initiative portfolios feeding one Golden Data Product Portfolio candidate](golden-portfolio-candidate.webp "Several initiative portfolios reveal one stronger implementation candidate.")
 
 This matters because leaders should not approve separate projects when the evidence shows one wider opportunity. They need one clear view of the shared business case.
 
@@ -45,7 +45,7 @@ The second benefit is less duplication. When teams cannot see the wider picture,
 
 The third benefit is better decisions. Boards and steering groups do not need more technical proposals. They need a clear case for value, risk, ownership, funding, delivery, and control. A Golden Portfolio turns several local proposals into one decision package.
 
-![Reuse economics for shared data products across use cases and markets](reuse-economics.png "Reuse changes the economics of data products.")
+![Reuse economics for shared data products across use cases and markets](reuse-economics.webp "Reuse changes the economics of data products.")
 
 This changes the unit of discussion. Instead of asking whether each local data product should be funded, leaders can ask a better question: which shared capability should we build, and what value will it unlock across the organization?
 
@@ -89,7 +89,7 @@ It turns that material into structured initiative portfolios. Each portfolio lin
 
 Once several portfolios exist, the Studio can examine them together. It can find repeated goals, related use cases, overlapping data products, common source systems, shared stakeholders, and similar delivery needs.
 
-![Maysano Portfolio Studio flow from business material to implementation portfolio](portfolio-studio-flow.png "Maysano Portfolio Studio turns fragmented business material into a traceable strategic synthesis.")
+![Maysano Portfolio Studio flow from business material to implementation portfolio](portfolio-studio-flow.webp "Maysano Portfolio Studio turns fragmented business material into a traceable strategic synthesis.")
 
 The Studio should not silently merge source portfolios. It should create a virtual strategic synthesis and show why each item was included. Leaders can then review the case, challenge the evidence, and decide whether the combined portfolio should move forward.
 

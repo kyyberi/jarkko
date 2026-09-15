@@ -7,7 +7,7 @@ export const DEFAULT_TITLE =
 export const DEFAULT_DESCRIPTION =
   "Senior AI and data product leader helping government and enterprise teams scale AI strategy, portfolios, Centers of Excellence, operating models, agents, MCP, APIs, and knowledge graphs.";
 
-export const DEFAULT_OG_IMAGE = versionedPublicPath("/images/social-share.jpg");
+export const DEFAULT_OG_IMAGE = versionedPublicPath("/images/social-share.webp");
 export const DEFAULT_OG_IMAGE_ALT =
   "Jarkko Moilanen social preview for data and AI product work";
 

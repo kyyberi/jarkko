@@ -167,7 +167,7 @@ export default function OdpsServicesPage() {
         </div>
         <figure className="service-hero-image">
           <img
-            src={publicAssetPath("/images/odps-services-hero.jpg")}
+            src={publicAssetPath("/images/odps-services-hero.webp")}
             alt="Jarkko Moilanen with data product interface elements"
           />
         </figure>

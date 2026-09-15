@@ -13,7 +13,7 @@ Data product management is moving beyond documentation, catalogs, and isolated p
 
 This is not about replacing platforms. It is not about letting agents freely change data product assets. It is about creating an operating model where data product work can be inspected, planned, approved, executed, and monitored across tools, teams, and platforms.
 
-![Data product work moves from scattered documents, catalogs, approvals, policies, workflows, and AI agents into one governed operating workspace.](fragmented-to-governed-operations.png "Agentic data product operations turn scattered work into a visible operating surface.")
+![Data product work moves from scattered documents, catalogs, approvals, policies, workflows, and AI agents into one governed operating workspace.](fragmented-to-governed-operations.webp "Agentic data product operations turn scattered work into a visible operating surface.")
 
 ## From documentation to operations
 
@@ -37,7 +37,7 @@ This is why agentic operations make weak operating models visible. If workflows 
 
 The issue is not only technical capability. Gartner has also warned that more than 40% of agentic AI projects may be canceled by the end of 2027 because of rising costs, unclear business value, or weak risk controls. Agentic AI does not become valuable because it is agentic. It becomes valuable when it enters a clear operating model.
 
-![Humans and AI agents need the same operating surface with source of truth, allowed actions, approval points, and evidence.](human-agent-operating-surface.png "Humans and AI agents need the same visible control surface.")
+![Humans and AI agents need the same operating surface with source of truth, allowed actions, approval points, and evidence.](human-agent-operating-surface.webp "Humans and AI agents need the same visible control surface.")
 
 ## Platforms and standards point to the same need
 
@@ -49,7 +49,7 @@ Both approaches point to the same conclusion. Agentic work needs structure. It n
 
 That is why Agentic Data Product Operations matters. It is the data product layer where platform operating models, open standards, workflow orchestration, and AI-assisted work begin to meet.
 
-![Platform-native workflows and portable workflows can both support agentic data product operations.](platform-native-portable-workflows.png "Both platform-native and portable workflows can support the same operating model.")
+![Platform-native workflows and portable workflows can both support agentic data product operations.](platform-native-portable-workflows.webp "Both platform-native and portable workflows can support the same operating model.")
 
 ## Data products and AI products are converging
 
@@ -71,7 +71,7 @@ Agentic Data Product Operations does not replace catalogs. It extends the operat
 
 The key question changes from "Is the product listed?" to "How is the product operated, reviewed, improved, and connected to business outcomes?"
 
-![A catalog describes products, owners, and metadata. An operating workspace manages workflows, approvals, lifecycle, and changes.](catalog-to-operating-workspace.png "Catalogs describe what exists. Operations manage what changes.")
+![A catalog describes products, owners, and metadata. An operating workspace manages workflows, approvals, lifecycle, and changes.](catalog-to-operating-workspace.webp "Catalogs describe what exists. Operations manage what changes.")
 
 ## Workflows become operating assets
 

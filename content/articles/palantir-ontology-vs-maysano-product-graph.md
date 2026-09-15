@@ -17,7 +17,7 @@ The difference is not at the agent layer. Both approaches place AI agents above 
 
 Disclosure: I am the founder of Maysano. The architectural foundations behind Maysano and its product-centered model were established before I became involved with the Palantir platform through my work in Abu Dhabi. Working with Palantir has given me a practical reference point for comparing two approaches that emerged independently but now address closely related enterprise AI questions.
 
-![Maysano organizes enterprise systems, data products, AI products, the Product Graph, and agents into a connected flow.](screenshot-2026-08-28-at-18-02-12-chatgpt-maysano.png "Maysano flow: enterprise systems feed productized capabilities, which are connected through the Product Graph for agents and applications.")
+![Maysano organizes enterprise systems, data products, AI products, the Product Graph, and agents into a connected flow.](screenshot-2026-08-28-at-18-02-12-chatgpt-maysano.webp "Maysano flow: enterprise systems feed productized capabilities, which are connected through the Product Graph for agents and applications.")
 
 ## Palantir Structures Operational Context
 
@@ -49,11 +49,11 @@ The more useful comparison is between two ways of structuring context underneath
 
 Palantir gives the agent an operational representation of enterprise objects, their relationships, available logic, actions, and security. Maysano gives the agent a portfolio representation of trusted products, business intent, dependencies, governance, and reusable operational context.
 
-![Palantir and Maysano both support AI agents, but structure context differently underneath them.](screenshot-2026-08-28-at-18-02-17-chatgpt-maysano.png "Palantir centers context on enterprise objects and actions. Maysano centers context on productized capabilities and their portfolio relationships.")
+![Palantir and Maysano both support AI agents, but structure context differently underneath them.](screenshot-2026-08-28-at-18-02-17-chatgpt-maysano.webp "Palantir centers context on enterprise objects and actions. Maysano centers context on productized capabilities and their portfolio relationships.")
 
 The difference is easier to see when the main dimensions are placed side by side.
 
-![A side-by-side comparison of Palantir Ontology and the Maysano Product Graph across ten dimensions.](screenshot-2026-08-28-at-18-19-58-chatgpt-maysano.png "Palantir focuses on operational objects and actions. Maysano focuses on product contracts, ownership, dependencies, lifecycle, and portfolio governance.")
+![A side-by-side comparison of Palantir Ontology and the Maysano Product Graph across ten dimensions.](screenshot-2026-08-28-at-18-19-58-chatgpt-maysano.webp "Palantir focuses on operational objects and actions. Maysano focuses on product contracts, ownership, dependencies, lifecycle, and portfolio governance.")
 
 A financial services example makes this difference more concrete. Within Palantir, Customer, Account, Transaction, and Payment might exist as operational objects. Their relationships are explicit, and an agent works with those objects, follows their links, and invokes governed actions.
 
@@ -85,7 +85,7 @@ A Palantir Ontology might sit underneath a Maysano-managed Data Product. Palanti
 
 The resulting architecture moves from enterprise systems into Palantir data and Ontology, then through Data Products into the Maysano Product Graph, and finally into enterprise applications and AI agents.
 
-![A combined architecture can place ontology below product and portfolio context.](screenshot-2026-08-28-at-18-02-23-chatgpt-maysano.png "Ontology can provide operational context underneath data products, while Maysano provides product and portfolio context above.")
+![A combined architecture can place ontology below product and portfolio context.](screenshot-2026-08-28-at-18-02-23-chatgpt-maysano.webp "Ontology can provide operational context underneath data products, while Maysano provides product and portfolio context above.")
 
 A Customer 360 Data Product provides a useful example. Palantir might maintain the operational customer representation and relationships underneath it. The Data Product exposes a governed capability based on that information. Maysano then describes the product as part of the enterprise portfolio, including why it exists, which initiatives depend on it, who owns it, which AI products consume it, and which agents rely on those capabilities.
 

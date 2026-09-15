@@ -15,7 +15,7 @@ These ideas are usually discussed as AI engineering patterns. They also expose a
 
 Those are data product questions.
 
-![Structured product context gives AI agents clearer signal than loose documents.](product-context-vs-loose-documents.png "A data product gives an agent high-signal context with ownership, access, quality, policy, and use-case meaning.")
+![Structured product context gives AI agents clearer signal than loose documents.](product-context-vs-loose-documents.webp "A data product gives an agent high-signal context with ownership, access, quality, policy, and use-case meaning.")
 
 ## Context engineering needs product context
 
@@ -45,7 +45,7 @@ This boundary matters because context needs accountability. When an agent receiv
 
 The same principle applies when the product is not a traditional table. A data product can expose an API, stream, model-ready feature set, analytical service, event feed, or another access component. What matters is that the product gives a stable, governed interface to useful data and the context needed to consume it.
 
-![A data product turns raw enterprise data into trusted context for agents and consumers.](data-product-context-provider.png "A governed data product packages ownership, quality, access, service, and policy context around raw enterprise data.")
+![A data product turns raw enterprise data into trusted context for agents and consumers.](data-product-context-provider.webp "A governed data product packages ownership, quality, access, service, and policy context around raw enterprise data.")
 
 This gives organizations a practical way to manage agent context. Instead of letting every agent team build its own prompts, document indexes, and hidden assumptions, the organization can expose approved products with machine-readable descriptions. Agents can then choose context from products whose purpose and operating conditions are known.
 
@@ -63,7 +63,7 @@ Loop engineering is controlled iteration. It turns a sequence of model calls and
 
 This maps directly to data product delivery. A data product does not become reliable when someone creates a YAML file or publishes a catalog entry. It moves through a process in which source material is interpreted, a product candidate is generated, structure is validated, missing information is identified, governance expectations are reviewed, and the result is approved or returned for more work.
 
-![A data product candidate moves through an agent-supported loop of interpretation, generation, validation, review, improvement, and release.](data-product-operating-loop.png "Loop engineering turns product generation into a controlled operating process with policies, standards, review, and release gates.")
+![A data product candidate moves through an agent-supported loop of interpretation, generation, validation, review, improvement, and release.](data-product-operating-loop.webp "Loop engineering turns product generation into a controlled operating process with policies, standards, review, and release gates.")
 
 Consider an agent asked to create a data product candidate from business documents. The agent must extract product facts and identify likely consumers, use cases, owners, and signals. It can then generate a minimal product definition, validate it against the ODPS schema, compare terms with ODPV, and search the catalog for similar or related products.
 
@@ -97,7 +97,7 @@ Microsoft's GraphRAG work shows why this matters for AI systems. Baseline retrie
 
 The same logic applies to data product portfolios. A vector search might find products whose descriptions use words similar to "customer retention." A graph can show that a retention objective is measured by a churn KPI, that the KPI depends on several operational signals, and that those signals come from specific data products.
 
-![Graph engineering keeps the relationship between objectives, use cases, data products, signals, and KPIs visible.](graph-engineering-business-relationships.png "When one data product breaks, graph relationships reveal the affected use cases, KPIs, signals, and objectives.")
+![Graph engineering keeps the relationship between objectives, use cases, data products, signals, and KPIs visible.](graph-engineering-business-relationships.webp "When one data product breaks, graph relationships reveal the affected use cases, KPIs, signals, and objectives.")
 
 The graph can also reveal that one product has failed its freshness target. It can then show which use cases, KPIs, and objectives depend on that product. This is more than retrieval. It is structured consequence analysis.
 
@@ -133,7 +133,7 @@ This is where the ODPS family provides a coherent model. ODPS describes the indi
 
 These specifications do not compete with agent frameworks. They provide a portable product, context, graph, and workflow layer beneath them.
 
-![Context, loop, graph, ODPS-family standards, and the SDK combine into an agent-ready data product system.](odps-family-agent-ready-system.png "The ODPS family and SDK integrate context, loop, and graph engineering into an agent-ready operating model.")
+![Context, loop, graph, ODPS-family standards, and the SDK combine into an agent-ready data product system.](odps-family-agent-ready-system.webp "The ODPS family and SDK integrate context, loop, and graph engineering into an agent-ready operating model.")
 
 ## The SDK turns specifications into agent capabilities
 

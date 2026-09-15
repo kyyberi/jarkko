@@ -280,7 +280,7 @@ export default function Home() {
 
           <div className="hero-portrait">
             <img
-              src={publicAssetPath("/images/jarkko-hero-abudhabi-2026.jpeg")}
+              src={publicAssetPath("/images/jarkko-hero-abudhabi-2026.webp")}
               alt="Portrait of Jarkko Moilanen"
             />
             <div className="hero-residency-badge">
@@ -327,7 +327,7 @@ export default function Home() {
             </div>
             <figure className="engagement-billing">
               <img
-                src={publicAssetPath("/images/hero-skyline.jpg")}
+                src={publicAssetPath("/images/hero-skyline.webp")}
                 alt="Abu Dhabi skyline, representing UAE-based engagement billing"
               />
               <figcaption>
@@ -642,7 +642,7 @@ export default function Home() {
             <aside className="media-stack" aria-label="Teaching and publishing">
               <article className="media-card">
                 <div className="media-logo">
-                  <img src={publicAssetPath("/images/logo-udemy.png")} alt="Udemy" />
+                  <img src={publicAssetPath("/images/logo-udemy.webp")} alt="Udemy" />
                 </div>
                 <div className="media-card-copy">
                   <div className="section-kicker">COURSES</div>
@@ -667,7 +667,7 @@ export default function Home() {
               <article className="media-card">
                 <div className="media-logo">
                   <img
-                    src={publicAssetPath("/images/logo-amazon.png")}
+                    src={publicAssetPath("/images/logo-amazon.webp")}
                     alt="Amazon"
                   />
                 </div>

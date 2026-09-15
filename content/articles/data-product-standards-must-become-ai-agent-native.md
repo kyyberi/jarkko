@@ -49,7 +49,7 @@ That is the role of Open Data Product Vocabulary, or ODPV. It gives common terms
 
 This is not only about human-readable definitions. It is also about machine-readable consistency. Data product standards need terms that tools and agents can understand, validate, reuse, and reason over.
 
-![The AI Agent Toolkit operates on Open Data Product standards, catalogs, vocabularies, and graphs.](ai-agent-toolkit.png "The AI Agent Toolkit sits on top of ODPS, ODPC, ODPG, and ODPV so agents can work with the standards in practice.")
+![The AI Agent Toolkit operates on Open Data Product standards, catalogs, vocabularies, and graphs.](ai-agent-toolkit.webp "The AI Agent Toolkit sits on top of ODPS, ODPC, ODPG, and ODPV so agents can work with the standards in practice.")
 
 ## What agent-native standards require
 

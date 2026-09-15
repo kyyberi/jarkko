@@ -23,7 +23,7 @@ Open Data Product Vocabulary, or ODPV, was drafted with this shift in mind. It i
 
 ODPV defines the shared language that helps people, tools, and AI agents use these standards in the same way. Without that shared language, every catalog, portfolio, marketplace, tool, and agent starts to invent its own terms. That creates noise where organizations need trust.
 
-![ODPV creates a shared vocabulary layer across the Open Data Product standards family.](odpv-shared-vocabulary.png "ODPV gives ODPS, ODPC, and ODPG one reusable vocabulary layer.")
+![ODPV creates a shared vocabulary layer across the Open Data Product standards family.](odpv-shared-vocabulary.webp "ODPV gives ODPS, ODPC, and ODPG one reusable vocabulary layer.")
 
 ## The 9 actions
 
@@ -37,7 +37,7 @@ The fourth action was to add JSON for JSON-native tools. Many developer tools an
 
 The fifth action was to split the vocabulary into scoped files: `/vocab/core.yaml`, `/vocab/value.yaml`, `/vocab/governance.yaml`, and `/vocab/relationships.yaml`. This helps agents load only the part they need. An agent working on graph relationships can load relationship terms. An agent explaining business value can focus on value terms. An agent checking governance language can load governance terms.
 
-![ODPV is structured for humans, tools, and AI agents through files such as llms.txt, JSONL, schema, YAML, and JSON.](odpv-ai-agent-first.png "ODPV was structured so agents can discover, validate, and use the vocabulary.")
+![ODPV is structured for humans, tools, and AI agents through files such as llms.txt, JSONL, schema, YAML, and JSON.](odpv-ai-agent-first.webp "ODPV was structured so agents can discover, validate, and use the vocabulary.")
 
 The sixth action was to add schema validation through `/schema/odpv.schema.json`. Agents should not only read vocabulary files. They should also detect malformed terms, missing attributes, and structural issues before using or extending the vocabulary.
 
