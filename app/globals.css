@@ -860,6 +860,14 @@ h1 {
   object-position: 38% 38%;
 }
 
+.odps-service-hero .service-hero-image {
+  right: clamp(-92px, -6vw, -48px);
+}
+
+.odps-service-hero .service-hero-image img {
+  object-position: 18% 38%;
+}
+
 .service-proof-strip {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
