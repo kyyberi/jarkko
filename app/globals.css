@@ -1916,15 +1916,10 @@ h1 {
 .article-card {
   min-height: 0;
   border-left: 0;
-  border-bottom: 1px solid var(--line);
 }
 
 .article-index .article-card + .article-card {
   border-left: 0;
-}
-
-.article-card:last-child {
-  border-bottom: 0;
 }
 
 .article-card p {
@@ -2426,10 +2421,10 @@ h1 {
 
 .article-archive-head {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(320px, 1fr);
-  gap: 32px;
-  align-items: end;
-  margin-bottom: 34px;
+  grid-template-columns: minmax(0, 760px);
+  gap: 0;
+  align-items: start;
+  margin-bottom: 32px;
 }
 
 .article-archive-head h2 {
@@ -2448,62 +2443,42 @@ h1 {
   line-height: 1.45;
 }
 
-.article-category-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.article-category-nav a {
-  border: 1px solid var(--ink);
-  padding: 10px 12px;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.article-category-nav a:hover,
-.article-category-nav a:focus-visible {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.article-index-label {
+.article-archive-list {
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: baseline;
-  gap: 20px;
-  border-bottom: 1px solid var(--ink);
-  padding: 16px 0;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 3.5vw, 42px);
+  border-bottom: 0;
 }
 
-.article-index-label span {
+.article-archive-card {
+  display: grid;
+  gap: 0;
+  max-width: 960px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+}
+
+.article-archive-card strong {
+  margin-top: 8px;
+  font-size: clamp(30px, 4.2vw, 58px);
+  line-height: 0.98;
+}
+
+.article-archive-card p {
+  margin-top: 12px;
+}
+
+.article-archive-card em {
+  margin-top: 14px;
+}
+
+.article-card-meta {
   color: var(--accent);
   font-size: 12px;
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.article-index-label strong {
-  font-family: var(--display);
-  font-size: 34px;
-  line-height: 1;
-}
-
-.article-category-groups {
-  display: grid;
-  gap: 48px;
-}
-
-.article-category-group {
-  scroll-margin-top: 24px;
-}
-
-.article-index.compact .article-card strong {
-  font-size: clamp(24px, 3vw, 36px);
 }
 
 .media-stack {
@@ -2967,10 +2942,6 @@ h1 {
     align-items: start;
   }
 
-  .article-category-nav {
-    justify-content: flex-start;
-  }
-
   .media-stack {
     grid-template-columns: 1fr;
   }
@@ -3427,16 +3398,6 @@ h1 {
 
   .article-archive-head h2 {
     font-size: clamp(36px, 11vw, 56px);
-  }
-
-  .article-category-nav {
-    display: grid;
-    grid-template-columns: 1fr;
-    width: 100%;
-  }
-
-  .article-category-nav a {
-    text-align: center;
   }
 
   .site-footer {

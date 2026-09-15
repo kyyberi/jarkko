@@ -525,17 +525,18 @@ test("server-renders insights index with the editorial portrait hero", async () 
   assert.match(html, /class="insights-hero-image"/);
   assert.match(html, /\/images\/insights-hero-portrait\.webp/);
   assert.match(html, /alt="Jarkko Moilanen"/);
-  assert.match(html, /aria-label="Article categories"/);
-  assert.match(html, /href="#category-ai-products"/);
-  assert.match(html, /href="#category-data-products"/);
-  assert.match(html, /href="#category-standards"/);
-  assert.match(html, /id="category-ai-products"/);
-  assert.match(html, /id="category-data-products"/);
-  assert.match(html, /id="category-standards"/);
+  assert.match(html, /Browse insights/);
+  assert.match(html, /class="article-index article-archive-list"/);
+  assert.match(html, /class="article-card-meta">AI products \/ \d{1,2} [A-Z]{3,4} \d{4}/);
+  assert.match(html, /class="article-card-meta">Data products \/ \d{1,2} [A-Z]{3,4} \d{4}/);
+  assert.doesNotMatch(html, /aria-label="Article categories"/);
+  assert.doesNotMatch(html, /href="#category-/);
+  assert.doesNotMatch(html, /id="category-/);
   assert.match(html, /From Data Product Portfolio to Shared Memory for AI Agents/);
   assert.match(html, /9 Actions We Took to Make Open Data Product Vocabulary AI-Agent-First/);
   assert.match(css, /\.insights-hero-image/);
-  assert.doesNotMatch(css, /\.article-index\s*\{[^}]*border-block:/);
+  assert.match(css, /\.article-archive-list\s*\{[^}]*border-bottom:\s*0;/);
+  assert.match(css, /\.article-archive-card\s*\{[^}]*border:\s*0;/);
 });
 
 test("highlights article closing CTAs", async () => {
