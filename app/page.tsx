@@ -403,6 +403,12 @@ export default function Home() {
             applicable.
           </p>
           <div className="engagement-close">
+            <figure className="engagement-close-media">
+              <img
+                src={publicAssetPath("/images/jarkko-engagement-portrait.webp")}
+                alt="Jarkko Moilanen"
+              />
+            </figure>
             <div>
               <h3>Not sure which engagement fits?</h3>
               <p>
