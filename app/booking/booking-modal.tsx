@@ -54,6 +54,18 @@ function progressValue(step: BookingStep) {
   return "33%";
 }
 
+function stepTitle(step: BookingStep) {
+  if (step === "confirmation") return "You're all set.";
+  if (step === "scheduling") return "Select a date and time";
+  return "What would you like to discuss?";
+}
+
+function stepDescription(step: BookingStep) {
+  if (step === "confirmation") return "Your booking is confirmed by Cal.com.";
+  if (step === "scheduling") return "Choose a time that works for you. Times are shown by Cal.com.";
+  return "Choose the main topic for your session.";
+}
+
 function serviceDescription(service: ServiceBookingConfig) {
   if (service.bookingType === "direct") {
     return "A focused expert session to review your questions, implementation direction, or project decision.";
@@ -224,12 +236,18 @@ export function BookingModalRoot() {
             </div>
           </div>
 
+          <div className="booking-step-heading">
+            <h3>{stepTitle(activeStep)}</h3>
+            <p>{stepDescription(activeStep)}</p>
+          </div>
+
           <BookingFlow
             hideIntakeAfterComplete
             onStepChange={setActiveStep}
             service={activeService}
             showIntro={false}
             sourceCTA={activeContext.sourceCTA}
+            useOptionCards
           />
         </main>
       </div>

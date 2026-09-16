@@ -289,18 +289,60 @@ function qualificationLabelFor(service: ServiceBookingConfig) {
   return "";
 }
 
+function optionDescriptionFor(option: string) {
+  const descriptions: Record<string, string> = {
+    "AI portfolio and product strategy": "Clarify priorities, value, and where senior attention should go.",
+    "Agentic AI architecture": "Discuss agents, system design, integration, or architecture choices.",
+    "AI product operating model": "Work through ownership, portfolio rules, governance, or delivery model.",
+    "Fractional AI product leadership": "Explore senior product leadership support for active initiatives.",
+    ODPS: "Discuss open data product standards, adoption, architecture, or implementation.",
+    "Partnership or collaboration": "Explore collaboration, adoption, ecosystem, or community opportunities.",
+    "Something else": "Use this when the topic does not fit the listed categories.",
+    "Evaluate ODPS": "Assess fit, readiness, and where the standard helps.",
+    "Adopt ODPS": "Plan practical adoption in an existing organization or product landscape.",
+    "Integrate ODPS with an existing platform": "Discuss catalog, marketplace, governance, or platform integration.",
+    "Design agent-ready data products": "Shape products that agents and humans can interpret consistently.",
+    "Enterprise architecture": "Review data product architecture and operating model implications.",
+    "Expert advisory": "Use the session for senior review or focused direction.",
+    Other: "Bring the closest related topic and context.",
+    "Architecture review": "Review structure, tradeoffs, and implementation direction.",
+    "ODPS implementation review": "Get focused feedback on current ODPS implementation choices.",
+    "Data product design": "Review data product shape, metadata, and product boundaries.",
+    Governance: "Discuss ownership, controls, lifecycle, and decision rules.",
+    "Agent-ready data products": "Review agent-readable context, metadata, and interpretation needs.",
+    "Specification interpretation": "Clarify how to apply the standard in a concrete case.",
+    "Exploring options": "Use this when the next decision is still forming.",
+    "Need a decision soon": "Use this when timing, scope, or direction needs quick resolution.",
+    "Have an active initiative": "Use this when work is already underway and needs review.",
+    "Need senior review": "Use this for a second opinion or executive-level assessment.",
+  };
+
+  return descriptions[option] ?? "Share context so the session can focus quickly.";
+}
+
+function optionCodeFor(option: string) {
+  return option
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0]?.toUpperCase())
+    .join("");
+}
+
 export function BookingFlow({
   hideIntakeAfterComplete = false,
   onStepChange,
   service,
   showIntro = true,
   sourceCTA,
+  useOptionCards = false,
 }: {
   hideIntakeAfterComplete?: boolean;
   onStepChange?: (step: "intake" | "qualification" | "scheduling" | "confirmation") => void;
   service: ServiceBookingConfig;
   showIntro?: boolean;
   sourceCTA?: string;
+  useOptionCards?: boolean;
 }) {
   const [visitorIntent, setVisitorIntent] = useState("");
   const [qualification, setQualification] = useState("");
@@ -379,53 +421,131 @@ export function BookingFlow({
             </div>
           ) : null}
 
-          <div className="booking-intake-fields">
-            <label htmlFor="visitor-intent">{intakeLabel}</label>
-            <select
-              id="visitor-intent"
-              onChange={(event) => {
-                setVisitorIntent(event.target.value);
-                setQualification("");
-                setHasCompletedIntake(false);
-                setHasCompletedBooking(false);
-              }}
-              value={visitorIntent}
-            >
-              <option value="">Select one</option>
-              {options.map((option) => (
-                <option key={option} value={option}>
-                  {option}
-                </option>
-              ))}
-            </select>
-            {needsQualification ? (
-              <>
-                <label htmlFor="booking-qualification">
-                  {qualificationLabelFor(service)}
-                </label>
-                <select
-                  id="booking-qualification"
-                  onChange={(event) => setQualification(event.target.value)}
-                  value={qualification}
+          {useOptionCards ? (
+            <div className="booking-intake-card-fields">
+              <div
+                aria-label={intakeLabel}
+                className="booking-option-list"
+                role="radiogroup"
+              >
+                {options.map((option) => (
+                  <button
+                    aria-checked={visitorIntent === option}
+                    className={`booking-option-choice${
+                      visitorIntent === option ? " selected" : ""
+                    }`}
+                    key={option}
+                    onClick={() => {
+                      setVisitorIntent(option);
+                      setQualification("");
+                      setHasCompletedIntake(false);
+                      setHasCompletedBooking(false);
+                    }}
+                    role="radio"
+                    type="button"
+                  >
+                    <span className="booking-choice-dot" aria-hidden="true" />
+                    <span className="booking-choice-icon" aria-hidden="true">
+                      {optionCodeFor(option)}
+                    </span>
+                    <span>
+                      <strong>{option}</strong>
+                      <small>{optionDescriptionFor(option)}</small>
+                    </span>
+                  </button>
+                ))}
+              </div>
+
+              {needsQualification ? (
+                <div
+                  aria-label={qualificationLabelFor(service)}
+                  className="booking-option-list secondary"
+                  role="radiogroup"
                 >
-                  <option value="">Select one</option>
                   {qualificationOptions.map((option) => (
-                    <option key={option} value={option}>
-                      {option}
-                    </option>
+                    <button
+                      aria-checked={qualification === option}
+                      className={`booking-option-choice${
+                        qualification === option ? " selected" : ""
+                      }`}
+                      key={option}
+                      onClick={() => setQualification(option)}
+                      role="radio"
+                      type="button"
+                    >
+                      <span className="booking-choice-dot" aria-hidden="true" />
+                      <span className="booking-choice-icon" aria-hidden="true">
+                        {optionCodeFor(option)}
+                      </span>
+                      <span>
+                        <strong>{option}</strong>
+                        <small>{optionDescriptionFor(option)}</small>
+                      </span>
+                    </button>
                   ))}
-                </select>
-              </>
-            ) : null}
-            <button
-              className="button primary"
-              disabled={!canContinue}
-              onClick={completeIntake}
-              type="button"
-            >
-              Continue to scheduling <span aria-hidden="true">-&gt;</span>
-            </button>
-          </div>
+                </div>
+              ) : null}
+
+              <div className="booking-intake-actions">
+                <button
+                  className="button primary"
+                  disabled={!canContinue}
+                  onClick={completeIntake}
+                  type="button"
+                >
+                  Continue to calendar <span aria-hidden="true">-&gt;</span>
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="booking-intake-fields">
+              <label htmlFor="visitor-intent">{intakeLabel}</label>
+              <select
+                id="visitor-intent"
+                onChange={(event) => {
+                  setVisitorIntent(event.target.value);
+                  setQualification("");
+                  setHasCompletedIntake(false);
+                  setHasCompletedBooking(false);
+                }}
+                value={visitorIntent}
+              >
+                <option value="">Select one</option>
+                {options.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+              {needsQualification ? (
+                <>
+                  <label htmlFor="booking-qualification">
+                    {qualificationLabelFor(service)}
+                  </label>
+                  <select
+                    id="booking-qualification"
+                    onChange={(event) => setQualification(event.target.value)}
+                    value={qualification}
+                  >
+                    <option value="">Select one</option>
+                    {qualificationOptions.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
+                  </select>
+                </>
+              ) : null}
+              <button
+                className="button primary"
+                disabled={!canContinue}
+                onClick={completeIntake}
+                type="button"
+              >
+                Continue to scheduling <span aria-hidden="true">-&gt;</span>
+              </button>
+            </div>
+          )}
         </section>
       )}
 
