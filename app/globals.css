@@ -847,6 +847,9 @@ h1 {
 .booking-modal-scheduling,
 .booking-modal-confirmation {
   grid-template-columns: minmax(0, 1fr);
+  min-height: calc(100dvh - 16px);
+  max-height: calc(100dvh - 16px);
+  overflow: auto;
 }
 
 .booking-modal-scheduling .booking-modal-summary {
@@ -950,7 +953,7 @@ h1 {
 .booking-modal-scheduling .booking-modal-main,
 .booking-modal-confirmation .booking-modal-main {
   overflow: auto;
-  padding: 20px 24px 24px;
+  padding: 14px 18px 18px;
 }
 
 .booking-modal-close {
@@ -985,7 +988,7 @@ h1 {
 
 .booking-modal-scheduling .booking-modal-progress,
 .booking-modal-confirmation .booking-modal-progress {
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 
 .booking-modal-progress > span {
@@ -1028,11 +1031,15 @@ h1 {
 }
 
 .booking-modal-scheduling .booking-step-heading {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .booking-modal-scheduling .booking-step-heading h3 {
-  font-size: clamp(22px, 2vw, 30px);
+  font-size: clamp(21px, 1.8vw, 28px);
+}
+
+.booking-modal-scheduling .booking-step-heading p {
+  font-size: 14px;
 }
 
 .booking-session-strip {
@@ -1040,8 +1047,8 @@ h1 {
   grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
   gap: 18px;
   align-items: center;
-  margin-bottom: 14px;
-  padding: 12px 14px;
+  margin-bottom: 10px;
+  padding: 10px 12px;
   border: 1px solid var(--line);
   background: color-mix(in srgb, var(--paper) 44%, var(--white));
 }
@@ -1213,12 +1220,19 @@ h1 {
 }
 
 .booking-modal-scheduling .booking-embed-shell {
-  min-height: auto;
-  overflow: visible;
+  height: calc(100dvh - 176px);
+  min-height: 720px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .booking-modal-scheduling .calcom-embed {
-  min-height: 760px;
+  min-height: 860px;
+}
+
+.booking-modal-scheduling .calcom-embed iframe {
+  height: calc(100dvh - 176px) !important;
+  min-height: 720px;
 }
 
 .booking-modal .booking-external-link {
@@ -4006,11 +4020,18 @@ h1 {
   }
 
   .booking-modal-scheduling .booking-embed-shell {
-    min-height: calc(100dvh - 250px);
+    height: calc(100dvh - 214px);
+    min-height: calc(100dvh - 214px);
+    overflow: auto;
   }
 
   .booking-modal-scheduling .calcom-embed {
-    min-height: calc(100dvh - 272px);
+    min-height: 760px;
+  }
+
+  .booking-modal-scheduling .calcom-embed iframe {
+    height: calc(100dvh - 214px) !important;
+    min-height: calc(100dvh - 214px);
   }
 
   .booking-intake,
