@@ -828,35 +828,40 @@ h1 {
   z-index: 80;
   display: grid;
   place-items: center;
-  padding: clamp(18px, 4vw, 48px);
+  padding: clamp(14px, 2vw, 28px);
   background: rgba(23, 23, 23, 0.48);
 }
 
 .booking-modal {
   display: grid;
-  grid-template-columns: minmax(260px, 0.34fr) minmax(0, 1fr);
-  width: min(1040px, 100%);
-  min-height: min(720px, calc(100vh - 64px));
-  max-height: min(840px, calc(100vh - 64px));
+  grid-template-columns: minmax(220px, 260px) minmax(0, 1fr);
+  width: min(1360px, calc(100vw - 40px));
+  min-height: min(760px, calc(100dvh - 40px));
+  max-height: calc(100dvh - 40px);
   overflow: hidden;
   border: 1px solid var(--ink);
   border-radius: 0;
   background: var(--white);
 }
 
+.booking-modal-scheduling,
+.booking-modal-confirmation {
+  grid-template-columns: minmax(210px, 240px) minmax(0, 1fr);
+}
+
 .booking-modal-summary {
   display: grid;
   align-content: start;
-  gap: 28px;
-  padding: clamp(28px, 4vw, 48px) clamp(22px, 3vw, 34px);
+  gap: 20px;
+  padding: clamp(22px, 3vw, 34px) clamp(18px, 2vw, 26px);
   border-right: 1px solid var(--line);
   background: color-mix(in srgb, var(--paper) 54%, var(--white));
 }
 
 .booking-modal-kicker {
-  margin-bottom: 22px;
+  margin-bottom: 16px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -865,9 +870,9 @@ h1 {
 .booking-modal-avatar {
   display: grid;
   place-items: center;
-  width: 58px;
-  height: 58px;
-  margin-bottom: 22px;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
   border: 1px solid var(--line);
   border-radius: 50%;
   background: var(--white);
@@ -880,7 +885,7 @@ h1 {
 .booking-modal-summary h2 {
   margin: 0 0 12px;
   font-family: var(--display);
-  font-size: clamp(28px, 3.2vw, 42px);
+  font-size: clamp(26px, 2.4vw, 34px);
   font-weight: 900;
   line-height: 0.98;
   letter-spacing: -0.035em;
@@ -890,22 +895,21 @@ h1 {
 .booking-modal-summary p {
   margin: 0;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
 .booking-modal-facts {
   display: grid;
-  gap: 14px;
+  gap: 12px;
   margin: 0;
-  padding: 0 0 28px;
+  padding: 0 0 20px;
   border-bottom: 1px solid var(--line);
 }
 
 .booking-modal-facts div {
   display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
-  gap: 12px;
+  gap: 4px;
 }
 
 .booking-modal-facts dt {
@@ -934,9 +938,14 @@ h1 {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   min-width: 0;
-  overflow: auto;
-  padding: clamp(26px, 4vw, 46px);
+  overflow: hidden;
+  padding: clamp(22px, 2.4vw, 34px);
   background: var(--white);
+}
+
+.booking-modal-scheduling .booking-modal-main,
+.booking-modal-confirmation .booking-modal-main {
+  padding: 20px 24px 24px;
 }
 
 .booking-modal-close {
@@ -966,7 +975,12 @@ h1 {
   display: grid;
   gap: 8px;
   width: min(420px, calc(100% - 58px));
-  margin-bottom: 26px;
+  margin-bottom: 22px;
+}
+
+.booking-modal-scheduling .booking-modal-progress,
+.booking-modal-confirmation .booking-modal-progress {
+  margin-bottom: 14px;
 }
 
 .booking-modal-progress > span {
@@ -991,6 +1005,7 @@ h1 {
 .booking-modal .booking-flow {
   min-height: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .booking-modal .booking-intake {
@@ -1006,7 +1021,7 @@ h1 {
 }
 
 .booking-modal .booking-embed-shell {
-  min-height: min(650px, 68vh);
+  min-height: min(690px, calc(100dvh - 116px));
   padding: 0;
   overflow: hidden;
   border: 1px solid var(--line);
@@ -1014,7 +1029,15 @@ h1 {
 }
 
 .booking-modal .calcom-embed {
-  min-height: min(620px, 66vh);
+  min-height: min(668px, calc(100dvh - 138px));
+}
+
+.booking-modal-scheduling .booking-embed-shell {
+  min-height: calc(100dvh - 102px);
+}
+
+.booking-modal-scheduling .calcom-embed {
+  min-height: calc(100dvh - 124px);
 }
 
 .booking-hero {

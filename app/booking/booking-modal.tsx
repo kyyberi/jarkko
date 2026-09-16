@@ -165,7 +165,7 @@ export function BookingModalRoot() {
       className="booking-modal-overlay"
       role="dialog"
     >
-      <div className="booking-modal" ref={modalRef}>
+      <div className={`booking-modal booking-modal-${activeStep}`} ref={modalRef}>
         <aside className="booking-modal-summary">
           <div>
             <div className="booking-modal-kicker">
