@@ -332,6 +332,16 @@ export default function OdpsServicesPage() {
                 ) : null}
                 <strong>{service.price}</strong>
               </div>
+              <div className="engagement-action">
+                <a
+                  className="button primary"
+                  href={calendlyBookingUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Book a 30-minute call <Arrow />
+                </a>
+              </div>
             </article>
           ))}
         </div>

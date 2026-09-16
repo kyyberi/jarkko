@@ -388,6 +388,19 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /ODPS Adoption &amp; Implementation/);
   assert.match(html, /Agent-Ready Data Product Architecture/);
   assert.match(html, /ODPS Expert Advisory/);
+  assert.ok((html.match(/Book a 30-minute call/g) ?? []).length >= 4);
+  assert.ok(
+    (html.match(/href="https:\/\/calendly\.com\/work-jarkkomoilanen\/30min"/g) ?? [])
+      .length >= 6,
+  );
+  const odpsSource = await readFile(
+    new URL("../app/services/odps/page.tsx", import.meta.url),
+    "utf8",
+  );
+  assert.match(
+    odpsSource,
+    /services\.map[\s\S]*className="engagement-action"[\s\S]*href={calendlyBookingUrl}[\s\S]*Book a 30-minute call/,
+  );
   assert.match(html, /\$20K–\$40K/);
   assert.match(html, /From \$50K/);
   assert.match(html, /\$35K–\$70K/);
