@@ -846,7 +846,11 @@ h1 {
 
 .booking-modal-scheduling,
 .booking-modal-confirmation {
-  grid-template-columns: minmax(210px, 240px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.booking-modal-scheduling .booking-modal-summary {
+  display: none;
 }
 
 .booking-modal-summary {

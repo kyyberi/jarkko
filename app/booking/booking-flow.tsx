@@ -167,7 +167,7 @@ function Embed({
 
       cal("ui", {
         theme: "light",
-        hideEventTypeDetails: false,
+        hideEventTypeDetails: true,
         cssVarsPerTheme: {
           light: {
             "cal-brand": "#171717",
