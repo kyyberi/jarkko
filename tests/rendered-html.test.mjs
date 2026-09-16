@@ -174,6 +174,24 @@ test("server-renders the professional homepage", async () => {
   assert.equal((html.match(/data-booking-cta="true"/g) ?? []).length, 6);
   assert.match(html, /href="\/booking\/ai-portfolio-review\?sourceCTA=ai-portfolio-review-card"/);
   assert.match(html, /href="\/booking\/general-consultation\?sourceCTA=contact-channel"/);
+  const bookingModalSource = await readFile(
+    new URL("../app/booking/booking-modal.tsx", import.meta.url),
+    "utf8",
+  );
+  assert.match(bookingModalSource, /a\[data-booking-cta\]/);
+  assert.match(bookingModalSource, /role="dialog"/);
+  assert.match(bookingModalSource, /aria-modal="true"/);
+  assert.match(bookingModalSource, /document\.body\.style\.overflow = "hidden"/);
+  assert.match(bookingModalSource, /event\.key === "Escape"/);
+  assert.match(bookingModalSource, /booking_modal_opened/);
+  assert.match(bookingModalSource, /booking_modal_closed/);
+  assert.match(bookingModalSource, /openerRef\.current\?\.focus\(\)/);
+  assert.doesNotMatch(bookingModalSource, /Cal\("popup"/);
+  const layoutSource = await readFile(
+    new URL("../app/layout.tsx", import.meta.url),
+    "utf8",
+  );
+  assert.match(layoutSource, /<BookingModalRoot \/>/);
   assert.equal((html.match(/class="engagement-action"/g) ?? []).length, 4);
   assert.match(html, /Book a 30-minute call/);
   assert.match(html, /Discuss an engagement/);

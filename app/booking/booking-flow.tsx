@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useSearchParams } from "next/navigation";
-
 import { trackBookingEvent } from "./analytics";
 import { calcomBookingUrlFor, calcomConfig, calcomLinkFor, eventSlugFor } from "./calcom";
 import {
@@ -111,9 +109,11 @@ function intakeLabelFor(service: ServiceBookingConfig) {
 
 function Embed({
   context,
+  onBookingComplete,
   service,
 }: {
   context: BookingContext;
+  onBookingComplete?: () => void;
   service: ServiceBookingConfig;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -206,6 +206,7 @@ function Embed({
           payment_required: detail.data?.paymentRequired,
           booking_status: detail.data?.status,
         });
+        onBookingComplete?.();
       }
     };
 
@@ -228,7 +229,7 @@ function Embed({
       window.removeEventListener("linkFailed", handleFailure);
       window.removeEventListener("bookingSuccessfulV2", handleSuccess);
     };
-  }, [calLink, context, namespace, service]);
+  }, [calLink, context, namespace, onBookingComplete, service]);
 
   if (!calLink) {
     return (
@@ -269,27 +270,83 @@ function Embed({
   );
 }
 
-export function BookingFlow({ service }: { service: ServiceBookingConfig }) {
-  const searchParams = useSearchParams();
+function qualificationOptionsFor(service: ServiceBookingConfig, visitorIntent: string) {
+  if (service.intakeType === "generic") {
+    if (visitorIntent === "ODPS") return odpsObjectiveOptions;
+    return [
+      "Exploring options",
+      "Need a decision soon",
+      "Have an active initiative",
+      "Need senior review",
+    ];
+  }
+
+  return [];
+}
+
+function qualificationLabelFor(service: ServiceBookingConfig) {
+  if (service.intakeType === "generic") return "Current situation";
+  return "";
+}
+
+export function BookingFlow({
+  onStepChange,
+  service,
+  sourceCTA,
+}: {
+  onStepChange?: (step: "intake" | "qualification" | "scheduling" | "confirmation") => void;
+  service: ServiceBookingConfig;
+  sourceCTA?: string;
+}) {
   const [visitorIntent, setVisitorIntent] = useState("");
+  const [qualification, setQualification] = useState("");
   const [hasCompletedIntake, setHasCompletedIntake] = useState(false);
+  const [hasCompletedBooking, setHasCompletedBooking] = useState(false);
+  const [urlSourceCTA] = useState(() => {
+    if (typeof window === "undefined") return undefined;
+    return new URLSearchParams(window.location.search).get("sourceCTA") ?? undefined;
+  });
   const hasTrackedStarted = useRef(false);
-  const sourceCTA = searchParams.get("sourceCTA") ?? service.sourceCTA;
+  const resolvedSourceCTA = sourceCTA ?? urlSourceCTA ?? service.sourceCTA;
   const context = useMemo(
     () => ({
-      ...bookingContextFor(service, sourceCTA),
-      visitorIntent: visitorIntent || undefined,
+      ...bookingContextFor(service, resolvedSourceCTA),
+      visitorIntent:
+        [visitorIntent, qualification].filter(Boolean).join(" | ") || undefined,
     }),
-    [service, sourceCTA, visitorIntent],
+    [qualification, resolvedSourceCTA, service, visitorIntent],
   );
   const options = intakeOptionsFor(service);
   const intakeLabel = intakeLabelFor(service);
+  const qualificationOptions = qualificationOptionsFor(service, visitorIntent);
+  const needsQualification = qualificationOptions.length > 0;
+  const canContinue =
+    Boolean(visitorIntent) && (!needsQualification || Boolean(qualification));
 
   useEffect(() => {
     if (hasTrackedStarted.current) return;
     hasTrackedStarted.current = true;
     trackBookingEvent("booking_intake_started", context);
-  }, [context]);
+    onStepChange?.("intake");
+  }, [context, onStepChange]);
+
+  useEffect(() => {
+    if (hasCompletedBooking) {
+      onStepChange?.("confirmation");
+    } else if (hasCompletedIntake) {
+      onStepChange?.("scheduling");
+    } else if (visitorIntent && needsQualification) {
+      onStepChange?.("qualification");
+    } else {
+      onStepChange?.("intake");
+    }
+  }, [
+    hasCompletedBooking,
+    hasCompletedIntake,
+    needsQualification,
+    onStepChange,
+    visitorIntent,
+  ]);
 
   function completeIntake() {
     setHasCompletedIntake(true);
@@ -315,7 +372,12 @@ export function BookingFlow({ service }: { service: ServiceBookingConfig }) {
           <label htmlFor="visitor-intent">{intakeLabel}</label>
           <select
             id="visitor-intent"
-            onChange={(event) => setVisitorIntent(event.target.value)}
+            onChange={(event) => {
+              setVisitorIntent(event.target.value);
+              setQualification("");
+              setHasCompletedIntake(false);
+              setHasCompletedBooking(false);
+            }}
             value={visitorIntent}
           >
             <option value="">Select one</option>
@@ -325,9 +387,28 @@ export function BookingFlow({ service }: { service: ServiceBookingConfig }) {
               </option>
             ))}
           </select>
+          {needsQualification ? (
+            <>
+              <label htmlFor="booking-qualification">
+                {qualificationLabelFor(service)}
+              </label>
+              <select
+                id="booking-qualification"
+                onChange={(event) => setQualification(event.target.value)}
+                value={qualification}
+              >
+                <option value="">Select one</option>
+                {qualificationOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </>
+          ) : null}
           <button
             className="button primary"
-            disabled={!visitorIntent}
+            disabled={!canContinue}
             onClick={completeIntake}
             type="button"
           >
@@ -337,7 +418,26 @@ export function BookingFlow({ service }: { service: ServiceBookingConfig }) {
       </section>
 
       {hasCompletedIntake ? (
-        <Embed context={context} service={service} />
+        <Embed
+          context={context}
+          onBookingComplete={() => setHasCompletedBooking(true)}
+          service={service}
+        />
+      ) : null}
+
+      {hasCompletedBooking ? (
+        <section className="booking-confirmation" aria-live="polite">
+          <div className="section-kicker">Confirmed</div>
+          <h2>
+            {service.bookingType === "direct"
+              ? `${service.displayName} booked`
+              : "Meeting booked"}
+          </h2>
+          <p>
+            Confirmation is handled by Cal.com. You can close this window and
+            stay on the page you were reading.
+          </p>
+        </section>
       ) : null}
     </div>
   );

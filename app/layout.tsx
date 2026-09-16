@@ -13,7 +13,7 @@ import {
   SITE_URL,
   versionedPublicPath,
 } from "./seo";
-import { BookingTelemetry } from "./booking/booking-telemetry";
+import { BookingModalRoot } from "./booking/booking-modal";
 
 const assetPath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const googleAnalyticsId = "G-KZ5N2GTKF5";
@@ -161,7 +161,7 @@ export default function RootLayout({
             __html: JSON.stringify(structuredData),
           }}
         />
-        <BookingTelemetry />
+        <BookingModalRoot />
         {children}
       </body>
     </html>
