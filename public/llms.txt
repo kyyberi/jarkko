@@ -22,7 +22,7 @@ Alternative contact: email work@jarkkomoilanen.com.
 - Agentic AI Architecture Sprint: a 3 to 4-week sprint for teams moving beyond chatbot experiments into operational AI agents. Typical investment: $18K-$25K. Outcome: target architecture, agent and tool boundaries, data and knowledge design, governance approach, implementation backlog, and prototype direction.
 - AI Product Operating Model: a 4 to 6-week engagement for organizations moving from scattered AI initiatives toward a managed enterprise AI capability. Priced by scope. Outcome: AI CoE mandate, decision rights, opportunity intake, portfolio governance, KPI/value model, operating cadence, and 90-day implementation plan.
 - Fractional AI Product Leadership: senior AI product leadership 1 to 3 days per week. From $8K/month. Focus: portfolio direction, investment prioritization, AI product shaping, architecture review, ownership gaps, delivery gaps, and adoption.
-- ODPS Maintainer Session: a focused 60 to 90-minute expert session for organizations already evaluating, implementing, or scaling ODPS. From $2.5K. Topics can include architecture review, implementation review, data product design, agent readiness, platform integration, governance, portfolio structure, or a second opinion on an implementation approach.
+- ODPS Maintainer Session: a focused 60-minute expert session for organizations already evaluating, implementing, or scaling ODPS. USD 300 / 60 minutes. Topics can include architecture review, implementation review, data product design, agent readiness, platform integration, governance, portfolio structure, or a second opinion on an implementation approach.
 - ODPS Enterprise Services: specialist assessment, adoption, implementation, agent-ready data product architecture, and advisory services for organizations evaluating or operationalizing the Open Data Product Specification family. Typical investments include $20K-$40K for readiness assessment, from $50K for adoption and implementation, $35K-$70K for agent-ready data product architecture, and from $2.5K/day for expert advisory.
 
 Prices are indicative, exclude 5% UAE VAT where applicable, and depend on scope, stakeholder count, systems involved, regulatory requirements, and onsite needs.
@@ -52,6 +52,7 @@ ODPS remains an open standard maintained under LF AI & Data. Commercial consulti
 
 - Homepage and offerings: https://jarkkomoilanen.com/
 - ODPS Enterprise Services: https://jarkkomoilanen.com/services/odps/
+- ODPS White Paper: https://jarkkomoilanen.com/resources/ODPS_whitepaper_2026_09.pdf
 - Contact and availability: https://jarkkomoilanen.com/#contact
 - Work overview: https://jarkkomoilanen.com/#work
 - About: https://jarkkomoilanen.com/about/

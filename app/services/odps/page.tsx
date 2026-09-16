@@ -3,6 +3,7 @@ import { Arrow, PageShell, publicAssetPath, sitePath } from "../../site";
 import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo";
 
 const calendlyBookingUrl = "https://calendly.com/work-jarkkomoilanen/30min";
+const odpsWhitepaperUrl = "/resources/ODPS_whitepaper_2026_09.pdf";
 
 const odpsProofMetrics = [
   {
@@ -57,7 +58,7 @@ const odpsTestimonials = [
 const services = [
   {
     title: "ODPS Maintainer Session",
-    engagement: "60 to 90-minute expert session",
+    engagement: "60-minute expert session",
     question:
       "You are already evaluating, implementing or scaling ODPS and need a direct second opinion before a decision becomes expensive.",
     text:
@@ -74,7 +75,7 @@ const services = [
     ],
     bestFor:
       "Organizations that need fast expert access before committing to a direction.",
-    price: "From $2.5K",
+    price: "USD 300 / 60 minutes",
   },
   {
     title: "ODPS Enterprise Readiness Assessment",
@@ -226,6 +227,9 @@ export default function OdpsServicesPage() {
             </a>
             <a className="button" href="https://opendataproducts.org">
               Explore the ODPS standards <Arrow />
+            </a>
+            <a className="button" href={sitePath(odpsWhitepaperUrl)}>
+              Get White Paper <Arrow />
             </a>
           </div>
         </div>

@@ -31,6 +31,17 @@
       ]
     },
     {
+      "identifier": "urn:air:jarkkomoilanen.com:resource:odps-whitepaper",
+      "displayName": "ODPS White Paper",
+      "type": "application/pdf",
+      "url": "https://jarkkomoilanen.com/resources/ODPS_whitepaper_2026_09.pdf",
+      "representativeQueries": [
+        "download the ODPS white paper by Jarkko Moilanen",
+        "read a white paper about the Open Data Product Specification",
+        "find ODPS source material for enterprise data product strategy and implementation"
+      ]
+    },
+    {
       "identifier": "urn:air:jarkkomoilanen.com:llms:site-guide",
       "displayName": "Jarkko Moilanen LLM Site Guide",
       "type": "text/plain",

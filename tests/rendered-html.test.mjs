@@ -343,6 +343,9 @@ test("server-renders work detail pages", async () => {
 test("server-renders the ODPS enterprise services page", async () => {
   const response = await render("/services/odps");
   assert.equal(response.status, 200);
+  await access(
+    new URL("../public/resources/ODPS_whitepaper_2026_09.pdf", import.meta.url),
+  );
 
   const html = await response.text();
   assert.match(
@@ -371,7 +374,10 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /Petteri Kivimäki/);
   assert.doesNotMatch(html, /Michael Eichenseer|Codecentric/);
   assert.match(html, /ODPS Maintainer Session/);
-  assert.match(html, /60 to 90-minute expert session/);
+  assert.match(html, /60-minute expert session/);
+  assert.match(html, /USD 300 \/ 60 minutes/);
+  assert.match(html, /Get White Paper/);
+  assert.match(html, /href="\/resources\/ODPS_whitepaper_2026_09\.pdf"/);
   assert.match(html, /Second opinion on an implementation approach/);
   assert.match(html, /ODPS Enterprise Readiness Assessment/);
   assert.match(html, /ODPS Adoption &amp; Implementation/);
@@ -630,6 +636,19 @@ test("server-renders robots and sitemap discovery routes", async () => {
   );
 });
 
+test("publishes ODPS white paper in the LLM site guide", async () => {
+  const guide = await readFile(
+    new URL("../public/llms.txt", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(guide, /ODPS Enterprise Services: https:\/\/jarkkomoilanen\.com\/services\/odps\//);
+  assert.match(
+    guide,
+    /ODPS White Paper: https:\/\/jarkkomoilanen\.com\/resources\/ODPS_whitepaper_2026_09\.pdf/,
+  );
+});
+
 test("publishes an ARD manifest for agent discovery", async () => {
   const source = await readFile(
     new URL("../public/.well-known/ai-catalog.json", import.meta.url),
@@ -642,6 +661,16 @@ test("publishes an ARD manifest for agent discovery", async () => {
   assert.equal(catalog.host.identifier, "did:web:jarkkomoilanen.com");
   assert.ok(Array.isArray(catalog.entries));
   assert.ok(catalog.entries.length >= 1);
+  assert.ok(
+    catalog.entries.some(
+      (entry) =>
+        entry.identifier ===
+          "urn:air:jarkkomoilanen.com:resource:odps-whitepaper" &&
+        entry.type === "application/pdf" &&
+        entry.url ===
+          "https://jarkkomoilanen.com/resources/ODPS_whitepaper_2026_09.pdf",
+    ),
+  );
 
   for (const entry of catalog.entries) {
     assert.match(entry.identifier, /^urn:air:jarkkomoilanen\.com:[a-z0-9-]+:[a-z0-9-]+$/);
