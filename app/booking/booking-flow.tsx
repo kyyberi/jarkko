@@ -290,11 +290,13 @@ function qualificationLabelFor(service: ServiceBookingConfig) {
 }
 
 export function BookingFlow({
+  hideIntakeAfterComplete = false,
   onStepChange,
   service,
   showIntro = true,
   sourceCTA,
 }: {
+  hideIntakeAfterComplete?: boolean;
   onStepChange?: (step: "intake" | "qualification" | "scheduling" | "confirmation") => void;
   service: ServiceBookingConfig;
   showIntro?: boolean;
@@ -357,73 +359,75 @@ export function BookingFlow({
 
   return (
     <div className="booking-flow">
-      <section
-        aria-label={showIntro ? undefined : "Booking intake"}
-        aria-labelledby={showIntro ? "booking-intake-title" : undefined}
-        className={`booking-intake${showIntro ? "" : " no-intro"}`}
-      >
-        {showIntro ? (
-          <div>
-            <div className="section-kicker">
-              {service.bookingType === "direct" ? "Direct booking" : "Consultation"}
+      {hideIntakeAfterComplete && hasCompletedIntake ? null : (
+        <section
+          aria-label={showIntro ? undefined : "Booking intake"}
+          aria-labelledby={showIntro ? "booking-intake-title" : undefined}
+          className={`booking-intake${showIntro ? "" : " no-intro"}`}
+        >
+          {showIntro ? (
+            <div>
+              <div className="section-kicker">
+                {service.bookingType === "direct" ? "Direct booking" : "Consultation"}
+              </div>
+              <h2 id="booking-intake-title">{service.displayName}</h2>
+              <p>
+                {service.bookingType === "direct"
+                  ? "Choose the topic that should anchor the focused session."
+                  : "Share the context that helps route the first conversation."}
+              </p>
             </div>
-            <h2 id="booking-intake-title">{service.displayName}</h2>
-            <p>
-              {service.bookingType === "direct"
-                ? "Choose the topic that should anchor the focused session."
-                : "Share the context that helps route the first conversation."}
-            </p>
-          </div>
-        ) : null}
-
-        <div className="booking-intake-fields">
-          <label htmlFor="visitor-intent">{intakeLabel}</label>
-          <select
-            id="visitor-intent"
-            onChange={(event) => {
-              setVisitorIntent(event.target.value);
-              setQualification("");
-              setHasCompletedIntake(false);
-              setHasCompletedBooking(false);
-            }}
-            value={visitorIntent}
-          >
-            <option value="">Select one</option>
-            {options.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-          {needsQualification ? (
-            <>
-              <label htmlFor="booking-qualification">
-                {qualificationLabelFor(service)}
-              </label>
-              <select
-                id="booking-qualification"
-                onChange={(event) => setQualification(event.target.value)}
-                value={qualification}
-              >
-                <option value="">Select one</option>
-                {qualificationOptions.map((option) => (
-                  <option key={option} value={option}>
-                    {option}
-                  </option>
-                ))}
-              </select>
-            </>
           ) : null}
-          <button
-            className="button primary"
-            disabled={!canContinue}
-            onClick={completeIntake}
-            type="button"
-          >
-            Continue to scheduling <span aria-hidden="true">-&gt;</span>
-          </button>
-        </div>
-      </section>
+
+          <div className="booking-intake-fields">
+            <label htmlFor="visitor-intent">{intakeLabel}</label>
+            <select
+              id="visitor-intent"
+              onChange={(event) => {
+                setVisitorIntent(event.target.value);
+                setQualification("");
+                setHasCompletedIntake(false);
+                setHasCompletedBooking(false);
+              }}
+              value={visitorIntent}
+            >
+              <option value="">Select one</option>
+              {options.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            {needsQualification ? (
+              <>
+                <label htmlFor="booking-qualification">
+                  {qualificationLabelFor(service)}
+                </label>
+                <select
+                  id="booking-qualification"
+                  onChange={(event) => setQualification(event.target.value)}
+                  value={qualification}
+                >
+                  <option value="">Select one</option>
+                  {qualificationOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </>
+            ) : null}
+            <button
+              className="button primary"
+              disabled={!canContinue}
+              onClick={completeIntake}
+              type="button"
+            >
+              Continue to scheduling <span aria-hidden="true">-&gt;</span>
+            </button>
+          </div>
+        </section>
+      )}
 
       {hasCompletedIntake ? (
         <Embed

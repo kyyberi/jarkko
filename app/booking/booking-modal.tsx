@@ -42,6 +42,30 @@ function focusableElements(container: HTMLElement) {
   ).filter((element) => !element.hasAttribute("hidden"));
 }
 
+function stepLabel(step: BookingStep) {
+  if (step === "confirmation") return "Step 3 of 3";
+  if (step === "scheduling") return "Step 2 of 3";
+  return "Step 1 of 3";
+}
+
+function progressValue(step: BookingStep) {
+  if (step === "confirmation") return "100%";
+  if (step === "scheduling") return "66%";
+  return "33%";
+}
+
+function serviceDescription(service: ServiceBookingConfig) {
+  if (service.bookingType === "direct") {
+    return "A focused expert session to review your questions, implementation direction, or project decision.";
+  }
+
+  if (service.category === "odps") {
+    return "A short qualification call to understand fit, timing, and the ODPS support path.";
+  }
+
+  return "A short qualification call to understand the decision, context, and next useful step.";
+}
+
 export function BookingModalRoot() {
   const [activeService, setActiveService] = useState<ServiceBookingConfig | null>(null);
   const [activeContext, setActiveContext] = useState<BookingContext | null>(null);
@@ -142,20 +166,47 @@ export function BookingModalRoot() {
       role="dialog"
     >
       <div className="booking-modal" ref={modalRef}>
-        <header className="booking-modal-head">
+        <aside className="booking-modal-summary">
           <div>
-            <div className="section-kicker">
+            <div className="booking-modal-kicker">
               {activeService.bookingType === "direct"
-                ? "Direct expert session"
-                : "Booking"}
+                ? "Book a session"
+                : "Book a consultation"}
             </div>
+            <div className="booking-modal-avatar" aria-hidden="true">JM</div>
             <h2 id={titleId}>{activeService.displayName}</h2>
             <p id={descriptionId}>
-              {activeService.bookingType === "direct"
-                ? "Focused intake, then a 60-minute Cal.com session with payment where configured."
-                : "Short qualification, then a 30-minute Cal.com scheduling flow."}
+              {serviceDescription(activeService)}
             </p>
           </div>
+
+          <dl className="booking-modal-facts">
+            <div>
+              <dt>Duration</dt>
+              <dd>{activeService.duration} minutes</dd>
+            </div>
+            <div>
+              <dt>Format</dt>
+              <dd>Cal Video</dd>
+            </div>
+            {activeService.indicativeValue ? (
+              <div>
+                <dt>{activeService.paymentRequired ? "Price" : "Typical value"}</dt>
+                <dd>{activeService.indicativeValue}</dd>
+              </div>
+            ) : null}
+            <div>
+              <dt>Timezone</dt>
+              <dd>Asia/Dubai</dd>
+            </div>
+          </dl>
+
+          <p className="booking-modal-note">
+            Practical guidance. Clear next step.
+          </p>
+        </aside>
+
+        <main className="booking-modal-main">
           <button
             aria-label="Close booking"
             className="booking-modal-close"
@@ -165,13 +216,22 @@ export function BookingModalRoot() {
           >
             ×
           </button>
-        </header>
-        <BookingFlow
-          onStepChange={setActiveStep}
-          service={activeService}
-          showIntro={false}
-          sourceCTA={activeContext.sourceCTA}
-        />
+
+          <div className="booking-modal-progress">
+            <span>{stepLabel(activeStep)}</span>
+            <div aria-hidden="true">
+              <span style={{ width: progressValue(activeStep) }} />
+            </div>
+          </div>
+
+          <BookingFlow
+            hideIntakeAfterComplete
+            onStepChange={setActiveStep}
+            service={activeService}
+            showIntro={false}
+            sourceCTA={activeContext.sourceCTA}
+          />
+        </main>
       </div>
     </div>
   );
