@@ -75,7 +75,8 @@ const services = [
     ],
     bestFor:
       "Organizations that need fast expert access before committing to a direction.",
-    price: "USD 300 / 60 minutes",
+    price: "$200 / 60 minutes",
+    priceLabel: "",
   },
   {
     title: "ODPS Enterprise Readiness Assessment",
@@ -326,7 +327,9 @@ export default function OdpsServicesPage() {
                 <p>{service.bestFor}</p>
               </div>
               <div className="engagement-price">
-                <span>Typical investment</span>
+                {service.priceLabel !== "" ? (
+                  <span>{service.priceLabel ?? "Typical investment"}</span>
+                ) : null}
                 <strong>{service.price}</strong>
               </div>
             </article>

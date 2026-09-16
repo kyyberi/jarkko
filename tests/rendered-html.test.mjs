@@ -375,7 +375,12 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.doesNotMatch(html, /Michael Eichenseer|Codecentric/);
   assert.match(html, /ODPS Maintainer Session/);
   assert.match(html, /60-minute expert session/);
-  assert.match(html, /USD 300 \/ 60 minutes/);
+  assert.match(html, /\$200 \/ 60 minutes/);
+  const maintainerCard = html.slice(
+    html.indexOf("ODPS Maintainer Session"),
+    html.indexOf("ODPS Enterprise Readiness Assessment"),
+  );
+  assert.doesNotMatch(maintainerCard, /Typical investment/);
   assert.match(html, /Get White Paper/);
   assert.match(html, /href="\/resources\/ODPS_whitepaper_2026_09\.pdf"/);
   assert.match(html, /Second opinion on an implementation approach/);
