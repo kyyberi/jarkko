@@ -1034,6 +1034,56 @@ h1 {
   font-size: clamp(22px, 2vw, 30px);
 }
 
+.booking-session-strip {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 44%, var(--white));
+}
+
+.booking-session-strip span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.booking-session-strip strong {
+  display: block;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.booking-session-strip dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+.booking-session-strip dt {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.booking-session-strip dd {
+  margin: 3px 0 0;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+}
+
 .booking-modal .booking-flow {
   min-height: 0;
   padding: 0;
@@ -3896,6 +3946,17 @@ h1 {
 
   .booking-step-heading h3 {
     font-size: clamp(24px, 8vw, 34px);
+  }
+
+  .booking-session-strip {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .booking-session-strip dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
   }
 
   .booking-modal .booking-flow {

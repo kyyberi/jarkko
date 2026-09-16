@@ -241,6 +241,42 @@ export function BookingModalRoot() {
             <p>{stepDescription(activeStep)}</p>
           </div>
 
+          {activeStep === "scheduling" || activeStep === "confirmation" ? (
+            <section
+              aria-label="Session being booked"
+              className="booking-session-strip"
+            >
+              <div>
+                <span>
+                  {activeService.bookingType === "direct"
+                    ? "Direct expert session"
+                    : "Consultation"}
+                </span>
+                <strong>{activeService.displayName}</strong>
+              </div>
+              <dl>
+                <div>
+                  <dt>Duration</dt>
+                  <dd>{activeService.duration} min</dd>
+                </div>
+                <div>
+                  <dt>Format</dt>
+                  <dd>Cal Video</dd>
+                </div>
+                {activeService.indicativeValue ? (
+                  <div>
+                    <dt>{activeService.paymentRequired ? "Price" : "Value"}</dt>
+                    <dd>{activeService.indicativeValue}</dd>
+                  </div>
+                ) : null}
+                <div>
+                  <dt>Timezone</dt>
+                  <dd>Asia/Dubai</dd>
+                </div>
+              </dl>
+            </section>
+          ) : null}
+
           <BookingFlow
             hideIntakeAfterComplete
             onStepChange={setActiveStep}
