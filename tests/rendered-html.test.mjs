@@ -41,7 +41,7 @@ test("server-renders the professional homepage", async () => {
   );
   assert.match(
     html,
-    /<meta name="description" content="Senior AI and data product leader helping government and enterprise teams scale AI strategy, portfolios, Centers of Excellence, operating models, agents, MCP, APIs, and knowledge graphs\."/,
+    /<meta name="description" content="Senior AI and data product leader helping government and enterprise teams decide what to build, govern AI portfolios, and move from pilots to working systems\."/,
   );
   assert.match(
     html,
@@ -128,11 +128,13 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Business-ID: 262443655888/);
   assert.match(html, /Amber Gem Tower, 26th Floor, Ajman/);
   assert.match(html, /United Arab Emirates/);
-  assert.match(html, /I lead AI strategy,[\s\S]*Centers of Excellence and operating models/);
+  assert.match(html, /decide what to build,[\s\S]*move from AI pilots to working products/);
+  assert.match(html, /executive judgment,[\s\S]*first-hand implementation experience/);
   assert.match(html, /AI Center of Excellence setup/);
   assert.match(html, /AI Product Operating Model/);
   assert.match(html, /AI initiatives are growing, but ownership, prioritisation, governance and delivery do not scale/);
   assert.match(html, /I design or strengthen your[\s\S]*AI Center of Excellence/);
+  assert.match(html, /decision rights,[\s\S]*portfolio rules,[\s\S]*delivery paths/);
   assert.match(
     html,
     /href="\/insights\/articles\/ai-center-of-excellence-government-scale\/"[\s\S]*AI Center of Excellence/,
@@ -149,6 +151,7 @@ test("server-renders the professional homepage", async () => {
   assert.doesNotMatch(html, /AED 35K|AED 65K|AED 90K|AED 25K/);
   assert.match(html, /ODPS Enterprise Services/);
   assert.match(html, /Explore ODPS services/);
+  assert.match(html, /Work directly with the creator and maintainer of ODPS/);
   assert.match(html, /Open Data Product Specification family/);
   assert.match(html, /5 Masterclasses &amp; Learners across 56 countries/);
   assert.match(html, /Five Udemy courses covering data product foundations/);
@@ -243,21 +246,20 @@ test("server-renders the about page", async () => {
   );
   assert.match(
     html,
-    /<meta name="description" content="Jarkko Moilanen is a senior AI and data product leader based in Abu Dhabi, helping government and enterprise teams turn AI and data initiatives into governed products at scale\."/,
+    /<meta name="description" content="Jarkko Moilanen is a senior AI and data product leader based in Abu Dhabi, helping government and enterprise teams make AI portfolio, architecture, operating-model, and data product decisions\."/,
   );
   assert.match(
     html,
     /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/about\/"/,
   );
   assert.match(html, /class="about-hero"/);
-  assert.match(html, /Building operating systems/);
-  assert.match(html, /for data and AI products/);
+  assert.match(html, /Judgment for AI and data product decisions/);
   assert.match(html, /\/images\/jarkko-hero-abudhabi-2026\.webp/);
   assert.match(html, /Whole-of-government data and AI products/);
   assert.match(html, /Abu Dhabi Government&#x27;s Data Factory/);
   assert.match(html, /measurable public value/);
   assert.match(html, /Data product standards/);
-  assert.match(html, /Open Data Product Specification[\s\S]*Linux Foundation[\s\S]*BASF[\s\S]*Alation[\s\S]*Kruger/);
+  assert.match(html, /Open Data Product Specification[\s\S]*LF AI &amp; Data[\s\S]*Linux Foundation[\s\S]*BASF[\s\S]*Alation[\s\S]*Kruger/);
   assert.match(html, /270 percent/);
   assert.match(html, /data-product-focused industry platform in Finland/);
   assert.match(html, /2019 when data product thinking was still taking early shape/);
@@ -304,10 +306,10 @@ test("server-renders work detail pages", async () => {
   assert.match(html, /shared, machine-readable foundation for defining, governing, exchanging, and implementing data products/);
   assert.match(html, /href="https:\/\/opendataproducts\.org"/);
   assert.match(html, /href="https:\/\/opendataproducts\.org\/sdk"/);
-  assert.match(html, /Open standards and SDKs for governed, interoperable, agent-ready data products/);
+  assert.match(html, /The ODPS standards family and SDK for governed, interoperable, agent-ready data products/);
   assert.match(html, /people, platforms, automation, and AI agents interpret data products consistently/);
   assert.match(html, /Open standard/);
-  assert.match(html, /maintained under the Linux Foundation/);
+  assert.match(html, /founded and maintained under LF AI &amp; Data/);
   assert.match(html, /Developer toolkit/);
   assert.match(html, /Interoperability/);
   assert.match(html, /Business and technical alignment/);
@@ -344,16 +346,15 @@ test("server-renders the ODPS enterprise services page", async () => {
     /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/services\/odps\/"/,
   );
   assert.match(html, /OPEN DATA PRODUCT STANDARDS/i);
-  assert.match(html, /Adopt data product standards with the person who created them/);
+  assert.match(html, /Work directly with the person behind ODPS/);
   assert.match(html, /\/images\/odps-services-hero\.webp/);
   assert.match(html, /Jarkko Moilanen with data product interface elements/);
   assert.match(html, /maintain the standards family under LF AI &amp; Data/);
   assert.match(html, /The standard stays open/);
-  assert.match(html, /FOUNDER &amp; MAINTAINER OF ODPS/);
-  assert.match(html, /LINUX FOUNDATION AI &amp; DATA PROJECT/);
-  assert.match(html, /ENTERPRISE ADOPTION ACROSS INDUSTRIES/);
-  assert.match(html, /OPEN-SOURCE SDK, MCP &amp; AGENT TOOLING/);
-  assert.match(html, /BUILT FOR PEOPLE, PLATFORMS &amp; AI AGENTS/);
+  assert.match(html, /Annual business footprint/);
+  assert.match(html, /Named organizations/);
+  assert.match(html, /Strong adoption signals/);
+  assert.match(html, /Total quantified footprint/);
   assert.match(html, /What industry leaders say/);
   assert.match(html, /BASF/);
   assert.match(html, /NIIS/);
@@ -361,6 +362,9 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /Ron Tolido/);
   assert.match(html, /Petteri Kivimäki/);
   assert.doesNotMatch(html, /Michael Eichenseer|Codecentric/);
+  assert.match(html, /ODPS Maintainer Session/);
+  assert.match(html, /60 to 90-minute expert session/);
+  assert.match(html, /Second opinion on an implementation approach/);
   assert.match(html, /ODPS Enterprise Readiness Assessment/);
   assert.match(html, /ODPS Adoption &amp; Implementation/);
   assert.match(html, /Agent-Ready Data Product Architecture/);
@@ -368,8 +372,11 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /\$20K–\$40K/);
   assert.match(html, /From \$50K/);
   assert.match(html, /\$35K–\$70K/);
+  assert.match(html, /From \$2\.5K/);
   assert.match(html, /From \$2\.5K\/day/);
   assert.match(html, /The standard is open\. Deep implementation experience is scarce\./);
+  assert.match(html, /understand why design decisions were made/);
+  assert.match(html, /fit, architecture,[\s\S]*governance,[\s\S]*agent readiness/);
   assert.match(html, /Tested against real enterprise needs\./);
   assert.match(html, /Alation/);
   assert.match(html, /BASF/);

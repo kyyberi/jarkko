@@ -18,7 +18,7 @@ const engagementOptions = [
     price: "$10K–$15K",
     question: "Too many AI ideas, pilots and competing priorities?",
     text:
-      "I review your AI portfolio, ownership, value, KPIs, dependencies and delivery status.",
+      "I help executives decide which AI initiatives deserve investment, which need stronger ownership, and which should stop before they absorb more attention.",
     outcomes: [
       "A prioritised portfolio",
       "Scale, stop, merge and fix recommendations",
@@ -39,7 +39,7 @@ const engagementOptions = [
     question:
       "You know where AI agents might help, but the architecture and implementation path remain unclear.",
     text:
-      "I work with your business and technical teams to define the agent architecture across models, agent harnesses, MCP, APIs, enterprise data and knowledge graphs.",
+      "I work with business and technical teams to decide how agents should use models, tools, MCP, APIs, enterprise data and knowledge graphs without creating another fragile pilot.",
     outcomes: [
       "Target architecture",
       "Agent and tool boundaries",
@@ -71,9 +71,9 @@ const engagementOptions = [
         >
           AI Center of Excellence
         </a>{" "}
-        and the operating model around it. We connect business priorities, AI
-        product ownership, engineering, governance, portfolio decisions and
-        value measurement.
+        and the operating model around it. The work turns AI ambition into
+        decision rights, portfolio rules, delivery paths and value measures
+        teams can actually run.
       </>,
     outcomes: [
       "AI CoE mandate and scope",
@@ -99,7 +99,7 @@ const engagementOptions = [
     question:
       "You need senior AI product leadership now, without starting a long executive hiring process.",
     text:
-      "I work directly with executives, product owners, architects and engineering teams.",
+      "I work directly with executives, product owners, architects and engineering teams on the decisions that connect strategy, architecture and delivery.",
     outcomes: [
       "Set portfolio direction",
       "Prioritise investment",
@@ -254,11 +254,11 @@ export default function Home() {
                 to <span className="accent">working systems</span>
               </h1>
               <p className="hero-lede">
-                I help government and enterprise teams turn AI and data
-                initiatives into products that work. I lead AI strategy,
-                portfolios, Centers of Excellence and operating models, and I
-                also work hands-on with AI agents, agent harnesses, MCP, APIs
-                and knowledge graphs.
+                I help government and enterprise teams decide what to build,
+                how to govern it, and how to move from AI pilots to working
+                products. The work combines executive judgment, first-hand
+                implementation experience, and hands-on architecture across AI
+                agents, MCP, APIs, knowledge graphs and data products.
               </p>
               <div className="hero-actions">
                 <a className="button primary" href="#engagements">
@@ -320,9 +320,10 @@ export default function Home() {
             <div>
               <h2 className="section-title">Lead + Build</h2>
               <p className="engagement-intro">
-                I work with organisations that need senior AI and data product
-                leadership, but also someone who understands how the technology
-                is built.
+                I work with organisations that need more than generic AI
+                advice: portfolio choices, architecture decisions, operating
+                models, and direct challenge from someone who has built these
+                systems in enterprise and government settings.
               </p>
             </div>
             <figure className="engagement-billing">
@@ -340,15 +341,17 @@ export default function Home() {
             <div>
               <span>Lead</span>
               <p>
-                Executive leadership, AI strategy, AI Center of Excellence
-                setup, product portfolio management, and operating models.
+                Executive decision support, AI strategy, AI Center of
+                Excellence setup, product portfolio management, investment
+                prioritisation, and operating models.
               </p>
             </div>
             <div>
               <span>Build</span>
               <p>
-                AI agents, agent harnesses, MCP, APIs and SDKs, knowledge
-                graphs, and hands-on prototyping.
+                Agent architecture, agent harnesses, MCP, APIs and SDKs,
+                knowledge graphs, governed data product context, and hands-on
+                prototyping.
               </p>
             </div>
           </div>
@@ -430,9 +433,9 @@ export default function Home() {
               <div className="section-kicker">Open Data Product Standards</div>
               <h3>ODPS Enterprise Services</h3>
               <p>
-                Specialist assessment, adoption, implementation and advisory
-                services for organizations evaluating or operationalizing the
-                Open Data Product Specification family.
+                Work directly with the creator and maintainer of ODPS on
+                evaluation, architecture fit, implementation review,
+                agent-readiness, governance and enterprise adoption.
               </p>
             </div>
             <a className="button primary" href={sitePath("/services/odps")}>

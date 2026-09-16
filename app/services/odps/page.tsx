@@ -56,12 +56,33 @@ const odpsTestimonials = [
 
 const services = [
   {
+    title: "ODPS Maintainer Session",
+    engagement: "60 to 90-minute expert session",
+    question:
+      "You are already evaluating, implementing or scaling ODPS and need a direct second opinion before a decision becomes expensive.",
+    text:
+      "A focused session with the person who created the original specification and maintains the ODPS standards family. Use it to test an architecture choice, implementation approach, data product design or governance question.",
+    outcomeLabel: "Typical topics",
+    outcomes: [
+      "Architecture review",
+      "ODPS implementation review",
+      "Data product design",
+      "Agent readiness",
+      "Integration with existing platforms",
+      "Governance and portfolio structure",
+      "Second opinion on an implementation approach",
+    ],
+    bestFor:
+      "Organizations that need fast expert access before committing to a direction.",
+    price: "From $2.5K",
+  },
+  {
     title: "ODPS Enterprise Readiness Assessment",
     engagement: "2 to 4-week engagement",
     question:
       "You are evaluating ODPS, but need to understand how it fits your existing data architecture, catalog, governance and operating model.",
     text:
-      "I assess your current environment against the ODPS standards family and identify where adoption creates value, where integration is required and where existing practices should remain.",
+      "I assess your current environment against the ODPS standards family and identify the key adoption decisions: whether ODPS fits, where it should start, which existing practices should remain, and what integration work is required.",
     outcomes: [
       "Current-state assessment",
       "ODPS fit and gap analysis",
@@ -81,7 +102,7 @@ const services = [
     question:
       "You have decided to adopt ODPS and need to turn the standard into a working enterprise capability.",
     text:
-      "I work with your business, data, architecture and platform teams to define how ODPS fits your environment and establish the first implementation. The work can cover ODPS product specifications, catalogs, product graphs, controlled vocabularies, workflows, enterprise profiles, SDK automation and integration with existing platforms.",
+      "I work with business, data, architecture and platform teams to define the target model and establish the first implementation. The work can cover ODPS product specifications, catalogs, product graphs, controlled vocabularies, workflows, enterprise profiles, SDK automation and integration with existing platforms.",
     outcomes: [
       "Enterprise ODPS adoption model",
       "Enterprise profiles and conventions",
@@ -103,7 +124,7 @@ const services = [
     question:
       "Your AI agents need more than access to databases, APIs and documents. They need structured product context, ownership, semantics, relationships, quality expectations and governance.",
     text:
-      "I help structure your data products so people, platforms and AI agents work from the same governed product context. The engagement connects the ODPS standards family with AI agent architecture, MCP, knowledge graphs, enterprise APIs and your existing data platforms.",
+      "I help decide how data products should expose themselves to AI agents so people, platforms and agents work from the same governed product context. The engagement connects the ODPS standards family with AI agent architecture, MCP, knowledge graphs, enterprise APIs and your existing data platforms.",
     outcomes: [
       "Agent-readiness assessment",
       "Product context architecture",
@@ -125,7 +146,7 @@ const services = [
     question:
       "Get direct access to the creator and maintainer of ODPS while your organization evaluates, implements or integrates the standards.",
     text:
-      "I work with enterprise architects, product leaders, data offices, platform teams and vendors on decisions where direct knowledge of the standards and their design direction reduces uncertainty and implementation risk.",
+      "I work with enterprise architects, product leaders, data offices, platform teams and vendors during implementation and major decisions where direct knowledge of the standards and their design direction reduces uncertainty and implementation risk.",
     outcomeLabel: "Typical work includes",
     outcomes: [
       "Architecture reviews",
@@ -148,14 +169,14 @@ const services = [
 export const metadata: Metadata = {
   title: "ODPS Enterprise Services",
   description:
-    "Specialist ODPS assessment, adoption, implementation, agent-ready data product architecture, and advisory services from Jarkko Moilanen, creator of ODPS.",
+    "Specialist ODPS assessment, maintainer sessions, adoption, implementation, agent-ready data product architecture, and advisory services from Jarkko Moilanen, creator and maintainer of ODPS.",
   alternates: {
     canonical: canonicalPath("/services/odps"),
   },
   openGraph: {
     title: "ODPS Enterprise Services | Jarkko Moilanen",
     description:
-      "Adopt data product standards with the person who created the Open Data Product Specification.",
+      "Evaluate, implement and scale ODPS with the person who created and maintains the Open Data Product Specification.",
     url: canonicalPath("/services/odps"),
     type: "website",
     images: [
@@ -171,7 +192,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ODPS Enterprise Services | Jarkko Moilanen",
     description:
-      "Assessment, adoption, implementation, and advisory services for ODPS in enterprise environments.",
+      "Maintainer sessions, assessment, adoption, implementation, and advisory services for ODPS in enterprise environments.",
     images: [DEFAULT_OG_IMAGE],
   },
 };
@@ -182,21 +203,22 @@ export default function OdpsServicesPage() {
       <section className="service-hero odps-service-hero">
         <div className="service-hero-copy">
           <div className="section-kicker">Open Data Product Standards</div>
-          <h1>Adopt data product standards with the person who created them.</h1>
+          <h1>Work directly with the person behind ODPS.</h1>
           <p>
             I created the Open Data Product Specification and continue to
             maintain the standards family under LF AI & Data, part of the
             Linux Foundation.
           </p>
           <p>
-            Organizations now use ODPS in enterprise products and data
-            environments, while others are evaluating how the standards fit
-            their architecture, governance and AI direction.
+            Organizations use ODPS in enterprise products and data
+            environments. Others are deciding whether the standards fit their
+            architecture, governance, platforms and AI-agent direction.
           </p>
           <p>
-            I work directly with organizations that want to evaluate, adopt or
-            operationalize ODPS. The standard stays open. The engagement
-            focuses on making it work in your environment.
+            I work directly with organizations from first evaluation through
+            architecture, implementation review, governance and scaling. The
+            standard stays open. The engagement focuses on deciding how to make
+            it work in your environment.
           </p>
           <div className="service-hero-actions">
             <a className="button primary" href={calendlyBookingUrl}>
@@ -272,7 +294,7 @@ export default function OdpsServicesPage() {
             />
           </figure>
           <h2 className="section-title">
-            How to become part of the success story
+            Evaluation, implementation, scaling, expert access.
           </h2>
         </div>
         <div className="engagement-grid">
@@ -330,14 +352,17 @@ export default function OdpsServicesPage() {
             </p>
             <p>
               I work across both sides of that system. I lead the standards
-              work and build the software and implementation patterns around
-              it. I also work with enterprise and government environments where
-              data products need to operate inside existing architecture,
-              governance and delivery constraints.
+              work, understand why design decisions were made, and build the
+              software and implementation patterns around it. I also work with
+              enterprise and government environments where data products must
+              operate inside existing architecture, governance and delivery
+              constraints.
             </p>
             <p>
               An ODPS engagement therefore starts with your environment and the
-              decisions required to make adoption work.
+              decisions required to make adoption work: fit, architecture,
+              governance, agent readiness, platform integration and the route
+              from first implementation to portfolio scale.
             </p>
           </div>
         </div>
@@ -370,7 +395,8 @@ export default function OdpsServicesPage() {
             <p>
               ODPS Enterprise Services focus on data product standards,
               interoperability, implementation and agent-ready product
-              architecture.
+              architecture. The typical path is evaluation, then blueprint and
+              implementation advisory, then governance and enterprise adoption.
             </p>
             <p>
               For wider AI portfolio, operating model and agent architecture

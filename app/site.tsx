@@ -83,7 +83,7 @@ export const workItems = [
     label: "Open standard and SDK",
     title: "Data Product Standards",
     summary:
-      "Open standards and SDKs for governed, interoperable, agent-ready data products across platforms, teams, and organizations.",
+      "The ODPS standards family and SDK for governed, interoperable, agent-ready data products across platforms, teams, and organizations.",
     image: "/images/work-odps.webp",
     imageAlt: "Open Data Product Specification family maintained under Linux Foundation",
     cta: "Explore the standard",
@@ -98,13 +98,13 @@ export const workItems = [
       },
     ],
     focus:
-      "The Open Data Product Specification family gives organizations a shared, machine-readable foundation for defining, governing, exchanging, and implementing data products across platforms and teams.",
+      "I founded and maintain the Open Data Product Specification family under LF AI & Data. It gives organizations a shared, machine-readable foundation for defining, governing, exchanging, and implementing data products across platforms and teams.",
     detailIntro:
-      "The standard connects business meaning, governance requirements, technical metadata, and implementation guidance. It helps people, platforms, automation, and AI agents interpret data products consistently.",
+      "The standard connects business meaning, governance requirements, technical metadata, and implementation guidance. It helps people, platforms, automation, and AI agents interpret data products consistently, and it gives organizations a concrete basis for deciding how data products should operate.",
     proof: [
       {
         title: "Open standard",
-        text: "A vendor-neutral specification family maintained under the Linux Foundation for describing data products, catalogs, relationships, vocabularies, and reusable implementation recipes.",
+        text: "A vendor-neutral specification family founded and maintained under LF AI & Data, part of the Linux Foundation, for describing data products, catalogs, relationships, vocabularies, and reusable implementation recipes.",
       },
       {
         title: "Developer toolkit",

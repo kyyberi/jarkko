@@ -5,14 +5,14 @@ export const STATIC_ASSET_VERSION = "20260913-hero-panel";
 export const DEFAULT_TITLE =
   "Jarkko Moilanen | Senior AI & Data Product Leader";
 export const DEFAULT_DESCRIPTION =
-  "Senior AI and data product leader helping government and enterprise teams scale AI strategy, portfolios, Centers of Excellence, operating models, agents, MCP, APIs, and knowledge graphs.";
+  "Senior AI and data product leader helping government and enterprise teams decide what to build, govern AI portfolios, and move from pilots to working systems.";
 
 export const DEFAULT_OG_IMAGE = versionedPublicPath("/images/social-share.webp");
 export const DEFAULT_OG_IMAGE_ALT =
   "Jarkko Moilanen social preview for data and AI product work";
 
 export const PROFILE_DESCRIPTION =
-  "Jarkko Moilanen is a senior AI and data product leader based in Abu Dhabi, helping government and enterprise teams turn AI and data initiatives into governed products at scale.";
+  "Jarkko Moilanen is a senior AI and data product leader based in Abu Dhabi, helping government and enterprise teams make AI portfolio, architecture, operating-model, and data product decisions.";
 
 export const LINKEDIN_PROFILE_URL =
   "https://www.linkedin.com/in/jarkkomoilanen/";

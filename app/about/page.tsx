@@ -44,13 +44,12 @@ export default function AboutPage() {
         <div className="about-hero-copy">
           <div className="section-kicker">About</div>
           <h1>
-            Building operating systems
-            <span>for data and AI products</span>
+            Judgment for AI and data product decisions
           </h1>
           <p>
-            I connect strategy, standards, governance, software, and delivery.
-            My work turns fragmented data and AI initiatives into products
-            people trust, leaders understand, and organizations reuse.
+            I connect strategy, standards, governance, software, and delivery
+            so leaders can decide what to build, how to govern it, and how to
+            move from AI ambition to working products.
           </p>
         </div>
         <figure className="about-portrait" aria-label="Portrait of Jarkko Moilanen">
@@ -81,9 +80,9 @@ export default function AboutPage() {
             <h3>Data product standards</h3>
             <p>
               Founder and maintainer of the Open Data Product Specification
-              family under the Linux Foundation, with adoption and
-              implementation work involving organizations including BASF,
-              Alation, and Kruger.
+              family under LF AI &amp; Data, part of the Linux Foundation, with
+              adoption and implementation work involving organizations
+              including BASF, Alation, and Kruger.
             </p>
           </article>
           <article>
@@ -158,9 +157,10 @@ export default function AboutPage() {
           </article>
         </div>
         <p className="about-method">
-          The work usually starts with the business problem, followed by
-          focused technical sessions and implementation review. Each stage gives
-          the organization a clear point to continue, adjust, or stop.
+          The work usually starts with the business problem and the decision
+          the organization has to make. Focused technical sessions,
+          architecture review and implementation review then give leaders a
+          clear point to continue, adjust, or stop.
         </p>
       </section>
 
@@ -171,9 +171,9 @@ export default function AboutPage() {
         </div>
         <div>
           <p>
-            I work where data and AI initiatives often break down, between the
-            business case, the data, the standard, the software, governance, and
-            delivery.
+            I work where data and AI initiatives often break down: between the
+            business case, the data, the standard, the software, governance,
+            and delivery.
           </p>
           <a className="button primary" href={sitePath("/#contact")}>
             Discuss a problem <Arrow />
