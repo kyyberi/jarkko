@@ -170,10 +170,10 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /View books and author profile/);
   assert.match(html, /https:\/\/us\.amazon\.com\/stores\/Jarkko-Moilanen\/author\/B0B66HTHLM/);
   assert.match(html, /\/images\/logo-amazon\.webp/);
-  assert.equal(
-    (html.match(/href="https:\/\/calendly\.com\/work-jarkkomoilanen\/30min"/g) ?? []).length,
-    6,
-  );
+  assert.doesNotMatch(html, /calendly\.com\/work-jarkkomoilanen\/30min/);
+  assert.equal((html.match(/data-booking-cta="true"/g) ?? []).length, 6);
+  assert.match(html, /href="\/booking\/ai-portfolio-review\?sourceCTA=ai-portfolio-review-card"/);
+  assert.match(html, /href="\/booking\/general-consultation\?sourceCTA=contact-channel"/);
   assert.equal((html.match(/class="engagement-action"/g) ?? []).length, 4);
   assert.match(html, /Book a 30-minute call/);
   assert.match(html, /Discuss an engagement/);
@@ -389,17 +389,17 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /Agent-Ready Data Product Architecture/);
   assert.match(html, /ODPS Expert Advisory/);
   assert.ok((html.match(/Book a 30-minute call/g) ?? []).length >= 4);
-  assert.ok(
-    (html.match(/href="https:\/\/calendly\.com\/work-jarkkomoilanen\/30min"/g) ?? [])
-      .length >= 6,
-  );
+  assert.match(html, /Book 60-minute session/);
+  assert.doesNotMatch(html, /calendly\.com\/work-jarkkomoilanen\/30min/);
+  assert.match(html, /href="\/booking\/odps-maintainer-session\?sourceCTA=odps-maintainer-session-card"/);
+  assert.match(html, /href="\/booking\/odps-enterprise-readiness-assessment\?sourceCTA=odps-hero-primary"/);
   const odpsSource = await readFile(
     new URL("../app/services/odps/page.tsx", import.meta.url),
     "utf8",
   );
   assert.match(
     odpsSource,
-    /services\.map[\s\S]*className="engagement-action"[\s\S]*href={calendlyBookingUrl}[\s\S]*Book a 30-minute call/,
+    /services\.map[\s\S]*className="engagement-action"[\s\S]*href={bookingPath\(service\.serviceId/,
   );
   assert.match(html, /\$20K–\$40K/);
   assert.match(html, /From \$50K/);
@@ -652,6 +652,38 @@ test("server-renders robots and sitemap discovery routes", async () => {
     sitemapText,
     /<loc>https:\/\/jarkkomoilanen\.com\/services\/odps\/<\/loc>/,
   );
+  assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/booking\/<\/loc>/);
+  assert.match(
+    sitemapText,
+    /<loc>https:\/\/jarkkomoilanen\.com\/booking\/odps-maintainer-session\/<\/loc>/,
+  );
+});
+
+test("server-renders booking routes with service context", async () => {
+  const [genericResponse, maintainerResponse] = await Promise.all([
+    render("/booking"),
+    render("/booking/odps-maintainer-session"),
+  ]);
+
+  assert.equal(genericResponse.status, 200);
+  assert.equal(maintainerResponse.status, 200);
+
+  const genericHtml = await genericResponse.text();
+  const maintainerHtml = await maintainerResponse.text();
+
+  assert.match(genericHtml, /Book the right conversation/);
+  assert.match(genericHtml, /What would you like to discuss\?/);
+  assert.match(genericHtml, /AI portfolio and product strategy/);
+  assert.match(genericHtml, /href="\/booking\/odps-maintainer-session\?sourceCTA=booking-index"/);
+  assert.doesNotMatch(genericHtml, /calendly\.com/);
+
+  assert.match(maintainerHtml, /Direct expert session/);
+  assert.match(maintainerHtml, /ODPS Maintainer Session/);
+  assert.match(maintainerHtml, /60 minutes/);
+  assert.match(maintainerHtml, /\$200 \/ 60 minutes/);
+  assert.match(maintainerHtml, /Main topic/);
+  assert.match(maintainerHtml, /Specification interpretation/);
+  assert.match(maintainerHtml, /Continue to scheduling/);
 });
 
 test("publishes ODPS white paper in the LLM site guide", async () => {
@@ -661,6 +693,8 @@ test("publishes ODPS white paper in the LLM site guide", async () => {
   );
 
   assert.match(guide, /ODPS Enterprise Services: https:\/\/jarkkomoilanen\.com\/services\/odps\//);
+  assert.match(guide, /Booking: https:\/\/jarkkomoilanen\.com\/booking\//);
+  assert.doesNotMatch(guide, /calendly\.com/);
   assert.match(
     guide,
     /ODPS White Paper: https:\/\/jarkkomoilanen\.com\/resources\/ODPS_whitepaper_2026_09\.pdf/,
@@ -679,6 +713,14 @@ test("publishes an ARD manifest for agent discovery", async () => {
   assert.equal(catalog.host.identifier, "did:web:jarkkomoilanen.com");
   assert.ok(Array.isArray(catalog.entries));
   assert.ok(catalog.entries.length >= 1);
+  assert.ok(
+    catalog.entries.some(
+      (entry) =>
+        entry.identifier === "urn:air:jarkkomoilanen.com:web:booking" &&
+        entry.type === "text/html" &&
+        entry.url === "https://jarkkomoilanen.com/booking/",
+    ),
+  );
   assert.ok(
     catalog.entries.some(
       (entry) =>

@@ -23,11 +23,23 @@
       "type": "text/html",
       "url": "https://jarkkomoilanen.com/services/odps/",
       "representativeQueries": [
-        "book an ODPS maintainer session with the creator of the Open Data Product Specification",
+        "book a paid 60 minute ODPS maintainer session with the creator of the Open Data Product Specification",
         "find ODPS enterprise readiness assessment adoption and implementation services",
         "work directly with the creator and maintainer of ODPS",
         "evaluate ODPS for enterprise architecture governance catalogs and AI agents",
         "get advisory support for ODPS implementation SDK automation MCP tooling and agent-ready data products"
+      ]
+    },
+    {
+      "identifier": "urn:air:jarkkomoilanen.com:web:booking",
+      "displayName": "Jarkko Moilanen Booking",
+      "type": "text/html",
+      "url": "https://jarkkomoilanen.com/booking/",
+      "representativeQueries": [
+        "book a consultation with Jarkko Moilanen",
+        "schedule an AI portfolio or agentic AI architecture discussion",
+        "book the ODPS Maintainer Session",
+        "schedule a 30 minute discovery call or 60 minute ODPS expert session"
       ]
     },
     {

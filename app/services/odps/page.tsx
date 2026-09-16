@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Arrow, PageShell, publicAssetPath, sitePath } from "../../site";
 import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo";
+import { bookingContextFor, bookingPath, odpsServices } from "../../booking/services";
 
-const calendlyBookingUrl = "https://calendly.com/work-jarkkomoilanen/30min";
 const odpsWhitepaperUrl = "/resources/ODPS_whitepaper_2026_09.pdf";
 
 const odpsProofMetrics = [
@@ -57,6 +57,7 @@ const odpsTestimonials = [
 
 const services = [
   {
+    serviceId: "odps-maintainer-session",
     title: "ODPS Maintainer Session",
     engagement: "60-minute expert session",
     question:
@@ -79,6 +80,7 @@ const services = [
     priceLabel: "",
   },
   {
+    serviceId: "odps-enterprise-readiness-assessment",
     title: "ODPS Enterprise Readiness Assessment",
     engagement: "2 to 4-week engagement",
     question:
@@ -99,6 +101,7 @@ const services = [
     price: "$20K–$40K",
   },
   {
+    serviceId: "odps-adoption-implementation",
     title: "ODPS Adoption & Implementation",
     engagement: "6 to 12-week engagement",
     question:
@@ -121,6 +124,7 @@ const services = [
     price: "From $50K",
   },
   {
+    serviceId: "agent-ready-data-product-architecture",
     title: "Agent-Ready Data Product Architecture",
     engagement: "4 to 8-week engagement",
     question:
@@ -143,6 +147,7 @@ const services = [
     price: "$35K–$70K",
   },
   {
+    serviceId: "odps-expert-advisory",
     title: "ODPS Expert Advisory",
     engagement: "Ongoing or focused advisory",
     question:
@@ -167,6 +172,24 @@ const services = [
     price: "From $2.5K/day",
   },
 ];
+
+function bookingDataAttributes(serviceId: string, sourceCTA: string) {
+  const service = odpsServices.find((option) => option.id === serviceId);
+  if (!service) return {};
+
+  const context = bookingContextFor(service, sourceCTA);
+  return {
+    "data-booking-cta": "true",
+    "data-booking-service": context.service,
+    "data-booking-category": context.serviceCategory,
+    "data-booking-type": context.bookingType,
+    "data-booking-source-page": context.sourcePage,
+    "data-booking-source-cta": context.sourceCTA,
+    "data-booking-engagement-type": context.engagementType,
+    "data-booking-duration": String(context.duration),
+    "data-booking-indicative-value": context.indicativeValue,
+  };
+}
 
 export const metadata: Metadata = {
   title: "ODPS Enterprise Services",
@@ -223,7 +246,11 @@ export default function OdpsServicesPage() {
             it work in your environment.
           </p>
           <div className="service-hero-actions">
-            <a className="button primary" href={calendlyBookingUrl}>
+            <a
+              className="button primary"
+              href={bookingPath("odps-enterprise-readiness-assessment", "odps-hero-primary")}
+              {...bookingDataAttributes("odps-enterprise-readiness-assessment", "odps-hero-primary")}
+            >
               Discuss an ODPS engagement <Arrow />
             </a>
             <a className="button" href="https://opendataproducts.org">
@@ -335,11 +362,13 @@ export default function OdpsServicesPage() {
               <div className="engagement-action">
                 <a
                   className="button primary"
-                  href={calendlyBookingUrl}
-                  target="_blank"
-                  rel="noreferrer"
+                  href={bookingPath(service.serviceId, `${service.serviceId}-card`)}
+                  {...bookingDataAttributes(service.serviceId, `${service.serviceId}-card`)}
                 >
-                  Book a 30-minute call <Arrow />
+                  {service.serviceId === "odps-maintainer-session"
+                    ? "Book 60-minute session"
+                    : "Book a 30-minute call"}{" "}
+                  <Arrow />
                 </a>
               </div>
             </article>
@@ -438,7 +467,11 @@ export default function OdpsServicesPage() {
           <h2>Send me the situation you are working with.</h2>
           <div className="cta-lead">Discuss an ODPS engagement</div>
           <div className="hero-actions">
-            <a className="button primary" href={calendlyBookingUrl}>
+            <a
+              className="button primary"
+              href={bookingPath("odps-enterprise-readiness-assessment", "odps-final-primary")}
+              {...bookingDataAttributes("odps-enterprise-readiness-assessment", "odps-final-primary")}
+            >
               Discuss an ODPS engagement <Arrow />
             </a>
             <a className="button" href="https://opendataproducts.org">

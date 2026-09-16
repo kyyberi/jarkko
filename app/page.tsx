@@ -7,11 +7,11 @@ import {
   workItems,
 } from "./site";
 import { getArticles } from "./articles";
-
-const calendlyBookingUrl = "https://calendly.com/work-jarkkomoilanen/30min";
+import { bookingContextFor, bookingPath, consultingServices, genericBookingService } from "./booking/services";
 
 const engagementOptions = [
   {
+    serviceId: "ai-portfolio-review",
     title: "AI Portfolio Review",
     engagement: "2-week review",
     pricingLabel: "Typical investment",
@@ -32,6 +32,7 @@ const engagementOptions = [
       "Typical scope assumes one organisation or major business unit, up to around 15 initiatives and a defined group of stakeholders.",
   },
   {
+    serviceId: "agentic-ai-architecture-sprint",
     title: "Agentic AI Architecture Sprint",
     engagement: "3 to 4-week sprint",
     pricingLabel: "Typical investment",
@@ -54,6 +55,7 @@ const engagementOptions = [
       "Typical scope covers a defined business domain and two to three target workflows. Production implementation is scoped separately.",
   },
   {
+    serviceId: "ai-product-operating-model",
     title: "AI Product Operating Model",
     engagement: "4 to 6-week engagement",
     pricingLabel: "Typical investment",
@@ -92,6 +94,7 @@ const engagementOptions = [
       "Typical scope covers a medium-to-large organisation or a defined set of business functions. Group-wide or multi-entity transformation is scoped separately.",
   },
   {
+    serviceId: "fractional-ai-product-leadership",
     title: "Fractional AI Product Leadership",
     engagement: "1 to 3 days per week",
     pricingLabel: "From",
@@ -114,6 +117,25 @@ const engagementOptions = [
     scopeNote: "Monthly fee depends on the agreed commitment level.",
   },
 ];
+
+function bookingDataAttributes(serviceId: string, sourceCTA: string) {
+  const service =
+    consultingServices.find((option) => option.id === serviceId) ??
+    genericBookingService;
+  const context = bookingContextFor(service, sourceCTA);
+
+  return {
+    "data-booking-cta": "true",
+    "data-booking-service": context.service,
+    "data-booking-category": context.serviceCategory,
+    "data-booking-type": context.bookingType,
+    "data-booking-source-page": context.sourcePage,
+    "data-booking-source-cta": context.sourceCTA,
+    "data-booking-engagement-type": context.engagementType,
+    "data-booking-duration": String(context.duration),
+    "data-booking-indicative-value": context.indicativeValue,
+  };
+}
 
 const testimonials = [
   {
@@ -404,9 +426,8 @@ export default function Home() {
                 <div className="engagement-action">
                   <a
                     className="button primary"
-                    href={calendlyBookingUrl}
-                    target="_blank"
-                    rel="noreferrer"
+                    href={bookingPath(option.serviceId, `${option.serviceId}-card`)}
+                    {...bookingDataAttributes(option.serviceId, `${option.serviceId}-card`)}
                   >
                     Book a 30-minute call <Arrow />
                   </a>
@@ -438,9 +459,8 @@ export default function Home() {
             </div>
             <a
               className="button primary"
-              href={calendlyBookingUrl}
-              target="_blank"
-              rel="noreferrer"
+              href={bookingPath(genericBookingService.id, "engagement-close")}
+              {...bookingDataAttributes(genericBookingService.id, "engagement-close")}
             >
               Book a meeting <Arrow />
             </a>
@@ -749,9 +769,8 @@ export default function Home() {
             <div className="cta-lead">Discuss an engagement</div>
             <div className="cta-channels" aria-label="Contact channels">
               <a
-                href={calendlyBookingUrl}
-                target="_blank"
-                rel="noreferrer"
+                href={bookingPath(genericBookingService.id, "contact-channel")}
+                {...bookingDataAttributes(genericBookingService.id, "contact-channel")}
               >
                 <ContactIcon type="calendar" />
                 <span>Book a meeting</span>

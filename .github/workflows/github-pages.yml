@@ -42,6 +42,14 @@ jobs:
             echo "NEXT_PUBLIC_BASE_PATH=/${GITHUB_REPOSITORY#*/}" >> "$GITHUB_ENV"
           fi
 
+      - name: Configure Cal.com booking
+        run: |
+          echo "NEXT_PUBLIC_CALCOM_USERNAME=${{ vars.NEXT_PUBLIC_CALCOM_USERNAME }}" >> "$GITHUB_ENV"
+          echo "NEXT_PUBLIC_CALCOM_ORIGIN=${{ vars.NEXT_PUBLIC_CALCOM_ORIGIN || 'https://cal.com' }}" >> "$GITHUB_ENV"
+          echo "NEXT_PUBLIC_CALCOM_CONSULTATION_EVENT_SLUG=${{ vars.NEXT_PUBLIC_CALCOM_CONSULTATION_EVENT_SLUG }}" >> "$GITHUB_ENV"
+          echo "NEXT_PUBLIC_CALCOM_ODPS_CONSULTATION_EVENT_SLUG=${{ vars.NEXT_PUBLIC_CALCOM_ODPS_CONSULTATION_EVENT_SLUG }}" >> "$GITHUB_ENV"
+          echo "NEXT_PUBLIC_CALCOM_ODPS_MAINTAINER_EVENT_SLUG=${{ vars.NEXT_PUBLIC_CALCOM_ODPS_MAINTAINER_EVENT_SLUG }}" >> "$GITHUB_ENV"
+
       - name: Build static site
         run: npm run build:pages
 
