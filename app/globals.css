@@ -949,6 +949,7 @@ h1 {
 
 .booking-modal-scheduling .booking-modal-main,
 .booking-modal-confirmation .booking-modal-main {
+  overflow: auto;
   padding: 20px 24px 24px;
 }
 
@@ -1090,6 +1091,11 @@ h1 {
   overflow: hidden;
 }
 
+.booking-modal-scheduling .booking-flow,
+.booking-modal-confirmation .booking-flow {
+  overflow: visible;
+}
+
 .booking-modal .booking-intake {
   grid-template-columns: minmax(0, 0.5fr) minmax(320px, 0.5fr);
   padding: 0;
@@ -1207,11 +1213,12 @@ h1 {
 }
 
 .booking-modal-scheduling .booking-embed-shell {
-  min-height: calc(100dvh - 102px);
+  min-height: auto;
+  overflow: visible;
 }
 
 .booking-modal-scheduling .calcom-embed {
-  min-height: calc(100dvh - 124px);
+  min-height: 760px;
 }
 
 .booking-modal .booking-external-link {
