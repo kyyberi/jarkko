@@ -187,6 +187,12 @@ test("server-renders the professional homepage", async () => {
   assert.match(bookingModalSource, /booking_modal_closed/);
   assert.match(bookingModalSource, /openerRef\.current\?\.focus\(\)/);
   assert.doesNotMatch(bookingModalSource, /Cal\("popup"/);
+  const bookingFlowSource = await readFile(
+    new URL("../app/booking/booking-flow.tsx", import.meta.url),
+    "utf8",
+  );
+  assert.doesNotMatch(bookingFlowSource, /spacing:\s*"1px"/);
+  assert.match(bookingFlowSource, /"cal-spacing":\s*"0\.5rem"/);
   const layoutSource = await readFile(
     new URL("../app/layout.tsx", import.meta.url),
     "utf8",
