@@ -292,10 +292,12 @@ function qualificationLabelFor(service: ServiceBookingConfig) {
 export function BookingFlow({
   onStepChange,
   service,
+  showIntro = true,
   sourceCTA,
 }: {
   onStepChange?: (step: "intake" | "qualification" | "scheduling" | "confirmation") => void;
   service: ServiceBookingConfig;
+  showIntro?: boolean;
   sourceCTA?: string;
 }) {
   const [visitorIntent, setVisitorIntent] = useState("");
@@ -355,18 +357,24 @@ export function BookingFlow({
 
   return (
     <div className="booking-flow">
-      <section className="booking-intake" aria-labelledby="booking-intake-title">
-        <div>
-          <div className="section-kicker">
-            {service.bookingType === "direct" ? "Direct booking" : "Consultation"}
+      <section
+        aria-label={showIntro ? undefined : "Booking intake"}
+        aria-labelledby={showIntro ? "booking-intake-title" : undefined}
+        className={`booking-intake${showIntro ? "" : " no-intro"}`}
+      >
+        {showIntro ? (
+          <div>
+            <div className="section-kicker">
+              {service.bookingType === "direct" ? "Direct booking" : "Consultation"}
+            </div>
+            <h2 id="booking-intake-title">{service.displayName}</h2>
+            <p>
+              {service.bookingType === "direct"
+                ? "Choose the topic that should anchor the focused session."
+                : "Share the context that helps route the first conversation."}
+            </p>
           </div>
-          <h2 id="booking-intake-title">{service.displayName}</h2>
-          <p>
-            {service.bookingType === "direct"
-              ? "Choose the topic that should anchor the focused session."
-              : "Share the context that helps route the first conversation."}
-          </p>
-        </div>
+        ) : null}
 
         <div className="booking-intake-fields">
           <label htmlFor="visitor-intent">{intakeLabel}</label>

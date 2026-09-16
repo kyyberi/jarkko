@@ -902,6 +902,10 @@ h1 {
   background: transparent;
 }
 
+.booking-modal .booking-intake.no-intro {
+  grid-template-columns: minmax(280px, 560px);
+}
+
 .booking-modal .booking-embed-shell {
   min-height: min(720px, 72vh);
   padding: 0;

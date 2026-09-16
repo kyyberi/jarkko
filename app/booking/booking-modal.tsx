@@ -169,6 +169,7 @@ export function BookingModalRoot() {
         <BookingFlow
           onStepChange={setActiveStep}
           service={activeService}
+          showIntro={false}
           sourceCTA={activeContext.sourceCTA}
         />
       </div>
