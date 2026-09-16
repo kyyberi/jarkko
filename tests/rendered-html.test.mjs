@@ -184,21 +184,29 @@ test("server-renders the professional homepage", async () => {
   );
   assert.ok(
     html.indexOf("Ways to work with me") <
-      html.indexOf("Selected organizations I have worked with"),
+      html.indexOf("Credibility across the places where AI decisions get difficult"),
   );
   assert.ok(
-    html.indexOf("Selected organizations I have worked with") <
+    html.indexOf("Credibility across the places where AI decisions get difficult") <
       html.indexOf("What people say"),
   );
   assert.ok(html.indexOf("What people say") < html.indexOf("Current focus"));
-  assert.match(html, /Across government, enterprise data, AI, and broader data initiatives/);
-  assert.match(html, /dozens of Abu Dhabi Government entities/);
+  assert.match(html, /Representative organizations and ecosystems/);
+  assert.match(html, /delivery across dozens of Abu Dhabi Government entities/);
+  assert.match(html, /Government scale/);
+  assert.match(html, /Enterprise data products/);
+  assert.match(html, /Open standards ecosystem/);
   assert.match(html, /Alation/);
   assert.match(html, /BASF/);
   assert.match(html, /Kruger/);
   assert.match(html, /Nasdaq/);
+  assert.match(html, /Finnish Government/);
+  assert.match(html, /Estonian Government/);
+  assert.match(html, /Linux Foundation \/ LF AI &amp; Data/);
+  assert.match(html, /FIWARE/);
   assert.match(html, /VesoAI/);
   assert.match(html, /Abu Dhabi Government/);
+  assert.match(html, /Core42/);
   assert.equal((html.match(/class="testimonial-card"/g) ?? []).length, 5);
   assert.doesNotMatch(html, /Recommendation on LinkedIn/);
   assert.ok(html.indexOf("Toni Luhti") < html.indexOf("Matti Saastamoinen"));

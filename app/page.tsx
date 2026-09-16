@@ -164,13 +164,30 @@ const testimonials = [
 const visibleTestimonials = testimonials.slice(0, 3);
 const additionalTestimonials = testimonials.slice(3);
 
-const credibilityOrganizations = [
-  "Alation",
-  "BASF",
-  "Kruger",
-  "Nasdaq",
-  "VesoAI",
-  "Abu Dhabi Government",
+const credibilityProofGroups = [
+  {
+    scope: "Government scale",
+    signal:
+      "AI delivery, data exchange, and public-sector transformation contexts.",
+    organizations: [
+      "Abu Dhabi Government",
+      "Core42",
+      "Finnish Government",
+      "Estonian Government",
+    ],
+  },
+  {
+    scope: "Enterprise data products",
+    signal:
+      "Operational data product, catalog, platform, and analytics work.",
+    organizations: ["BASF", "Alation", "Kruger", "Nasdaq"],
+  },
+  {
+    scope: "Open standards ecosystem",
+    signal:
+      "Vendor-neutral data and AI standards work that travels across platforms.",
+    organizations: ["Linux Foundation / LF AI & Data", "FIWARE", "VesoAI"],
+  },
 ];
 
 function ContactIcon({
@@ -450,19 +467,29 @@ export default function Home() {
         >
           <div className="organization-proof-head">
             <h2 id="organization-proof-title">
-              Selected organizations I have worked with
+              Credibility across the places where AI decisions get difficult
             </h2>
             <p>
-              Across government, enterprise data, AI, and broader data
-              initiatives, including work across dozens of Abu Dhabi Government
-              entities.
+              Representative organizations and ecosystems from government,
+              enterprise data, AI, and open standards work, including delivery
+              across dozens of Abu Dhabi Government entities.
             </p>
           </div>
-          <ul className="organization-proof-list">
-            {credibilityOrganizations.map((organization) => (
-              <li key={organization}>{organization}</li>
+          <div className="organization-proof-groups">
+            {credibilityProofGroups.map((group) => (
+              <article className="organization-proof-group" key={group.scope}>
+                <div>
+                  <span>{group.scope}</span>
+                  <p>{group.signal}</p>
+                </div>
+                <ul>
+                  {group.organizations.map((organization) => (
+                    <li key={organization}>{organization}</li>
+                  ))}
+                </ul>
+              </article>
             ))}
-          </ul>
+          </div>
         </section>
 
         <section

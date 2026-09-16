@@ -1168,6 +1168,72 @@ h1 {
   white-space: nowrap;
 }
 
+.organization-proof-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.organization-proof-group {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 22px;
+  min-width: 0;
+  padding: 26px 28px 28px;
+  border-left: 1px solid var(--line);
+}
+
+.organization-proof-group:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+
+.organization-proof-group:last-child {
+  padding-right: 0;
+}
+
+.organization-proof-group span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-family: var(--font-geist-sans), var(--body);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.organization-proof-group p {
+  max-width: 340px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.organization-proof-group ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: end;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.organization-proof-group li {
+  min-width: 0;
+  padding: 7px 10px;
+  border: 1px solid rgba(27, 24, 21, 0.16);
+  background: rgba(255, 255, 255, 0.38);
+  color: var(--ink);
+  font-family: var(--font-geist-sans), var(--body);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
 .testimonials-section {
   padding-top: 30px;
   background: var(--paper);
@@ -3054,6 +3120,27 @@ h1 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .organization-proof-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .organization-proof-group,
+  .organization-proof-group:first-child,
+  .organization-proof-group:last-child {
+    gap: 16px;
+    padding: 22px 0;
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .organization-proof-group:first-child {
+    border-top: 0;
+  }
+
+  .organization-proof-group p {
+    max-width: 620px;
+  }
+
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
@@ -3351,6 +3438,19 @@ h1 {
 
   .organization-proof-list li {
     font-size: 15px;
+  }
+
+  .organization-proof-group {
+    gap: 14px;
+  }
+
+  .organization-proof-group span {
+    font-size: 12px;
+  }
+
+  .organization-proof-group p,
+  .organization-proof-group li {
+    font-size: 14px;
   }
 
   .testimonials-intro {
