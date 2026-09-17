@@ -182,9 +182,9 @@ function Embed({
             "cal-border-booker": "#d9d0c3",
             "cal-border-booker-width": "1px",
             "cal-radius": "0px",
-            "cal-spacing": "0.5rem",
+            "cal-spacing": "0.25rem",
             radius: "0px",
-            spacing: "0.5rem",
+            spacing: "0.25rem",
           },
         },
       });

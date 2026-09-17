@@ -192,7 +192,7 @@ test("server-renders the professional homepage", async () => {
     "utf8",
   );
   assert.doesNotMatch(bookingFlowSource, /spacing:\s*"1px"/);
-  assert.match(bookingFlowSource, /"cal-spacing":\s*"0\.5rem"/);
+  assert.match(bookingFlowSource, /"cal-spacing":\s*"0\.25rem"/);
   const layoutSource = await readFile(
     new URL("../app/layout.tsx", import.meta.url),
     "utf8",

@@ -953,6 +953,10 @@ h1 {
 .booking-modal-scheduling .booking-modal-main,
 .booking-modal-confirmation .booking-modal-main {
   overflow: auto;
+  padding: 8px;
+}
+
+.booking-modal-confirmation .booking-modal-main {
   padding: 14px 18px 18px;
 }
 
@@ -988,6 +992,17 @@ h1 {
 
 .booking-modal-scheduling .booking-modal-progress,
 .booking-modal-confirmation .booking-modal-progress {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  width: min(220px, calc(100% - 74px));
+  margin-bottom: 0;
+}
+
+.booking-modal-confirmation .booking-modal-progress {
+  position: static;
+  width: min(420px, calc(100% - 58px));
   margin-bottom: 8px;
 }
 
@@ -1031,7 +1046,15 @@ h1 {
 }
 
 .booking-modal-scheduling .booking-step-heading {
-  margin-bottom: 8px;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .booking-modal-scheduling .booking-step-heading h3 {
@@ -1047,8 +1070,8 @@ h1 {
   grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
   gap: 18px;
   align-items: center;
-  margin-bottom: 10px;
-  padding: 10px 12px;
+  margin-bottom: 8px;
+  padding: 10px 54px 10px 260px;
   border: 1px solid var(--line);
   background: color-mix(in srgb, var(--paper) 44%, var(--white));
 }
@@ -1063,11 +1086,19 @@ h1 {
   text-transform: uppercase;
 }
 
+.booking-modal-scheduling .booking-session-strip span {
+  display: none;
+}
+
 .booking-session-strip strong {
   display: block;
   color: var(--ink);
   font-size: 17px;
   line-height: 1.2;
+}
+
+.booking-modal-scheduling .booking-session-strip strong {
+  font-size: 15px;
 }
 
 .booking-session-strip dl {
@@ -1085,11 +1116,20 @@ h1 {
   text-transform: uppercase;
 }
 
+.booking-modal-scheduling .booking-session-strip dt {
+  font-size: 10px;
+}
+
 .booking-session-strip dd {
   margin: 3px 0 0;
   color: var(--ink);
   font-size: 14px;
   font-weight: 800;
+}
+
+.booking-modal-scheduling .booking-session-strip dd {
+  margin-top: 1px;
+  font-size: 13px;
 }
 
 .booking-modal .booking-flow {
@@ -1220,19 +1260,19 @@ h1 {
 }
 
 .booking-modal-scheduling .booking-embed-shell {
-  height: calc(100dvh - 176px);
-  min-height: 720px;
+  height: calc(100dvh - 90px);
+  min-height: 660px;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .booking-modal-scheduling .calcom-embed {
-  min-height: 860px;
+  min-height: 760px;
 }
 
 .booking-modal-scheduling .calcom-embed iframe {
-  height: calc(100dvh - 176px) !important;
-  min-height: 720px;
+  height: calc(100dvh - 90px) !important;
+  min-height: 660px;
 }
 
 .booking-modal .booking-external-link {
@@ -3980,6 +4020,17 @@ h1 {
     gap: 10px 12px;
   }
 
+  .booking-modal-scheduling .booking-session-strip {
+    gap: 8px;
+    margin-bottom: 6px;
+    padding: calc(40px + env(safe-area-inset-top)) 50px 8px 10px;
+  }
+
+  .booking-modal-scheduling .booking-session-strip dl {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+
   .booking-modal .booking-flow {
     padding: 0;
   }
@@ -4020,8 +4071,8 @@ h1 {
   }
 
   .booking-modal-scheduling .booking-embed-shell {
-    height: calc(100dvh - 214px);
-    min-height: calc(100dvh - 214px);
+    height: calc(100dvh - 118px);
+    min-height: calc(100dvh - 118px);
     overflow: auto;
   }
 
@@ -4030,8 +4081,8 @@ h1 {
   }
 
   .booking-modal-scheduling .calcom-embed iframe {
-    height: calc(100dvh - 214px) !important;
-    min-height: calc(100dvh - 214px);
+    height: calc(100dvh - 118px) !important;
+    min-height: calc(100dvh - 118px);
   }
 
   .booking-intake,
