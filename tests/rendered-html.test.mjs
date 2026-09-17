@@ -651,15 +651,59 @@ test("server-renders insights report library with gated download controls", asyn
 });
 
 test("soft-gate download stays static-export safe", async () => {
-  const source = await readFile(
-    new URL("../app/insights/report-download-button.tsx", import.meta.url),
-    "utf8",
-  );
+  const [source, workflow, envExample] = await Promise.all([
+    readFile(
+      new URL("../app/insights/report-download-button.tsx", import.meta.url),
+      "utf8",
+    ),
+    readFile(
+      new URL("../.github/workflows/github-pages.yml", import.meta.url),
+      "utf8",
+    ),
+    readFile(new URL("../.env.example", import.meta.url), "utf8"),
+  ]);
 
   assert.match(source, /jm_insights_gate_completed/);
+  assert.match(source, /NEXT_PUBLIC_INSIGHTS_API_URL/);
+  assert.match(source, /\/insights\/subscribe/);
+  assert.match(source, /The subscription service is not configured/);
+  assert.match(source, /We could not reach the subscription service/);
   assert.match(source, /No raw email is stored in this browser/);
-  assert.match(source, /We could not complete the subscription request on this static site/);
-  assert.doesNotMatch(source, /MAILERLITE_API_KEY|fetch\(\`\$\{assetPath\}\/api\/insights\/download/);
+  assert.match(source, /We could not complete the subscription request/);
+  assert.doesNotMatch(source, /MAILERLITE_API_KEY|MAILERLITE_RESEARCH_GROUP_ID|\/api\/insights\/download/);
+  assert.match(workflow, /NEXT_PUBLIC_INSIGHTS_API_URL=\$\{\{ vars\.NEXT_PUBLIC_INSIGHTS_API_URL \}\}/);
+  assert.match(envExample, /^NEXT_PUBLIC_INSIGHTS_API_URL=$/m);
+  assert.doesNotMatch(envExample, /MAILERLITE_API_KEY|MAILERLITE_RESEARCH_GROUP_ID/);
+});
+
+test("ships a standalone Cloudflare Worker for Insights subscription", async () => {
+  const [source, readme, wranglerExample] = await Promise.all([
+    readFile(
+      new URL("../workers/insights-subscribe/src/index.js", import.meta.url),
+      "utf8",
+    ),
+    readFile(
+      new URL("../workers/insights-subscribe/README.md", import.meta.url),
+      "utf8",
+    ),
+    readFile(
+      new URL("../workers/insights-subscribe/wrangler.toml.example", import.meta.url),
+      "utf8",
+    ),
+  ]);
+
+  assert.match(source, /\/insights\/subscribe/);
+  assert.match(source, /https:\/\/jarkkomoilanen\.com/);
+  assert.match(source, /http:\/\/localhost:3000/);
+  assert.match(source, /odps-whitepaper-2026/);
+  assert.match(source, /ai-centers-of-excellence-operating-model/);
+  assert.match(source, /MAILERLITE_API_KEY/);
+  assert.match(source, /MAILERLITE_RESEARCH_GROUP_ID/);
+  assert.match(source, /connect\.mailerlite\.com\/api\/subscribers/);
+  assert.match(source, /subscriptionStatus: "not_requested"/);
+  assert.match(source, /Origin not allowed/);
+  assert.match(readme, /NEXT_PUBLIC_INSIGHTS_API_URL/);
+  assert.match(wranglerExample, /wrangler secret put MAILERLITE_API_KEY/);
 });
 
 test("highlights article closing CTAs", async () => {

@@ -1,0 +1,10 @@
+name = "jarkko-insights-subscribe"
+main = "src/index.js"
+compatibility_date = "2026-05-15"
+
+[vars]
+ALLOWED_ORIGINS = "https://jarkkomoilanen.com,http://localhost:3000,http://127.0.0.1:3000"
+
+# Configure secrets with:
+# wrangler secret put MAILERLITE_API_KEY
+# wrangler secret put MAILERLITE_RESEARCH_GROUP_ID

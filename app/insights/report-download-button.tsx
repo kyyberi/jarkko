@@ -5,10 +5,22 @@ import type { InsightReport } from "./reports";
 import { trackInsightEvent } from "./insights-analytics";
 
 const assetPath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const insightsApiUrl = process.env.NEXT_PUBLIC_INSIGHTS_API_URL ?? "";
 const gateMarkerKey = "jm_insights_gate_completed";
 const gateMarkerValue = "v1";
 
 type DownloadState = "idle" | "submitting" | "ready";
+type WorkerSubscriptionStatus =
+  | "subscribed"
+  | "not_requested"
+  | "not_configured"
+  | "failed";
+
+type WorkerResponse = {
+  ok?: boolean;
+  error?: string;
+  subscriptionStatus?: WorkerSubscriptionStatus;
+};
 
 function hasCompletedGate() {
   try {
@@ -32,6 +44,14 @@ function triggerDownload(downloadUrl: string) {
 
 function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function subscriptionNotice(status?: WorkerSubscriptionStatus) {
+  if (status === "failed" || status === "not_configured") {
+    return "Your report is ready. We could not complete the subscription request.";
+  }
+
+  return "Your report is ready.";
 }
 
 export function ReportDownloadButton({ report }: { report: InsightReport }) {
@@ -136,14 +156,10 @@ export function ReportDownloadButton({ report }: { report: InsightReport }) {
     setError("");
     setNotice("");
 
-    window.setTimeout(() => {
+    function grantAccess(message: string) {
       markGateCompleted();
       setState("ready");
-      setNotice(
-        subscribe
-          ? "Your report is ready. We could not complete the subscription request on this static site."
-          : "Your report is ready.",
-      );
+      setNotice(message);
       trackInsightEvent("report_request_submitted", {
         report_slug: report.slug,
         report_type: report.type,
@@ -158,7 +174,45 @@ export function ReportDownloadButton({ report }: { report: InsightReport }) {
           subscribed: true,
         });
       }
-    }, 180);
+    }
+
+    if (!insightsApiUrl) {
+      grantAccess(
+        subscribe
+          ? "Your report is ready. The subscription service is not configured."
+          : "Your report is ready.",
+      );
+      return;
+    }
+
+    try {
+      const response = await fetch(`${insightsApiUrl.replace(/\/$/, "")}/insights/subscribe`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: trimmedEmail,
+          reportSlug: report.slug,
+          subscribe,
+        }),
+      });
+      const payload = (await response.json().catch(() => ({}))) as WorkerResponse;
+
+      if (!response.ok || payload.ok === false) {
+        setState("idle");
+        setError(payload.error ?? "The subscription service is temporarily unavailable.");
+        return;
+      }
+
+      grantAccess(subscriptionNotice(payload.subscriptionStatus));
+    } catch {
+      grantAccess(
+        subscribe
+          ? "Your report is ready. We could not reach the subscription service."
+          : "Your report is ready. We could not reach the subscription service.",
+      );
+    }
   }
 
   return (
