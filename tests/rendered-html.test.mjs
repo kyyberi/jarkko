@@ -603,7 +603,10 @@ test("server-renders articles index with the editorial portrait hero", async () 
   assert.match(html, /\d+<!-- --> published articles/);
   assert.match(html, /class="article-card article-archive-card article-archive-card-featured"/);
   assert.match(html, /class="article-archive-card-media"/);
+  assert.match(html, /id="article-archive"/);
   assert.match(html, /class="article-index article-archive-list"/);
+  assert.match(html, /aria-label="Article pages"/);
+  assert.match(html, /Page <!-- -->1<!-- --> of <!-- -->\d+/);
   assert.match(html, /class="article-card-meta">AI products \/ \d{1,2} [A-Z]{3,4} \d{4}/);
   assert.match(html, /class="article-card-meta">Data products \/ \d{1,2} [A-Z]{3,4} \d{4}/);
   assert.doesNotMatch(html, /aria-label="Article categories"/);
@@ -613,9 +616,10 @@ test("server-renders articles index with the editorial portrait hero", async () 
   assert.match(html, /9 Actions We Took to Make Open Data Product Vocabulary AI-Agent-First/);
   assert.match(css, /\.insights-hero-image/);
   assert.match(css, /\.article-archive-list\s*\{[^}]*border-bottom:\s*0;/);
-  assert.match(css, /\.article-archive-list\s*\{[^}]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\);/);
+  assert.match(css, /\.article-archive-list\s*\{[^}]*grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\);/);
   assert.match(css, /\.article-archive-card-featured\s*\{[^}]*grid-template-columns:\s*minmax\(280px, 0\.64fr\) minmax\(0, 1fr\);/);
   assert.match(css, /\.article-archive-card\s*\{[^}]*border:\s*1px solid var\(--line\);/);
+  assert.match(css, /\.article-pagination\s*\{/);
 });
 
 test("highlights article closing CTAs", async () => {

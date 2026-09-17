@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getArticles } from "../../articles";
 import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo";
 import { Arrow, PageShell, publicAssetPath, sitePath } from "../../site";
+import { ArticleArchivePagination } from "./article-archive-pagination";
 
 export const metadata: Metadata = {
   title: "Articles",
@@ -104,24 +105,16 @@ export default function ArticlesIndex() {
           </a>
         ) : null}
 
-        <div className="article-index article-archive-list">
-          {archiveArticles.map((article) => (
-            <a
-              className="article-card article-archive-card"
-              href={sitePath(`/insights/articles/${article.slug}`)}
-              key={article.slug}
-            >
-              <span className="article-card-meta">
-                {`${article.category} / ${article.date}`}
-              </span>
-              <strong>{article.title}</strong>
-              <p>{article.summary}</p>
-              <em>
-                Read article <Arrow />
-              </em>
-            </a>
-          ))}
-        </div>
+        <ArticleArchivePagination
+          articles={archiveArticles.map((article) => ({
+            slug: article.slug,
+            href: sitePath(`/insights/articles/${article.slug}`),
+            category: article.category,
+            date: article.date,
+            title: article.title,
+            summary: article.summary,
+          }))}
+        />
       </section>
     </PageShell>
   );
