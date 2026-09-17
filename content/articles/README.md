@@ -28,7 +28,7 @@ Second paragraph.
 Published files become:
 
 ```text
-/insights/articles/your-article-title/
+/articles/your-article-title/
 ```
 
 Use `status` to control publishing:

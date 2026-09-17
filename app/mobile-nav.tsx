@@ -12,7 +12,8 @@ const links = [
   { href: "/#work", label: "Work" },
   { href: "/#engagements", label: "AI Products" },
   { href: "/services/odps", label: "Data Products" },
-  { href: "/insights/articles", label: "Articles" },
+  { href: "/articles", label: "Articles" },
+  { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ];

@@ -16,7 +16,7 @@ ${articles
   .map(
     (article) => `    <item>
       <title>${xml(article.title)}</title>
-      <link>${siteUrl}/insights/articles/${article.slug}/</link>
+      <link>${siteUrl}/articles/${article.slug}/</link>
       <pubDate>${new Date(`${article.isoDate}T00:00:00Z`).toUTCString()}</pubDate>
       <description>${xml(article.summary)}</description>
     </item>`,

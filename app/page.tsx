@@ -6,7 +6,7 @@ import {
   sitePath,
   workItems,
 } from "./site";
-import { getArticles } from "./articles";
+import { getArticles } from "./article-data";
 import { bookingContextFor, bookingPath, consultingServices, genericBookingService } from "./booking/services";
 
 const engagementDetailsUrl = "/resources/jarkko-moilanen-services-and-engagements.pdf";
@@ -70,7 +70,7 @@ const engagementOptions = [
         <a
           className="text-link"
           href={sitePath(
-            "/insights/articles/ai-center-of-excellence-government-scale/",
+            "/articles/ai-center-of-excellence-government-scale/",
           )}
         >
           AI Center of Excellence
@@ -734,7 +734,7 @@ export default function Home() {
               {homepageArticles.map((article) => (
                 <a
                   className="article-row"
-                  href={sitePath(`/insights/articles/${article.slug}`)}
+                  href={sitePath(`/articles/${article.slug}`)}
                   key={article.slug}
                 >
                   <span className="article-date">{article.date}</span>
@@ -743,7 +743,7 @@ export default function Home() {
               ))}
               <a
                 className="article-row article-row-all"
-                href={sitePath("/insights/articles")}
+                href={sitePath("/articles")}
               >
                 <span className="article-date">Archive</span>
                 <span className="article-title">Browse all articles</span>

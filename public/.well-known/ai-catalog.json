@@ -55,6 +55,17 @@
       ]
     },
     {
+      "identifier": "urn:air:jarkkomoilanen.com:web:insights",
+      "displayName": "Jarkko Moilanen Insights Research Library",
+      "type": "text/html",
+      "url": "https://jarkkomoilanen.com/insights/",
+      "representativeQueries": [
+        "browse Jarkko Moilanen whitepapers and research reports",
+        "find downloadable research on AI Centers of Excellence ODPS and data products",
+        "get research assets about AI operating models data product standards and enterprise transformation"
+      ]
+    },
+    {
       "identifier": "urn:air:jarkkomoilanen.com:resource:odps-whitepaper",
       "displayName": "ODPS White Paper",
       "type": "application/pdf",

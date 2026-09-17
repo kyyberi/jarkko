@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { getArticles } from "./articles";
+import { getArticles } from "./article-data";
+import { getInsightReports } from "./insights/reports";
 import { bookingServices } from "./booking/services";
 import { absoluteUrl } from "./seo";
 import { workItems } from "./site";
@@ -16,9 +17,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: absoluteUrl("/insights/articles/"),
+      url: absoluteUrl("/articles/"),
       lastModified: now,
       changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: absoluteUrl("/insights/"),
+      lastModified: now,
+      changeFrequency: "monthly",
       priority: 0.8,
     },
     {
@@ -56,11 +63,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const articleRoutes: MetadataRoute.Sitemap = getArticles().map((article) => ({
-    url: absoluteUrl(`/insights/articles/${article.slug}/`),
+    url: absoluteUrl(`/articles/${article.slug}/`),
     lastModified: new Date(`${article.isoDate}T00:00:00.000Z`),
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...bookingRoutes, ...workRoutes, ...articleRoutes];
+  const insightReportRoutes: MetadataRoute.Sitemap = getInsightReports().map(
+    (report) => ({
+      url: absoluteUrl(`/insights/${report.slug}/`),
+      lastModified: new Date(`${report.publishedAt}T00:00:00.000Z`),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }),
+  );
+
+  return [
+    ...staticRoutes,
+    ...bookingRoutes,
+    ...workRoutes,
+    ...articleRoutes,
+    ...insightReportRoutes,
+  ];
 }

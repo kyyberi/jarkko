@@ -2,12 +2,12 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-const staticAssetVersion = "20260913-hero-panel";
+const staticAssetVersion = "20260917-insights-library";
 const socialShareImagePattern = new RegExp(
   `https:\\/\\/jarkkomoilanen\\.com\\/images\\/social-share\\.webp\\?v=${staticAssetVersion}`,
 );
 
-async function render(path = "/") {
+async function render(path = "/", init = {}) {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
@@ -15,6 +15,7 @@ async function render(path = "/") {
   return worker.fetch(
     new Request(`http://localhost${path}`, {
       headers: { accept: "text/html" },
+      ...init,
     }),
     {
       ASSETS: {
@@ -82,7 +83,8 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /aria-label="Mobile primary"/);
   assert.match(html, /href="\/#engagements"[\s\S]*AI Products/);
   assert.match(html, /href="\/services\/odps"[\s\S]*Data Products/);
-  assert.match(html, /href="\/insights\/articles"/);
+  assert.match(html, /href="\/articles"/);
+  assert.match(html, /href="\/insights"/);
   assert.match(html, /href="\/about"/);
   assert.match(html, /href="\/services\/odps"/);
   assert.match(html, /aria-label="Executive credibility"/);
@@ -143,7 +145,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /decision rights,[\s\S]*portfolio rules,[\s\S]*delivery paths/);
   assert.match(
     html,
-    /href="\/insights\/articles\/ai-center-of-excellence-government-scale\/"[\s\S]*AI Center of Excellence/,
+    /href="\/articles\/ai-center-of-excellence-government-scale\/"[\s\S]*AI Center of Excellence/,
   );
   assert.match(html, /AI CoE mandate and scope/);
   assert.match(html, /AI opportunity intake and prioritisation/);
@@ -513,7 +515,7 @@ test("server-renders the government AI work page without operational detail", as
 test("server-renders article pages", async () => {
   const [response, css] = await Promise.all([
     render(
-      "/insights/articles/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management",
+      "/articles/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management",
     ),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
   ]);
@@ -526,7 +528,7 @@ test("server-renders article pages", async () => {
   );
   assert.match(
     html,
-    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/insights\/articles\/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management\/"/,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/articles\/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management\/"/,
   );
   assert.match(html, /<meta property="og:type" content="article"/);
   assert.match(
@@ -565,7 +567,7 @@ test("server-renders article resource links", async () => {
   );
 
   const response = await render(
-    "/insights/articles/ai-center-of-excellence-government-scale",
+    "/articles/ai-center-of-excellence-government-scale",
   );
   assert.equal(response.status, 200);
 
@@ -578,7 +580,7 @@ test("server-renders article resource links", async () => {
 
 test("server-renders articles index with the editorial portrait hero", async () => {
   const [response, css] = await Promise.all([
-    render("/insights/articles"),
+    render("/articles"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
   ]);
   assert.equal(response.status, 200);
@@ -622,9 +624,47 @@ test("server-renders articles index with the editorial portrait hero", async () 
   assert.match(css, /\.article-pagination\s*\{/);
 });
 
+test("server-renders insights report library with gated download controls", async () => {
+  const [response, css] = await Promise.all([
+    render("/insights"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /<title>Insights \| Jarkko Moilanen<\/title>/);
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/insights\/"/,
+  );
+  assert.match(html, /Research for the work ahead/);
+  assert.match(html, /Browse insights/);
+  assert.match(html, /2<!-- --> published reports/);
+  assert.match(html, /Open Data Product Specification: From Standard to Agent-Ready Data Products/);
+  assert.match(html, /AI Centers of Excellence: Operating Model, Economics, and Implementation Blueprint/);
+  assert.equal((html.match(/Download report/g) ?? []).length, 2);
+  assert.match(html, /\/images\/odps-preview\.webp/);
+  assert.match(html, /ai-center-of-excellence-article-jarkko-moilanen-pdf\.webp/);
+  assert.match(css, /\.report-grid\s*\{[^}]*grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\);/);
+  assert.match(css, /\.report-card\s*\{[^}]*border:\s*1px solid var\(--line\);/);
+  assert.match(css, /\.report-modal\s*\{[^}]*width:\s*min\(100%, 540px\);/);
+});
+
+test("soft-gate download stays static-export safe", async () => {
+  const source = await readFile(
+    new URL("../app/insights/report-download-button.tsx", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(source, /jm_insights_gate_completed/);
+  assert.match(source, /No raw email is stored in this browser/);
+  assert.match(source, /We could not complete the subscription request on this static site/);
+  assert.doesNotMatch(source, /MAILERLITE_API_KEY|fetch\(\`\$\{assetPath\}\/api\/insights\/download/);
+});
+
 test("highlights article closing CTAs", async () => {
   const response = await render(
-    "/insights/articles/golden-data-product-portfolio",
+    "/articles/golden-data-product-portfolio",
   );
   assert.equal(response.status, 200);
 
@@ -644,7 +684,7 @@ test("highlights article closing CTAs", async () => {
 
 test("server-renders article sidebar from article metadata", async () => {
   const response = await render(
-    "/insights/articles/golden-data-product-portfolio",
+    "/articles/golden-data-product-portfolio",
   );
   assert.equal(response.status, 200);
 
@@ -686,7 +726,12 @@ test("server-renders robots and sitemap discovery routes", async () => {
   assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/about\/<\/loc>/);
   assert.match(
     sitemapText,
-    /<loc>https:\/\/jarkkomoilanen\.com\/insights\/articles\/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management\/<\/loc>/,
+    /<loc>https:\/\/jarkkomoilanen\.com\/articles\/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management\/<\/loc>/,
+  );
+  assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/insights\/<\/loc>/);
+  assert.match(
+    sitemapText,
+    /<loc>https:\/\/jarkkomoilanen\.com\/insights\/odps-whitepaper-2026\/<\/loc>/,
   );
   assert.match(
     sitemapText,
@@ -745,8 +790,17 @@ test("publishes ODPS white paper in the LLM site guide", async () => {
   );
   assert.match(
     guide,
+    /Insights research library: https:\/\/jarkkomoilanen\.com\/insights\//,
+  );
+  assert.match(
+    guide,
     /ODPS White Paper: https:\/\/jarkkomoilanen\.com\/resources\/ODPS_whitepaper_2026_09\.pdf/,
   );
+  assert.match(
+    guide,
+    /AI Centers of Excellence PDF: https:\/\/jarkkomoilanen\.com\/resources\/ai-centers-of-excellence-jarkko-moilanen\.pdf/,
+  );
+  assert.match(guide, /Articles: https:\/\/jarkkomoilanen\.com\/articles\//);
 });
 
 test("publishes an ARD manifest for agent discovery", async () => {
@@ -777,6 +831,14 @@ test("publishes an ARD manifest for agent discovery", async () => {
         entry.type === "application/pdf" &&
         entry.url ===
           "https://jarkkomoilanen.com/resources/jarkko-moilanen-services-and-engagements.pdf",
+    ),
+  );
+  assert.ok(
+    catalog.entries.some(
+      (entry) =>
+        entry.identifier === "urn:air:jarkkomoilanen.com:web:insights" &&
+        entry.type === "text/html" &&
+        entry.url === "https://jarkkomoilanen.com/insights/",
     ),
   );
   assert.ok(

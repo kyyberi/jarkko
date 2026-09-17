@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-const PAGE_SIZE = 2;
+const PAGE_SIZE = 8;
 
 type ArticleArchiveItem = {
   slug: string;
