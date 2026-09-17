@@ -9,6 +9,8 @@ import {
 import { getArticles } from "./articles";
 import { bookingContextFor, bookingPath, consultingServices, genericBookingService } from "./booking/services";
 
+const engagementDetailsUrl = "/resources/jarkko-moilanen-services-and-engagements.pdf";
+
 const engagementOptions = [
   {
     serviceId: "ai-portfolio-review",
@@ -215,7 +217,7 @@ const credibilityProofGroups = [
 function ContactIcon({
   type,
 }: {
-  type: "calendar" | "email" | "linkedin" | "whatsapp";
+  type: "calendar" | "document" | "email" | "linkedin" | "whatsapp";
 }) {
   if (type === "calendar") {
     return (
@@ -241,6 +243,21 @@ function ContactIcon({
       >
         <path d="M4 6h16v12H4z" />
         <path d="m4 7 8 6 8-6" />
+      </svg>
+    );
+  }
+
+  if (type === "document") {
+    return (
+      <svg
+        aria-hidden="true"
+        className="contact-icon"
+        viewBox="0 0 24 24"
+      >
+        <path d="M6 3h8l4 4v14H6z" />
+        <path d="M14 3v5h4" />
+        <path d="M9 13h6" />
+        <path d="M9 17h6" />
       </svg>
     );
   }
@@ -286,11 +303,17 @@ export default function Home() {
             <div>
               <div className="eyebrow">Jarkko Moilanen, PhD</div>
               <h1 className="hero-title">
-                AI product leadership
+                AI product
+                <br className="mobile-title-break" /> leadership
                 <br />
                 from strategy
                 <br />
-                to <span className="accent">working systems</span>
+                to{" "}
+                <span className="accent">
+                  working<span className="desktop-title-space"> </span>
+                  <br className="mobile-title-break" />
+                  systems
+                </span>
               </h1>
               <p className="hero-lede">
                 I help government and enterprise teams decide what to build,
@@ -305,6 +328,12 @@ export default function Home() {
                 </a>
                 <a className="button" href="#work">
                   Explore my work <Arrow />
+                </a>
+                <a
+                  className="button"
+                  href={sitePath(engagementDetailsUrl)}
+                >
+                  Download engagement details <Arrow />
                 </a>
               </div>
             </div>
@@ -457,13 +486,18 @@ export default function Home() {
                 think I add value and where I do not.
               </p>
             </div>
-            <a
-              className="button primary"
-              href={bookingPath(genericBookingService.id, "engagement-close")}
-              {...bookingDataAttributes(genericBookingService.id, "engagement-close")}
-            >
-              Book a meeting <Arrow />
-            </a>
+            <div className="engagement-close-actions">
+              <a
+                className="button primary"
+                href={bookingPath(genericBookingService.id, "engagement-close")}
+                {...bookingDataAttributes(genericBookingService.id, "engagement-close")}
+              >
+                Book a meeting <Arrow />
+              </a>
+              <a className="button" href={sitePath(engagementDetailsUrl)}>
+                Download details <Arrow />
+              </a>
+            </div>
           </div>
           <article className="specialist-service-entry">
             <div>
@@ -475,9 +509,14 @@ export default function Home() {
                 agent-readiness, governance and enterprise adoption.
               </p>
             </div>
-            <a className="button primary" href={sitePath("/services/odps")}>
-              Explore ODPS services <Arrow />
-            </a>
+            <div className="specialist-service-actions">
+              <a className="button primary" href={sitePath("/services/odps")}>
+                Explore ODPS services <Arrow />
+              </a>
+              <a className="button" href={sitePath(engagementDetailsUrl)}>
+                Download engagement deck <Arrow />
+              </a>
+            </div>
           </article>
         </section>
 
@@ -707,7 +746,7 @@ export default function Home() {
                 href={sitePath("/insights/articles")}
               >
                 <span className="article-date">Archive</span>
-                <span className="article-title">Browse all insights</span>
+                <span className="article-title">Browse all articles</span>
               </a>
             </div>
             <aside className="media-stack" aria-label="Teaching and publishing">
@@ -786,6 +825,10 @@ export default function Home() {
               <a href="https://wa.me/971509718065">
                 <ContactIcon type="whatsapp" />
                 <span>Send a WhatsApp message</span>
+              </a>
+              <a href={sitePath(engagementDetailsUrl)}>
+                <ContactIcon type="document" />
+                <span>Download engagement details</span>
               </a>
             </div>
           </div>

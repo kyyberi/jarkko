@@ -43,6 +43,18 @@
       ]
     },
     {
+      "identifier": "urn:air:jarkkomoilanen.com:resource:services-engagements",
+      "displayName": "Jarkko Moilanen Services and Engagements Deck",
+      "type": "application/pdf",
+      "url": "https://jarkkomoilanen.com/resources/jarkko-moilanen-services-and-engagements.pdf",
+      "representativeQueries": [
+        "download Jarkko Moilanen services and engagements deck",
+        "find details about engaging Jarkko Moilanen for AI products data products ODPS advisory or leadership",
+        "get a PDF explaining Jarkko Moilanen engagement models",
+        "review Jarkko Moilanen offering details before booking a meeting"
+      ]
+    },
+    {
       "identifier": "urn:air:jarkkomoilanen.com:resource:odps-whitepaper",
       "displayName": "ODPS White Paper",
       "type": "application/pdf",
@@ -67,7 +79,7 @@
     },
     {
       "identifier": "urn:air:jarkkomoilanen.com:feed:insights",
-      "displayName": "Jarkko Moilanen Insights RSS Feed",
+      "displayName": "Jarkko Moilanen Articles RSS Feed",
       "type": "application/rss+xml",
       "url": "https://jarkkomoilanen.com/rss.xml",
       "representativeQueries": [

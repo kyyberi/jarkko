@@ -35,6 +35,12 @@ test("server-renders the professional homepage", async () => {
 
   const html = await response.text();
   const css = await readFile(new URL("../app/globals.css", import.meta.url), "utf8");
+  await access(
+    new URL(
+      "../public/resources/jarkko-moilanen-services-and-engagements.pdf",
+      import.meta.url,
+    ),
+  );
   assert.match(
     html,
     /<title>Jarkko Moilanen \| Senior AI &amp; Data Product Leader<\/title>/i,
@@ -69,7 +75,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /"Model Context Protocol"/);
   assert.match(html, /googletagmanager\.com\/gtag\/js\?id=G-KZ5N2GTKF5/);
   assert.match(html, /gtag\('config', 'G-KZ5N2GTKF5'\)/);
-  assert.match(html, /AI product leadership[\s\S]*from strategy[\s\S]*working systems/);
+  assert.match(html, /AI product[\s\S]*leadership[\s\S]*from strategy[\s\S]*working[\s\S]*systems/);
   assert.match(html, /Jarkko Moilanen, PhD/);
   assert.match(html, /aria-label="Open navigation menu"/);
   assert.match(html, /id="mobile-navigation"/);
@@ -103,7 +109,7 @@ test("server-renders the professional homepage", async () => {
     html.indexOf('class="article-list"') <
       html.indexOf('class="media-stack" aria-label="Teaching and publishing"'),
   );
-  assert.match(html, /Browse all insights/);
+  assert.match(html, /Browse all articles/);
   assert.match(
     html,
     /AI Center of Excellence: What I Learned Building AI at Government Scale/,
@@ -151,6 +157,9 @@ test("server-renders the professional homepage", async () => {
   assert.doesNotMatch(html, /AED 35K|AED 65K|AED 90K|AED 25K/);
   assert.match(html, /ODPS Enterprise Services/);
   assert.match(html, /Explore ODPS services/);
+  assert.match(html, /Download engagement details/);
+  assert.match(html, /Download engagement deck/);
+  assert.match(html, /href="\/resources\/jarkko-moilanen-services-and-engagements\.pdf"/);
   assert.match(html, /Work directly with the creator and maintainer of ODPS/);
   assert.match(html, /Open Data Product Specification family/);
   assert.match(html, /5 Masterclasses &amp; Learners across 56 countries/);
@@ -544,7 +553,7 @@ test("server-renders article pages", async () => {
   assert.match(css, /\.article-image-button\s*\{[^}]*width:\s*min\(90%, 100%\)/);
   assert.match(css, /\.article-image-modal\s*\{[^}]*backdrop-filter:\s*blur\(8px\)/);
   assert.doesNotMatch(css, /\.article-figure img\s*\{[^}]*border:\s*2px solid var\(--ink\)/);
-  assert.match(html, /Related insights/);
+  assert.match(html, /Related articles/);
 });
 
 test("server-renders article resource links", async () => {
@@ -567,7 +576,7 @@ test("server-renders article resource links", async () => {
   );
 });
 
-test("server-renders insights index with the editorial portrait hero", async () => {
+test("server-renders articles index with the editorial portrait hero", async () => {
   const [response, css] = await Promise.all([
     render("/insights/articles"),
     readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
@@ -584,11 +593,16 @@ test("server-renders insights index with the editorial portrait hero", async () 
     html,
     socialShareImagePattern,
   );
+  assert.match(html, /Articles/);
   assert.match(html, /Writing from the work itself/);
   assert.match(html, /class="insights-hero-image"/);
   assert.match(html, /\/images\/insights-hero-portrait\.webp/);
   assert.match(html, /alt="Jarkko Moilanen"/);
-  assert.match(html, /Browse insights/);
+  assert.match(html, /Browse articles/);
+  assert.match(html, /Practical writing on AI products, data products, standards/);
+  assert.match(html, /\d+<!-- --> published articles/);
+  assert.match(html, /class="article-card article-archive-card article-archive-card-featured"/);
+  assert.match(html, /class="article-archive-card-media"/);
   assert.match(html, /class="article-index article-archive-list"/);
   assert.match(html, /class="article-card-meta">AI products \/ \d{1,2} [A-Z]{3,4} \d{4}/);
   assert.match(html, /class="article-card-meta">Data products \/ \d{1,2} [A-Z]{3,4} \d{4}/);
@@ -599,7 +613,9 @@ test("server-renders insights index with the editorial portrait hero", async () 
   assert.match(html, /9 Actions We Took to Make Open Data Product Vocabulary AI-Agent-First/);
   assert.match(css, /\.insights-hero-image/);
   assert.match(css, /\.article-archive-list\s*\{[^}]*border-bottom:\s*0;/);
-  assert.match(css, /\.article-archive-card\s*\{[^}]*border:\s*0;/);
+  assert.match(css, /\.article-archive-list\s*\{[^}]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\);/);
+  assert.match(css, /\.article-archive-card-featured\s*\{[^}]*grid-template-columns:\s*minmax\(280px, 0\.64fr\) minmax\(0, 1fr\);/);
+  assert.match(css, /\.article-archive-card\s*\{[^}]*border:\s*1px solid var\(--line\);/);
 });
 
 test("highlights article closing CTAs", async () => {
@@ -637,7 +653,7 @@ test("server-renders article sidebar from article metadata", async () => {
   assert.match(html, /At a glance/);
   assert.match(html, /Unconnected ideas often duplicate data, governance, and delivery work/);
   assert.match(html, /A portfolio view shows which initiatives depend on the same foundations/);
-  assert.match(html, /Related insights/);
+  assert.match(html, /Related articles/);
 });
 
 test("server-renders robots and sitemap discovery routes", async () => {
@@ -721,6 +737,10 @@ test("publishes ODPS white paper in the LLM site guide", async () => {
   assert.doesNotMatch(guide, /calendly\.com/);
   assert.match(
     guide,
+    /Services and Engagements Deck: https:\/\/jarkkomoilanen\.com\/resources\/jarkko-moilanen-services-and-engagements\.pdf/,
+  );
+  assert.match(
+    guide,
     /ODPS White Paper: https:\/\/jarkkomoilanen\.com\/resources\/ODPS_whitepaper_2026_09\.pdf/,
   );
 });
@@ -743,6 +763,16 @@ test("publishes an ARD manifest for agent discovery", async () => {
         entry.identifier === "urn:air:jarkkomoilanen.com:web:booking" &&
         entry.type === "text/html" &&
         entry.url === "https://jarkkomoilanen.com/booking/",
+    ),
+  );
+  assert.ok(
+    catalog.entries.some(
+      (entry) =>
+        entry.identifier ===
+          "urn:air:jarkkomoilanen.com:resource:services-engagements" &&
+        entry.type === "application/pdf" &&
+        entry.url ===
+          "https://jarkkomoilanen.com/resources/jarkko-moilanen-services-and-engagements.pdf",
     ),
   );
   assert.ok(

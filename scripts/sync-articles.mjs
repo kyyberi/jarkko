@@ -8,7 +8,7 @@ const articles = getArticles();
 const rss = `<?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
   <channel>
-    <title>Jarkko Moilanen - Insights</title>
+    <title>Jarkko Moilanen - Articles</title>
     <link>${siteUrl}/</link>
     <description>Writing on data products, AI product portfolios, open standards, governance, and delivery.</description>
     <language>en</language>

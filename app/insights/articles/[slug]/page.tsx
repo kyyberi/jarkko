@@ -263,7 +263,7 @@ export default async function ArticleDetail({ params }: PageProps) {
               <cite>Jarkko Moilanen</cite>
             </blockquote>
             <section className="article-side-related">
-              <h2>Related insights</h2>
+              <h2>Related articles</h2>
               {related.slice(0, 2).map((relatedArticle) => (
                 <a
                   href={sitePath(`/insights/articles/${relatedArticle.slug}`)}
