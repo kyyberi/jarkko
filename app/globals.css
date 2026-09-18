@@ -849,18 +849,35 @@ h1 {
 }
 
 .engage-hero {
-  padding: clamp(58px, 8vw, 104px) var(--pad) clamp(40px, 5vw, 70px);
-  border-bottom: 1px solid var(--line);
+  min-height: 600px;
+}
+
+.engage-hero-copy {
+  min-height: 600px;
+  width: min(58%, 760px);
+}
+
+.engage-hero-title {
+  max-width: 680px;
+  font-size: clamp(56px, 6.7vw, 98px);
+}
+
+.engage-hero .hero-lede {
+  max-width: 610px;
+}
+
+.engage-hero-portrait {
+  width: 50%;
+  min-height: 600px;
   background: var(--white);
 }
 
-.engage-hero h1 {
-  max-width: 980px;
-  margin: 22px 0 18px;
-  font-size: clamp(58px, 8.8vw, 124px);
+.engage-hero-portrait > img {
+  object-fit: contain;
+  object-position: 58% bottom;
+  padding: clamp(24px, 3.5vw, 50px) clamp(20px, 3vw, 44px) 0 0;
 }
 
-.engage-hero p,
 .engage-section-head p {
   max-width: 820px;
   margin: 0;
@@ -5031,18 +5048,27 @@ summary.booking-option-group-label::-webkit-details-marker {
   }
 
   .engage-hero {
-    padding-block: 42px 34px;
+    min-height: 0;
   }
 
-  .engage-hero h1,
+  .engage-hero-title,
   .engage-section-head h2 {
     font-size: clamp(44px, 13vw, 66px);
     letter-spacing: -0.045em;
   }
 
-  .engage-hero p,
+  .engage-hero .hero-lede,
   .engage-section-head p {
     font-size: 17px;
+  }
+
+  .engage-hero-portrait {
+    min-height: 360px;
+  }
+
+  .engage-hero-portrait > img {
+    object-position: center bottom;
+    padding: 24px 10px 0;
   }
 
   .engage-stage-section {

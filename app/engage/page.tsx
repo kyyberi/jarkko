@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { Arrow, PageShell, sitePath } from "../site";
+import { Arrow, PageShell, publicAssetPath, sitePath } from "../site";
 import { bookingContextFor, bookingPath, genericBookingService } from "../booking/services";
 import { canonicalPath } from "../seo";
 
@@ -125,24 +125,42 @@ function BookingCta({
 export default function EngagePage() {
   return (
     <PageShell>
-      <section className="engage-hero">
-        <div className="eyebrow">The engagement model</div>
-        <h1>
-          Start small.
-          <br />
-          <span className="accent">Progress as needed.</span>
-        </h1>
-        <p>
-          Begin with the smallest engagement that creates value. Progress to the
-          next step only when it makes sense.
-        </p>
-        <div className="hero-actions">
-          <BookingCta sourceCTA="engage-hero-primary">
-            Start with a small engagement
-          </BookingCta>
-          <a className="button" href="#engagement-options">
-            Explore engagement options <Arrow />
-          </a>
+      <section className="hero engage-hero">
+        <div className="hero-copy engage-hero-copy">
+          <div>
+            <div className="eyebrow">The engagement model</div>
+            <h1 className="hero-title engage-hero-title">
+              Start small.
+              <br />
+              <span className="accent">Progress as needed.</span>
+            </h1>
+            <p className="hero-lede">
+              Begin with the smallest engagement that creates value. Progress
+              to the next step only when it makes sense.
+            </p>
+            <div className="hero-actions">
+              <BookingCta sourceCTA="engage-hero-primary">
+                Start with a small engagement
+              </BookingCta>
+              <a className="button" href="#engagement-options">
+                Explore engagement options <Arrow />
+              </a>
+            </div>
+          </div>
+          <div className="availability">
+            <span className="dot" />
+            <span>
+              Each step is useful on its own. Continue only when the next step is
+              worth taking.
+            </span>
+          </div>
+        </div>
+
+        <div className="hero-portrait engage-hero-portrait">
+          <img
+            src={publicAssetPath("/images/jarkko-engage-hero-portrait.webp")}
+            alt="Portrait of Jarkko Moilanen"
+          />
         </div>
       </section>
 
