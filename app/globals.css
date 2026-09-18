@@ -854,12 +854,14 @@ h1 {
 
 .engage-hero-copy {
   min-height: 600px;
-  width: min(58%, 760px);
+  width: min(60%, 820px);
 }
 
 .engage-hero-title {
-  max-width: 680px;
-  font-size: clamp(56px, 6.7vw, 98px);
+  max-width: 720px;
+  font-size: clamp(52px, 5.9vw, 86px);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
 }
 
 .engage-hero .hero-lede {
