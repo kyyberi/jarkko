@@ -1143,8 +1143,8 @@ h1 {
 .booking-modal-avatar {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
+  width: 74px;
+  height: 74px;
   margin-bottom: 18px;
   border: 1px solid var(--line);
   border-radius: 50%;
@@ -1222,6 +1222,7 @@ h1 {
 }
 
 .booking-modal-intake .booking-modal-main {
+  display: block;
   overflow: auto;
 }
 
@@ -1447,7 +1448,7 @@ h1 {
 
 .booking-option-group.secondary {
   gap: 0;
-  padding-top: 18px;
+  padding-top: 4px;
 }
 
 .booking-option-group-label {
@@ -1460,6 +1461,43 @@ h1 {
   font-size: 11px;
   font-weight: 900;
   letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+summary.booking-option-group-label {
+  cursor: pointer;
+  list-style: none;
+}
+
+summary.booking-option-group-label::-webkit-details-marker {
+  display: none;
+}
+
+.booking-option-group.secondary .booking-option-group-label {
+  grid-template-columns: minmax(0, 1fr) auto auto minmax(0, 1fr);
+  margin: 2px 0 0;
+  padding: 6px 0;
+}
+
+.booking-option-group.secondary .booking-option-group-label::after {
+  content: "";
+}
+
+.booking-option-group.secondary .booking-option-group-label span::after {
+  content: "+";
+  margin-left: 10px;
+  color: var(--accent);
+  font-size: 14px;
+}
+
+.booking-option-group.secondary[open] .booking-option-group-label span::after {
+  content: "-";
+}
+
+.booking-option-group-label small {
+  color: var(--muted);
+  font: inherit;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -1480,17 +1518,17 @@ h1 {
 }
 
 .booking-option-list.secondary {
-  padding-top: 2px;
+  padding-top: 6px;
 }
 
 .booking-option-choice {
   display: grid;
-  grid-template-columns: 22px 44px minmax(0, 1fr);
+  grid-template-columns: 22px minmax(0, 1fr);
   gap: 16px;
   align-items: center;
   width: 100%;
-  min-height: 72px;
-  padding: 14px 18px;
+  min-height: 70px;
+  padding: 13px 18px;
   border: 1px solid var(--line);
   border-radius: 0;
   background: var(--white);
@@ -1511,14 +1549,6 @@ h1 {
 .booking-option-group.secondary .booking-option-choice:focus-visible,
 .booking-option-group.secondary .booking-option-choice.selected {
   background: color-mix(in srgb, var(--accent) 5%, transparent);
-}
-
-.booking-option-group.secondary .booking-choice-icon {
-  display: none;
-}
-
-.booking-option-group.secondary .booking-option-choice {
-  grid-template-columns: 22px minmax(0, 1fr);
 }
 
 .booking-option-choice:hover,
@@ -1542,19 +1572,6 @@ h1 {
 
 .booking-option-choice.selected .booking-choice-dot {
   border: 5px solid var(--accent);
-}
-
-.booking-choice-icon {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--line);
-  border-radius: 0;
-  color: var(--ink);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.06em;
 }
 
 .booking-option-choice strong {
@@ -4766,7 +4783,7 @@ h1 {
 
   .booking-modal-summary {
     gap: 16px;
-    padding: calc(18px + env(safe-area-inset-top)) 18px 18px;
+    padding: calc(14px + env(safe-area-inset-top)) 18px 14px;
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
@@ -4781,11 +4798,16 @@ h1 {
   }
 
   .booking-modal-summary h2 {
-    font-size: clamp(28px, 9vw, 44px);
+    margin-bottom: 0;
+    font-size: clamp(28px, 8vw, 38px);
+  }
+
+  .booking-modal-summary p {
+    display: none;
   }
 
   .booking-modal-facts {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 10px 14px;
     padding-bottom: 0;
     border-bottom: 0;
@@ -4797,7 +4819,7 @@ h1 {
   }
 
   .booking-modal-main {
-    min-height: calc(100dvh - 250px);
+    min-height: calc(100dvh - 178px);
     padding: 18px;
     overflow: visible;
   }
@@ -4857,15 +4879,29 @@ h1 {
   .booking-option-choice {
     grid-template-columns: 20px minmax(0, 1fr);
     min-height: 0;
-    padding: 14px;
+    padding: 11px 12px;
   }
 
-  .booking-choice-icon {
-    display: none;
+  .booking-option-list,
+  .booking-option-group {
+    gap: 10px;
+  }
+
+  .booking-option-choice strong {
+    margin-bottom: 2px;
+  }
+
+  .booking-option-choice small {
+    font-size: 12px;
+    line-height: 1.25;
   }
 
   .booking-intake-actions {
     display: grid;
+  }
+
+  .booking-modal .booking-intake-actions {
+    padding-top: 8px;
   }
 
   .booking-intake-actions .button {

@@ -346,16 +346,6 @@ function groupedOptionsFor(service: ServiceBookingConfig, options: string[]) {
   ].filter((group) => group.options.length > 0);
 }
 
-function optionCodeFor(option: string) {
-  return option
-    .split(/\s+/)
-    .map((word) => word.replace(/[^a-zA-Z0-9]/g, ""))
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((word) => word[0]?.toUpperCase())
-    .join("");
-}
-
 export function BookingFlow({
   hideIntakeAfterComplete = false,
   onStepChange,
@@ -457,46 +447,66 @@ export function BookingFlow({
                 className="booking-option-list"
                 role="radiogroup"
               >
-                {optionGroups.map((group) => (
-                  <div
-                    className={`booking-option-group${
-                      group.label === "Other topics" ? " secondary" : ""
-                    }`}
-                    key={group.label || "options"}
-                  >
-                    {group.label ? (
-                      <div className="booking-option-group-label">
-                        <span>{group.label}</span>
-                      </div>
-                    ) : null}
-                    {group.options.map((option) => (
-                      <button
-                        aria-checked={visitorIntent === option}
-                        className={`booking-option-choice${
-                          visitorIntent === option ? " selected" : ""
-                        }`}
-                        key={option}
-                        onClick={() => {
-                          setVisitorIntent(option);
-                          setQualification("");
-                          setHasCompletedIntake(false);
-                          setHasCompletedBooking(false);
-                        }}
-                        role="radio"
-                        type="button"
+                {optionGroups.map((group) => {
+                  const isSecondary = group.label === "Other topics";
+                  const hasSelectedSecondaryOption =
+                    isSecondary && group.options.includes(visitorIntent);
+                  const optionButtons = group.options.map((option) => (
+                    <button
+                      aria-checked={visitorIntent === option}
+                      className={`booking-option-choice${
+                        visitorIntent === option ? " selected" : ""
+                      }`}
+                      key={option}
+                      onClick={() => {
+                        setVisitorIntent(option);
+                        setQualification("");
+                        setHasCompletedIntake(false);
+                        setHasCompletedBooking(false);
+                      }}
+                      role="radio"
+                      type="button"
+                    >
+                      <span className="booking-choice-dot" aria-hidden="true" />
+                      <span>
+                        <strong>{option}</strong>
+                        <small>{optionDescriptionFor(option)}</small>
+                      </span>
+                    </button>
+                  ));
+
+                  if (isSecondary) {
+                    return (
+                      <details
+                        className="booking-option-group secondary"
+                        key={group.label}
+                        open={hasSelectedSecondaryOption || undefined}
                       >
-                        <span className="booking-choice-dot" aria-hidden="true" />
-                        <span className="booking-choice-icon" aria-hidden="true">
-                          {optionCodeFor(option)}
-                        </span>
-                        <span>
-                          <strong>{option}</strong>
-                          <small>{optionDescriptionFor(option)}</small>
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                ))}
+                        <summary className="booking-option-group-label">
+                          <span>{group.label}</span>
+                          <small>{group.options.length} more</small>
+                        </summary>
+                        <div className="booking-option-list secondary">
+                          {optionButtons}
+                        </div>
+                      </details>
+                    );
+                  }
+
+                  return (
+                    <div
+                      className="booking-option-group"
+                      key={group.label || "options"}
+                    >
+                      {group.label ? (
+                        <div className="booking-option-group-label">
+                          <span>{group.label}</span>
+                        </div>
+                      ) : null}
+                      {optionButtons}
+                    </div>
+                  );
+                })}
               </div>
 
               {needsQualification ? (
@@ -517,9 +527,6 @@ export function BookingFlow({
                       type="button"
                     >
                       <span className="booking-choice-dot" aria-hidden="true" />
-                      <span className="booking-choice-icon" aria-hidden="true">
-                        {optionCodeFor(option)}
-                      </span>
                       <span>
                         <strong>{option}</strong>
                         <small>{optionDescriptionFor(option)}</small>
