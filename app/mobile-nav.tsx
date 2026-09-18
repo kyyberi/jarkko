@@ -11,7 +11,7 @@ function sitePath(path: string) {
 const links = [
   { href: "/#work", label: "Work" },
   { href: "/engage", label: "Engage" },
-  { href: "/#engagements", label: "AI Products" },
+  { href: "/services/ai-products", label: "AI Products" },
   { href: "/services/odps", label: "Data Products" },
   { href: "/articles", label: "Articles" },
   { href: "/insights", label: "Insights" },

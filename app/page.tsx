@@ -7,126 +7,37 @@ import {
   workItems,
 } from "./site";
 import { getArticles } from "./article-data";
-import { bookingContextFor, bookingPath, consultingServices, genericBookingService } from "./booking/services";
+import { bookingContextFor, bookingPath, genericBookingService } from "./booking/services";
 
 const engagementDetailsUrl = "/resources/jarkko-moilanen-services-and-engagements.pdf";
 
-const engagementOptions = [
+const focusAreas = [
   {
-    serviceId: "ai-portfolio-review",
-    title: "AI Portfolio Review",
-    engagement: "2-week review",
-    pricingLabel: "Typical investment",
-    price: "$10K–$15K",
-    question: "Too many AI ideas, pilots and competing priorities?",
+    label: "AI Products",
+    title: "AI product leadership and delivery",
     text:
-      "I help executives decide which AI initiatives deserve investment, which need stronger ownership, and which should stop before they absorb more attention.",
-    outcomes: [
-      "A prioritised portfolio",
-      "Scale, stop, merge and fix recommendations",
-      "Ownership and KPI gaps",
-      "Executive decision brief",
-      "90-day action plan",
-    ],
-    bestFor:
-      "Organisations that need to decide where to invest next.",
-    scopeNote:
-      "Typical scope assumes one organisation or major business unit, up to around 15 initiatives and a defined group of stakeholders.",
+      "Portfolio decisions, agent architecture, AI Center of Excellence design, operating models and fractional product leadership for teams moving beyond pilots.",
+    href: "/services/ai-products",
+    cta: "Explore AI Product Services",
+    image: "/images/jarkko-engagement-portrait.webp",
+    imageAlt: "Jarkko Moilanen",
   },
   {
-    serviceId: "agentic-ai-architecture-sprint",
-    title: "Agentic AI Architecture Sprint",
-    engagement: "3 to 4-week sprint",
-    pricingLabel: "Typical investment",
-    price: "$18K–$25K",
-    question:
-      "You know where AI agents might help, but the architecture and implementation path remain unclear.",
+    label: "Data Products",
+    title: "Data product standards and ODPS",
     text:
-      "I work with business and technical teams to decide how agents should use models, tools, MCP, APIs, enterprise data and knowledge graphs without creating another fragile pilot.",
-    outcomes: [
-      "Target architecture",
-      "Agent and tool boundaries",
-      "Data and knowledge design",
-      "Governance approach",
-      "Implementation backlog",
-      "Prototype direction",
-    ],
-    bestFor:
-      "Teams moving beyond chatbot experiments into operational AI agents.",
-    scopeNote:
-      "Typical scope covers a defined business domain and two to three target workflows. Production implementation is scoped separately.",
-  },
-  {
-    serviceId: "ai-product-operating-model",
-    title: "AI Product Operating Model",
-    engagement: "4 to 6-week engagement",
-    pricingLabel: "Typical investment",
-    price: "Priced by scope",
-    question:
-      "AI initiatives are growing, but ownership, prioritisation, governance and delivery do not scale.",
-    text:
-      <>
-        I design or strengthen your{" "}
-        <a
-          className="text-link"
-          href={sitePath(
-            "/articles/ai-center-of-excellence-government-scale/",
-          )}
-        >
-          AI Center of Excellence
-        </a>{" "}
-        and the operating model around it. The work turns AI ambition into
-        decision rights, portfolio rules, delivery paths and value measures
-        teams can actually run.
-      </>,
-    outcomes: [
-      "AI CoE mandate and scope",
-      "Roles and decision rights",
-      "AI opportunity intake and prioritisation",
-      "Product lifecycle",
-      "Portfolio governance",
-      "Delivery model",
-      "KPI and value model",
-      "Operating cadence",
-      "90-day implementation plan",
-    ],
-    bestFor:
-      "Organisations moving from scattered AI initiatives and pilots toward a managed enterprise AI capability.",
-    scopeNote:
-      "Typical scope covers a medium-to-large organisation or a defined set of business functions. Group-wide or multi-entity transformation is scoped separately.",
-  },
-  {
-    serviceId: "fractional-ai-product-leadership",
-    title: "Fractional AI Product Leadership",
-    engagement: "1 to 3 days per week",
-    pricingLabel: "From",
-    price: "$8K/month",
-    question:
-      "You need senior AI product leadership now, without starting a long executive hiring process.",
-    text:
-      "I work directly with executives, product owners, architects and engineering teams on the decisions that connect strategy, architecture and delivery.",
-    outcomes: [
-      "Set portfolio direction",
-      "Prioritise investment",
-      "Shape AI products",
-      "Review architecture",
-      "Fix ownership and delivery gaps",
-      "Move priority products toward adoption",
-    ],
-    outcomeLabel: "Typical scope",
-    bestFor:
-      "Transformation programmes that need senior leadership connected directly to delivery.",
-    scopeNote: "Monthly fee depends on the agreed commitment level.",
+      "ODPS assessment, adoption, implementation, agent-ready data product architecture and advisory for organizations building governed product foundations.",
+    href: "/services/odps",
+    cta: "Explore Data Product Services",
+    image: "/images/odps-services-hero.webp",
+    imageAlt: "Jarkko Moilanen with data product interface elements",
   },
 ];
 
-function bookingDataAttributes(serviceId: string, sourceCTA: string) {
-  const service =
-    consultingServices.find((option) => option.id === serviceId) ??
-    genericBookingService;
-  const context = bookingContextFor(service, sourceCTA);
+function bookingDataAttributes(sourceCTA: string) {
+  const context = bookingContextFor(genericBookingService, sourceCTA);
 
-  return {
+  const attributes: Record<string, string> = {
     "data-booking-cta": "true",
     "data-booking-service": context.service,
     "data-booking-category": context.serviceCategory,
@@ -135,8 +46,13 @@ function bookingDataAttributes(serviceId: string, sourceCTA: string) {
     "data-booking-source-cta": context.sourceCTA,
     "data-booking-engagement-type": context.engagementType,
     "data-booking-duration": String(context.duration),
-    "data-booking-indicative-value": context.indicativeValue,
   };
+
+  if (context.indicativeValue) {
+    attributes["data-booking-indicative-value"] = context.indicativeValue;
+  }
+
+  return attributes;
 }
 
 const testimonials = [
@@ -323,7 +239,7 @@ export default function Home() {
                 agents, MCP, APIs, knowledge graphs and data products.
               </p>
               <div className="hero-actions">
-                <a className="button primary" href="#engagements">
+                <a className="button primary" href={sitePath("/services/ai-products")}>
                   Work with me <Arrow />
                 </a>
                 <a className="button" href="#work">
@@ -382,142 +298,40 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section engagement-section" id="engagements">
-          <div className="section-head engagement-head">
+        <section className="section focus-areas-section" id="engagements">
+          <div className="section-head focus-areas-head">
             <div className="section-kicker">Ways to work with me</div>
             <div>
-              <h2 className="section-title">Lead + Build</h2>
+              <h2 className="section-title">Two focus areas. Two named service paths.</h2>
               <p className="engagement-intro">
-                I work with organisations that need more than generic AI
-                advice: portfolio choices, architecture decisions, operating
-                models, and direct challenge from someone who has built these
-                systems in enterprise and government settings.
-              </p>
-            </div>
-            <figure className="engagement-billing">
-              <img
-                src={publicAssetPath("/images/hero-skyline.webp")}
-                alt="Abu Dhabi skyline, representing UAE-based engagement billing"
-              />
-              <figcaption>
-                <span>UAE company exists for billing</span>
-                <strong>Data Maestro Academy FZE LLC</strong>
-              </figcaption>
-            </figure>
-          </div>
-          <div className="engagement-signal" aria-label="Engagement focus">
-            <div>
-              <span>Lead</span>
-              <p>
-                Executive decision support, AI strategy, AI Center of
-                Excellence setup, product portfolio management, investment
-                prioritisation, and operating models.
-              </p>
-            </div>
-            <div>
-              <span>Build</span>
-              <p>
-                Agent architecture, agent harnesses, MCP, APIs and SDKs,
-                knowledge graphs, governed data product context, and hands-on
-                prototyping.
+                Choose the path that matches the problem: AI product decisions
+                and delivery, or data product standards and ODPS foundations.
               </p>
             </div>
           </div>
-          <div className="engagement-grid">
-            {engagementOptions.map((option, index) => (
-              <article className="engagement-card" key={option.title}>
-                <div className="engagement-heading">
-                  <span className="engagement-number">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h3>{option.title}</h3>
-                </div>
-                <span className="engagement-label">{option.engagement}</span>
-                <p className="engagement-question">{option.question}</p>
-                <p>{option.text}</p>
-                <div className="engagement-outcomes">
-                  <span>{option.outcomeLabel ?? "You leave with"}</span>
-                  <ul>
-                    {option.outcomes.map((outcome) => (
-                      <li key={outcome}>{outcome}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="engagement-best">
-                  <span>Best for</span>
-                  <p>{option.bestFor}</p>
-                </div>
-                <div className="engagement-price">
-                  <span>{option.pricingLabel}</span>
-                  <strong>{option.price}</strong>
-                </div>
-                <p className="engagement-scope-note">{option.scopeNote}</p>
-                <div className="engagement-action">
-                  <a
-                    className="button primary"
-                    href={bookingPath(option.serviceId, `${option.serviceId}-card`)}
-                    {...bookingDataAttributes(option.serviceId, `${option.serviceId}-card`)}
-                  >
-                    Book a 30-minute call <Arrow />
+          <div className="focus-area-grid">
+            {focusAreas.map((area) => (
+              <article className="focus-area-card" key={area.label}>
+                <figure>
+                  <img src={publicAssetPath(area.image)} alt={area.imageAlt} />
+                </figure>
+                <div className="focus-area-copy">
+                  <div className="section-kicker">{area.label}</div>
+                  <h3>{area.title}</h3>
+                  <p>{area.text}</p>
+                  <a className="button primary" href={sitePath(area.href)}>
+                    {area.cta} <Arrow />
                   </a>
                 </div>
               </article>
             ))}
           </div>
           <p className="engagement-disclaimer">
-            Typical investment ranges are indicative. Final scope and fee are
-            agreed before kickoff and depend on organisation size, stakeholder
-            count, systems involved, regulatory requirements and onsite needs.
-            Production implementation, third-party costs and specialist
-            services are quoted separately. Prices exclude 5% UAE VAT where
-            applicable.
+            Some programs involve both. An AI portfolio or agent architecture
+            engagement can expose the need for stronger data product
+            foundations. An ODPS engagement can expand into a wider AI product
+            operating model.
           </p>
-          <div className="engagement-close">
-            <figure className="engagement-close-media">
-              <img
-                src={publicAssetPath("/images/jarkko-engagement-portrait.webp")}
-                alt="Jarkko Moilanen"
-              />
-            </figure>
-            <div>
-              <h3>Not sure which engagement fits?</h3>
-              <p>
-                Send me the problem you are facing. I will tell you where I
-                think I add value and where I do not.
-              </p>
-            </div>
-            <div className="engagement-close-actions">
-              <a
-                className="button primary"
-                href={bookingPath(genericBookingService.id, "engagement-close")}
-                {...bookingDataAttributes(genericBookingService.id, "engagement-close")}
-              >
-                Book a meeting <Arrow />
-              </a>
-              <a className="button" href={sitePath(engagementDetailsUrl)}>
-                Download details <Arrow />
-              </a>
-            </div>
-          </div>
-          <article className="specialist-service-entry">
-            <div>
-              <div className="section-kicker">Open Data Product Standards</div>
-              <h3>ODPS Enterprise Services</h3>
-              <p>
-                Work directly with the creator and maintainer of ODPS on
-                evaluation, architecture fit, implementation review,
-                agent-readiness, governance and enterprise adoption.
-              </p>
-            </div>
-            <div className="specialist-service-actions">
-              <a className="button primary" href={sitePath("/services/odps")}>
-                Explore ODPS services <Arrow />
-              </a>
-              <a className="button" href={sitePath(engagementDetailsUrl)}>
-                Download engagement deck <Arrow />
-              </a>
-            </div>
-          </article>
         </section>
 
         <section
@@ -809,7 +623,7 @@ export default function Home() {
             <div className="cta-channels" aria-label="Contact channels">
               <a
                 href={bookingPath(genericBookingService.id, "contact-channel")}
-                {...bookingDataAttributes(genericBookingService.id, "contact-channel")}
+                {...bookingDataAttributes("contact-channel")}
               >
                 <ContactIcon type="calendar" />
                 <span>Book a meeting</span>

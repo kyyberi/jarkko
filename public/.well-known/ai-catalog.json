@@ -7,9 +7,21 @@
   "entries": [
     {
       "identifier": "urn:air:jarkkomoilanen.com:web:offerings",
-      "displayName": "Jarkko Moilanen AI and Data Product Advisory Offerings",
+      "displayName": "Jarkko Moilanen Homepage",
       "type": "text/html",
       "url": "https://jarkkomoilanen.com/",
+      "representativeQueries": [
+        "find the two main focus areas for Jarkko Moilanen services",
+        "choose between AI product services and data product services",
+        "find Jarkko Moilanen homepage work articles insights and contact paths",
+        "learn how Jarkko Moilanen connects AI products data products and ODPS"
+      ]
+    },
+    {
+      "identifier": "urn:air:jarkkomoilanen.com:web:ai-product-services",
+      "displayName": "AI Product Services",
+      "type": "text/html",
+      "url": "https://jarkkomoilanen.com/services/ai-products/",
       "representativeQueries": [
         "find senior AI product leadership for deciding which AI initiatives deserve investment",
         "book a meeting with Jarkko Moilanen about AI strategy agentic AI architecture or operating models",

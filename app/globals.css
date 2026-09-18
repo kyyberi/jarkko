@@ -843,6 +843,86 @@ h1 {
   align-items: center;
 }
 
+.focus-areas-section {
+  scroll-margin-top: 78px;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.42);
+}
+
+.focus-areas-head {
+  grid-template-columns: 260px minmax(0, 1fr);
+  margin-bottom: 34px;
+}
+
+.focus-area-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  background: var(--white);
+}
+
+.focus-area-card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-width: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.48);
+}
+
+.focus-area-card figure {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: #d7d0c5;
+}
+
+.focus-area-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 8.8;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+
+.focus-area-card:first-child img {
+  object-position: 50% 24%;
+}
+
+.focus-area-copy {
+  display: flex;
+  min-height: 360px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(24px, 3vw, 38px);
+}
+
+.focus-area-copy h3 {
+  max-width: 680px;
+  margin: 12px 0 18px;
+  font-family: var(--display);
+  font-size: clamp(38px, 4.8vw, 66px);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+}
+
+.focus-area-copy p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: clamp(19px, 1.7vw, 24px);
+  line-height: 1.34;
+}
+
+.focus-area-copy .button {
+  margin-top: auto;
+}
+
 .booking-page {
   background: var(--white);
   border-bottom: 1px solid var(--line);
@@ -1959,6 +2039,10 @@ summary.booking-option-group-label::-webkit-details-marker {
 
 .odps-service-hero .service-hero-image img {
   object-position: 18% 38%;
+}
+
+.ai-product-service-hero .service-hero-image img {
+  object-position: 50% 28%;
 }
 
 .odps-proof-matrix {
@@ -4656,6 +4740,19 @@ summary.booking-option-group-label::-webkit-details-marker {
     grid-template-columns: 1fr;
   }
 
+  .focus-areas-head,
+  .focus-area-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .focus-area-copy {
+    min-height: 0;
+  }
+
+  .focus-area-copy .button {
+    margin-top: 28px;
+  }
+
   .engagement-card {
     min-height: 0;
   }
@@ -5165,6 +5262,26 @@ summary.booking-option-group-label::-webkit-details-marker {
 
   .engagement-card {
     padding: 24px 20px 26px;
+  }
+
+  .focus-areas-section {
+    padding-top: 48px;
+  }
+
+  .focus-area-card img {
+    aspect-ratio: 16 / 10.8;
+  }
+
+  .focus-area-copy {
+    padding: 24px 20px;
+  }
+
+  .focus-area-copy h3 {
+    font-size: clamp(36px, 12vw, 54px);
+  }
+
+  .focus-area-copy p {
+    font-size: 18px;
   }
 
   .engage-hero {

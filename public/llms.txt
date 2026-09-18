@@ -18,6 +18,7 @@ Alternative contact: email work@jarkkomoilanen.com.
 
 ## Main offerings
 
+- AI Product Services: https://jarkkomoilanen.com/services/ai-products/. Includes AI Portfolio Review, Agentic AI Architecture Sprint, AI Product Operating Model, and Fractional AI Product Leadership.
 - AI Portfolio Review: a 2-week review for organizations with too many AI ideas, pilots, and competing priorities. Typical investment: $10K-$15K. Outcome: prioritized portfolio, scale/stop/merge/fix recommendations, ownership and KPI gaps, executive decision brief, and 90-day action plan.
 - Agentic AI Architecture Sprint: a 3 to 4-week sprint for teams moving beyond chatbot experiments into operational AI agents. Typical investment: $18K-$25K. Outcome: target architecture, agent and tool boundaries, data and knowledge design, governance approach, implementation backlog, and prototype direction.
 - AI Product Operating Model: a 4 to 6-week engagement for organizations moving from scattered AI initiatives toward a managed enterprise AI capability. Priced by scope. Outcome: AI CoE mandate, decision rights, opportunity intake, portfolio governance, KPI/value model, operating cadence, and 90-day implementation plan.
@@ -50,7 +51,8 @@ ODPS remains an open standard maintained under LF AI & Data. Commercial consulti
 
 ## Important pages
 
-- Homepage and offerings: https://jarkkomoilanen.com/
+- Homepage: https://jarkkomoilanen.com/
+- AI Product Services: https://jarkkomoilanen.com/services/ai-products/
 - ODPS Enterprise Services: https://jarkkomoilanen.com/services/odps/
 - Services and Engagements Deck: https://jarkkomoilanen.com/resources/jarkko-moilanen-services-and-engagements.pdf
 - Insights research library: https://jarkkomoilanen.com/insights/

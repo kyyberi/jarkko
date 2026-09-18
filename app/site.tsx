@@ -311,7 +311,7 @@ export function Header() {
       <nav className="nav" aria-label="Primary">
         <a href={sitePath("/#work")}>Work</a>
         <a href={sitePath("/engage")}>Engage</a>
-        <a href={sitePath("/#engagements")}>AI Products</a>
+        <a href={sitePath("/services/ai-products")}>AI Products</a>
         <a href={sitePath("/services/odps")}>Data Products</a>
         <a href={sitePath("/articles")}>Articles</a>
         <a href={sitePath("/insights")}>Insights</a>
@@ -356,6 +356,7 @@ export function Footer() {
         <h2>Explore</h2>
         <a href={sitePath("/#work")}>Selected work</a>
         <a href={sitePath("/engage")}>Engagement model</a>
+        <a href={sitePath("/services/ai-products")}>AI Product Services</a>
         <a href={sitePath("/services/odps")}>ODPS Enterprise Services</a>
         <a href={sitePath("/articles")}>Articles</a>
         <a href={sitePath("/insights")}>Insights</a>

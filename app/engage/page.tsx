@@ -270,7 +270,7 @@ export default function EngagePage() {
           </a>
         </div>
         <div className="engage-service-links" aria-label="Related service paths">
-          <a className="text-link" href={sitePath("/#engagements")}>
+          <a className="text-link" href={sitePath("/services/ai-products")}>
             AI product engagements <Arrow />
           </a>
           <a className="text-link" href={sitePath("/services/odps")}>

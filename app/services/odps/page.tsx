@@ -451,7 +451,7 @@ export default function OdpsServicesPage() {
             </p>
             <p>
               For wider AI portfolio, operating model and agent architecture
-              needs, use the existing AI consulting engagements.
+              needs, use the AI Product Services page.
             </p>
             <p>
               Some programs involve both. An AI portfolio or agent architecture
@@ -459,8 +459,8 @@ export default function OdpsServicesPage() {
               foundations. An ODPS engagement can expand into a wider AI
               product operating model.
             </p>
-            <a className="text-link" href={sitePath("/#engagements")}>
-              Explore the general AI consulting engagements <Arrow />
+            <a className="text-link" href={sitePath("/services/ai-products")}>
+              Explore AI Product Services <Arrow />
             </a>
           </div>
         </div>

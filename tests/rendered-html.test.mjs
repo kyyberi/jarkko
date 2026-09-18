@@ -81,7 +81,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /aria-label="Open navigation menu"/);
   assert.match(html, /id="mobile-navigation"/);
   assert.match(html, /aria-label="Mobile primary"/);
-  assert.match(html, /href="\/#engagements"[\s\S]*AI Products/);
+  assert.match(html, /href="\/services\/ai-products"[\s\S]*AI Products/);
   assert.match(html, /href="\/services\/odps"[\s\S]*Data Products/);
   assert.match(html, /href="\/articles"/);
   assert.match(html, /href="\/insights"/);
@@ -138,32 +138,17 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /United Arab Emirates/);
   assert.match(html, /decide what to build,[\s\S]*move from AI pilots to working products/);
   assert.match(html, /executive judgment,[\s\S]*first-hand implementation experience/);
-  assert.match(html, /AI Center of Excellence setup/);
-  assert.match(html, /AI Product Operating Model/);
-  assert.match(html, /AI initiatives are growing, but ownership, prioritisation, governance and delivery do not scale/);
-  assert.match(html, /I design or strengthen your[\s\S]*AI Center of Excellence/);
-  assert.match(html, /decision rights,[\s\S]*portfolio rules,[\s\S]*delivery paths/);
-  assert.match(
-    html,
-    /href="\/articles\/ai-center-of-excellence-government-scale\/"[\s\S]*AI Center of Excellence/,
-  );
-  assert.match(html, /AI CoE mandate and scope/);
-  assert.match(html, /AI opportunity intake and prioritisation/);
-  assert.match(html, /KPI and value model/);
-  assert.match(html, /90-day implementation plan/);
-  assert.match(html, /managed enterprise AI capability/);
-  assert.match(html, /\$10K–\$15K/);
-  assert.match(html, /\$18K–\$25K/);
-  assert.match(html, /Priced by scope/);
-  assert.match(html, /From[\s\S]*\$8K\/month/);
+  assert.match(html, /Two focus areas\. Two named service paths\./);
+  assert.match(html, /AI product leadership and delivery/);
+  assert.match(html, /Portfolio decisions, agent architecture, AI Center of Excellence design/);
+  assert.match(html, /Explore AI Product Services/);
+  assert.match(html, /href="\/services\/ai-products"/);
+  assert.match(html, /Data product standards and ODPS/);
+  assert.match(html, /ODPS assessment, adoption, implementation/);
+  assert.match(html, /Explore Data Product Services/);
   assert.doesNotMatch(html, /AED 35K|AED 65K|AED 90K|AED 25K/);
-  assert.match(html, /ODPS Enterprise Services/);
-  assert.match(html, /Explore ODPS services/);
   assert.match(html, /Download engagement details/);
-  assert.match(html, /Download engagement deck/);
   assert.match(html, /href="\/resources\/jarkko-moilanen-services-and-engagements\.pdf"/);
-  assert.match(html, /Work directly with the creator and maintainer of ODPS/);
-  assert.match(html, /Open Data Product Specification family/);
   assert.match(html, /5 Masterclasses &amp; Learners across 56 countries/);
   assert.match(html, /Five Udemy courses covering data product foundations/);
   assert.match(html, /5 courses · Ratings from 4\.44 to 4\.74/);
@@ -182,8 +167,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /https:\/\/us\.amazon\.com\/stores\/Jarkko-Moilanen\/author\/B0B66HTHLM/);
   assert.match(html, /\/images\/logo-amazon\.webp/);
   assert.doesNotMatch(html, /calendly\.com\/work-jarkkomoilanen\/30min/);
-  assert.equal((html.match(/data-booking-cta="true"/g) ?? []).length, 6);
-  assert.match(html, /href="\/booking\/ai-portfolio-review\?sourceCTA=ai-portfolio-review-card"/);
+  assert.equal((html.match(/data-booking-cta="true"/g) ?? []).length, 1);
   assert.match(html, /href="\/booking\/general-consultation\?sourceCTA=contact-channel"/);
   const bookingModalSource = await readFile(
     new URL("../app/booking/booking-modal.tsx", import.meta.url),
@@ -217,10 +201,8 @@ test("server-renders the professional homepage", async () => {
     "utf8",
   );
   assert.match(layoutSource, /<BookingModalRoot \/>/);
-  assert.equal((html.match(/class="engagement-action"/g) ?? []).length, 4);
-  assert.match(html, /Book a 30-minute call/);
   assert.match(html, /Discuss an engagement/);
-  assert.equal((html.match(/Book a meeting/g) ?? []).length, 4);
+  assert.equal((html.match(/Book a meeting/g) ?? []).length, 2);
   assert.doesNotMatch(html, /Discuss an engagement\s*<span aria-hidden="true">-&gt;<\/span>/);
   assert.ok(
     html.indexOf("Ways to work with me") < html.indexOf("What people say"),
@@ -373,7 +355,7 @@ test("server-renders the engagement model page", async () => {
   assert.match(html, /A valid question is enough to begin\./);
   assert.match(html, /Book a free 30-minute exploration meeting\./);
   assert.match(html, /Book 30-minute meeting/);
-  assert.match(html, /href="\/#engagements"[\s\S]*AI product engagements/);
+  assert.match(html, /href="\/services\/ai-products"[\s\S]*AI product engagements/);
   assert.match(html, /href="\/services\/odps"[\s\S]*ODPS and data product services/);
   assert.match(html, /href="\/engage"[\s\S]*Engage/);
   assert.equal((html.match(/data-booking-cta="true"/g) ?? []).length, 2);
@@ -438,6 +420,60 @@ test("server-renders work detail pages", async () => {
   assert.match(html, /Connected parts of the data product operating system/);
   assert.match(html, /Maysano turns business intent, source material, portfolio design, and governance/);
   assert.match(html, /Portfolio work connecting government priorities, governed data, readiness, and AI product delivery/);
+});
+
+test("server-renders the AI product services page", async () => {
+  const response = await render("/services/ai-products");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(
+    html,
+    /<title>AI Product Services \| Jarkko Moilanen<\/title>/,
+  );
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/services\/ai-products\/"/,
+  );
+  assert.match(html, /AI product services/i);
+  assert.match(html, /Move from AI pilots to working product systems/);
+  assert.match(html, /\/images\/jarkko-engagement-portrait\.webp/);
+  assert.match(html, /AI engagement paths/);
+  assert.match(html, /Portfolio choices, architecture, operating model, leadership/);
+  assert.match(html, /AI Center of Excellence setup/);
+  assert.match(html, /AI Portfolio Review/);
+  assert.match(html, /Agentic AI Architecture Sprint/);
+  assert.match(html, /AI Product Operating Model/);
+  assert.match(html, /Fractional AI Product Leadership/);
+  assert.match(html, /AI initiatives are growing, but ownership, prioritisation, governance and delivery do not scale/);
+  assert.match(html, /I design or strengthen your[\s\S]*AI Center of Excellence/);
+  assert.match(html, /decision rights,[\s\S]*portfolio rules,[\s\S]*delivery paths/);
+  assert.match(
+    html,
+    /href="\/articles\/ai-center-of-excellence-government-scale\/"[\s\S]*AI Center of Excellence/,
+  );
+  assert.match(html, /AI CoE mandate and scope/);
+  assert.match(html, /AI opportunity intake and prioritisation/);
+  assert.match(html, /KPI and value model/);
+  assert.match(html, /90-day implementation plan/);
+  assert.match(html, /managed enterprise AI capability/);
+  assert.match(html, /\$10K–\$15K/);
+  assert.match(html, /\$18K–\$25K/);
+  assert.match(html, /Priced by scope/);
+  assert.match(html, /From[\s\S]*\$8K\/month/);
+  assert.equal((html.match(/class="engagement-action"/g) ?? []).length, 4);
+  assert.equal((html.match(/data-booking-source-page="\/services\/ai-products\/"/g) ?? []).length, 7);
+  assert.match(html, /href="\/booking\/ai-portfolio-review\?sourceCTA=ai-products-hero-primary"/);
+  assert.match(html, /href="\/booking\/ai-portfolio-review\?sourceCTA=ai-portfolio-review-card"/);
+  assert.match(html, /href="\/booking\/general-consultation\?sourceCTA=ai-products-close"/);
+  assert.match(html, /href="\/booking\/general-consultation\?sourceCTA=ai-products-final-primary"/);
+  assert.match(html, /AI product engagement or data product standards/);
+  assert.match(html, /Explore Data Product Services/);
+  assert.match(html, /href="\/services\/odps"/);
+  assert.match(html, /Download engagement details/);
+  assert.match(html, /href="\/resources\/jarkko-moilanen-services-and-engagements\.pdf"/);
+  assert.doesNotMatch(html, /calendly\.com\/work-jarkkomoilanen\/30min/);
+  assert.doesNotMatch(html, /AED 35K|AED 65K|AED 90K|AED 25K/);
 });
 
 test("server-renders the ODPS enterprise services page", async () => {
@@ -516,7 +552,8 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /BASF/);
   assert.match(html, /Kruger/);
   assert.match(html, /ODPS engagement or wider AI transformation/);
-  assert.match(html, /existing AI consulting engagements/);
+  assert.match(html, /AI Product Services page/);
+  assert.match(html, /href="\/services\/ai-products"[\s\S]*Explore AI Product Services/);
   assert.match(html, /Commercial consulting,[\s\S]*Data Maestro Academy FZE LLC/);
   assert.match(html, /commercial services[\s\S]*are not required to use it/);
   assert.match(html, /Discuss an ODPS engagement/);
@@ -859,6 +896,10 @@ test("server-renders robots and sitemap discovery routes", async () => {
   );
   assert.match(
     sitemapText,
+    /<loc>https:\/\/jarkkomoilanen\.com\/services\/ai-products\/<\/loc>/,
+  );
+  assert.match(
+    sitemapText,
     /<loc>https:\/\/jarkkomoilanen\.com\/services\/odps\/<\/loc>/,
   );
   assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/booking\/<\/loc>/);
@@ -902,6 +943,7 @@ test("publishes ODPS white paper in the LLM site guide", async () => {
   );
 
   assert.match(guide, /ODPS Enterprise Services: https:\/\/jarkkomoilanen\.com\/services\/odps\//);
+  assert.match(guide, /AI Product Services: https:\/\/jarkkomoilanen\.com\/services\/ai-products\//);
   assert.match(guide, /Booking: https:\/\/jarkkomoilanen\.com\/booking\//);
   assert.doesNotMatch(guide, /calendly\.com/);
   assert.match(
@@ -935,6 +977,14 @@ test("publishes an ARD manifest for agent discovery", async () => {
   assert.equal(catalog.host.identifier, "did:web:jarkkomoilanen.com");
   assert.ok(Array.isArray(catalog.entries));
   assert.ok(catalog.entries.length >= 1);
+  assert.ok(
+    catalog.entries.some(
+      (entry) =>
+        entry.identifier === "urn:air:jarkkomoilanen.com:web:ai-product-services" &&
+        entry.type === "text/html" &&
+        entry.url === "https://jarkkomoilanen.com/services/ai-products/",
+    ),
+  );
   assert.ok(
     catalog.entries.some(
       (entry) =>
