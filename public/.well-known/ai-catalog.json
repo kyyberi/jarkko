@@ -73,8 +73,19 @@
       "url": "https://jarkkomoilanen.com/insights/",
       "representativeQueries": [
         "browse Jarkko Moilanen whitepapers and research reports",
-        "find downloadable research on AI Centers of Excellence ODPS and data products",
+        "find downloadable research on AI products data products AI Centers of Excellence and ODPS",
         "get research assets about AI operating models data product standards and enterprise transformation"
+      ]
+    },
+    {
+      "identifier": "urn:air:jarkkomoilanen.com:resource:ai-products-data-products",
+      "displayName": "AI Products and Data Products Whitepaper",
+      "type": "application/pdf",
+      "url": "https://jarkkomoilanen.com/resources/ai-products-and-data-products-whitepaper.pdf",
+      "representativeQueries": [
+        "download Jarkko Moilanen's AI Products and Data Products whitepaper",
+        "read a whitepaper about AI products data products and connected portfolio strategy",
+        "find source material on two product contracts for AI and data products"
       ]
     },
     {

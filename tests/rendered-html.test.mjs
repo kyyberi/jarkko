@@ -766,12 +766,14 @@ test("server-renders insights report library with gated download controls", asyn
   );
   assert.match(html, /Research for the work ahead/);
   assert.match(html, /Browse insights/);
-  assert.match(html, /2<!-- --> published reports/);
+  assert.match(html, /3<!-- --> published reports/);
+  assert.match(html, /AI Products and Data Products: Two Product Contracts, One Connected Portfolio/);
   assert.match(html, /Open Data Product Specification: From Standard to Agent-Ready Data Products/);
   assert.match(html, /AI Centers of Excellence: Operating Model, Economics, and Implementation Blueprint/);
-  assert.equal((html.match(/Download report/g) ?? []).length, 2);
-  assert.match(html, /\/images\/odps-preview\.webp/);
-  assert.match(html, /ai-center-of-excellence-article-jarkko-moilanen-pdf\.webp/);
+  assert.equal((html.match(/Download report/g) ?? []).length, 3);
+  assert.match(html, /\/images\/insight-ai-products-data-products\.webp/);
+  assert.match(html, /\/images\/insight-odps-whitepaper\.webp/);
+  assert.match(html, /\/images\/insight-ai-centers-of-excellence\.webp/);
   assert.match(html, /detail-section insights-library-section/);
   assert.match(css, /\.insights-library-section\s*\{[^}]*background:\s*var\(--white\);/);
   assert.match(css, /\.report-grid\s*\{[^}]*grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\);/);
@@ -826,6 +828,7 @@ test("ships a standalone Cloudflare Worker for Insights subscription", async () 
   assert.match(source, /https:\/\/www\.jarkkomoilanen\.com/);
   assert.match(source, /http:\/\/localhost:3000/);
   assert.match(source, /odps-whitepaper-2026/);
+  assert.match(source, /ai-products-and-data-products-connected-portfolio/);
   assert.match(source, /ai-centers-of-excellence-operating-model/);
   assert.match(source, /MAILERLITE_API_KEY/);
   assert.match(source, /MAILERLITE_RESEARCH_GROUP_ID/);
@@ -913,6 +916,10 @@ test("server-renders robots and sitemap discovery routes", async () => {
   );
   assert.match(
     sitemapText,
+    /<loc>https:\/\/jarkkomoilanen\.com\/insights\/ai-products-and-data-products-connected-portfolio\/<\/loc>/,
+  );
+  assert.match(
+    sitemapText,
     /<loc>https:\/\/jarkkomoilanen\.com\/work\/standards-and-sdk\/<\/loc>/,
   );
   assert.match(
@@ -977,6 +984,10 @@ test("publishes ODPS white paper in the LLM site guide", async () => {
   );
   assert.match(
     guide,
+    /AI Products and Data Products Whitepaper: https:\/\/jarkkomoilanen\.com\/resources\/ai-products-and-data-products-whitepaper\.pdf/,
+  );
+  assert.match(
+    guide,
     /ODPS White Paper: https:\/\/jarkkomoilanen\.com\/resources\/ODPS_whitepaper_2026_09\.pdf/,
   );
   assert.match(
@@ -1030,6 +1041,16 @@ test("publishes an ARD manifest for agent discovery", async () => {
         entry.identifier === "urn:air:jarkkomoilanen.com:web:insights" &&
         entry.type === "text/html" &&
         entry.url === "https://jarkkomoilanen.com/insights/",
+    ),
+  );
+  assert.ok(
+    catalog.entries.some(
+      (entry) =>
+        entry.identifier ===
+          "urn:air:jarkkomoilanen.com:resource:ai-products-data-products" &&
+        entry.type === "application/pdf" &&
+        entry.url ===
+          "https://jarkkomoilanen.com/resources/ai-products-and-data-products-whitepaper.pdf",
     ),
   );
   assert.ok(

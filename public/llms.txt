@@ -56,6 +56,7 @@ ODPS remains an open standard maintained under LF AI & Data. Commercial consulti
 - ODPS Enterprise Services: https://jarkkomoilanen.com/services/odps/
 - Services and Engagements Deck: https://jarkkomoilanen.com/resources/jarkko-moilanen-services-and-engagements.pdf
 - Insights research library: https://jarkkomoilanen.com/insights/
+- AI Products and Data Products Whitepaper: https://jarkkomoilanen.com/resources/ai-products-and-data-products-whitepaper.pdf
 - ODPS White Paper: https://jarkkomoilanen.com/resources/ODPS_whitepaper_2026_09.pdf
 - AI Centers of Excellence PDF: https://jarkkomoilanen.com/resources/ai-centers-of-excellence-jarkko-moilanen.pdf
 - Contact and availability: https://jarkkomoilanen.com/#contact
