@@ -461,7 +461,7 @@ export default function Home() {
             <article className="focus-item">
               <div>
                 <div className="focus-number">02</div>
-                <h3>Maysano</h3>
+                <h3>Data Products at Scale</h3>
                 <p>
                   Building the operational platform and Portfolio Studio for
                   creating, governing, and scaling data product portfolios.

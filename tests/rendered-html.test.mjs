@@ -123,7 +123,8 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Bring me the problem that needs senior attention\./);
   assert.match(html, /AI products at Scale/);
   assert.match(html, /id="work"/);
-  assert.match(html, /Maysano/);
+  assert.match(html, /Data Products at Scale/);
+  assert.match(html, /href="\/work\/maysano"[\s\S]*Explore Maysano/);
   assert.match(html, /Open standards and SDK/);
   assert.match(html, /ODPS Enterprise Services/);
   assert.match(html, /School 4 AI/);
