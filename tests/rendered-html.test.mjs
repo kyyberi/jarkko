@@ -213,13 +213,14 @@ test("server-renders the professional homepage", async () => {
   );
   assert.ok(
     html.indexOf("Ways to work with me") <
-      html.indexOf("Credibility across the places where AI decisions get difficult"),
+      html.indexOf("Credibility across the places"),
   );
   assert.ok(
-    html.indexOf("Credibility across the places where AI decisions get difficult") <
+    html.indexOf("where AI decisions get difficult") <
       html.indexOf("What people say"),
   );
   assert.ok(html.indexOf("What people say") < html.indexOf("Current focus"));
+  assert.match(html, /organization-proof-kicker/);
   assert.match(html, /Representative organizations and ecosystems/);
   assert.match(html, /delivery across dozens of Abu Dhabi Government entities/);
   assert.match(html, /Government scale/);

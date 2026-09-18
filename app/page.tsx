@@ -335,12 +335,17 @@ export default function Home() {
         </section>
 
         <section
-          className="section organization-proof-section"
+          className="section organization-proof-section organization-proof-section-home"
           aria-labelledby="organization-proof-title"
         >
           <div className="organization-proof-head">
+            <div className="organization-proof-kicker">
+              <span aria-hidden="true" />
+              <span>Credibility</span>
+            </div>
             <h2 id="organization-proof-title">
-              Credibility across the places where AI decisions get difficult
+              <span>Credibility across the places</span>
+              <span>where AI decisions get difficult</span>
             </h2>
             <p>
               Representative organizations and ecosystems from government,
@@ -352,7 +357,7 @@ export default function Home() {
             {credibilityProofGroups.map((group) => (
               <article className="organization-proof-group" key={group.scope}>
                 <div>
-                  <span>{group.scope}</span>
+                  <h3>{group.scope}</h3>
                   <p>{group.signal}</p>
                 </div>
                 <ul>
