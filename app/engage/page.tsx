@@ -160,7 +160,6 @@ export default function EngagePage() {
               <span>{stage.number}</span>
               <h3>{stage.label}</h3>
               <p>{stage.description}</p>
-              <div aria-hidden="true">↓</div>
               <strong>{stage.value}</strong>
             </article>
           ))}
