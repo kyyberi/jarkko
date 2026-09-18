@@ -4,7 +4,6 @@ import {
   Header,
   publicAssetPath,
   sitePath,
-  workItems,
 } from "./site";
 import { getArticles } from "./article-data";
 import { bookingContextFor, bookingPath, genericBookingService } from "./booking/services";
@@ -427,7 +426,7 @@ export default function Home() {
           </details>
         </section>
 
-        <section className="section focus-section">
+        <section className="section focus-section" id="work">
           <div className="section-head focus-head">
             <figure className="focus-portrait">
               <img
@@ -506,31 +505,6 @@ export default function Home() {
                 Explore School 4 AI <Arrow />
               </a>
             </article>
-          </div>
-        </section>
-
-        <section className="section" id="work">
-          <div className="section-head">
-            <div className="section-kicker">Selected work</div>
-            <h2 className="section-title">Built in public, tested in practice.</h2>
-          </div>
-          <div className="work-list">
-            {workItems.map((item) => (
-              <article className="work-row" key={item.slug}>
-                <div className="work-index">{item.index}</div>
-                <div className="work-copy">
-                  <div className="work-label">{item.label}</div>
-                  <h3>{item.title}</h3>
-                  <p>{item.summary}</p>
-                  <a className="text-link" href={sitePath(`/work/${item.slug}`)}>
-                    {item.cta} <Arrow />
-                  </a>
-                </div>
-                <div className="work-visual">
-                  <img src={publicAssetPath(item.image)} alt={item.imageAlt} />
-                </div>
-              </article>
-            ))}
           </div>
         </section>
 

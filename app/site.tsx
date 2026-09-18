@@ -354,7 +354,6 @@ export function Footer() {
       </div>
       <nav className="footer-column footer-nav" aria-label="Footer navigation">
         <h2>Explore</h2>
-        <a href={sitePath("/#work")}>Selected work</a>
         <a href={sitePath("/engage")}>Engagement model</a>
         <a href={sitePath("/services/ai-products")}>AI Product Services</a>
         <a href={sitePath("/services/odps")}>ODPS Enterprise Services</a>

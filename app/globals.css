@@ -2769,77 +2769,6 @@ summary.booking-option-group-label::-webkit-details-marker {
   text-transform: uppercase;
 }
 
-.work-list {
-  border-top: 1px solid var(--line);
-}
-
-.work-row {
-  display: grid;
-  grid-template-columns: 160px 1fr 1fr;
-  gap: 34px;
-  align-items: stretch;
-  padding: 38px 0;
-}
-
-.work-row + .work-row {
-  border-top: 1px solid var(--line);
-}
-
-.work-index {
-  color: var(--accent);
-  font-family: var(--display);
-  font-size: 74px;
-  font-weight: 900;
-  line-height: 1;
-}
-
-.work-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.work-label {
-  margin-bottom: 12px;
-  color: var(--ink);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.work-copy h3 {
-  margin: 0 0 14px;
-  font-family: var(--display);
-  font-size: clamp(32px, 4vw, 54px);
-  line-height: 1;
-  letter-spacing: -0.045em;
-}
-
-.work-copy p {
-  max-width: 560px;
-  margin: 0 0 24px;
-  color: var(--muted);
-  line-height: 1.55;
-}
-
-.work-visual {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  min-height: 0;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-soft);
-  background: var(--white);
-}
-
-.work-visual img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .detail-hero {
   display: grid;
   grid-template-columns: 1fr minmax(340px, 0.74fr);
@@ -4775,14 +4704,6 @@ summary.booking-option-group-label::-webkit-details-marker {
     border-left: 0;
   }
 
-  .work-row {
-    grid-template-columns: 100px 1fr;
-  }
-
-  .work-visual {
-    grid-column: 1 / -1;
-  }
-
   .detail-hero,
   .detail-grid,
   .outcome-grid,
@@ -5935,14 +5856,6 @@ summary.booking-option-group-label::-webkit-details-marker {
   .section-head {
     grid-template-columns: 1fr;
     gap: 18px;
-  }
-
-  .work-row {
-    grid-template-columns: 1fr;
-  }
-
-  .work-index {
-    font-size: 52px;
   }
 
   .work-diagram-steps {
