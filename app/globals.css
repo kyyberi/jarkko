@@ -857,17 +857,14 @@ h1 {
 .focus-area-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
-  background: var(--white);
+  gap: 24px;
 }
 
 .focus-area-card {
   display: grid;
   grid-template-rows: auto 1fr;
   min-width: 0;
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border: 1px solid var(--line);
   background: rgba(255, 253, 248, 0.48);
 }
 
@@ -882,13 +879,9 @@ h1 {
 .focus-area-card img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 8.8;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  object-position: 50% 35%;
-}
-
-.focus-area-card:first-child img {
-  object-position: 50% 24%;
+  object-position: center;
 }
 
 .focus-area-copy {
@@ -5266,10 +5259,6 @@ summary.booking-option-group-label::-webkit-details-marker {
 
   .focus-areas-section {
     padding-top: 48px;
-  }
-
-  .focus-area-card img {
-    aspect-ratio: 16 / 10.8;
   }
 
   .focus-area-copy {

@@ -19,8 +19,8 @@ const focusAreas = [
       "Portfolio decisions, agent architecture, AI Center of Excellence design, operating models and fractional product leadership for teams moving beyond pilots.",
     href: "/services/ai-products",
     cta: "Explore AI Product Services",
-    image: "/images/jarkko-engagement-portrait.webp",
-    imageAlt: "Jarkko Moilanen",
+    image: "/images/home-ai-products.webp",
+    imageAlt: "Jarkko Moilanen with AI product portfolio interface",
   },
   {
     label: "Data Products",
@@ -29,8 +29,8 @@ const focusAreas = [
       "ODPS assessment, adoption, implementation, agent-ready data product architecture and advisory for organizations building governed product foundations.",
     href: "/services/odps",
     cta: "Explore Data Product Services",
-    image: "/images/odps-services-hero.webp",
-    imageAlt: "Jarkko Moilanen with data product interface elements",
+    image: "/images/home-data-products.webp",
+    imageAlt: "Jarkko Moilanen with data product standards interface",
   },
 ];
 

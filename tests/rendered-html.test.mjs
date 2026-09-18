@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-const staticAssetVersion = "20260917-insights-library";
+const staticAssetVersion = "20260918-focus-area-images-v2";
 const socialShareImagePattern = new RegExp(
   `https:\\/\\/jarkkomoilanen\\.com\\/images\\/social-share\\.webp\\?v=${staticAssetVersion}`,
 );
@@ -139,10 +139,14 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /decide what to build,[\s\S]*move from AI pilots to working products/);
   assert.match(html, /executive judgment,[\s\S]*first-hand implementation experience/);
   assert.match(html, /Two focus areas\. Two named service paths\./);
+  assert.match(html, /\/images\/home-ai-products\.webp/);
+  assert.match(html, /Jarkko Moilanen with AI product portfolio interface/);
   assert.match(html, /AI product leadership and delivery/);
   assert.match(html, /Portfolio decisions, agent architecture, AI Center of Excellence design/);
   assert.match(html, /Explore AI Product Services/);
   assert.match(html, /href="\/services\/ai-products"/);
+  assert.match(html, /\/images\/home-data-products\.webp/);
+  assert.match(html, /Jarkko Moilanen with data product standards interface/);
   assert.match(html, /Data product standards and ODPS/);
   assert.match(html, /ODPS assessment, adoption, implementation/);
   assert.match(html, /Explore Data Product Services/);
