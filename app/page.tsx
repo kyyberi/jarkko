@@ -84,7 +84,7 @@ const testimonials = [
   {
     name: "Rebecca Elias Poozhipuram",
     role: "Former User Acquisition Manager, Wolt",
-    relationship: "Worked with Jarkko across teams",
+    relationship: "",
     quotes: [
       "Jarkko has a clear vision and is extremely passionate about whatever he takes up. He is analytical and very articulate.",
       "What makes him stand apart is his ability to break down complex problems and his seamless communication skills.",
@@ -93,7 +93,7 @@ const testimonials = [
   {
     name: "Preeti Singh",
     role: "Project Manager / Senior Business Analyst",
-    relationship: "Worked with Jarkko as a client",
+    relationship: "",
     quotes: [
       "He pushes himself as well as the team to think out of the box while keeping the focus on the target. He is the best client I had worked with.",
     ],
