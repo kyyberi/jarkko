@@ -42,42 +42,57 @@ export default function InsightsPage() {
   return (
     <PageShell>
       <InsightsPageAnalytics />
-      <section className="detail-hero editorial insights-hero insights-report-hero">
+      <section className="detail-hero editorial insights-hero">
         <div className="insights-hero-copy">
-          <div className="section-kicker">Research library</div>
-          <h1>Research &amp; insights.</h1>
+          <div className="section-kicker">Insights</div>
+          <h1>Research for the work ahead.</h1>
           <p>
-            Analysis, field notes, and practical reports on AI, data products,
-            standards, and enterprise delivery.
+            Whitepapers, market research, trend analysis, and practical studies
+            on AI, data products, open standards, and enterprise transformation.
           </p>
         </div>
-        <div className="insights-hero-visual" aria-hidden="true">
-          <span className="insights-orb insights-orb-left" />
-          <span className="insights-orb insights-orb-right" />
-          <span className="insights-orb insights-orb-dashed" />
-          <span className="insights-axis insights-axis-horizontal" />
-          <span className="insights-axis insights-axis-vertical" />
-          <span className="insights-node insights-node-start" />
-          <span className="insights-node insights-node-center" />
-          <span className="insights-node insights-node-end" />
-          <span className="insights-line-stack" />
-          <span className="insights-chart">
-            <i />
-            <i />
-            <i />
-          </span>
-          <span className="insights-dots" />
-          <span className="insights-visual-label">
-            Ideas
-            <br />
-            Standards
-            <br />
-            Real impact
-          </span>
-        </div>
+        <figure className="insights-hero-image">
+          <img
+            src={publicAssetPath("/images/insights-hero-portrait.webp")}
+            alt="Jarkko Moilanen"
+          />
+        </figure>
       </section>
 
       <section className="detail-section insights-library-section">
+        <div className="article-archive-head insights-library-head">
+          <div>
+            <div className="section-kicker">Research library</div>
+            <h2>Browse insights.</h2>
+            <p>
+              Research, analysis, and practical reports based on current work in
+              AI, data products, standards, and enterprise delivery.
+              <br />
+              {reports.length} published reports.
+            </p>
+          </div>
+          <div className="insights-library-visual" aria-hidden="true">
+            <span className="insights-library-axis insights-library-axis-horizontal" />
+            <span className="insights-library-axis insights-library-axis-vertical" />
+            <span className="insights-library-node insights-library-node-start" />
+            <span className="insights-library-node insights-library-node-center" />
+            <span className="insights-library-node insights-library-node-end" />
+            <span className="insights-library-lines" />
+            <span className="insights-library-chart">
+              <i />
+              <i />
+              <i />
+            </span>
+            <span className="insights-library-label">
+              Ideas
+              <br />
+              Standards
+              <br />
+              Real impact
+            </span>
+          </div>
+        </div>
+
         <div className="report-grid">
           {reports.map((report) => (
             <article className="report-card" key={report.slug}>
