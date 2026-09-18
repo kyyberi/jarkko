@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
-const staticAssetVersion = "20260918-focus-area-images-v2";
+const staticAssetVersion = "20260918-home-insights-logo";
 const socialShareImagePattern = new RegExp(
   `https:\\/\\/jarkkomoilanen\\.com\\/images\\/social-share\\.webp\\?v=${staticAssetVersion}`,
 );
@@ -173,6 +173,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /\/images\/logo-amazon\.webp/);
   assert.match(html, /Whitepapers and research reports/);
   assert.match(html, /Download practical reports on AI, data products, open standards/);
+  assert.match(html, /\/images\/logo-jm\.webp/);
   assert.match(html, /href="\/insights"[\s\S]*Browse insights/);
   assert.match(css, /\.media-stack\s*\{[^}]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\);/);
   assert.doesNotMatch(html, /calendly\.com\/work-jarkkomoilanen\/30min/);

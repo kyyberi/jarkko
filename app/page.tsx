@@ -593,6 +593,9 @@ export default function Home() {
                 </a>
               </article>
               <article className="media-card">
+                <div className="media-logo">
+                  <img src={publicAssetPath("/images/logo-jm.webp")} alt="JM" />
+                </div>
                 <div className="media-card-copy">
                   <div className="section-kicker">INSIGHTS</div>
                   <h3>Whitepapers and research reports</h3>

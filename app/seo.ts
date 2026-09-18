@@ -1,6 +1,6 @@
 export const SITE_URL = "https://jarkkomoilanen.com";
 export const SITE_NAME = "Jarkko Moilanen";
-export const STATIC_ASSET_VERSION = "20260918-focus-area-images-v2";
+export const STATIC_ASSET_VERSION = "20260918-home-insights-logo";
 
 export const DEFAULT_TITLE =
   "Jarkko Moilanen | Senior AI & Data Product Leader";
