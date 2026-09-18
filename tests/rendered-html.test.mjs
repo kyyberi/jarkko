@@ -198,12 +198,16 @@ test("server-renders the professional homepage", async () => {
   assert.match(bookingModalSource, /booking_modal_closed/);
   assert.match(bookingModalSource, /openerRef\.current\?\.focus\(\)/);
   assert.doesNotMatch(bookingModalSource, /Cal\("popup"/);
+  assert.match(css, /\.booking-modal-intake \.booking-modal-main\s*\{[^}]*overflow:\s*auto/);
+  assert.match(css, /\.booking-modal \.booking-intake-actions\s*\{[^}]*position:\s*sticky/);
+  assert.match(css, /\.booking-modal \.booking-intake-actions\s*\{[^}]*bottom:\s*0/);
   const bookingFlowSource = await readFile(
     new URL("../app/booking/booking-flow.tsx", import.meta.url),
     "utf8",
   );
   assert.doesNotMatch(bookingFlowSource, /spacing:\s*"1px"/);
   assert.match(bookingFlowSource, /"cal-spacing":\s*"0\.25rem"/);
+  assert.match(bookingFlowSource, /!useOptionCards && qualificationOptions\.length > 0/);
   const layoutSource = await readFile(
     new URL("../app/layout.tsx", import.meta.url),
     "utf8",

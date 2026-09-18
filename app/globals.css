@@ -1200,6 +1200,10 @@ h1 {
   background: var(--white);
 }
 
+.booking-modal-intake .booking-modal-main {
+  overflow: auto;
+}
+
 .booking-modal-scheduling .booking-modal-main,
 .booking-modal-confirmation .booking-modal-main {
   overflow: auto;
@@ -1490,6 +1494,19 @@ h1 {
   display: flex;
   justify-content: flex-end;
   padding-top: 8px;
+}
+
+.booking-modal .booking-intake-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  margin: 0 -2px;
+  padding: 14px 2px 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 253, 248, 0),
+    var(--white) 34%
+  );
 }
 
 .booking-intake-actions .button {

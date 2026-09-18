@@ -367,7 +367,8 @@ export function BookingFlow({
   const options = intakeOptionsFor(service);
   const intakeLabel = intakeLabelFor(service);
   const qualificationOptions = qualificationOptionsFor(service, visitorIntent);
-  const needsQualification = qualificationOptions.length > 0;
+  const needsQualification =
+    !useOptionCards && qualificationOptions.length > 0;
   const canContinue =
     Boolean(visitorIntent) && (!needsQualification || Boolean(qualification));
 
