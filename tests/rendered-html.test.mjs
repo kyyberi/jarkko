@@ -323,6 +323,63 @@ test("server-renders the about page", async () => {
   assert.doesNotMatch(html, /Nasdaq/i);
 });
 
+test("server-renders the engagement model page", async () => {
+  const response = await render("/engage");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(
+    html,
+    /<title>Engagement Model \| AI Products, Data Products &amp; ODPS \| Jarkko Moilanen<\/title>/,
+  );
+  assert.match(
+    html,
+    /<meta name="description" content="Start with a focused question, assessment or design need\. Each engagement delivers standalone value, with the option to progress only when the next step makes sense\."/,
+  );
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/engage\/"/,
+  );
+  assert.match(html, /THE ENGAGEMENT MODEL/i);
+  assert.match(html, /Start small\./);
+  assert.match(html, /Progress as needed\./);
+  assert.match(html, /Start with a small engagement/);
+  assert.match(html, /Explore engagement options/);
+  assert.match(html, /QUESTION[\s\S]*Small expert engagement[\s\S]*Concrete value/);
+  assert.match(html, /DIAGNOSE[\s\S]*Focused assessment[\s\S]*Concrete value/);
+  assert.match(html, /DESIGN[\s\S]*Defined solution[\s\S]*Concrete value/);
+  assert.match(html, /DELIVER[\s\S]*Working implementation[\s\S]*Concrete value/);
+  assert.match(html, /DRIVE[\s\S]*Ongoing leadership[\s\S]*Continuous value/);
+  assert.match(html, /Each step is a standalone value package/);
+  assert.match(html, /Continue only when the next step is worth taking/);
+  assert.match(html, /Each step is a defined[\s\S]*value package/);
+  assert.match(html, /Start where you are/);
+  assert.match(html, /Progress when needed/);
+  assert.match(html, /Small steps are valid\. Clear outcomes matter\. Progress is earned\./);
+  assert.match(html, /A good starting point can be a[\s\S]*simple question/);
+  assert.match(html, /What should we build first\?/);
+  assert.match(html, /Why are our pilots not moving to production\?/);
+  assert.match(html, /Are we ready for ODPS adoption\?/);
+  assert.match(html, /The smallest useful next step/);
+  assert.match(html, /Whether a deeper engagement is needed/);
+  assert.match(html, /A valid question is enough to begin\./);
+  assert.match(html, /Book a free 30-minute exploration meeting\./);
+  assert.match(html, /Book 30-minute meeting/);
+  assert.match(html, /href="\/#engagements"[\s\S]*AI product engagements/);
+  assert.match(html, /href="\/services\/odps"[\s\S]*ODPS and data product services/);
+  assert.match(html, /href="\/engage"[\s\S]*Engage/);
+  assert.equal((html.match(/data-booking-cta="true"/g) ?? []).length, 2);
+  assert.equal((html.match(/data-booking-source-page="\/engage\/"/g) ?? []).length, 2);
+  assert.match(
+    html,
+    /href="\/booking\/general-consultation\?sourceCTA=engage-hero-primary"/,
+  );
+  assert.match(
+    html,
+    /href="\/booking\/general-consultation\?sourceCTA=engage-next-primary"/,
+  );
+});
+
 test("server-renders work detail pages", async () => {
   const response = await render("/work/standards-and-sdk");
   assert.equal(response.status, 200);

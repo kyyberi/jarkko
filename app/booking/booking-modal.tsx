@@ -21,8 +21,13 @@ function contextFromLink(link: HTMLAnchorElement): {
   const service = serviceId ? getBookingService(serviceId) : null;
   if (!service) return null;
 
+  const context = bookingContextFor(service, link.dataset.bookingSourceCta);
+
   return {
-    context: bookingContextFor(service, link.dataset.bookingSourceCta),
+    context: {
+      ...context,
+      sourcePage: link.dataset.bookingSourcePage ?? context.sourcePage,
+    },
     service,
   };
 }
