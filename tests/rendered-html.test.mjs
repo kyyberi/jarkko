@@ -171,6 +171,10 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /View books and author profile/);
   assert.match(html, /https:\/\/us\.amazon\.com\/stores\/Jarkko-Moilanen\/author\/B0B66HTHLM/);
   assert.match(html, /\/images\/logo-amazon\.webp/);
+  assert.match(html, /Whitepapers and research reports/);
+  assert.match(html, /Download practical reports on AI, data products, open standards/);
+  assert.match(html, /href="\/insights"[\s\S]*Browse insights/);
+  assert.match(css, /\.media-stack\s*\{[^}]*grid-template-columns:\s*repeat\(3, minmax\(0, 1fr\)\);/);
   assert.doesNotMatch(html, /calendly\.com\/work-jarkkomoilanen\/30min/);
   assert.match(html, /Engage[\s\S]*Book a meeting/);
   assert.doesNotMatch(html, /Explore my work/);

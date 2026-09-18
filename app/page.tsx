@@ -592,6 +592,20 @@ export default function Home() {
                   View books and author profile <Arrow />
                 </a>
               </article>
+              <article className="media-card">
+                <div className="media-card-copy">
+                  <div className="section-kicker">INSIGHTS</div>
+                  <h3>Whitepapers and research reports</h3>
+                  <p>
+                    Download practical reports on AI, data products, open
+                    standards, and enterprise transformation from current field
+                    work.
+                  </p>
+                </div>
+                <a className="text-link" href={sitePath("/insights")}>
+                  Browse insights <Arrow />
+                </a>
+              </article>
             </aside>
           </div>
         </section>
