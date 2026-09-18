@@ -1112,14 +1112,8 @@ h1 {
 
 .booking-modal-scheduling,
 .booking-modal-confirmation {
-  grid-template-columns: minmax(0, 1fr);
   min-height: calc(100dvh - 16px);
   max-height: calc(100dvh - 16px);
-  overflow: auto;
-}
-
-.booking-modal-scheduling .booking-modal-summary {
-  display: none;
 }
 
 .booking-modal-summary {
