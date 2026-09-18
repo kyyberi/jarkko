@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Arrow, PageShell, publicAssetPath, sitePath } from "../../site";
 import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo";
+import { EngagementStagePattern } from "../../engagement-stage-pattern";
 import {
   bookingContextFor,
   bookingPath,
@@ -224,6 +225,8 @@ export default function AiProductServicesPage() {
           />
         </figure>
       </section>
+
+      <EngagementStagePattern title="AI product engagement steps" />
 
       <section className="section service-family-section">
         <div className="service-family-head service-family-editorial-head">

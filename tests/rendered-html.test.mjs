@@ -438,6 +438,11 @@ test("server-renders the AI product services page", async () => {
   assert.match(html, /AI product services/i);
   assert.match(html, /Move from AI pilots to working product systems/);
   assert.match(html, /\/images\/jarkko-engagement-portrait\.webp/);
+  assert.match(html, /QUESTION[\s\S]*Small expert engagement[\s\S]*Concrete value/);
+  assert.match(html, /DIAGNOSE[\s\S]*Focused assessment[\s\S]*Concrete value/);
+  assert.match(html, /DRIVE[\s\S]*Ongoing leadership[\s\S]*Continuous value/);
+  assert.match(html, /Each step is a standalone value package/);
+  assert.match(html, /Continue only when the next step is worth taking/);
   assert.match(html, /AI engagement paths/);
   assert.match(html, /Portfolio choices, architecture, operating model, leadership/);
   assert.match(html, /AI Center of Excellence setup/);
@@ -498,6 +503,11 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /Jarkko Moilanen with data product interface elements/);
   assert.match(html, /maintain the standards family under LF AI &amp; Data/);
   assert.match(html, /The standard stays open/);
+  assert.match(html, /QUESTION[\s\S]*Small expert engagement[\s\S]*Concrete value/);
+  assert.match(html, /DIAGNOSE[\s\S]*Focused assessment[\s\S]*Concrete value/);
+  assert.match(html, /DRIVE[\s\S]*Ongoing leadership[\s\S]*Continuous value/);
+  assert.match(html, /Each step is a standalone value package/);
+  assert.match(html, /Continue only when the next step is worth taking/);
   assert.match(html, /Annual business footprint/);
   assert.match(html, /Named organizations/);
   assert.match(html, /Strong adoption signals/);

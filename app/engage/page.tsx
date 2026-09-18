@@ -3,39 +3,7 @@ import type { Metadata } from "next";
 import { Arrow, PageShell, publicAssetPath, sitePath } from "../site";
 import { bookingContextFor, bookingPath, genericBookingService } from "../booking/services";
 import { canonicalPath } from "../seo";
-
-const stages = [
-  {
-    number: "01",
-    label: "QUESTION",
-    description: "Small expert engagement",
-    value: "Concrete value",
-  },
-  {
-    number: "02",
-    label: "DIAGNOSE",
-    description: "Focused assessment",
-    value: "Concrete value",
-  },
-  {
-    number: "03",
-    label: "DESIGN",
-    description: "Defined solution",
-    value: "Concrete value",
-  },
-  {
-    number: "04",
-    label: "DELIVER",
-    description: "Working implementation",
-    value: "Concrete value",
-  },
-  {
-    number: "05",
-    label: "DRIVE",
-    description: "Ongoing leadership",
-    value: "Continuous value",
-  },
-];
+import { EngagementStagePattern } from "../engagement-stage-pattern";
 
 const principles = [
   {
@@ -164,29 +132,7 @@ export default function EngagePage() {
         </div>
       </section>
 
-      <section
-        aria-labelledby="engagement-options-title"
-        className="engage-section engage-stage-section"
-        id="engagement-options"
-      >
-        <h2 className="sr-only" id="engagement-options-title">
-          Engagement options
-        </h2>
-        <div className="engage-stage-grid" aria-label="Five engagement stages">
-          {stages.map((stage) => (
-            <article className="engage-stage" key={stage.number}>
-              <span>{stage.number}</span>
-              <h3>{stage.label}</h3>
-              <p>{stage.description}</p>
-              <strong>{stage.value}</strong>
-            </article>
-          ))}
-        </div>
-        <div className="engage-stage-statements">
-          <p>Each step is a standalone value package.</p>
-          <p>Continue only when the next step is worth taking.</p>
-        </div>
-      </section>
+      <EngagementStagePattern id="engagement-options" />
 
       <section className="engage-section engage-explain-section">
         <div className="engage-section-head">

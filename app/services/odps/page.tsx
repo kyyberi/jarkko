@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Arrow, PageShell, publicAssetPath, sitePath } from "../../site";
 import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo";
+import { EngagementStagePattern } from "../../engagement-stage-pattern";
 import { bookingContextFor, bookingPath, odpsServices } from "../../booking/services";
 
 const odpsWhitepaperUrl = "/resources/ODPS_whitepaper_2026_09.pdf";
@@ -269,6 +270,8 @@ export default function OdpsServicesPage() {
           />
         </figure>
       </section>
+
+      <EngagementStagePattern title="Data product engagement steps" />
 
       <section
         className="odps-proof-matrix"
