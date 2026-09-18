@@ -274,7 +274,7 @@ function Embed({
 
 function qualificationOptionsFor(service: ServiceBookingConfig, visitorIntent: string) {
   if (service.intakeType === "generic") {
-    if (visitorIntent === "ODPS") return odpsObjectiveOptions;
+    if (visitorIntent === "ODPS / data products") return odpsObjectiveOptions;
     return [
       "Exploring options",
       "Need a decision soon",
@@ -293,11 +293,11 @@ function qualificationLabelFor(service: ServiceBookingConfig) {
 
 function optionDescriptionFor(option: string) {
   const descriptions: Record<string, string> = {
-    "AI portfolio and product strategy": "Clarify priorities, value, and where senior attention should go.",
-    "Agentic AI architecture": "Discuss agents, system design, integration, or architecture choices.",
-    "AI product operating model": "Work through ownership, portfolio rules, governance, or delivery model.",
-    "Fractional AI product leadership": "Explore senior product leadership support for active initiatives.",
-    ODPS: "Discuss open data product standards, adoption, architecture, or implementation.",
+    "AI portfolio and product strategy": "Clarify priorities, value, and what to build next.",
+    "Agentic AI architecture": "Agents, system design, integration or architecture choices.",
+    "AI product operating model": "Ownership, governance, portfolio rules or delivery model.",
+    "Fractional AI product leadership": "Senior product leadership support for active initiatives.",
+    "ODPS / data products": "Discuss standards, architecture, adoption or implementation.",
     "Partnership or collaboration": "Explore collaboration, adoption, ecosystem, or community opportunities.",
     "Something else": "Use this when the topic does not fit the listed categories.",
     "Evaluate ODPS": "Assess fit, readiness, and where the standard helps.",
@@ -322,9 +322,34 @@ function optionDescriptionFor(option: string) {
   return descriptions[option] ?? "Share context so the session can focus quickly.";
 }
 
+function groupedOptionsFor(service: ServiceBookingConfig, options: string[]) {
+  if (service.intakeType !== "generic") {
+    return [{ label: "", options }];
+  }
+
+  const priorityTopics = [
+    "Exploring options",
+    "AI portfolio and product strategy",
+    "ODPS / data products",
+  ];
+  const prioritySet = new Set(priorityTopics);
+
+  return [
+    {
+      label: "Priority topics",
+      options: priorityTopics.filter((option) => options.includes(option)),
+    },
+    {
+      label: "Other topics",
+      options: options.filter((option) => !prioritySet.has(option)),
+    },
+  ].filter((group) => group.options.length > 0);
+}
+
 function optionCodeFor(option: string) {
   return option
     .split(/\s+/)
+    .map((word) => word.replace(/[^a-zA-Z0-9]/g, ""))
     .filter(Boolean)
     .slice(0, 2)
     .map((word) => word[0]?.toUpperCase())
@@ -365,6 +390,7 @@ export function BookingFlow({
     [qualification, resolvedSourceCTA, service, visitorIntent],
   );
   const options = intakeOptionsFor(service);
+  const optionGroups = groupedOptionsFor(service, options);
   const intakeLabel = intakeLabelFor(service);
   const qualificationOptions = qualificationOptionsFor(service, visitorIntent);
   const needsQualification =
@@ -431,31 +457,45 @@ export function BookingFlow({
                 className="booking-option-list"
                 role="radiogroup"
               >
-                {options.map((option) => (
-                  <button
-                    aria-checked={visitorIntent === option}
-                    className={`booking-option-choice${
-                      visitorIntent === option ? " selected" : ""
+                {optionGroups.map((group) => (
+                  <div
+                    className={`booking-option-group${
+                      group.label === "Other topics" ? " secondary" : ""
                     }`}
-                    key={option}
-                    onClick={() => {
-                      setVisitorIntent(option);
-                      setQualification("");
-                      setHasCompletedIntake(false);
-                      setHasCompletedBooking(false);
-                    }}
-                    role="radio"
-                    type="button"
+                    key={group.label || "options"}
                   >
-                    <span className="booking-choice-dot" aria-hidden="true" />
-                    <span className="booking-choice-icon" aria-hidden="true">
-                      {optionCodeFor(option)}
-                    </span>
-                    <span>
-                      <strong>{option}</strong>
-                      <small>{optionDescriptionFor(option)}</small>
-                    </span>
-                  </button>
+                    {group.label ? (
+                      <div className="booking-option-group-label">
+                        <span>{group.label}</span>
+                      </div>
+                    ) : null}
+                    {group.options.map((option) => (
+                      <button
+                        aria-checked={visitorIntent === option}
+                        className={`booking-option-choice${
+                          visitorIntent === option ? " selected" : ""
+                        }`}
+                        key={option}
+                        onClick={() => {
+                          setVisitorIntent(option);
+                          setQualification("");
+                          setHasCompletedIntake(false);
+                          setHasCompletedBooking(false);
+                        }}
+                        role="radio"
+                        type="button"
+                      >
+                        <span className="booking-choice-dot" aria-hidden="true" />
+                        <span className="booking-choice-icon" aria-hidden="true">
+                          {optionCodeFor(option)}
+                        </span>
+                        <span>
+                          <strong>{option}</strong>
+                          <small>{optionDescriptionFor(option)}</small>
+                        </span>
+                      </button>
+                    ))}
+                  </div>
                 ))}
               </div>
 

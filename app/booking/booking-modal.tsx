@@ -13,6 +13,9 @@ import {
 
 type BookingStep = "intake" | "qualification" | "scheduling" | "confirmation";
 
+const assetPath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const bookingAvatarPath = `${assetPath}/images/jarkko-booking-avatar.jpg`;
+
 function contextFromLink(link: HTMLAnchorElement): {
   context: BookingContext;
   service: ServiceBookingConfig;
@@ -190,7 +193,9 @@ export function BookingModalRoot() {
                 ? "Book a session"
                 : "Book a consultation"}
             </div>
-            <div className="booking-modal-avatar" aria-hidden="true">JM</div>
+            <div className="booking-modal-avatar" aria-hidden="true">
+              <img src={bookingAvatarPath} alt="" />
+            </div>
             <h2 id={titleId}>{activeService.displayName}</h2>
             <p id={descriptionId}>
               {serviceDescription(activeService)}

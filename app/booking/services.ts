@@ -253,11 +253,12 @@ export function bookingContextFor(service: ServiceBookingConfig, sourceCTA?: str
 }
 
 export const genericVisitorIntentOptions = [
+  "Exploring options",
   "AI portfolio and product strategy",
+  "ODPS / data products",
   "Agentic AI architecture",
   "AI product operating model",
   "Fractional AI product leadership",
-  "ODPS",
   "Partnership or collaboration",
   "Something else",
 ];

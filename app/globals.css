@@ -1127,16 +1127,21 @@ h1 {
 .booking-modal-avatar {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 46px;
+  height: 46px;
   margin-bottom: 18px;
   border: 1px solid var(--line);
   border-radius: 50%;
   background: var(--white);
-  color: var(--ink);
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  overflow: hidden;
+}
+
+.booking-modal-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% 19%;
 }
 
 .booking-modal-summary h2 {
@@ -1419,6 +1424,45 @@ h1 {
   gap: 12px;
 }
 
+.booking-option-group {
+  display: grid;
+  gap: 12px;
+}
+
+.booking-option-group.secondary {
+  gap: 0;
+  padding-top: 18px;
+}
+
+.booking-option-group-label {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin: 8px 0 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.booking-option-group-label::before,
+.booking-option-group-label::after {
+  height: 1px;
+  background: var(--line);
+  content: "";
+}
+
+.booking-option-group:first-child .booking-option-group-label {
+  grid-template-columns: auto minmax(0, 1fr);
+  margin-top: 0;
+}
+
+.booking-option-group:first-child .booking-option-group-label::before {
+  display: none;
+}
+
 .booking-option-list.secondary {
   padding-top: 2px;
 }
@@ -1438,6 +1482,27 @@ h1 {
   cursor: pointer;
   font: inherit;
   text-align: left;
+}
+
+.booking-option-group.secondary .booking-option-choice {
+  min-height: 0;
+  padding: 13px 8px;
+  border-width: 0 0 1px;
+  background: transparent;
+}
+
+.booking-option-group.secondary .booking-option-choice:hover,
+.booking-option-group.secondary .booking-option-choice:focus-visible,
+.booking-option-group.secondary .booking-option-choice.selected {
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+}
+
+.booking-option-group.secondary .booking-choice-icon {
+  display: none;
+}
+
+.booking-option-group.secondary .booking-option-choice {
+  grid-template-columns: 22px minmax(0, 1fr);
 }
 
 .booking-option-choice:hover,
