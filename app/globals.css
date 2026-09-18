@@ -4226,6 +4226,11 @@ summary.booking-option-group-label::-webkit-details-marker {
   margin-top: 18px;
 }
 
+.report-card .report-supporting-meta {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
 .report-supporting-meta span,
 .report-detail-meta li {
   border: 1px solid var(--line);
@@ -4256,9 +4261,13 @@ summary.booking-option-group-label::-webkit-details-marker {
 }
 
 .report-download-button {
-  margin-top: auto;
+  margin-top: 0;
   background: var(--ink);
   color: var(--white);
+}
+
+.report-card .report-download-button {
+  margin-top: 14px;
 }
 
 .report-download-button:hover,

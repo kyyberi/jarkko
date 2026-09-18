@@ -780,6 +780,8 @@ test("server-renders insights report library with gated download controls", asyn
   assert.match(css, /\.report-grid\s*\{[^}]*grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\);/);
   assert.match(css, /\.report-grid\s*\{[^}]*gap:\s*clamp\(22px, 2\.4vw, 34px\);/);
   assert.match(css, /\.report-card\s*\{[^}]*border:\s*1px solid var\(--line\);/);
+  assert.match(css, /\.report-card \.report-supporting-meta\s*\{[^}]*margin-top:\s*auto;[^}]*padding-top:\s*18px;/);
+  assert.match(css, /\.report-card \.report-download-button\s*\{[^}]*margin-top:\s*14px;/);
   assert.match(css, /\.report-modal\s*\{[^}]*width:\s*min\(100%, 540px\);/);
 });
 
