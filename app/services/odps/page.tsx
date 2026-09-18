@@ -319,16 +319,17 @@ export default function OdpsServicesPage() {
       </section>
 
       <section className="section service-family-section">
-        <div className="service-family-head">
+        <div className="service-family-head service-family-editorial-head">
           <figure className="service-family-image">
             <img
               src={publicAssetPath("/images/odps-success-story.jpg")}
               alt="Jarkko Moilanen with data product interface visuals"
             />
           </figure>
-          <h2 className="section-title">
-            Evaluation, implementation, scaling, expert access.
-          </h2>
+          <div className="engage-section-head">
+            <div className="eyebrow">ODPS engagement paths</div>
+            <h2>Evaluation, implementation, scaling, expert access.</h2>
+          </div>
         </div>
         <div className="engagement-grid">
           {services.map((service, index) => (
@@ -385,9 +386,9 @@ export default function OdpsServicesPage() {
       </section>
 
       <section className="section service-proof-section">
-        <div className="detail-grid">
+        <div className="detail-grid service-proof-editorial">
           <div>
-            <div className="section-kicker">Implementation experience</div>
+            <div className="eyebrow">Implementation experience</div>
             <h2>The standard is open. Deep implementation experience is scarce.</h2>
           </div>
           <div className="service-copy">
@@ -416,8 +417,11 @@ export default function OdpsServicesPage() {
       </section>
 
       <section className="section organization-proof-section">
-        <div className="organization-proof-head">
-          <h2>Tested against real enterprise needs.</h2>
+        <div className="organization-proof-head organization-proof-editorial-head">
+          <div>
+            <div className="eyebrow">Public references</div>
+            <h2>Tested against real enterprise needs.</h2>
+          </div>
           <p>
             Public references on the current site include ODPS-related work
             involving Alation, BASF and Kruger. Additional named commercial
@@ -433,9 +437,9 @@ export default function OdpsServicesPage() {
       </section>
 
       <section className="section service-proof-section">
-        <div className="detail-grid">
+        <div className="detail-grid service-proof-editorial">
           <div>
-            <div className="section-kicker">Fit</div>
+            <div className="eyebrow">Fit</div>
             <h2>ODPS engagement or wider AI transformation?</h2>
           </div>
           <div className="service-copy">

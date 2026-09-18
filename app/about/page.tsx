@@ -42,7 +42,7 @@ export default function AboutPage() {
     <PageShell>
       <section className="about-hero">
         <div className="about-hero-copy">
-          <div className="section-kicker">About</div>
+          <div className="eyebrow">About</div>
           <h1>
             Judgment for AI and data product decisions
           </h1>
@@ -61,11 +61,11 @@ export default function AboutPage() {
       </section>
 
       <section className="about-section">
-        <div className="about-section-head">
-          <div className="section-kicker">Selected results</div>
+        <div className="about-section-head site-flow-head">
+          <div className="eyebrow">Selected results</div>
           <h2>Proof from public systems, open standards, and delivery.</h2>
         </div>
-        <div className="about-proof-list">
+        <div className="about-proof-list site-flow-list">
           <article>
             <span>01</span>
             <h3>Whole-of-government data and AI products</h3>
@@ -110,11 +110,11 @@ export default function AboutPage() {
       </section>
 
       <section className="about-section about-practical">
-        <div className="about-section-head">
-          <div className="section-kicker">Selected practical work</div>
+        <div className="about-section-head site-flow-head">
+          <div className="eyebrow">Selected practical work</div>
           <h2>Focused support where standards meet adoption.</h2>
         </div>
-        <div className="about-work-list">
+        <div className="about-work-list site-flow-columns">
           <article>
             <h3>Alation</h3>
             <p>
@@ -166,7 +166,7 @@ export default function AboutPage() {
 
       <section className="about-closing">
         <div>
-          <div className="section-kicker">Closing</div>
+          <div className="eyebrow">Closing</div>
           <h2>The work starts with a real problem</h2>
         </div>
         <div>
