@@ -765,9 +765,12 @@ test("server-renders insights report library with gated download controls", asyn
     html,
     /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/insights\/"/,
   );
-  assert.match(html, /Research for the work ahead/);
-  assert.match(html, /Browse insights/);
-  assert.match(html, /3<!-- --> published reports/);
+  assert.match(html, /Research library/);
+  assert.match(html, /Research &amp; insights\./);
+  assert.match(html, /Analysis, field notes, and practical reports on AI, data products/);
+  assert.match(html, /class="insights-hero-visual"/);
+  assert.match(html, /Ideas[\s\S]*Standards[\s\S]*Real impact/);
+  assert.doesNotMatch(html, /class="insights-hero-image"/);
   assert.match(html, /AI Products and Data Products: Two Product Contracts, One Connected Portfolio/);
   assert.match(html, /Open Data Product Specification: From Standard to Agent-Ready Data Products/);
   assert.match(html, /AI Centers of Excellence: Operating Model, Economics, and Implementation Blueprint/);
@@ -776,6 +779,9 @@ test("server-renders insights report library with gated download controls", asyn
   assert.match(html, /\/images\/insight-odps-whitepaper\.webp/);
   assert.match(html, /\/images\/insight-ai-centers-of-excellence\.webp/);
   assert.match(html, /detail-section insights-library-section/);
+  assert.match(css, /\.detail-hero\.insights-report-hero\s*\{[^}]*grid-template-columns:\s*minmax\(0, 1\.05fr\) minmax\(360px, 0\.95fr\);/);
+  assert.match(css, /\.insights-report-hero \.insights-hero-copy\s*\{[^}]*clip-path:\s*none;/);
+  assert.match(css, /\.insights-hero-visual\s*\{[^}]*min-height:\s*320px;/);
   assert.match(css, /\.insights-library-section\s*\{[^}]*background:\s*var\(--white\);/);
   assert.match(css, /\.report-grid\s*\{[^}]*grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\);/);
   assert.match(css, /\.report-grid\s*\{[^}]*gap:\s*clamp\(22px, 2\.4vw, 34px\);/);
