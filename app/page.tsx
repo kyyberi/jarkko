@@ -238,17 +238,15 @@ export default function Home() {
                 agents, MCP, APIs, knowledge graphs and data products.
               </p>
               <div className="hero-actions">
-                <a className="button primary" href={sitePath("/services/ai-products")}>
-                  Work with me <Arrow />
-                </a>
-                <a className="button" href="#work">
-                  Explore my work <Arrow />
+                <a className="button primary" href="#engagements">
+                  Engage <Arrow />
                 </a>
                 <a
                   className="button"
-                  href={sitePath(engagementDetailsUrl)}
+                  href={bookingPath(genericBookingService.id, "home-hero-primary")}
+                  {...bookingDataAttributes("home-hero-primary")}
                 >
-                  Download engagement details <Arrow />
+                  Book a meeting <Arrow />
                 </a>
               </div>
             </div>

@@ -171,7 +171,10 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /https:\/\/us\.amazon\.com\/stores\/Jarkko-Moilanen\/author\/B0B66HTHLM/);
   assert.match(html, /\/images\/logo-amazon\.webp/);
   assert.doesNotMatch(html, /calendly\.com\/work-jarkkomoilanen\/30min/);
-  assert.equal((html.match(/data-booking-cta="true"/g) ?? []).length, 1);
+  assert.match(html, /Engage[\s\S]*Book a meeting/);
+  assert.doesNotMatch(html, /Explore my work/);
+  assert.equal((html.match(/data-booking-cta="true"/g) ?? []).length, 2);
+  assert.match(html, /href="\/booking\/general-consultation\?sourceCTA=home-hero-primary"/);
   assert.match(html, /href="\/booking\/general-consultation\?sourceCTA=contact-channel"/);
   const bookingModalSource = await readFile(
     new URL("../app/booking/booking-modal.tsx", import.meta.url),
@@ -206,7 +209,7 @@ test("server-renders the professional homepage", async () => {
   );
   assert.match(layoutSource, /<BookingModalRoot \/>/);
   assert.match(html, /Discuss an engagement/);
-  assert.equal((html.match(/Book a meeting/g) ?? []).length, 2);
+  assert.equal((html.match(/Book a meeting/g) ?? []).length, 4);
   assert.doesNotMatch(html, /Discuss an engagement\s*<span aria-hidden="true">-&gt;<\/span>/);
   assert.ok(
     html.indexOf("Ways to work with me") < html.indexOf("What people say"),
