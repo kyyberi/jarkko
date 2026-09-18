@@ -442,6 +442,8 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /From \$2\.5K/);
   assert.match(html, /From \$2\.5K\/day/);
   assert.match(html, /The standard is open\. Deep implementation experience is scarce\./);
+  assert.match(html, /Engagement options/);
+  assert.match(html, /href="\/resources\/jarkko-moilanen-services-and-engagements\.pdf"/);
   assert.match(html, /understand why design decisions were made/);
   assert.match(html, /fit, architecture,[\s\S]*governance,[\s\S]*agent readiness/);
   assert.match(html, /Tested against real enterprise needs\./);

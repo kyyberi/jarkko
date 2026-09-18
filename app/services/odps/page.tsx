@@ -4,6 +4,7 @@ import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo
 import { bookingContextFor, bookingPath, odpsServices } from "../../booking/services";
 
 const odpsWhitepaperUrl = "/resources/ODPS_whitepaper_2026_09.pdf";
+const engagementDetailsUrl = "/resources/jarkko-moilanen-services-and-engagements.pdf";
 
 const odpsProofMetrics = [
   {
@@ -253,8 +254,8 @@ export default function OdpsServicesPage() {
             >
               Discuss an ODPS engagement <Arrow />
             </a>
-            <a className="button" href="https://opendataproducts.org">
-              Explore the ODPS standards <Arrow />
+            <a className="button" href={sitePath(engagementDetailsUrl)}>
+              Engagement options <Arrow />
             </a>
             <a className="button" href={sitePath(odpsWhitepaperUrl)}>
               Get White Paper <Arrow />
