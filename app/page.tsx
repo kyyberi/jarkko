@@ -75,7 +75,7 @@ const testimonials = [
   {
     name: "Baraa Zaid",
     role: "Lead AI Engineer, Abu Dhabi Department of Government Enablement",
-    relationship: "Reported to Jarkko directly",
+    relationship: "",
     quotes: [
       "Dr. Jarkko is an excellent example of what a leader should be. He promotes a culture of transparency, collaboration and clear communication.",
       "His ability to translate business expectations into simple technical requirements and vice versa makes him ideal for both business people and developers.",
