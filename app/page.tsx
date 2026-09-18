@@ -58,7 +58,7 @@ const testimonials = [
   {
     name: "Toni Luhti",
     role: "VP-level Executive",
-    relationship: "Managed Jarkko directly",
+    relationship: "",
     quotes: [
       "Jarkko is one of the only very technical people who really understand business, who has a genuine passion to achieve all the given goals and to lead the entire organization's data strategy in a better direction by his own example.",
     ],
@@ -66,7 +66,7 @@ const testimonials = [
   {
     name: "Matti Saastamoinen",
     role: "COO, Aplika",
-    relationship: "Managed Jarkko directly",
+    relationship: "",
     quotes: [
       "In the first year of the Open Data Tampere Region project he was one of the key persons bringing bright ideas and very agilely making them happen.",
       "Jarkko can hack, talk, listen, analyze, perform, and is a reliable and hard working character.",
@@ -391,7 +391,9 @@ export default function Home() {
                 <div className="testimonial-person">
                   <h3>{testimonial.name}</h3>
                   <p>{testimonial.role}</p>
-                  <span>{testimonial.relationship}</span>
+                  {testimonial.relationship ? (
+                    <span>{testimonial.relationship}</span>
+                  ) : null}
                 </div>
                 <div className="testimonial-quotes">
                   {testimonial.quotes.map((quote) => (
@@ -411,7 +413,9 @@ export default function Home() {
                   <div className="testimonial-person">
                     <h3>{testimonial.name}</h3>
                     <p>{testimonial.role}</p>
-                    <span>{testimonial.relationship}</span>
+                    {testimonial.relationship ? (
+                      <span>{testimonial.relationship}</span>
+                    ) : null}
                   </div>
                   <div className="testimonial-quotes">
                     {testimonial.quotes.map((quote) => (
