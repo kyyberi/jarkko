@@ -2817,15 +2817,22 @@ summary.booking-option-group-label::-webkit-details-marker {
 
 .about-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+  position: relative;
+  grid-template-columns: 1fr;
   min-height: 560px;
+  overflow: hidden;
   border-bottom: 1px solid var(--line);
   background: var(--paper);
 }
 
 .about-hero-copy {
+  position: relative;
+  z-index: 2;
+  width: min(62%, 860px);
+  min-height: 560px;
   padding: 86px var(--pad) 78px;
-  border-right: 1px solid var(--line);
+  background: var(--paper);
+  clip-path: polygon(0 0, 100% 0, 86% 100%, 0 100%);
 }
 
 .about-hero h1 {
@@ -2848,6 +2855,10 @@ summary.booking-option-group-label::-webkit-details-marker {
 }
 
 .about-portrait {
+  position: absolute;
+  inset: 0 0 0 auto;
+  z-index: 1;
+  width: 50%;
   min-height: 560px;
   margin: 0;
   overflow: hidden;
@@ -5370,12 +5381,16 @@ summary.booking-option-group-label::-webkit-details-marker {
   }
 
   .about-hero-copy {
+    width: 100%;
+    min-height: 0;
     padding: 54px var(--pad);
-    border-right: 0;
     border-bottom: 1px solid var(--line);
+    clip-path: none;
   }
 
   .about-portrait {
+    position: relative;
+    width: 100%;
     min-height: 380px;
   }
 
