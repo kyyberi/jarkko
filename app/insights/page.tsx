@@ -59,7 +59,7 @@ export default function InsightsPage() {
         </figure>
       </section>
 
-      <section className="detail-section">
+      <section className="detail-section insights-library-section">
         <div className="article-archive-head">
           <div>
             <div className="section-kicker">Research library</div>

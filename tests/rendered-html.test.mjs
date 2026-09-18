@@ -645,8 +645,13 @@ test("server-renders insights report library with gated download controls", asyn
   assert.equal((html.match(/Download report/g) ?? []).length, 2);
   assert.match(html, /\/images\/odps-preview\.webp/);
   assert.match(html, /ai-center-of-excellence-article-jarkko-moilanen-pdf\.webp/);
+  assert.match(html, /detail-section insights-library-section/);
+  assert.match(css, /\.insights-library-section\s*\{[^}]*background:\s*var\(--white\);/);
   assert.match(css, /\.report-grid\s*\{[^}]*grid-template-columns:\s*repeat\(2, minmax\(0, 1fr\)\);/);
-  assert.match(css, /\.report-card\s*\{[^}]*border:\s*1px solid var\(--line\);/);
+  assert.match(css, /\.report-grid\s*\{[^}]*border-top:\s*1px solid var\(--line\);/);
+  assert.match(css, /\.report-grid\s*\{[^}]*border-left:\s*1px solid var\(--line\);/);
+  assert.match(css, /\.report-card\s*\{[^}]*border-right:\s*1px solid var\(--line\);/);
+  assert.match(css, /\.report-card\s*\{[^}]*border-bottom:\s*1px solid var\(--line\);/);
   assert.match(css, /\.report-modal\s*\{[^}]*width:\s*min\(100%, 540px\);/);
 });
 
