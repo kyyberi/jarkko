@@ -13,11 +13,13 @@ type DownloadState = "idle" | "submitting" | "ready";
 type WorkerSubscriptionStatus =
   | "subscribed"
   | "not_requested"
-  | "not_configured"
   | "failed";
 
 type WorkerResponse = {
   ok?: boolean;
+  subscribed?: boolean;
+  subscriptionFailed?: boolean;
+  reportSlug?: string;
   error?: string;
   subscriptionStatus?: WorkerSubscriptionStatus;
 };
@@ -47,7 +49,7 @@ function isValidEmail(email: string) {
 }
 
 function subscriptionNotice(status?: WorkerSubscriptionStatus) {
-  if (status === "failed" || status === "not_configured") {
+  if (status === "failed") {
     return "Your report is ready. We could not complete the subscription request.";
   }
 
@@ -145,6 +147,8 @@ export function ReportDownloadButton({ report }: { report: InsightReport }) {
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (state === "submitting") return;
+
     const trimmedEmail = email.trim();
 
     if (!isValidEmail(trimmedEmail)) {
@@ -177,11 +181,8 @@ export function ReportDownloadButton({ report }: { report: InsightReport }) {
     }
 
     if (!insightsApiUrl) {
-      grantAccess(
-        subscribe
-          ? "Your report is ready. The subscription service is not configured."
-          : "Your report is ready.",
-      );
+      setState("idle");
+      setError("We could not process the request. Please try again.");
       return;
     }
 
@@ -201,17 +202,18 @@ export function ReportDownloadButton({ report }: { report: InsightReport }) {
 
       if (!response.ok || payload.ok === false) {
         setState("idle");
-        setError(payload.error ?? "The subscription service is temporarily unavailable.");
+        setError(payload.error ?? "We could not process the request. Please try again.");
         return;
       }
 
-      grantAccess(subscriptionNotice(payload.subscriptionStatus));
-    } catch {
       grantAccess(
-        subscribe
-          ? "Your report is ready. We could not reach the subscription service."
-          : "Your report is ready. We could not reach the subscription service.",
+        payload.subscriptionFailed
+          ? "Your report is ready. We could not complete the subscription request."
+          : subscriptionNotice(payload.subscriptionStatus),
       );
+    } catch {
+      setState("idle");
+      setError("We could not process the request. Please try again.");
     }
   }
 

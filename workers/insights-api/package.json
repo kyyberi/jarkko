@@ -1,0 +1,14 @@
+{
+  "name": "jarkko-insights-api-worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --config wrangler.jsonc",
+    "deploy": "wrangler deploy --config wrangler.jsonc --keep-vars",
+    "dry-run": "wrangler deploy --config wrangler.jsonc --dry-run --keep-vars"
+  },
+  "devDependencies": {
+    "wrangler": "4.92.0"
+  }
+}

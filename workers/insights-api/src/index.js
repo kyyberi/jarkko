@@ -5,8 +5,11 @@ const allowedReports = new Set([
 
 const defaultAllowedOrigins = [
   "https://jarkkomoilanen.com",
+  "https://www.jarkkomoilanen.com",
   "http://localhost:3000",
   "http://127.0.0.1:3000",
+  "http://localhost:3001",
+  "http://127.0.0.1:3001",
 ];
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -46,7 +49,8 @@ function corsHeaders(request, env) {
 
 async function subscribeToMailerLite(email, env) {
   if (!env.MAILERLITE_API_KEY || !env.MAILERLITE_RESEARCH_GROUP_ID) {
-    return "not_configured";
+    console.error("MailerLite configuration is missing.");
+    return false;
   }
 
   const response = await fetch("https://connect.mailerlite.com/api/subscribers", {
@@ -62,7 +66,15 @@ async function subscribeToMailerLite(email, env) {
     }),
   });
 
-  return response.ok ? "subscribed" : "failed";
+  if (!response.ok) {
+    console.error("MailerLite subscription failed.", {
+      status: response.status,
+      statusText: response.statusText,
+    });
+    return false;
+  }
+
+  return true;
 }
 
 export default {
@@ -100,11 +112,21 @@ export default {
     }
 
     const email = typeof payload.email === "string" ? payload.email.trim() : "";
+    const normalizedEmail = email.toLowerCase();
     const reportSlug =
       typeof payload.reportSlug === "string" ? payload.reportSlug.trim() : "";
-    const subscribe = payload.subscribe === true;
 
-    if (!emailPattern.test(email)) {
+    if (typeof payload.subscribe !== "boolean") {
+      return json(
+        { ok: false, error: "Subscription consent must be true or false." },
+        { status: 400 },
+        headers,
+      );
+    }
+
+    const subscribe = payload.subscribe;
+
+    if (!emailPattern.test(normalizedEmail)) {
       return json(
         { ok: false, error: "Enter a valid email address." },
         { status: 400 },
@@ -122,19 +144,29 @@ export default {
 
     if (!subscribe) {
       return json(
-        { ok: true, subscriptionStatus: "not_requested" },
+        { ok: true, subscribed: false, reportSlug },
         { status: 200 },
         headers,
       );
     }
 
-    let subscriptionStatus = "failed";
+    let subscribed = false;
     try {
-      subscriptionStatus = await subscribeToMailerLite(email, env);
-    } catch {
-      subscriptionStatus = "failed";
+      subscribed = await subscribeToMailerLite(normalizedEmail, env);
+    } catch (error) {
+      console.error("MailerLite request threw.", {
+        message: error instanceof Error ? error.message : "Unknown error",
+      });
     }
 
-    return json({ ok: true, subscriptionStatus }, { status: 200 }, headers);
+    if (!subscribed) {
+      return json(
+        { ok: true, subscribed: false, subscriptionFailed: true, reportSlug },
+        { status: 200 },
+        headers,
+      );
+    }
+
+    return json({ ok: true, subscribed: true, reportSlug }, { status: 200 }, headers);
   },
 };

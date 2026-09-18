@@ -666,8 +666,7 @@ test("soft-gate download stays static-export safe", async () => {
   assert.match(source, /jm_insights_gate_completed/);
   assert.match(source, /NEXT_PUBLIC_INSIGHTS_API_URL/);
   assert.match(source, /\/insights\/subscribe/);
-  assert.match(source, /The subscription service is not configured/);
-  assert.match(source, /We could not reach the subscription service/);
+  assert.match(source, /We could not process the request\. Please try again\./);
   assert.match(source, /No raw email is stored in this browser/);
   assert.match(source, /We could not complete the subscription request/);
   assert.doesNotMatch(source, /MAILERLITE_API_KEY|MAILERLITE_RESEARCH_GROUP_ID|\/api\/insights\/download/);
@@ -679,31 +678,36 @@ test("soft-gate download stays static-export safe", async () => {
 test("ships a standalone Cloudflare Worker for Insights subscription", async () => {
   const [source, readme, wranglerExample] = await Promise.all([
     readFile(
-      new URL("../workers/insights-subscribe/src/index.js", import.meta.url),
+      new URL("../workers/insights-api/src/index.js", import.meta.url),
       "utf8",
     ),
     readFile(
-      new URL("../workers/insights-subscribe/README.md", import.meta.url),
+      new URL("../workers/insights-api/README.md", import.meta.url),
       "utf8",
     ),
     readFile(
-      new URL("../workers/insights-subscribe/wrangler.toml.example", import.meta.url),
+      new URL("../workers/insights-api/wrangler.jsonc", import.meta.url),
       "utf8",
     ),
   ]);
 
   assert.match(source, /\/insights\/subscribe/);
   assert.match(source, /https:\/\/jarkkomoilanen\.com/);
+  assert.match(source, /https:\/\/www\.jarkkomoilanen\.com/);
   assert.match(source, /http:\/\/localhost:3000/);
   assert.match(source, /odps-whitepaper-2026/);
   assert.match(source, /ai-centers-of-excellence-operating-model/);
   assert.match(source, /MAILERLITE_API_KEY/);
   assert.match(source, /MAILERLITE_RESEARCH_GROUP_ID/);
   assert.match(source, /connect\.mailerlite\.com\/api\/subscribers/);
-  assert.match(source, /subscriptionStatus: "not_requested"/);
+  assert.match(source, /subscribed: false/);
+  assert.match(source, /subscriptionFailed: true/);
   assert.match(source, /Origin not allowed/);
+  assert.match(readme, /jarkko-insights-api/);
   assert.match(readme, /NEXT_PUBLIC_INSIGHTS_API_URL/);
-  assert.match(wranglerExample, /wrangler secret put MAILERLITE_API_KEY/);
+  assert.match(wranglerExample, /"name": "jarkko-insights-api"/);
+  assert.match(wranglerExample, /"keep_vars": true/);
+  assert.doesNotMatch(wranglerExample, /MAILERLITE_API_KEY|MAILERLITE_RESEARCH_GROUP_ID/);
 });
 
 test("highlights article closing CTAs", async () => {
