@@ -1518,7 +1518,12 @@ summary.booking-option-group-label::-webkit-details-marker {
 }
 
 .booking-option-list.secondary {
+  max-height: min(250px, 30dvh);
+  overflow: auto;
   padding-top: 6px;
+  border-bottom: 1px solid var(--line);
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
 }
 
 .booking-option-choice {
@@ -4894,6 +4899,10 @@ summary.booking-option-group-label::-webkit-details-marker {
   .booking-option-choice small {
     font-size: 12px;
     line-height: 1.25;
+  }
+
+  .booking-option-list.secondary {
+    max-height: min(130px, 16dvh);
   }
 
   .booking-intake-actions {
