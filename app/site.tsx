@@ -228,8 +228,93 @@ export const workItems = [
     ],
   },
   {
-    slug: "school-of-ai",
+    slug: "open-data-value",
     index: "04",
+    label: "Open data value layer",
+    title: "Open Data Value",
+    summary:
+      "A public value layer that analyzes open data catalogs and turns datasets into data products, use cases, value graphs, insights, and AI-agent-ready resources.",
+    image: "/images/work-odps.webp",
+    imageAlt:
+      "Open Data Value flow from open data catalogs to data products, use cases, graphs, and agent-ready resources",
+    cta: "Explore Open Data Value",
+    detailCta: "Visit Open Data Value",
+    ctaHref: "https://create.opendatavalue.com/",
+    externalLinks: [
+      {
+        label: "Open Data Value",
+        href: "https://create.opendatavalue.com/",
+      },
+    ],
+    diagramSteps: [
+      "Open catalogs",
+      "Data products",
+      "Use cases",
+      "Value graphs",
+      "Agent resources",
+    ],
+    diagramCaption:
+      "From open datasets to product, graph, analysis, and AI-agent-ready context.",
+    focus:
+      "Open Data Value is a public exploration layer that analyzes real open data catalogs and shows what sits beyond dataset lists: data products, use cases, value graphs, analysis, and AI-agent-ready resources. It demonstrates how open data can become structured value portfolios that people and agents can inspect, compare, and reuse.",
+    detailIntro:
+      "The work starts from existing public open data portals and reframes them through a product and value lens. Instead of stopping at datasets, Open Data Value organizes catalogs into candidate data products, potential use cases, relationships, portfolio signals, and structured resources for AI-assisted discovery.",
+    proof: [
+      {
+        title: "Real catalog base",
+        text: "The current public site analyzes selected open data catalogs from around the world rather than using a fictional sample.",
+      },
+      {
+        title: "Product and use-case lens",
+        text: "Published datasets are translated into candidate data products, potential use cases, and portfolio-level signals.",
+      },
+      {
+        title: "Value Graph",
+        text: "Relationships between catalogs, datasets, products, use cases, and objectives are exposed as a graph that can support exploration and comparison.",
+      },
+      {
+        title: "Agent-ready resources",
+        text: "The material is structured so AI agents and developers can use the open data context instead of reading a flat catalog page.",
+      },
+      {
+        title: "Public learning layer",
+        text: "Open Data Value is a demonstration and discovery environment for showing how open data can move toward usable public value.",
+      },
+    ],
+    outcomes: [
+      {
+        title: "Open data reframed",
+        text: "Catalogs become easier to inspect through products, opportunities, relationships, and practical value signals.",
+      },
+      {
+        title: "Portfolio visibility",
+        text: "Different portals can be compared through common dimensions such as data products, use cases, graph richness, and analyzed datasets.",
+      },
+      {
+        title: "Agent context",
+        text: "Structured resources make it easier for AI assistants and developer agents to reason over public open data material.",
+      },
+      {
+        title: "Adoption example",
+        text: "The site gives open data teams a visible example of how catalog assets can become product and value portfolios.",
+      },
+    ],
+    relatedHeading:
+      "Connected parts of the same open data product system.",
+    relatedDescriptions: {
+      "standards-and-sdk":
+        "The ODPS standards family provides the machine-readable foundation behind product, catalog, graph, vocabulary, and recipe structures.",
+      maysano:
+        "Maysano applies the same portfolio and product operating logic inside governed data product work.",
+      "government-ai":
+        "Government AI delivery depends on moving from raw data availability to usable, governed value.",
+      "school-of-ai":
+        "School 4 AI carries the practical learning thread into community education and visible outcomes.",
+    },
+  },
+  {
+    slug: "school-of-ai",
+    index: "05",
     label: "Community AI education",
     title: "School 4 AI",
     summary:

@@ -94,9 +94,9 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Data product thinking moving into practice across 56 countries/);
   assert.ok(
     html.indexOf("270% delivery speed improvement") <
-      html.indexOf("Four areas. One professional body of work."),
+      html.indexOf("Five areas. One professional body of work."),
   );
-  assert.match(html, /Four areas\. One professional body of work\./);
+  assert.match(html, /Five areas\. One professional body of work\./);
   assert.match(html, /\/images\/jarkko-current-focus\.webp/);
   assert.doesNotMatch(html, /Built in public, tested in practice\./);
   assert.doesNotMatch(html, /Selected work/);
@@ -127,6 +127,9 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /href="\/work\/maysano"[\s\S]*Explore Maysano/);
   assert.match(html, /Open standards and SDK/);
   assert.match(html, /ODPS Enterprise Services/);
+  assert.match(html, /Open Data Value/);
+  assert.match(html, /href="\/work\/open-data-value"[\s\S]*Explore Open Data Value/);
+  assert.match(html, /data products, use[\s\S]*cases, value graphs, analysis, and AI-agent-ready resources/);
   assert.match(html, /School 4 AI/);
   assert.match(html, /class="hero-residency-badge"/);
   assert.match(html, /\/images\/uae-flag\.svg/);
@@ -612,6 +615,34 @@ test("server-renders the Maysano work page as a real platform", async () => {
   assert.match(html, /Portfolio design/);
   assert.match(html, /Operationalization/);
   assert.doesNotMatch(html, /concept-only|coming soon|startup/i);
+});
+
+test("server-renders the Open Data Value work page", async () => {
+  const response = await render("/work/open-data-value");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(html, /OPEN DATA VALUE LAYER/i);
+  assert.match(html, /Open Data Value/);
+  assert.match(html, /href="https:\/\/create\.opendatavalue\.com\/"/);
+  assert.match(html, /analyzes real open data catalogs/);
+  assert.match(html, /data products, use cases, value graphs, analysis, and AI-agent-ready resources/);
+  assert.match(html, /Open catalogs/);
+  assert.match(html, /Data products/);
+  assert.match(html, /Use cases/);
+  assert.match(html, /Value graphs/);
+  assert.match(html, /Agent resources/);
+  assert.match(html, /Real catalog base/);
+  assert.match(html, /Product and use-case lens/);
+  assert.match(html, /Value Graph/);
+  assert.match(html, /Agent-ready resources/);
+  assert.match(html, /Public learning layer/);
+  assert.match(html, /Open data reframed/);
+  assert.match(html, /Portfolio visibility/);
+  assert.match(html, /Agent context/);
+  assert.match(html, /Adoption example/);
+  assert.match(html, /rather than using a fictional sample/);
+  assert.doesNotMatch(html, /coming soon/i);
 });
 
 test("server-renders the government AI work page without operational detail", async () => {
