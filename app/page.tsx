@@ -455,7 +455,7 @@ export default function Home() {
                 </p>
               </div>
               <a className="text-link" href={sitePath("/work/government-ai")}>
-                Explore government AI <Arrow />
+                Explore more <Arrow />
               </a>
             </article>
             <article className="focus-item">
@@ -468,7 +468,7 @@ export default function Home() {
                 </p>
               </div>
               <a className="text-link" href={sitePath("/work/maysano")}>
-                Explore Maysano <Arrow />
+                Explore more <Arrow />
               </a>
             </article>
             <article className="focus-item">
@@ -482,15 +482,9 @@ export default function Home() {
               </div>
               <a
                 className="text-link"
-                href={sitePath("/work/standards-and-sdk")}
-              >
-                Explore standards and SDK <Arrow />
-              </a>
-              <a
-                className="text-link"
                 href={sitePath("/services/odps")}
               >
-                ODPS Enterprise Services <Arrow />
+                Explore more <Arrow />
               </a>
             </article>
             <article className="focus-item">
@@ -503,7 +497,7 @@ export default function Home() {
                 </p>
               </div>
               <a className="text-link" href={sitePath("/work/open-data-value")}>
-                Explore Open Data Value <Arrow />
+                Explore more <Arrow />
               </a>
             </article>
             <article className="focus-item">
@@ -517,7 +511,7 @@ export default function Home() {
                 </p>
               </div>
               <a className="text-link" href={sitePath("/work/school-of-ai")}>
-                Explore School 4 AI <Arrow />
+                Explore more <Arrow />
               </a>
             </article>
           </div>
