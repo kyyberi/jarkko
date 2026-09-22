@@ -1000,6 +1000,7 @@ test("server-renders booking routes with service context", async () => {
   assert.match(genericHtml, /Book the right conversation/);
   assert.match(genericHtml, /What would you like to discuss\?/);
   assert.match(genericHtml, /AI portfolio and product strategy/);
+  assert.match(genericHtml, /Open Data Value platform/);
   assert.match(genericHtml, /href="\/booking\/odps-maintainer-session\?sourceCTA=booking-index"/);
   assert.doesNotMatch(genericHtml, /calendly\.com/);
 

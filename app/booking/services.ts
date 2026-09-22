@@ -256,6 +256,7 @@ export const genericVisitorIntentOptions = [
   "Exploring options",
   "AI portfolio and product strategy",
   "ODPS / data products",
+  "Open Data Value platform",
   "Agentic AI architecture",
   "AI product operating model",
   "Fractional AI product leadership",

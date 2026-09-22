@@ -298,6 +298,7 @@ function optionDescriptionFor(option: string) {
     "AI product operating model": "Ownership, governance, portfolio rules or delivery model.",
     "Fractional AI product leadership": "Senior product leadership support for active initiatives.",
     "ODPS / data products": "Discuss standards, architecture, adoption or implementation.",
+    "Open Data Value platform": "Book a 30-minute general session on value graphs and platform direction.",
     "Partnership or collaboration": "Explore collaboration, adoption, ecosystem, or community opportunities.",
     "Something else": "Use this when the topic does not fit the listed categories.",
     "Evaluate ODPS": "Assess fit, readiness, and where the standard helps.",
@@ -331,6 +332,7 @@ function groupedOptionsFor(service: ServiceBookingConfig, options: string[]) {
     "Exploring options",
     "AI portfolio and product strategy",
     "ODPS / data products",
+    "Open Data Value platform",
   ];
   const prioritySet = new Set(priorityTopics);
 
