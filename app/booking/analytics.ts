@@ -3,6 +3,7 @@
 import type { BookingContext } from "./services";
 
 type BookingAnalyticsEvent =
+  | "booking_started"
   | "booking_modal_opened"
   | "booking_modal_closed"
   | "booking_cta_clicked"

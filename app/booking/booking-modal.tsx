@@ -93,6 +93,7 @@ export function BookingModalRoot() {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
+  const hasTrackedModalOpenRef = useRef(false);
 
   const titleId = "booking-modal-title";
   const descriptionId = "booking-modal-description";
@@ -126,16 +127,26 @@ export function BookingModalRoot() {
 
       event.preventDefault();
       openerRef.current = link;
+      hasTrackedModalOpenRef.current = false;
       setActiveService(result.service);
       setActiveContext(result.context);
       setActiveStep("intake");
       trackBookingEvent("booking_cta_clicked", result.context);
-      trackBookingEvent("booking_modal_opened", result.context);
     }
 
     document.addEventListener("click", handleClick);
     return () => document.removeEventListener("click", handleClick);
   }, []);
+
+  useEffect(() => {
+    if (!isOpen || !activeContext || !modalRef.current || hasTrackedModalOpenRef.current) {
+      return;
+    }
+
+    hasTrackedModalOpenRef.current = true;
+    trackBookingEvent("booking_started", activeContext);
+    trackBookingEvent("booking_modal_opened", activeContext);
+  }, [activeContext, isOpen]);
 
   useEffect(() => {
     if (!isOpen) return;

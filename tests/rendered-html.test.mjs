@@ -76,6 +76,7 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /"Model Context Protocol"/);
   assert.match(html, /googletagmanager\.com\/gtag\/js\?id=G-KZ5N2GTKF5/);
   assert.match(html, /gtag\('config', 'G-KZ5N2GTKF5'\)/);
+  assert.equal((html.match(/gtag\('config', 'G-KZ5N2GTKF5'\)/g) ?? []).length, 1);
   assert.match(html, /AI product[\s\S]*leadership[\s\S]*from strategy[\s\S]*working[\s\S]*systems/);
   assert.match(html, /Jarkko Moilanen, PhD/);
   assert.match(html, /aria-label="Open navigation menu"/);
@@ -197,6 +198,8 @@ test("server-renders the professional homepage", async () => {
   assert.match(bookingModalSource, /aria-modal="true"/);
   assert.match(bookingModalSource, /document\.body\.style\.overflow = "hidden"/);
   assert.match(bookingModalSource, /event\.key === "Escape"/);
+  assert.match(bookingModalSource, /booking_started/);
+  assert.match(bookingModalSource, /hasTrackedModalOpenRef\.current = true/);
   assert.match(bookingModalSource, /booking_modal_opened/);
   assert.match(bookingModalSource, /booking_modal_closed/);
   assert.match(bookingModalSource, /openerRef\.current\?\.focus\(\)/);
@@ -215,6 +218,8 @@ test("server-renders the professional homepage", async () => {
   assert.match(bookingFlowSource, /!useOptionCards && qualificationOptions\.length > 0/);
   assert.match(bookingFlowSource, /Priority topics/);
   assert.match(bookingFlowSource, /Other topics/);
+  assert.match(bookingFlowSource, /bookingSuccessfulV2/);
+  assert.match(bookingFlowSource, /booking_completed/);
   const layoutSource = await readFile(
     new URL("../app/layout.tsx", import.meta.url),
     "utf8",
