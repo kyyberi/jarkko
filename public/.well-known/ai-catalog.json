@@ -89,6 +89,17 @@
       ]
     },
     {
+      "identifier": "urn:air:jarkkomoilanen.com:resource:data-quality-data-product-quality",
+      "displayName": "Data Quality Is Not Data Product Quality Whitepaper",
+      "type": "application/pdf",
+      "url": "https://jarkkomoilanen.com/resources/data-quality-is-not-data-product-quality.pdf",
+      "representativeQueries": [
+        "download Jarkko Moilanen's Data Quality Is Not Data Product Quality whitepaper",
+        "read a whitepaper about separating data quality from data product quality",
+        "find source material on data product quality scorecards ownership release readiness and value delivery"
+      ]
+    },
+    {
       "identifier": "urn:air:jarkkomoilanen.com:resource:odps-whitepaper",
       "displayName": "ODPS White Paper",
       "type": "application/pdf",

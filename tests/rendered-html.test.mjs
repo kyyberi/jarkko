@@ -807,14 +807,16 @@ test("server-renders insights report library with gated download controls", asyn
   assert.match(html, /Research for the work ahead/);
   assert.match(html, /class="insights-hero-image"/);
   assert.match(html, /Browse insights/);
-  assert.match(html, /3<!-- --> published reports/);
+  assert.match(html, /4<!-- --> published reports/);
   assert.match(html, /class="article-archive-head insights-library-head"/);
   assert.match(html, /class="insights-library-visual"/);
   assert.match(html, /Ideas[\s\S]*Standards[\s\S]*Real impact/);
+  assert.match(html, /Data Quality Is Not Data Product Quality/);
   assert.match(html, /AI Products and Data Products: Two Product Contracts, One Connected Portfolio/);
   assert.match(html, /Open Data Product Specification: From Standard to Agent-Ready Data Products/);
   assert.match(html, /AI Centers of Excellence: Operating Model, Economics, and Implementation Blueprint/);
-  assert.equal((html.match(/Download report/g) ?? []).length, 3);
+  assert.equal((html.match(/Download report/g) ?? []).length, 4);
+  assert.match(html, /\/images\/insight-data-quality-data-product-quality\.webp/);
   assert.match(html, /\/images\/insight-ai-products-data-products\.webp/);
   assert.match(html, /\/images\/insight-odps-whitepaper\.webp/);
   assert.match(html, /\/images\/insight-ai-centers-of-excellence\.webp/);
@@ -875,6 +877,7 @@ test("ships a standalone Cloudflare Worker for Insights subscription", async () 
   assert.match(source, /https:\/\/jarkkomoilanen\.com/);
   assert.match(source, /https:\/\/www\.jarkkomoilanen\.com/);
   assert.match(source, /http:\/\/localhost:3000/);
+  assert.match(source, /data-quality-is-not-data-product-quality/);
   assert.match(source, /odps-whitepaper-2026/);
   assert.match(source, /ai-products-and-data-products-connected-portfolio/);
   assert.match(source, /ai-centers-of-excellence-operating-model/);
@@ -960,6 +963,10 @@ test("server-renders robots and sitemap discovery routes", async () => {
   assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/insights\/<\/loc>/);
   assert.match(
     sitemapText,
+    /<loc>https:\/\/jarkkomoilanen\.com\/insights\/data-quality-is-not-data-product-quality\/<\/loc>/,
+  );
+  assert.match(
+    sitemapText,
     /<loc>https:\/\/jarkkomoilanen\.com\/insights\/odps-whitepaper-2026\/<\/loc>/,
   );
   assert.match(
@@ -1033,6 +1040,10 @@ test("publishes ODPS white paper in the LLM site guide", async () => {
   );
   assert.match(
     guide,
+    /Data Quality Is Not Data Product Quality Whitepaper: https:\/\/jarkkomoilanen\.com\/resources\/data-quality-is-not-data-product-quality\.pdf/,
+  );
+  assert.match(
+    guide,
     /AI Products and Data Products Whitepaper: https:\/\/jarkkomoilanen\.com\/resources\/ai-products-and-data-products-whitepaper\.pdf/,
   );
   assert.match(
@@ -1100,6 +1111,16 @@ test("publishes an ARD manifest for agent discovery", async () => {
         entry.type === "application/pdf" &&
         entry.url ===
           "https://jarkkomoilanen.com/resources/ai-products-and-data-products-whitepaper.pdf",
+    ),
+  );
+  assert.ok(
+    catalog.entries.some(
+      (entry) =>
+        entry.identifier ===
+          "urn:air:jarkkomoilanen.com:resource:data-quality-data-product-quality" &&
+        entry.type === "application/pdf" &&
+        entry.url ===
+          "https://jarkkomoilanen.com/resources/data-quality-is-not-data-product-quality.pdf",
     ),
   );
   assert.ok(

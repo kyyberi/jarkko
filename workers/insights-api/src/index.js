@@ -1,4 +1,5 @@
 const allowedReports = new Set([
+  "data-quality-is-not-data-product-quality",
   "ai-products-and-data-products-connected-portfolio",
   "odps-whitepaper-2026",
   "ai-centers-of-excellence-operating-model",

@@ -15,6 +15,21 @@ export type InsightReport = {
 
 const reports: InsightReport[] = [
   {
+    slug: "data-quality-is-not-data-product-quality",
+    title: "Data Quality Is Not Data Product Quality",
+    type: "Whitepaper",
+    excerpt:
+      "A practical framework for separating data quality from the quality of the complete data product, with linked scorecards for ownership, release readiness, and value delivery.",
+    publishedAt: "2026-09-23",
+    displayDate: "SEPT 2026",
+    coverImage: "/images/insight-data-quality-data-product-quality.webp",
+    coverAlt: "Data Quality Is Not Data Product Quality whitepaper cover",
+    filePath: "/resources/data-quality-is-not-data-product-quality.pdf",
+    pageCount: 28,
+    topics: ["Data quality", "Data product quality", "Release readiness"],
+    featured: true,
+  },
+  {
     slug: "ai-products-and-data-products-connected-portfolio",
     title:
       "AI Products and Data Products: Two Product Contracts, One Connected Portfolio",
@@ -28,7 +43,6 @@ const reports: InsightReport[] = [
     filePath: "/resources/ai-products-and-data-products-whitepaper.pdf",
     pageCount: 48,
     topics: ["AI products", "Data products", "Portfolio strategy"],
-    featured: true,
   },
   {
     slug: "odps-whitepaper-2026",
