@@ -78,6 +78,17 @@
       ]
     },
     {
+      "identifier": "urn:air:jarkkomoilanen.com:resource:odps-in-practice",
+      "displayName": "ODPS in Practice: Three Paths to AI-Ready Data Products",
+      "type": "application/pdf",
+      "url": "https://jarkkomoilanen.com/resources/odps-in-practice-three-paths-to-ai-ready-data-products.pdf",
+      "representativeQueries": [
+        "download Jarkko Moilanen's ODPS in Practice whitepaper",
+        "read case studies about Alation Dawiso TrustRelay and ODPS adoption",
+        "find practical examples of ODPS for AI agents and data ecosystems"
+      ]
+    },
+    {
       "identifier": "urn:air:jarkkomoilanen.com:resource:ai-products-data-products",
       "displayName": "AI Products and Data Products Whitepaper",
       "type": "application/pdf",

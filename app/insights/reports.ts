@@ -15,6 +15,22 @@ export type InsightReport = {
 
 const reports: InsightReport[] = [
   {
+    slug: "odps-in-practice",
+    title: "ODPS in Practice: Three Paths to AI-Ready Data Products",
+    type: "Whitepaper",
+    excerpt:
+      "A fact-based review of how Alation, Dawiso, and TrustRelay use ODPS for AI-assisted creation, governed agent context, and cross-organizational data ecosystems.",
+    publishedAt: "2026-09-29",
+    displayDate: "SEPT 2026",
+    coverImage: "/images/insight-odps-in-practice.webp",
+    coverAlt: "ODPS in Practice whitepaper cover",
+    filePath:
+      "/resources/odps-in-practice-three-paths-to-ai-ready-data-products.pdf",
+    pageCount: 22,
+    topics: ["ODPS", "AI agents", "Data ecosystems"],
+    featured: true,
+  },
+  {
     slug: "data-quality-is-not-data-product-quality",
     title: "Data Quality Is Not Data Product Quality",
     type: "Whitepaper",
@@ -27,7 +43,6 @@ const reports: InsightReport[] = [
     filePath: "/resources/data-quality-is-not-data-product-quality.pdf",
     pageCount: 28,
     topics: ["Data quality", "Data product quality", "Release readiness"],
-    featured: true,
   },
   {
     slug: "ai-products-and-data-products-connected-portfolio",
