@@ -74,16 +74,8 @@ function stepDescription(step: BookingStep) {
   return "Choose the main topic for your session.";
 }
 
-function serviceDescription(service: ServiceBookingConfig) {
-  if (service.bookingType === "direct") {
-    return "A focused expert session to review your questions, implementation direction, or project decision.";
-  }
-
-  if (service.category === "odps") {
-    return "A short qualification call to understand fit, timing, and the ODPS support path.";
-  }
-
-  return "A short qualification call to understand the decision, context, and next useful step.";
+function serviceDescription() {
+  return "A focused first conversation to understand the decision, context, and next useful step.";
 }
 
 export function BookingModalRoot() {
@@ -199,17 +191,13 @@ export function BookingModalRoot() {
       <div className={`booking-modal booking-modal-${activeStep}`} ref={modalRef}>
         <aside className="booking-modal-summary">
           <div>
-            <div className="booking-modal-kicker">
-              {activeService.bookingType === "direct"
-                ? "Book a session"
-                : "Book a consultation"}
-            </div>
+            <div className="booking-modal-kicker">Starting meeting</div>
             <div className="booking-modal-avatar" aria-hidden="true">
               <img src={bookingAvatarPath} alt="" />
             </div>
             <h2 id={titleId}>{activeService.displayName}</h2>
             <p id={descriptionId}>
-              {serviceDescription(activeService)}
+              {serviceDescription()}
             </p>
           </div>
 
@@ -269,9 +257,7 @@ export function BookingModalRoot() {
             >
               <div>
                 <span>
-                  {activeService.bookingType === "direct"
-                    ? "Direct expert session"
-                    : "Consultation"}
+                  Starting meeting
                 </span>
                 <strong>{activeService.displayName}</strong>
               </div>

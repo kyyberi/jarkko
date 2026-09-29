@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getArticles } from "./article-data";
 import { getInsightReports } from "./insights/reports";
-import { bookingServices } from "./booking/services";
 import { absoluteUrl } from "./seo";
 import { workItems } from "./site";
 
@@ -67,13 +66,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const bookingRoutes: MetadataRoute.Sitemap = bookingServices.map((service) => ({
-    url: absoluteUrl(`/booking/${service.id}/`),
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: service.bookingType === "direct" ? 0.8 : 0.7,
-  }));
-
   const articleRoutes: MetadataRoute.Sitemap = getArticles().map((article) => ({
     url: absoluteUrl(`/articles/${article.slug}/`),
     lastModified: new Date(`${article.isoDate}T00:00:00.000Z`),
@@ -92,7 +84,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticRoutes,
-    ...bookingRoutes,
     ...workRoutes,
     ...articleRoutes,
     ...insightReportRoutes,

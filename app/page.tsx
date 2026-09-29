@@ -243,10 +243,10 @@ export default function Home() {
                 </a>
                 <a
                   className="button"
-                  href={bookingPath(genericBookingService.id, "home-hero-primary")}
+                  href={bookingPath("home-hero-primary")}
                   {...bookingDataAttributes("home-hero-primary")}
                 >
-                  Book a meeting <Arrow />
+                  Book a 30-minute starting meeting <Arrow />
                 </a>
               </div>
             </div>
@@ -627,11 +627,11 @@ export default function Home() {
             <div className="cta-lead">Discuss an engagement</div>
             <div className="cta-channels" aria-label="Contact channels">
               <a
-                href={bookingPath(genericBookingService.id, "contact-channel")}
+                href={bookingPath("contact-channel")}
                 {...bookingDataAttributes("contact-channel")}
               >
                 <ContactIcon type="calendar" />
-                <span>Book a meeting</span>
+                <span>Book a 30-minute starting meeting</span>
               </a>
               <a href="mailto:work@jarkkomoilanen.com">
                 <ContactIcon type="email" />

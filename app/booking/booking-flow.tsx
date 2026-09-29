@@ -6,7 +6,6 @@ import { calcomBookingUrlFor, calcomConfig, calcomLinkFor, eventSlugFor } from "
 import {
   bookingContextFor,
   genericVisitorIntentOptions,
-  maintainerTopicOptions,
   odpsObjectiveOptions,
   type BookingContext,
   type ServiceBookingConfig,
@@ -88,24 +87,7 @@ function getAttribution() {
   return attribution;
 }
 
-function intakeOptionsFor(service: ServiceBookingConfig) {
-  if (service.intakeType === "generic") return genericVisitorIntentOptions;
-  if (service.intakeType === "odps-consulting") return odpsObjectiveOptions;
-  if (service.intakeType === "odps-maintainer") return maintainerTopicOptions;
-  return [
-    "Exploring options",
-    "Need a decision soon",
-    "Have an active initiative",
-    "Need senior review",
-  ];
-}
-
-function intakeLabelFor(service: ServiceBookingConfig) {
-  if (service.intakeType === "generic") return "What would you like to discuss?";
-  if (service.intakeType === "odps-consulting") return "Primary ODPS objective";
-  if (service.intakeType === "odps-maintainer") return "Main topic";
-  return "Current situation";
-}
+const intakeLabel = "What would you like to discuss?";
 
 function Embed({
   context,
@@ -238,7 +220,7 @@ function Embed({
       <div className="booking-fallback" role="status">
         <h2>Booking configuration needed</h2>
         <p>
-          This booking route is ready. Add the Cal.com username and event slugs
+          This booking route is ready. Add the Cal.com username and event slug
           in the environment to activate scheduling.
         </p>
         <div className="hero-actions">
@@ -272,24 +254,17 @@ function Embed({
   );
 }
 
-function qualificationOptionsFor(service: ServiceBookingConfig, visitorIntent: string) {
-  if (service.intakeType === "generic") {
-    if (visitorIntent === "ODPS / data products") return odpsObjectiveOptions;
-    return [
-      "Exploring options",
-      "Need a decision soon",
-      "Have an active initiative",
-      "Need senior review",
-    ];
-  }
-
-  return [];
+function qualificationOptionsFor(visitorIntent: string) {
+  if (visitorIntent === "ODPS / data products") return odpsObjectiveOptions;
+  return [
+    "Exploring options",
+    "Need a decision soon",
+    "Have an active initiative",
+    "Need senior review",
+  ];
 }
 
-function qualificationLabelFor(service: ServiceBookingConfig) {
-  if (service.intakeType === "generic") return "Current situation";
-  return "";
-}
+const qualificationLabel = "Current situation";
 
 function optionDescriptionFor(option: string) {
   const descriptions: Record<string, string> = {
@@ -298,7 +273,7 @@ function optionDescriptionFor(option: string) {
     "AI product operating model": "Ownership, governance, portfolio rules or delivery model.",
     "Fractional AI product leadership": "Senior product leadership support for active initiatives.",
     "ODPS / data products": "Discuss standards, architecture, adoption or implementation.",
-    "Open Data Value platform": "Book a 30-minute general session on value graphs and platform direction.",
+    "Open Data Value platform": "Use the starting meeting to discuss value graphs and platform direction.",
     "Partnership or collaboration": "Explore collaboration, adoption, ecosystem, or community opportunities.",
     "Something else": "Use this when the topic does not fit the listed categories.",
     "Evaluate ODPS": "Assess fit, readiness, and where the standard helps.",
@@ -308,12 +283,6 @@ function optionDescriptionFor(option: string) {
     "Enterprise architecture": "Review data product architecture and operating model implications.",
     "Expert advisory": "Use the session for senior review or focused direction.",
     Other: "Bring the closest related topic and context.",
-    "Architecture review": "Review structure, tradeoffs, and implementation direction.",
-    "ODPS implementation review": "Get focused feedback on current ODPS implementation choices.",
-    "Data product design": "Review data product shape, metadata, and product boundaries.",
-    Governance: "Discuss ownership, controls, lifecycle, and decision rules.",
-    "Agent-ready data products": "Review agent-readable context, metadata, and interpretation needs.",
-    "Specification interpretation": "Clarify how to apply the standard in a concrete case.",
     "Exploring options": "Use this when the next decision is still forming.",
     "Need a decision soon": "Use this when timing, scope, or direction needs quick resolution.",
     "Have an active initiative": "Use this when work is already underway and needs review.",
@@ -323,11 +292,7 @@ function optionDescriptionFor(option: string) {
   return descriptions[option] ?? "Share context so the session can focus quickly.";
 }
 
-function groupedOptionsFor(service: ServiceBookingConfig, options: string[]) {
-  if (service.intakeType !== "generic") {
-    return [{ label: "", options }];
-  }
-
+function groupedOptionsFor(options: string[]) {
   const priorityTopics = [
     "Exploring options",
     "AI portfolio and product strategy",
@@ -381,10 +346,9 @@ export function BookingFlow({
     }),
     [qualification, resolvedSourceCTA, service, visitorIntent],
   );
-  const options = intakeOptionsFor(service);
-  const optionGroups = groupedOptionsFor(service, options);
-  const intakeLabel = intakeLabelFor(service);
-  const qualificationOptions = qualificationOptionsFor(service, visitorIntent);
+  const options = genericVisitorIntentOptions;
+  const optionGroups = groupedOptionsFor(options);
+  const qualificationOptions = qualificationOptionsFor(visitorIntent);
   const needsQualification =
     !useOptionCards && qualificationOptions.length > 0;
   const canContinue =
@@ -430,15 +394,9 @@ export function BookingFlow({
         >
           {showIntro ? (
             <div>
-              <div className="section-kicker">
-                {service.bookingType === "direct" ? "Direct booking" : "Consultation"}
-              </div>
+              <div className="section-kicker">Starting meeting</div>
               <h2 id="booking-intake-title">{service.displayName}</h2>
-              <p>
-                {service.bookingType === "direct"
-                  ? "Choose the topic that should anchor the focused session."
-                  : "Share the context that helps route the first conversation."}
-              </p>
+              <p>Share the context that will help make the first conversation useful.</p>
             </div>
           ) : null}
 
@@ -513,7 +471,7 @@ export function BookingFlow({
 
               {needsQualification ? (
                 <div
-                  aria-label={qualificationLabelFor(service)}
+                  aria-label={qualificationLabel}
                   className="booking-option-list secondary"
                   role="radiogroup"
                 >
@@ -572,7 +530,7 @@ export function BookingFlow({
               {needsQualification ? (
                 <>
                   <label htmlFor="booking-qualification">
-                    {qualificationLabelFor(service)}
+                    {qualificationLabel}
                   </label>
                   <select
                     id="booking-qualification"
@@ -612,11 +570,7 @@ export function BookingFlow({
       {hasCompletedBooking ? (
         <section className="booking-confirmation" aria-live="polite">
           <div className="section-kicker">Confirmed</div>
-          <h2>
-            {service.bookingType === "direct"
-              ? `${service.displayName} booked`
-              : "Meeting booked"}
-          </h2>
+          <h2>Meeting booked</h2>
           <p>
             Confirmation is handled by Cal.com. You can close this window and
             stay on the page you were reading.

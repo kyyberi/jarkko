@@ -8,10 +8,6 @@ export const calcomConfig = {
 const publicEventSlugs = {
   NEXT_PUBLIC_CALCOM_CONSULTATION_EVENT_SLUG:
     process.env.NEXT_PUBLIC_CALCOM_CONSULTATION_EVENT_SLUG ?? "",
-  NEXT_PUBLIC_CALCOM_ODPS_CONSULTATION_EVENT_SLUG:
-    process.env.NEXT_PUBLIC_CALCOM_ODPS_CONSULTATION_EVENT_SLUG ?? "",
-  NEXT_PUBLIC_CALCOM_ODPS_MAINTAINER_EVENT_SLUG:
-    process.env.NEXT_PUBLIC_CALCOM_ODPS_MAINTAINER_EVENT_SLUG ?? "",
 };
 
 export function eventSlugFor(service: ServiceBookingConfig) {

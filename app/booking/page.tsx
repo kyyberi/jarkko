@@ -1,39 +1,19 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-import { Arrow, PageShell } from "../site";
+import { PageShell } from "../site";
 import { canonicalPath } from "../seo";
 import { BookingFlow } from "./booking-flow";
-import {
-  bookingPath,
-  bookingServices,
-  genericBookingService,
-  type ServiceBookingConfig,
-} from "./services";
+import { genericBookingService } from "./services";
 
 export const metadata: Metadata = {
   title: "Book a Meeting",
   description:
-    "Book a consultation or focused ODPS expert session with Jarkko Moilanen.",
+    "Book a 30-minute starting meeting with Jarkko Moilanen.",
   alternates: {
     canonical: canonicalPath("/booking"),
   },
 };
-
-function BookingOption({ service }: { service: ServiceBookingConfig }) {
-  if (service.id === genericBookingService.id) return null;
-
-  return (
-    <a
-      className="booking-option"
-      href={bookingPath(service.id, "booking-index")}
-    >
-      <span>{service.bookingType === "direct" ? "Direct" : "Consultation"}</span>
-      <strong>{service.displayName}</strong>
-      <small>{service.indicativeValue ?? `${service.duration} minutes`}</small>
-    </a>
-  );
-}
 
 export default function BookingPage() {
   return (
@@ -42,23 +22,15 @@ export default function BookingPage() {
         <section className="booking-hero">
           <div>
             <div className="section-kicker">Booking</div>
-            <h1>Book the right conversation.</h1>
+            <h1>Book a 30-minute starting meeting.</h1>
             <p>
-              Start with the route that matches the work: discovery for larger
-              engagements, direct scheduling for focused expert sessions.
+              One starting point for every topic. Share what you want to
+              discuss, then choose a time that works for you.
             </p>
           </div>
-          <a className="button" href="#booking-options">
-            Choose service <Arrow />
-          </a>
         </section>
 
-        <section className="booking-layout" id="booking-options">
-          <div className="booking-options" aria-label="Booking options">
-            {bookingServices.map((service) => (
-              <BookingOption key={service.id} service={service} />
-            ))}
-          </div>
+        <section className="booking-layout">
           <Suspense fallback={null}>
             <BookingFlow service={genericBookingService} />
           </Suspense>

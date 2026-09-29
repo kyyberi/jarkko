@@ -82,7 +82,7 @@ function BookingCta({
   return (
     <a
       className="button primary"
-      href={bookingPath(genericBookingService.id, sourceCTA)}
+      href={bookingPath(sourceCTA)}
       {...bookingDataAttributes(sourceCTA)}
     >
       {children} <Arrow />
@@ -108,7 +108,7 @@ export default function EngagePage() {
             </p>
             <div className="hero-actions">
               <BookingCta sourceCTA="engage-hero-primary">
-                Start with a small engagement
+                Book a 30-minute starting meeting
               </BookingCta>
               <a className="button" href="#engagement-options">
                 Explore engagement options <Arrow />
@@ -201,7 +201,7 @@ export default function EngagePage() {
       <section className="engage-section engage-next-section" id="booking">
         <div className="engage-section-head">
           <div className="eyebrow">Next step</div>
-          <h2>Book a free 30-minute exploration meeting.</h2>
+          <h2>Book a 30-minute starting meeting.</h2>
           <p>
             Use the conversation to test your question, understand your options
             and decide whether a small engagement makes sense.
@@ -209,7 +209,7 @@ export default function EngagePage() {
         </div>
         <div className="hero-actions">
           <BookingCta sourceCTA="engage-next-primary">
-            Book 30-minute meeting
+            Book a 30-minute starting meeting
           </BookingCta>
           <a className="button" href="#engagement-options">
             Explore engagement options <Arrow />

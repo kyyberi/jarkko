@@ -5,7 +5,6 @@ import { EngagementStagePattern } from "../../engagement-stage-pattern";
 import {
   bookingContextFor,
   bookingPath,
-  consultingServices,
   genericBookingService,
 } from "../../booking/services";
 
@@ -133,11 +132,8 @@ const capabilityRows = [
   },
 ];
 
-function bookingDataAttributes(serviceId: string, sourceCTA: string) {
-  const service =
-    consultingServices.find((option) => option.id === serviceId) ??
-    genericBookingService;
-  const context = bookingContextFor(service, sourceCTA);
+function bookingDataAttributes(sourceCTA: string) {
+  const context = bookingContextFor(genericBookingService, sourceCTA);
 
   const attributes: Record<string, string> = {
     "data-booking-cta": "true",
@@ -208,10 +204,10 @@ export default function AiProductServicesPage() {
           <div className="service-hero-actions">
             <a
               className="button primary"
-              href={bookingPath("ai-portfolio-review", "ai-products-hero-primary")}
-              {...bookingDataAttributes("ai-portfolio-review", "ai-products-hero-primary")}
+              href={bookingPath("ai-products-hero-primary")}
+              {...bookingDataAttributes("ai-products-hero-primary")}
             >
-              Discuss an AI product engagement <Arrow />
+              Book a 30-minute starting meeting <Arrow />
             </a>
             <a className="button" href={sitePath(engagementDetailsUrl)}>
               Engagement options <Arrow />
@@ -288,10 +284,10 @@ export default function AiProductServicesPage() {
               <div className="engagement-action">
                 <a
                   className="button primary"
-                  href={bookingPath(service.serviceId, `${service.serviceId}-card`)}
-                  {...bookingDataAttributes(service.serviceId, `${service.serviceId}-card`)}
+                  href={bookingPath(`${service.serviceId}-card`)}
+                  {...bookingDataAttributes(`${service.serviceId}-card`)}
                 >
-                  Book a 30-minute call <Arrow />
+                  Book a 30-minute starting meeting <Arrow />
                 </a>
               </div>
             </article>
@@ -322,10 +318,10 @@ export default function AiProductServicesPage() {
           <div className="engagement-close-actions">
             <a
               className="button primary"
-              href={bookingPath(genericBookingService.id, "ai-products-close")}
-              {...bookingDataAttributes(genericBookingService.id, "ai-products-close")}
+              href={bookingPath("ai-products-close")}
+              {...bookingDataAttributes("ai-products-close")}
             >
-              Book a meeting <Arrow />
+              Book a 30-minute starting meeting <Arrow />
             </a>
             <a className="button" href={sitePath(engagementDetailsUrl)}>
               Download details <Arrow />
@@ -373,10 +369,10 @@ export default function AiProductServicesPage() {
           <div className="hero-actions">
             <a
               className="button primary"
-              href={bookingPath(genericBookingService.id, "ai-products-final-primary")}
-              {...bookingDataAttributes(genericBookingService.id, "ai-products-final-primary")}
+              href={bookingPath("ai-products-final-primary")}
+              {...bookingDataAttributes("ai-products-final-primary")}
             >
-              Book a meeting <Arrow />
+              Book a 30-minute starting meeting <Arrow />
             </a>
             <a className="button" href={sitePath(engagementDetailsUrl)}>
               Download engagement details <Arrow />

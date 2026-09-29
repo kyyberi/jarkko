@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Arrow, PageShell, publicAssetPath, sitePath } from "../../site";
 import { canonicalPath, DEFAULT_OG_IMAGE, DEFAULT_OG_IMAGE_ALT } from "../../seo";
 import { EngagementStagePattern } from "../../engagement-stage-pattern";
-import { bookingContextFor, bookingPath, odpsServices } from "../../booking/services";
+import {
+  bookingContextFor,
+  bookingPath,
+  genericBookingService,
+} from "../../booking/services";
 
 const odpsWhitepaperUrl = "/resources/ODPS_whitepaper_2026_09.pdf";
 const engagementDetailsUrl = "/resources/jarkko-moilanen-services-and-engagements.pdf";
@@ -175,17 +179,14 @@ const services = [
   },
 ];
 
-function bookingDataAttributes(serviceId: string, sourceCTA: string) {
-  const service = odpsServices.find((option) => option.id === serviceId);
-  if (!service) return {};
-
-  const context = bookingContextFor(service, sourceCTA);
+function bookingDataAttributes(sourceCTA: string) {
+  const context = bookingContextFor(genericBookingService, sourceCTA);
   return {
     "data-booking-cta": "true",
     "data-booking-service": context.service,
     "data-booking-category": context.serviceCategory,
     "data-booking-type": context.bookingType,
-    "data-booking-source-page": context.sourcePage,
+    "data-booking-source-page": "/services/odps/",
     "data-booking-source-cta": context.sourceCTA,
     "data-booking-engagement-type": context.engagementType,
     "data-booking-duration": String(context.duration),
@@ -250,10 +251,10 @@ export default function OdpsServicesPage() {
           <div className="service-hero-actions">
             <a
               className="button primary"
-              href={bookingPath("odps-enterprise-readiness-assessment", "odps-hero-primary")}
-              {...bookingDataAttributes("odps-enterprise-readiness-assessment", "odps-hero-primary")}
+              href={bookingPath("odps-hero-primary")}
+              {...bookingDataAttributes("odps-hero-primary")}
             >
-              Discuss an ODPS engagement <Arrow />
+              Book a 30-minute starting meeting <Arrow />
             </a>
             <a className="button" href={sitePath(engagementDetailsUrl)}>
               Engagement options <Arrow />
@@ -367,12 +368,10 @@ export default function OdpsServicesPage() {
               <div className="engagement-action">
                 <a
                   className="button primary"
-                  href={bookingPath(service.serviceId, `${service.serviceId}-card`)}
-                  {...bookingDataAttributes(service.serviceId, `${service.serviceId}-card`)}
+                  href={bookingPath(`${service.serviceId}-card`)}
+                  {...bookingDataAttributes(`${service.serviceId}-card`)}
                 >
-                  {service.serviceId === "odps-maintainer-session"
-                    ? "Book 60-minute session"
-                    : "Book a 30-minute call"}{" "}
+                  Book a 30-minute starting meeting{" "}
                   <Arrow />
                 </a>
               </div>
@@ -477,10 +476,10 @@ export default function OdpsServicesPage() {
           <div className="hero-actions">
             <a
               className="button primary"
-              href={bookingPath("odps-enterprise-readiness-assessment", "odps-final-primary")}
-              {...bookingDataAttributes("odps-enterprise-readiness-assessment", "odps-final-primary")}
+              href={bookingPath("odps-final-primary")}
+              {...bookingDataAttributes("odps-final-primary")}
             >
-              Discuss an ODPS engagement <Arrow />
+              Book a 30-minute starting meeting <Arrow />
             </a>
             <a className="button" href="https://opendataproducts.org">
               Explore the ODPS standards <Arrow />
