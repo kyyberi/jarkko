@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import {
   Arrow,
   Footer,
@@ -7,6 +8,44 @@ import {
 } from "./site";
 import { getArticles } from "./article-data";
 import { bookingContextFor, bookingPath, genericBookingService } from "./booking/services";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_OG_IMAGE_ALT,
+  DEFAULT_TITLE,
+} from "./seo";
+import { homepageStructuredData } from "./structured-data";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: DEFAULT_TITLE,
+  },
+  description: DEFAULT_DESCRIPTION,
+  alternates: {
+    canonical: "/",
+    types: {
+      "application/rss+xml": "/rss.xml",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    url: "/",
+    type: "website",
+    images: [
+      {
+        url: DEFAULT_OG_IMAGE,
+        alt: DEFAULT_OG_IMAGE_ALT,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+};
 
 const engagementDetailsUrl = "/resources/jarkko-moilanen-services-and-engagements.pdf";
 
@@ -210,6 +249,12 @@ export default function Home() {
 
   return (
     <div className="shell">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homepageStructuredData),
+        }}
+      />
       <Header />
 
       <main>

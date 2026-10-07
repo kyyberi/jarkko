@@ -7,53 +7,44 @@ import { workItems } from "./site";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: absoluteUrl("/"),
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: absoluteUrl("/articles/"),
-      lastModified: now,
       changeFrequency: "weekly",
       priority: 0.8,
     },
     {
       url: absoluteUrl("/insights/"),
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: absoluteUrl("/about/"),
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: absoluteUrl("/engage/"),
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: absoluteUrl("/services/ai-products/"),
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: absoluteUrl("/services/odps/"),
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
       url: absoluteUrl("/booking/"),
-      lastModified: now,
       changeFrequency: "monthly",
       priority: 0.8,
     },
@@ -61,7 +52,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const workRoutes: MetadataRoute.Sitemap = workItems.map((item) => ({
     url: absoluteUrl(`/work/${item.slug}/`),
-    lastModified: now,
     changeFrequency: "monthly",
     priority: 0.7,
   }));

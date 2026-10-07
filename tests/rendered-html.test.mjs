@@ -71,7 +71,17 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /<link rel="alternate" type="application\/rss\+xml" href="https:\/\/jarkkomoilanen\.com\/rss\.xml"/);
   assert.match(html, /<script type="application\/ld\+json">/);
   assert.match(html, /"@type":"Person"/);
+  assert.match(html, /"@id":"https:\/\/jarkkomoilanen\.com\/#person"/);
+  assert.match(html, /"url":"https:\/\/jarkkomoilanen\.com\/about\/"/);
   assert.match(html, /"jobTitle":"Senior AI and Data Product Leader"/);
+  assert.match(html, /"@type":"CreativeWork","@id":"https:\/\/opendataproducts\.org\/#odps"/);
+  assert.match(html, /"@type":"SoftwareApplication","@id":"https:\/\/maysano\.com\/#software"/);
+  assert.match(html, /https:\/\/github\.com\/kyyberi/);
+  assert.match(html, /https:\/\/www\.researchgate\.net\/profile\/Jarkko-Moilanen/);
+  assert.equal(
+    (html.match(/"@type":"Person","@id":"https:\/\/jarkkomoilanen\.com\/#person"/g) ?? []).length,
+    1,
+  );
   assert.match(html, /"AI Centers of Excellence"/);
   assert.match(html, /"Model Context Protocol"/);
   assert.match(html, /googletagmanager\.com\/gtag\/js\?id=G-KZ5N2GTKF5/);
@@ -304,11 +314,18 @@ test("server-renders the about page", async () => {
   );
   assert.match(
     html,
-    /<meta name="description" content="Jarkko Moilanen is a senior AI and data product leader based in Abu Dhabi, helping government and enterprise teams make AI portfolio, architecture, operating-model, and data product decisions\."/,
+    /<meta name="description" content="Jarkko Moilanen is a senior AI and data product leader, Open Data Product Specification founder, author, educator, and digital transformation specialist based in Abu Dhabi\."/,
   );
   assert.match(
     html,
     /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/about\/"/,
+  );
+  assert.match(html, /"@type":"ProfilePage"/);
+  assert.match(html, /"@id":"https:\/\/jarkkomoilanen\.com\/about\/#profile"/);
+  assert.match(html, /"mainEntity":\{"@id":"https:\/\/jarkkomoilanen\.com\/#person"\}/);
+  assert.equal(
+    (html.match(/"@type":"Person","@id":"https:\/\/jarkkomoilanen\.com\/#person"/g) ?? []).length,
+    1,
   );
   assert.match(html, /class="about-hero"/);
   assert.match(html, /Judgment for AI and data product decisions/);
@@ -711,6 +728,15 @@ test("server-renders article pages", async () => {
     html,
     /<meta property="article:published_time" content="2026-06-25T00:00:00.000Z"/,
   );
+  assert.match(html, /"@type":"BlogPosting"/);
+  assert.match(
+    html,
+    /"@id":"https:\/\/jarkkomoilanen\.com\/articles\/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management\/#article"/,
+  );
+  assert.match(
+    html,
+    /"author":\{"@type":"Person","@id":"https:\/\/jarkkomoilanen\.com\/#person","name":"Jarkko Moilanen","url":"https:\/\/jarkkomoilanen\.com\/about\/"\}/,
+  );
   assert.match(html, /AI agents do not remove the need for governance/);
   assert.match(html, /fragmented-to-governed-operations\.webp/);
   assert.match(html, /catalog-to-operating-workspace\.webp/);
@@ -744,6 +770,40 @@ test("server-renders article resource links", async () => {
     html,
     /href="\/resources\/ai-centers-of-excellence-jarkko-moilanen\.pdf"[\s\S]*AI Centers of Excellence: Operating Model, Economics, and Implementation Blueprint\./,
   );
+});
+
+test("legacy article routes expose a crawl-safe canonical redirect", async () => {
+  const [indexResponse, articleResponse] = await Promise.all([
+    render("/insights/articles"),
+    render(
+      "/insights/articles/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management",
+    ),
+  ]);
+
+  assert.equal(indexResponse.status, 200);
+  assert.equal(articleResponse.status, 200);
+
+  const indexHtml = await indexResponse.text();
+  const articleHtml = await articleResponse.text();
+
+  assert.match(indexHtml, /<meta http-equiv="refresh" content="0; url=\/articles"/i);
+  assert.match(indexHtml, /<meta name="robots" content="noindex, follow"/);
+  assert.match(
+    indexHtml,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/articles\/"/,
+  );
+  assert.doesNotMatch(indexHtml, /NEXT_REDIRECT/);
+
+  assert.match(
+    articleHtml,
+    /<meta http-equiv="refresh" content="0; url=\/articles\/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management"/i,
+  );
+  assert.match(articleHtml, /<meta name="robots" content="noindex, follow"/);
+  assert.match(
+    articleHtml,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/articles\/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management\/"/,
+  );
+  assert.doesNotMatch(articleHtml, /NEXT_REDIRECT/);
 });
 
 test("server-renders articles index with the editorial portrait hero", async () => {
@@ -959,6 +1019,10 @@ test("server-renders robots and sitemap discovery routes", async () => {
   );
   assert.match(robotsText, /Sitemap: https:\/\/jarkkomoilanen\.com\/sitemap\.xml/);
   assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/<\/loc>/);
+  assert.doesNotMatch(
+    sitemapText,
+    /<loc>https:\/\/jarkkomoilanen\.com\/<\/loc>\s*<lastmod>/,
+  );
   assert.match(sitemapText, /<loc>https:\/\/jarkkomoilanen\.com\/about\/<\/loc>/);
   assert.match(
     sitemapText,

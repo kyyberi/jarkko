@@ -9,6 +9,7 @@ import {
   DEFAULT_OG_IMAGE_ALT,
 } from "../../seo";
 import { Arrow, PageShell, sitePath } from "../../site";
+import { articleStructuredData } from "../../structured-data";
 import { ArticleImage } from "./article-image";
 
 type PageProps = {
@@ -118,6 +119,17 @@ export default async function ArticleDetail({ params }: PageProps) {
     (candidate) => candidate.slug !== article.slug,
   );
   const articleUrl = absoluteUrl(canonicalPath(`/articles/${article.slug}`));
+  const articleImage = article.body.find((block) => block.type === "image");
+  const articleImageUrl = articleImage?.type === "image"
+    ? absoluteUrl(articleImage.src)
+    : absoluteUrl(DEFAULT_OG_IMAGE);
+  const structuredData = articleStructuredData({
+    description: article.summary,
+    imageUrl: articleImageUrl,
+    publishedAt: article.isoDate,
+    title: article.title,
+    url: articleUrl,
+  });
   const encodedArticleUrl = encodeURIComponent(articleUrl);
   const encodedShareText = encodeURIComponent(`${article.title} | Jarkko Moilanen`);
   const glanceItems = article.glance.length
@@ -145,6 +157,12 @@ export default async function ArticleDetail({ params }: PageProps) {
 
   return (
     <PageShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData),
+        }}
+      />
       <article className="article-detail">
         <header className="article-header">
           <div>

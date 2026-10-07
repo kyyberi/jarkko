@@ -6,6 +6,7 @@ import {
   canonicalPath,
 } from "../seo";
 import { Arrow, PageShell, publicAssetPath, sitePath } from "../site";
+import { profilePageStructuredData } from "../structured-data";
 
 export const metadata: Metadata = {
   title: {
@@ -40,6 +41,12 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <PageShell>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(profilePageStructuredData),
+        }}
+      />
       <section className="about-hero">
         <div className="about-hero-copy">
           <div className="eyebrow">About</div>
