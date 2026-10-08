@@ -92,18 +92,18 @@ This should be applied selectively to high-value claims, not converted into repe
 
 | Priority | Change | Expected impact | Effort | Status |
 | --- | --- | --- | --- | --- |
-| P0 | Separate search/user retrieval from named training crawlers in `robots.txt` | High policy clarity; avoids accidental training permission | Low | Implemented, pending deployment |
+| P0 | Separate search/user retrieval from named training crawlers in `robots.txt` | High policy clarity; avoids accidental training permission | Low | Implemented and deployed |
 | P0 | Preserve server-rendered body content, canonical URLs, sitemap, and Person JSON-LD | High crawl and entity value | Low | Preserved and tested |
-| P1 | Add visible, linked authorship to every article | Medium entity and reader clarity | Low | Implemented, pending deployment |
-| P1 | Add About to the agent resource catalog | Medium machine-discovery completeness | Low | Implemented, pending deployment |
-| P1 | Add verified institutional and third-party sources to `llms.txt` | Medium source discovery value | Low | Implemented, pending deployment |
-| P1 | Add the Alation author profile to Person `sameAs` | Medium identity corroboration | Low | Implemented, pending deployment |
+| P1 | Add visible, linked authorship to every article | Medium entity and reader clarity | Low | Implemented and deployed |
+| P1 | Add About to the agent resource catalog | Medium machine-discovery completeness | Low | Implemented and deployed |
+| P1 | Add verified institutional and third-party sources to `llms.txt` | Medium source discovery value | Low | Implemented and deployed |
+| P1 | Add the Alation author profile to Person `sameAs` | Medium identity corroboration | Low | Implemented and deployed |
 | P1 | Add a repeatable live HTTP check and rendered-output tests | High regression protection | Low | Implemented |
 | P2 | Submit and monitor the sitemap in Google Search Console and Bing Webmaster Tools | High indexation evidence | Low | Operational follow-up; credentials required |
 | P2 | Add PDF Author metadata and clickable reference links where missing | Medium citation usability | Medium | Proposed for the next source-export cycle |
 | Decision | Set `Google-Extended` policy | Potentially high, but combines training and grounding | Low | Owner decision required |
 
-The deployed-site checker intentionally validates the new policy. It should be run after deployment with `npm run check:ai-discovery`; until deployment, failure against the public domain is expected and correctly indicates that production still has the prior policy.
+The deployed-site checker intentionally validates the new policy. Run it after future deployments with `npm run check:ai-discovery` to detect production regressions.
 
 ## 3. Expertise content architecture
 
@@ -265,10 +265,10 @@ This ordering improves the evidence already present before creating more pages. 
 
 ## 9. Validation record
 
-- `npm test` completed the Vinext production build and passed all 25 tests.
+- `npm test` passed all 38 tests, including the rendered HTML, crawler policy, verification-file, visibility-framework, and IndexNow suites.
 - `npm run test:ai-visibility` passed both framework tests: 20 unique prompts, seven categories, and 80 platform result rows.
-- The production server plus `AI_DISCOVERY_ORIGIN=http://127.0.0.1:3000 npm run check:ai-discovery` passed all eight HTTP surfaces, including crawler-specific HTML, robots policy, `llms.txt`, the agent catalog, and sitemap.
-- The catalog JSON parsed successfully and `git diff --check` reported no whitespace errors.
-- `npm run build:pages` entered `next build` but produced no further output for more than 90 seconds and was terminated. This matches a known local Next build stall and is not reported as a pass or as proof of a source failure.
-- Full and changed-file-only ESLint runs likewise produced no diagnostics or completion within the bounded wait and were terminated. The build and executed test suite remain the completed code checks.
-- No commit, push, or deployment was performed. Production therefore continues to expose the pre-change discovery files until these changes are reviewed and published.
+- `npm run build:pages` completed and generated 51 static pages.
+- `npm run check:ai-discovery` passed against the production domain after deployment. It received `200` responses for all nine tested surfaces: crawler-specific HTML, `robots.txt`, `llms.txt`, the agent catalog, and sitemap.
+- GitHub Pages workflow run [#228](https://github.com/kyyberi/jarkko/actions/runs/37727800703) built, tested, deployed, and submitted the initial 32 eligible canonical URLs to IndexNow.
+- Manual unchanged workflow run [#229](https://github.com/kyyberi/jarkko/actions/runs/37728087745) completed successfully and submitted zero URLs, confirming that the persisted baseline suppresses redundant notifications.
+- The production site serves the IndexNow key file and Bing verification XML from the site root. The deployed `robots.txt` explicitly permits the named search and user-triggered crawlers while keeping GPTBot and ClaudeBot blocked.
