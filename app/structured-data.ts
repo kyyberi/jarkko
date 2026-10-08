@@ -43,6 +43,7 @@ export const personEntity = {
     "https://us.amazon.com/stores/Jarkko-Moilanen/author/B0B66HTHLM",
     "https://medium.com/@dr.jarkko.moilanen",
     "https://www.researchgate.net/profile/Jarkko-Moilanen",
+    "https://www.alation.com/blog/author/jarkko-moilanen/",
   ],
   knowsAbout: [
     "AI strategy",

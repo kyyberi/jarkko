@@ -78,6 +78,10 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /"@type":"SoftwareApplication","@id":"https:\/\/maysano\.com\/#software"/);
   assert.match(html, /https:\/\/github\.com\/kyyberi/);
   assert.match(html, /https:\/\/www\.researchgate\.net\/profile\/Jarkko-Moilanen/);
+  assert.match(
+    html,
+    /https:\/\/www\.alation\.com\/blog\/author\/jarkko-moilanen\//,
+  );
   assert.equal(
     (html.match(/"@type":"Person","@id":"https:\/\/jarkkomoilanen\.com\/#person"/g) ?? []).length,
     1,
@@ -737,6 +741,10 @@ test("server-renders article pages", async () => {
     html,
     /"author":\{"@type":"Person","@id":"https:\/\/jarkkomoilanen\.com\/#person","name":"Jarkko Moilanen","url":"https:\/\/jarkkomoilanen\.com\/about\/"\}/,
   );
+  assert.match(
+    html,
+    /class="article-author-link" href="\/about" rel="author">By Dr\. Jarkko Moilanen<\/a>/,
+  );
   assert.match(html, /AI agents do not remove the need for governance/);
   assert.match(html, /fragmented-to-governed-operations\.webp/);
   assert.match(html, /catalog-to-operating-workspace\.webp/);
@@ -1009,6 +1017,16 @@ test("server-renders robots and sitemap discovery routes", async () => {
   const sitemapText = await sitemap.text();
 
   assert.match(robotsText, /User-Agent: \*/);
+  assert.match(robotsText, /User-agent: GPTBot\s+Disallow: \//);
+  assert.match(robotsText, /User-agent: ClaudeBot\s+Disallow: \//);
+  assert.match(robotsText, /User-agent: OAI-SearchBot\s+Allow: \//);
+  assert.match(robotsText, /User-agent: ChatGPT-User\s+Allow: \//);
+  assert.match(robotsText, /User-agent: Claude-SearchBot\s+Allow: \//);
+  assert.match(robotsText, /User-agent: Claude-User\s+Allow: \//);
+  assert.match(robotsText, /User-agent: Googlebot\s+Allow: \//);
+  assert.match(robotsText, /User-agent: Bingbot\s+Allow: \//);
+  assert.match(robotsText, /User-agent: PerplexityBot\s+Allow: \//);
+  assert.match(robotsText, /User-agent: Perplexity-User\s+Allow: \//);
   assert.match(
     robotsText,
     /Content-Signal: ai-train=no, search=yes, ai-input=yes/,
@@ -1120,6 +1138,11 @@ test("publishes ODPS white paper in the LLM site guide", async () => {
     /AI Centers of Excellence PDF: https:\/\/jarkkomoilanen\.com\/resources\/ai-centers-of-excellence-jarkko-moilanen\.pdf/,
   );
   assert.match(guide, /Articles: https:\/\/jarkkomoilanen\.com\/articles\//);
+  assert.match(
+    guide,
+    /Independent and institutional evidence[\s\S]*Alation Data Products Marketplace support for ODPS/,
+  );
+  assert.match(guide, /NIIS X-Road and ODPS proof of concept/);
 });
 
 test("publishes an ARD manifest for agent discovery", async () => {
@@ -1134,6 +1157,14 @@ test("publishes an ARD manifest for agent discovery", async () => {
   assert.equal(catalog.host.identifier, "did:web:jarkkomoilanen.com");
   assert.ok(Array.isArray(catalog.entries));
   assert.ok(catalog.entries.length >= 1);
+  assert.ok(
+    catalog.entries.some(
+      (entry) =>
+        entry.identifier === "urn:air:jarkkomoilanen.com:web:about" &&
+        entry.type === "text/html" &&
+        entry.url === "https://jarkkomoilanen.com/about/",
+    ),
+  );
   assert.ok(
     catalog.entries.some(
       (entry) =>

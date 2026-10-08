@@ -7,6 +7,10 @@
   },
   "scripts": {
     "sync:articles": "node scripts/sync-articles.mjs",
+    "check:ai-discovery": "node scripts/check-live-ai-discovery.mjs",
+    "indexnow:manifest": "node scripts/indexnow.mjs manifest --site-dir out --output indexnow/current-manifest.json",
+    "test:ai-visibility": "node --test tests/ai-visibility-framework.test.mjs",
+    "test:indexnow": "node --test tests/indexnow.test.mjs",
     "new:article": "node scripts/new-article.mjs",
     "import:pdf-article": "python3 scripts/import-pdf-article.py",
     "prebuild": "npm run sync:articles",
@@ -15,7 +19,7 @@
     "prebuild:pages": "npm run sync:articles",
     "build:pages": "GITHUB_PAGES=true next build",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
   },

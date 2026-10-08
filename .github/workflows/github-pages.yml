@@ -5,11 +5,19 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      indexnow_mode:
+        description: IndexNow submission mode after deployment
+        required: true
+        default: changed
+        type: choice
+        options:
+          - changed
+          - all
+          - disabled
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: github-pages
@@ -17,6 +25,10 @@ concurrency:
 
 jobs:
   build:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -57,12 +69,39 @@ jobs:
       - name: Build static site
         run: npm run build:pages
 
+      - name: Run tests
+        run: npm test
+
+      - name: Build IndexNow URL manifest
+        run: |
+          node scripts/indexnow.mjs manifest \
+            --site-dir out \
+            --output indexnow/current-manifest.json
+
+      - name: Add production deployment marker
+        run: |
+          node scripts/indexnow.mjs marker \
+            --output out/indexnow-deployment.json \
+            --sha "$GITHUB_SHA" \
+            --run-id "$GITHUB_RUN_ID"
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: out
 
+      - name: Upload IndexNow manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-manifest
+          path: indexnow/current-manifest.json
+          if-no-files-found: error
+          retention-days: 7
+
   deploy:
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -72,3 +111,85 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  indexnow:
+    name: Notify IndexNow after deployment
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: >-
+      ${{
+        needs.deploy.result == 'success' &&
+        vars.INDEXNOW_ENABLED != 'false' &&
+        (github.event_name != 'workflow_dispatch' || inputs.indexnow_mode != 'disabled')
+      }}
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Download current IndexNow manifest
+        uses: actions/download-artifact@v4
+        with:
+          name: indexnow-manifest
+          path: indexnow
+
+      - name: Load previous successful IndexNow baseline
+        run: |
+          if git fetch origin refs/heads/indexnow-state:refs/remotes/origin/indexnow-state; then
+            if git show refs/remotes/origin/indexnow-state:indexnow/manifest.json > "$RUNNER_TEMP/previous-indexnow-manifest.json"; then
+              mv "$RUNNER_TEMP/previous-indexnow-manifest.json" indexnow/previous-manifest.json
+            fi
+          fi
+
+      - name: Verify deployment and notify IndexNow
+        id: notify
+        continue-on-error: true
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          INDEXNOW_MODE: ${{ github.event_name == 'workflow_dispatch' && inputs.indexnow_mode || 'changed' }}
+        run: |
+          node scripts/indexnow.mjs notify \
+            --current indexnow/current-manifest.json \
+            --previous indexnow/previous-manifest.json \
+            --next indexnow/next-manifest.json \
+            --result indexnow/submission-result.json \
+            --mode "$INDEXNOW_MODE" \
+            --sha "$GITHUB_SHA"
+
+      - name: Persist successful IndexNow baseline
+        if: steps.notify.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          state_dir="$RUNNER_TEMP/indexnow-state"
+          if git show-ref --verify --quiet refs/remotes/origin/indexnow-state; then
+            git worktree add --detach "$state_dir" refs/remotes/origin/indexnow-state
+          else
+            git worktree add -b indexnow-state "$state_dir" HEAD
+          fi
+          mkdir -p "$state_dir/indexnow"
+          cp indexnow/next-manifest.json "$state_dir/indexnow/manifest.json"
+          git -C "$state_dir" add -f indexnow/manifest.json
+          if git -C "$state_dir" diff --cached --quiet; then
+            echo "IndexNow baseline is unchanged"
+          else
+            git -C "$state_dir" commit -m "Update IndexNow URL baseline"
+            git -C "$state_dir" push origin HEAD:refs/heads/indexnow-state
+          fi
+
+      - name: Upload IndexNow submission result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-result-${{ github.run_id }}
+          path: indexnow/submission-result.json
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Report IndexNow notification failure
+        if: steps.notify.outcome == 'failure'
+        run: |
+          echo "::error::IndexNow notification failed after deployment. The successful Pages deployment remains active and the previous baseline was preserved."

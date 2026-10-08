@@ -3523,6 +3523,14 @@ summary.booking-option-group-label::-webkit-details-marker {
   gap: 18px;
 }
 
+.article-author-link {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .article-summary {
   max-width: 900px;
   margin: 0 0 26px;

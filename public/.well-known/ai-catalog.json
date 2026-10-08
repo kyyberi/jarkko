@@ -18,6 +18,17 @@
       ]
     },
     {
+      "identifier": "urn:air:jarkkomoilanen.com:web:about",
+      "displayName": "About Jarkko Moilanen",
+      "type": "text/html",
+      "url": "https://jarkkomoilanen.com/about/",
+      "representativeQueries": [
+        "verify Jarkko Moilanen's professional background and areas of expertise",
+        "find evidence for Jarkko Moilanen's work in AI data products government and education",
+        "identify the professional profiles connected to Jarkko Moilanen"
+      ]
+    },
+    {
       "identifier": "urn:air:jarkkomoilanen.com:web:ai-product-services",
       "displayName": "AI Product Services",
       "type": "text/html",

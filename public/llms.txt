@@ -77,6 +77,17 @@ ODPS remains an open standard maintained under LF AI & Data. Commercial consulti
 - Open Data Product SDK: https://opendataproducts.org/sdk
 - School 4 AI: https://school4ai.net
 
+## Independent and institutional evidence
+
+- ODPS project governance and maintainers: https://github.com/Open-Data-Product-Initiative
+- Alation Data Products Marketplace support for ODPS: https://www.alation.com/product/data-products-marketplace/
+- Alation webinar with Jarkko Moilanen as ODPS lead maintainer: https://www.alation.com/resource-center/webinars/what-is-a-data-product-how-to-build-one/
+- NIIS X-Road and ODPS proof of concept: https://www.niis.org/blog/2024/1/21/unveiling-the-open-data-product-specification
+- Tampere University record for the API Economy 101 book: https://researchportal.tuni.fi/en/publications/api-economy-101-changes-your-business/
+- Tampere University record for Jarkko Moilanen's doctoral dissertation: https://researchportal.tuni.fi/fi/publications/3d-printing-focused-peer-production-revolution-in-design-developm
+- Finnish National Agency for Education description of MPASSid: https://www.oph.fi/en/finnish-national-agency-education-services/mpassid
+- Abu Dhabi Government Digital Strategy 2025-2027: https://www.dge.gov.ae/en/news/adg-digital-strategy
+
 ## Suggested summaries
 
 Short bio: Jarkko Moilanen, PhD, is a senior AI and data product leader based in Abu Dhabi. He helps government and enterprise teams decide what to build, govern AI portfolios, structure data products, and move from pilots to working systems.

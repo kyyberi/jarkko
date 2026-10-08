@@ -169,6 +169,13 @@ export default async function ArticleDetail({ params }: PageProps) {
             <div className="article-meta">
               <span>{article.date}</span>
               <span>{article.category}</span>
+              <a
+                className="article-author-link"
+                href={sitePath("/about")}
+                rel="author"
+              >
+                By Dr. Jarkko Moilanen
+              </a>
             </div>
             <h1>{article.title}</h1>
             <p className="article-summary">{article.summary}</p>
