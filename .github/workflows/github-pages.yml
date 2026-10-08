@@ -70,6 +70,8 @@ jobs:
         run: npm run build:pages
 
       - name: Run tests
+        env:
+          GITHUB_PAGES: "false"
         run: npm test
 
       - name: Build IndexNow URL manifest

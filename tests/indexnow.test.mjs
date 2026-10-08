@@ -268,6 +268,10 @@ test("the Pages workflow deploys before IndexNow and persists only successful re
 
   assert.ok(build >= 0 && build < tests);
   assert.ok(tests < deploy && deploy < notifyJob && notifyJob < notify && notify < persist);
+  assert.match(
+    workflow,
+    /- name: Run tests\s+env:\s+GITHUB_PAGES: "false"\s+run: npm test/,
+  );
   assert.match(workflow, /indexnow:[\s\S]*?needs: deploy/);
   assert.match(workflow, /Persist successful IndexNow baseline[\s\S]*?if: steps\.notify\.outcome == 'success'/);
 });
