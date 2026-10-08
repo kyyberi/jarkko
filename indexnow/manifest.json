@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "host": "jarkkomoilanen.com",
+  "source": "sitemap.xml and exported canonical HTML",
+  "urls": {
+    "https://jarkkomoilanen.com/": {
+      "hash": "380c9351881e28235ae5c64fcddfe173651c8e075d762db22b70b57ed12cce86"
+    },
+    "https://jarkkomoilanen.com/about/": {
+      "hash": "d01c7872fd941809272d5892d0bdbc3b3910e6f930c13d7a2339f9e3586834f9"
+    },
+    "https://jarkkomoilanen.com/articles/": {
+      "hash": "24237511275e9386953cc32bfa90370fbecbd29b3c65a04fc92aef397c08e512"
+    },
+    "https://jarkkomoilanen.com/articles/9-actions-we-took-to-make-open-data-product-vocabulary-ai-agent-first/": {
+      "hash": "ef05929c02d3154b978ca3b4ed5001889392233e94ed9e5919d84a62b9ca92da"
+    },
+    "https://jarkkomoilanen.com/articles/agentic-data-product-operations-the-next-maturity-layer-for-ai-data-product-management/": {
+      "hash": "ca17e9238852dacae663cd55c8269035b1bb100660aa17a24b1dda89feb59ed0"
+    },
+    "https://jarkkomoilanen.com/articles/ai-center-of-excellence-government-scale/": {
+      "hash": "0055637dcdd979259eb687482cfb6366e27da0fb2a20e9febaa11a66c2c79607"
+    },
+    "https://jarkkomoilanen.com/articles/data-product-standards-must-become-ai-agent-native/": {
+      "hash": "29c55d74042378f95c37226281ab6c0790e75c3e3346f59f8cd3078b7b86a305"
+    },
+    "https://jarkkomoilanen.com/articles/fractional-ai-data-product-leadership/": {
+      "hash": "3da1c5b67bd4c9ad308f5a1ea3a81eaedc495daa3146e8cb2dedbe3d20632f9c"
+    },
+    "https://jarkkomoilanen.com/articles/from-data-product-portfolio-to-shared-memory-for-ai-agents/": {
+      "hash": "5dade9d500a60fc016682dcffcafda21113b538400ca154845c18617372dd777"
+    },
+    "https://jarkkomoilanen.com/articles/golden-data-product-portfolio/": {
+      "hash": "e54e167eb3644e465c255c1157c231e2af6d0f2285d815a8ef7773358510a4c3"
+    },
+    "https://jarkkomoilanen.com/articles/palantir-ontology-vs-maysano-product-graph/": {
+      "hash": "2df0811761a6d1e6b2bf9f7c47ba8bede5b3cc2f6a3a74a054bad2448d8e3e8e"
+    },
+    "https://jarkkomoilanen.com/articles/the-odps-family-is-becoming-the-alphabet-of-data-products/": {
+      "hash": "1af821b3713023b3ddc4a1e729e755d90fceb6e5f8c90c510bcbefa89ebd58c8"
+    },
+    "https://jarkkomoilanen.com/articles/what-anthropic-dreaming-tells-us-about-the-future-of-data-product-portfolios/": {
+      "hash": "cbc94fc2bcd79b75d6995d0ca8ce77151cad0ceccb29bdac490e5b256747e7e5"
+    },
+    "https://jarkkomoilanen.com/articles/what-do-loop-context-and-graph-engineering-have-to-do-with-data-products/": {
+      "hash": "3257ff99be65060d16edd0188f0d1de0c5b491996f30232f80f36a8c193d3193"
+    },
+    "https://jarkkomoilanen.com/articles/when-ai-agents-start-looking-like-data-products/": {
+      "hash": "56e3b8f1ec281ec62e2fdbc1fb45781fd0fa8a41f67ef088897519b58db4f594"
+    },
+    "https://jarkkomoilanen.com/articles/why-a-data-product-catalog-was-not-enough-for-maysano/": {
+      "hash": "cb0e052c539623640391ce08abd8b716812d3beeabef91fe247ec079b6eb23a0"
+    },
+    "https://jarkkomoilanen.com/articles/workflow-as-product-in-data-products/": {
+      "hash": "35c85bac3cceefec5f7b96aa12b4f06a901c90bc885cb841ec7e0c03ae0ea22a"
+    },
+    "https://jarkkomoilanen.com/booking/": {
+      "hash": "6844c68bd5fb98af6cf8048f5b3dd3d5d3fdc0b70c2c8381af49d5962b2d7017"
+    },
+    "https://jarkkomoilanen.com/engage/": {
+      "hash": "e11bc2321269d86e121ab2931fe1d05bf6c200b84d72e7ca9f6413a5fd2f78cc"
+    },
+    "https://jarkkomoilanen.com/insights/": {
+      "hash": "c5e945b2260ee7c0487824f1c9ec120ba00754c88929ffc63c531d9b41f125bb"
+    },
+    "https://jarkkomoilanen.com/insights/ai-centers-of-excellence-operating-model/": {
+      "hash": "08f6a1f048e4cd34777806d00af6727effef36133fd3c21d22f9a8a33509ebd3"
+    },
+    "https://jarkkomoilanen.com/insights/ai-products-and-data-products-connected-portfolio/": {
+      "hash": "9686b5233f10c72bb68bee20d8746e7f1510f6c978c42f2d01fa4364af196714"
+    },
+    "https://jarkkomoilanen.com/insights/data-quality-is-not-data-product-quality/": {
+      "hash": "7946a4b6f69a58c7f425c1599c4dde59b1a9ddc786121ab65ad79f5071c03407"
+    },
+    "https://jarkkomoilanen.com/insights/odps-in-practice/": {
+      "hash": "cbdc5c0fd199b9288f39740cd539487739164b2f44573a51cc9ffb7a0cb621cb"
+    },
+    "https://jarkkomoilanen.com/insights/odps-whitepaper-2026/": {
+      "hash": "6736936e212dbb8c91f08fc0d677cedd5226ad133f92c3192a463da514ed7548"
+    },
+    "https://jarkkomoilanen.com/services/ai-products/": {
+      "hash": "00a6b227feb326f7412934a5d014c4251d435a66fe76162b541e96cc7dab6980"
+    },
+    "https://jarkkomoilanen.com/services/odps/": {
+      "hash": "85f7d550591779b1e0b16c1f26af907e884c4d8e6b2c1b48ed23dfff75cfe307"
+    },
+    "https://jarkkomoilanen.com/work/government-ai/": {
+      "hash": "b48b5ec5edef8cfef280bb92c734d735160c69dc4546862b9573e7e69deee61c"
+    },
+    "https://jarkkomoilanen.com/work/maysano/": {
+      "hash": "bdbf7d7d242e0eb12f8c61fa10fd16a6f3145df39d1a1738d690525e92a04c95"
+    },
+    "https://jarkkomoilanen.com/work/open-data-value/": {
+      "hash": "c72db82564c1cfc0bcd638b4c477e611897193adb71e6a62d32450c600dd23bf"
+    },
+    "https://jarkkomoilanen.com/work/school-of-ai/": {
+      "hash": "af6ae68880de4b7d17859aff352b7cfb55d72726b4ef3243ac379f4dab8812a5"
+    },
+    "https://jarkkomoilanen.com/work/standards-and-sdk/": {
+      "hash": "e9c3925ba36e346ee6b54381f4b061f83ad2eb2f6a62f7dfe78de6de59b42260"
+    }
+  },
+  "excluded": []
+}
