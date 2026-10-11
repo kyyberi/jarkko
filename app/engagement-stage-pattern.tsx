@@ -34,9 +34,11 @@ const stages = [
 export function EngagementStagePattern({
   id,
   title = "Engagement options",
+  stageServices,
 }: {
   id?: string;
   title?: string;
+  stageServices?: Partial<Record<(typeof stages)[number]["label"], string[]>>;
 }) {
   const titleId = id ? `${id}-title` : "engagement-stage-pattern-title";
 
@@ -55,6 +57,13 @@ export function EngagementStagePattern({
             <span>{stage.number}</span>
             <h3>{stage.label}</h3>
             <p>{stage.description}</p>
+            {stageServices?.[stage.label] ? (
+              <ul className="engage-stage-services" aria-label={`${stage.label} services`}>
+                {stageServices[stage.label].map((service) => (
+                  <li key={service}>{service}</li>
+                ))}
+              </ul>
+            ) : null}
             <strong>{stage.value}</strong>
           </article>
         ))}

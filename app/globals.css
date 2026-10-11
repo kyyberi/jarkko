@@ -743,6 +743,278 @@ h1 {
   line-height: 1.5;
 }
 
+.poc-engagement-section {
+  background: var(--white);
+}
+
+.poc-engagement-head {
+  max-width: 1040px;
+  margin-bottom: clamp(32px, 4.6vw, 58px);
+}
+
+.poc-engagement-head h2,
+.poc-evidence-head h3 {
+  max-width: 920px;
+  margin: 16px 0 18px;
+  font-family: var(--display);
+  font-size: clamp(44px, 6vw, 82px);
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+}
+
+.poc-engagement-head > p {
+  max-width: 880px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(19px, 1.55vw, 24px);
+  line-height: 1.42;
+}
+
+.poc-package-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.poc-package {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-soft);
+  background: rgba(255, 253, 248, 0.54);
+}
+
+.poc-package-heading > span,
+.poc-package-list > span,
+.poc-package-facts span,
+.poc-workflow > div > span {
+  display: block;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.poc-package h3 {
+  max-width: 610px;
+  margin: 12px 0 0;
+  font-family: var(--display);
+  font-size: clamp(36px, 4vw, 58px);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: -0.045em;
+}
+
+.poc-package-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 26px 0 22px;
+  border-block: 1px solid var(--line);
+}
+
+.poc-package-facts > div {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  padding: 14px 0;
+}
+
+.poc-package-facts > div + div {
+  padding-left: 18px;
+  border-left: 1px solid var(--line);
+}
+
+.poc-package-facts span {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.poc-package-facts strong {
+  color: var(--ink);
+  font-size: clamp(17px, 1.55vw, 22px);
+  line-height: 1.15;
+}
+
+.poc-package-headline {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(21px, 1.9vw, 27px);
+  line-height: 1.2;
+}
+
+.poc-package-copy {
+  margin-top: 18px;
+}
+
+.poc-package-copy p,
+.poc-package-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.52;
+}
+
+.poc-package-copy p + p {
+  margin-top: 12px;
+}
+
+.poc-package-list {
+  margin-top: 22px;
+}
+
+.poc-package-list > span {
+  color: var(--ink);
+}
+
+.poc-package-list ul {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.poc-package-list li {
+  position: relative;
+  padding-left: 16px;
+  color: #4d4842;
+  font-size: 15px;
+  line-height: 1.42;
+}
+
+.poc-package-list li::before {
+  position: absolute;
+  top: 0.56em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  content: "";
+}
+
+.poc-package-scope {
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.poc-package-note {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.poc-package-action {
+  display: flex;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.poc-package-action .button {
+  width: 100%;
+  justify-content: center;
+}
+
+.poc-evidence {
+  margin-top: clamp(52px, 7vw, 96px);
+  padding-top: clamp(32px, 4vw, 54px);
+  border-top: 1px solid var(--line);
+}
+
+.poc-evidence-head h3 {
+  max-width: 790px;
+  font-size: clamp(38px, 4.8vw, 66px);
+}
+
+.poc-evidence-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-block: 1px solid var(--line);
+}
+
+.poc-evidence-metrics article {
+  min-width: 0;
+  padding: 28px clamp(20px, 3vw, 38px) 30px 0;
+}
+
+.poc-evidence-metrics article + article {
+  padding-left: clamp(20px, 3vw, 38px);
+  border-left: 1px solid var(--line);
+}
+
+.poc-evidence-metrics strong {
+  display: block;
+  color: var(--accent);
+  font-family: var(--display);
+  font-size: clamp(35px, 4.4vw, 60px);
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+}
+
+.poc-evidence-metrics h4 {
+  max-width: 410px;
+  margin: 13px 0 10px;
+  font-family: var(--serif);
+  font-size: clamp(20px, 1.8vw, 27px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.poc-evidence-metrics p {
+  max-width: 540px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.48;
+}
+
+.poc-workflow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: center;
+  margin-top: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.poc-workflow > div {
+  min-width: 0;
+}
+
+.poc-workflow > div > span {
+  color: var(--ink);
+}
+
+.poc-workflow p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.28;
+}
+
+.poc-workflow small {
+  display: block;
+  margin-top: 8px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.poc-workflow-arrow {
+  color: var(--accent);
+  font-size: 26px;
+  font-weight: 800;
+}
+
 .engagement-close {
   display: grid;
   grid-template-columns: minmax(190px, 0.24fr) minmax(0, 1fr) auto;
@@ -1068,6 +1340,21 @@ h1 {
   font-family: var(--serif);
   font-size: 17px;
   line-height: 1.15;
+}
+
+.engage-stage-services {
+  display: grid;
+  gap: 4px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.engage-stage-services li {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
 .engage-stage strong {
@@ -5017,6 +5304,19 @@ summary.booking-option-group-label::-webkit-details-marker {
     grid-template-columns: 1fr;
   }
 
+  .poc-package-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .poc-workflow {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .poc-workflow-arrow {
+    justify-self: start;
+  }
+
   .focus-areas-head,
   .focus-area-grid {
     grid-template-columns: 1fr;
@@ -5660,7 +5960,7 @@ summary.booking-option-group-label::-webkit-details-marker {
   }
 
   .engage-stage span {
-    grid-row: span 3;
+    grid-row: span 4;
     margin-bottom: 0;
   }
 
@@ -5670,6 +5970,38 @@ summary.booking-option-group-label::-webkit-details-marker {
 
   .engage-stage p {
     max-width: none;
+  }
+
+  .engage-stage-services {
+    grid-column: 2;
+    margin-top: 10px;
+  }
+
+  .poc-engagement-head h2,
+  .poc-evidence-head h3 {
+    font-size: clamp(40px, 11vw, 60px);
+  }
+
+  .poc-package {
+    padding: 24px 20px 26px;
+  }
+
+  .poc-package h3 {
+    font-size: clamp(34px, 10vw, 48px);
+  }
+
+  .poc-evidence-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .poc-evidence-metrics article,
+  .poc-evidence-metrics article + article {
+    padding: 24px 0;
+    border-left: 0;
+  }
+
+  .poc-evidence-metrics article + article {
+    border-top: 1px solid var(--line);
   }
 
   .engage-stage-statements,

@@ -580,10 +580,26 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.match(html, /ODPS Adoption &amp; Implementation/);
   assert.match(html, /Agent-Ready Data Product Architecture/);
   assert.match(html, /ODPS Expert Advisory/);
-  assert.ok((html.match(/Book a 30-minute starting meeting/g) ?? []).length >= 7);
+  assert.match(html, /From experimentation to measurable results/);
+  assert.match(html, /Data Product Portfolio Accelerator/);
+  assert.match(html, /START A NEW POC/i);
+  assert.match(html, /Turn business documents into standardized data product portfolios and connected graphs/);
+  assert.match(html, /USD 15,000/);
+  assert.match(html, /Discuss a Portfolio Accelerator/);
+  assert.match(html, /ODPS PoC Review &amp; Acceleration/);
+  assert.match(html, /ADVANCE AN EXISTING POC/i);
+  assert.match(html, /USD 7,500/);
+  assert.match(html, /Review My ODPS PoC/);
+  assert.match(html, /Proven automation\. Open standards\. Practical results/);
+  assert.match(html, /3–6 hours → 5–15 minutes/);
+  assert.match(html, /24,000\+ downloads/);
+  assert.match(html, /Data Product Portfolio · Connected Graph · ODPS Family Artifacts/);
+  assert.match(html, /href="\/booking\?sourceCTA=data-product-portfolio-accelerator-featured"/);
+  assert.match(html, /href="\/booking\?sourceCTA=odps-poc-review-acceleration-featured"/);
+  assert.ok((html.match(/Book a 30-minute starting meeting/g) ?? []).length >= 9);
   assert.doesNotMatch(html, /Book 60-minute session|Book a 30-minute call/);
   assert.doesNotMatch(html, /calendly\.com\/work-jarkkomoilanen\/30min/);
-  assert.equal((html.match(/data-booking-service="general-consultation"/g) ?? []).length, 7);
+  assert.equal((html.match(/data-booking-service="general-consultation"/g) ?? []).length, 11);
   assert.match(html, /href="\/booking\?sourceCTA=odps-maintainer-session-card"/);
   assert.match(html, /href="\/booking\?sourceCTA=odps-hero-primary"/);
   const odpsSource = await readFile(
