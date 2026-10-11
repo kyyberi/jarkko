@@ -52,21 +52,25 @@ export function EngagementStagePattern({
         {title}
       </h2>
       <div className="engage-stage-grid" aria-label="Five engagement stages">
-        {stages.map((stage) => (
-          <article className="engage-stage" key={stage.number}>
-            <span>{stage.number}</span>
-            <h3>{stage.label}</h3>
-            <p>{stage.description}</p>
-            {stageServices?.[stage.label] ? (
-              <ul className="engage-stage-services" aria-label={`${stage.label} services`}>
-                {stageServices[stage.label].map((service) => (
-                  <li key={service}>{service}</li>
-                ))}
-              </ul>
-            ) : null}
-            <strong>{stage.value}</strong>
-          </article>
-        ))}
+        {stages.map((stage) => {
+          const servicesForStage = stageServices?.[stage.label] ?? [];
+
+          return (
+            <article className="engage-stage" key={stage.number}>
+              <span>{stage.number}</span>
+              <h3>{stage.label}</h3>
+              <p>{stage.description}</p>
+              {servicesForStage.length ? (
+                <ul className="engage-stage-services" aria-label={`${stage.label} services`}>
+                  {servicesForStage.map((service) => (
+                    <li key={service}>{service}</li>
+                  ))}
+                </ul>
+              ) : null}
+              <strong>{stage.value}</strong>
+            </article>
+          );
+        })}
       </div>
       <div className="engage-stage-statements">
         <p>Each step is a standalone value package.</p>
