@@ -6510,3 +6510,555 @@ summary.booking-option-group-label::-webkit-details-marker {
   white-space: nowrap;
   border: 0;
 }
+
+/* UAE market entry */
+.uae-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(340px, 0.72fr);
+  min-height: 670px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background: var(--white);
+}
+
+.uae-hero-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(52px, 7vw, 108px) clamp(36px, 5.5vw, 88px) clamp(52px, 5vw, 76px) var(--pad);
+}
+
+.uae-hero h1,
+.uae-section-intro h2,
+.uae-section-head h2,
+.uae-credibility-head h2,
+.uae-about h2,
+.uae-contact h2 {
+  margin: 16px 0 0;
+  font-family: var(--display);
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.uae-hero h1 {
+  max-width: 760px;
+  font-size: clamp(54px, 6.2vw, 92px);
+}
+
+.uae-hero-lede {
+  max-width: 650px;
+  margin: 28px 0 0;
+  font-family: var(--serif);
+  font-size: clamp(20px, 1.7vw, 27px);
+  line-height: 1.34;
+}
+
+.uae-credentials {
+  max-width: 650px;
+  margin: 24px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.035em;
+  line-height: 1.55;
+  text-transform: uppercase;
+}
+
+.uae-credentials span {
+  padding-inline: 6px;
+  color: var(--accent);
+}
+
+.uae-hero-image {
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: #cbc5ba;
+}
+
+.uae-hero-image img,
+.uae-about-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.uae-hero-image img {
+  min-height: 670px;
+  object-position: 50% 50%;
+}
+
+.uae-hero-image::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(23, 23, 23, 0.58));
+  content: "";
+  pointer-events: none;
+}
+
+.uae-hero-image figcaption {
+  position: absolute;
+  right: 26px;
+  bottom: 24px;
+  z-index: 1;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.uae-context {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.76fr) minmax(0, 1fr);
+  gap: clamp(40px, 7vw, 120px);
+  align-items: start;
+  background: color-mix(in srgb, var(--paper) 62%, var(--white));
+}
+
+.uae-section-intro h2,
+.uae-section-head h2,
+.uae-credibility-head h2,
+.uae-about h2,
+.uae-contact h2 {
+  max-width: 900px;
+  font-size: clamp(40px, 4.5vw, 68px);
+}
+
+.uae-context-copy {
+  max-width: 690px;
+  padding-top: 5px;
+}
+
+.uae-context-copy p,
+.uae-section-head > p,
+.uae-credibility-layout aside p,
+.uae-about p,
+.uae-contact > div > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(17px, 1.35vw, 20px);
+  line-height: 1.55;
+}
+
+.uae-context-copy p + p,
+.uae-credibility-layout aside p + p,
+.uae-about p + p {
+  margin-top: 18px;
+}
+
+.uae-section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.4fr);
+  gap: clamp(32px, 5vw, 86px);
+  align-items: end;
+  margin-bottom: 42px;
+}
+
+.uae-section-head > p {
+  padding-bottom: 5px;
+}
+
+.uae-service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.uae-service-card {
+  min-height: 250px;
+  padding: clamp(24px, 3vw, 42px);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.36);
+}
+
+.uae-service-card span,
+.uae-stage-list > li > span,
+.uae-audience-list > p > span {
+  color: var(--accent);
+  font-family: var(--display);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.uae-service-card span {
+  font-size: 18px;
+}
+
+.uae-service-card h3 {
+  max-width: 470px;
+  margin: 32px 0 12px;
+  font-family: var(--display);
+  font-size: clamp(30px, 3vw, 44px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.uae-service-card p {
+  max-width: 510px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.52;
+}
+
+.uae-credibility {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.uae-credibility .eyebrow,
+.uae-credibility h2 {
+  color: var(--paper);
+}
+
+.uae-credibility .eyebrow::before {
+  background: var(--accent);
+}
+
+.uae-credibility-head h2 {
+  max-width: 1040px;
+}
+
+.uae-credibility-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.44fr);
+  gap: clamp(42px, 7vw, 120px);
+  margin-top: 48px;
+}
+
+.uae-credibility-layout ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(243, 240, 233, 0.24);
+}
+
+.uae-credibility-layout li {
+  min-height: 104px;
+  padding: 20px 28px 20px 0;
+  border-bottom: 1px solid rgba(243, 240, 233, 0.24);
+  color: var(--paper);
+  font-family: var(--display);
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -0.032em;
+}
+
+.uae-credibility-layout li:nth-child(even) {
+  padding-right: 0;
+  padding-left: 28px;
+  border-left: 1px solid rgba(243, 240, 233, 0.24);
+}
+
+.uae-credibility-layout aside {
+  align-self: end;
+  padding: 24px;
+  border: 1px solid rgba(243, 240, 233, 0.24);
+}
+
+.uae-credibility-layout aside p {
+  color: rgba(243, 240, 233, 0.82);
+  font-size: 16px;
+}
+
+.uae-audience {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.68fr) minmax(0, 1fr);
+  gap: clamp(40px, 7vw, 120px);
+}
+
+.uae-audience-list {
+  border-top: 1px solid var(--line);
+}
+
+.uae-audience-list > p {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 19px 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--display);
+  font-size: clamp(20px, 1.85vw, 28px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.032em;
+}
+
+.uae-audience-list > p > span {
+  padding-top: 0.1em;
+  font-size: 14px;
+}
+
+.uae-audience-list > p.uae-audience-note {
+  display: block;
+  padding: 18px 0 0;
+  border: 0;
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.uae-stage-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-block: 1px solid var(--line);
+}
+
+.uae-stage-list > li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  min-height: 260px;
+  padding: 28px clamp(20px, 3vw, 40px) 30px 0;
+}
+
+.uae-stage-list > li + li {
+  padding-left: clamp(20px, 3vw, 40px);
+  border-left: 1px solid var(--line);
+}
+
+.uae-stage-list > li > span {
+  font-size: 16px;
+}
+
+.uae-stage-list h3 {
+  max-width: 350px;
+  margin: 0 0 16px;
+  font-family: var(--display);
+  font-size: clamp(29px, 2.6vw, 39px);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.uae-stage-list p {
+  max-width: 360px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.52;
+}
+
+.uae-about {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.52fr) minmax(0, 1fr);
+  gap: clamp(34px, 6vw, 100px);
+  align-items: start;
+  background: color-mix(in srgb, var(--paper) 62%, var(--white));
+}
+
+.uae-about-photo {
+  min-height: 420px;
+  margin: 0;
+  overflow: hidden;
+  background: #cfc7bb;
+}
+
+.uae-about-photo img {
+  min-height: 420px;
+  object-position: center;
+}
+
+.uae-about h2 {
+  margin-bottom: 28px;
+}
+
+.uae-inline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.uae-contact {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.74fr) minmax(0, 1fr);
+  gap: clamp(40px, 7vw, 120px);
+  background: var(--white);
+}
+
+.uae-contact > div > p {
+  max-width: 650px;
+}
+
+.uae-contact .hero-actions {
+  margin-top: 30px;
+}
+
+.uae-company-note {
+  margin-top: 28px !important;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  font-size: 14px !important;
+}
+
+@media (max-width: 980px) {
+  .uae-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .uae-hero-image,
+  .uae-hero-image img {
+    min-height: 500px;
+  }
+
+  .uae-context,
+  .uae-audience,
+  .uae-contact {
+    gap: 40px;
+  }
+
+  .uae-credibility-layout,
+  .uae-about {
+    gap: 42px;
+  }
+}
+
+@media (max-width: 720px) {
+  .uae-hero-copy {
+    padding-block: 54px;
+  }
+
+  .uae-hero h1 {
+    font-size: clamp(48px, 13vw, 66px);
+  }
+
+  .uae-hero-image,
+  .uae-hero-image img {
+    min-height: 430px;
+  }
+
+  .uae-hero-image figcaption {
+    right: 20px;
+    bottom: 18px;
+  }
+
+  .uae-context,
+  .uae-section-head,
+  .uae-audience,
+  .uae-contact,
+  .uae-about,
+  .uae-credibility-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .uae-section-head {
+    gap: 22px;
+    margin-bottom: 32px;
+  }
+
+  .uae-service-grid,
+  .uae-credibility-layout ul,
+  .uae-stage-list {
+    grid-template-columns: 1fr;
+  }
+
+  .uae-service-card {
+    min-height: 0;
+  }
+
+  .uae-credibility-layout li,
+  .uae-credibility-layout li:nth-child(even) {
+    min-height: 0;
+    padding: 20px 0;
+    border-left: 0;
+  }
+
+  .uae-stage-list > li,
+  .uae-stage-list > li + li {
+    min-height: 0;
+    padding: 24px 0;
+    border-left: 0;
+  }
+
+  .uae-stage-list > li + li {
+    border-top: 1px solid var(--line);
+  }
+
+  .uae-about-photo,
+  .uae-about-photo img {
+    min-height: 320px;
+  }
+
+  .uae-contact .hero-actions {
+    display: grid;
+  }
+}
+
+@media print {
+  @page { margin: 14mm; }
+
+  .site-header,
+  .site-footer,
+  .booking-modal-overlay,
+  .uae-contact .hero-actions {
+    display: none !important;
+  }
+
+  body,
+  .shell,
+  .uae-credibility,
+  .uae-context,
+  .uae-about {
+    background: #fff !important;
+    color: #111 !important;
+  }
+
+  .uae-hero,
+  .uae-context,
+  .uae-services,
+  .uae-credibility,
+  .uae-audience,
+  .uae-process,
+  .uae-about,
+  .uae-contact {
+    break-inside: avoid;
+    padding: 12mm 0;
+  }
+
+  .uae-hero {
+    display: block;
+    min-height: 0;
+  }
+
+  .uae-hero-copy { padding: 0; }
+  .uae-hero-image { display: none; }
+  .uae-hero h1 { font-size: 38pt; }
+  .uae-credibility .eyebrow,
+  .uae-credibility h2,
+  .uae-credibility-layout li,
+  .uae-credibility-layout aside p { color: #111 !important; }
+  .uae-credibility-layout li,
+  .uae-credibility-layout aside { border-color: #bbb; }
+  .uae-service-card,
+  .uae-stage-list > li { break-inside: avoid; }
+}

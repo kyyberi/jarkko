@@ -635,6 +635,38 @@ test("server-renders the ODPS enterprise services page", async () => {
   assert.doesNotMatch(html, /AED 35K|AED 65K|AED 90K|AED 25K/);
 });
 
+test("server-renders the UAE market entry page with metadata and contact paths", async () => {
+  const response = await render("/uae-market-entry");
+  assert.equal(response.status, 200);
+
+  const html = await response.text();
+  assert.match(
+    html,
+    /<title>UAE Market Entry &amp; Business Development \| Jarkko Moilanen<\/title>/,
+  );
+  assert.match(
+    html,
+    /<meta name="description" content="UAE market entry and business development support for European technology companies\. Local expertise, business connections and strategic advisory from Dr\. Jarkko Moilanen\."/,
+  );
+  assert.match(
+    html,
+    /<link rel="canonical" href="https:\/\/jarkkomoilanen\.com\/uae-market-entry\/"/,
+  );
+  assert.match(
+    html,
+    /<meta property="og:url" content="https:\/\/jarkkomoilanen\.com\/uae-market-entry\/"/,
+  );
+  assert.match(html, /Your Local Partner for Entering the UAE Market/);
+  assert.match(html, /UAE-based since 2022\./);
+  assert.match(html, /Four years of work within Abu Dhabi Government\./);
+  assert.match(html, /does not imply privileged access, guaranteed introductions or procurement outcomes/);
+  assert.match(html, /href="\/booking\?sourceCTA=uae-market-entry-hero"/);
+  assert.match(html, /href="mailto:work@jarkkomoilanen\.com"/);
+  assert.match(html, /Data Maestro Academy FZE LLC/);
+  assert.match(html, /href="\/about\/"/);
+  assert.match(html, /href="\/#work"/);
+});
+
 test("server-renders the Maysano work page as a real platform", async () => {
   const response = await render("/work/maysano");
   assert.equal(response.status, 200);

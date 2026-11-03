@@ -34,6 +34,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: absoluteUrl("/uae-market-entry/"),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: absoluteUrl("/services/ai-products/"),
       changeFrequency: "monthly",
       priority: 0.8,
