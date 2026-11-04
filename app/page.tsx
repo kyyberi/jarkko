@@ -103,12 +103,11 @@ const testimonials = [
     ],
   },
   {
-    name: "Matti Saastamoinen",
-    role: "COO, Aplika",
+    name: "Daniela Duane Muñoz",
+    role: "Deployment Strategist @ Palantir",
     relationship: "",
     quotes: [
-      "In the first year of the Open Data Tampere Region project he was one of the key persons bringing bright ideas and very agilely making them happen.",
-      "Jarkko can hack, talk, listen, analyze, perform, and is a reliable and hard working character.",
+      "In my encounters with him, he has demonstrated leadership, a willingness to guide others, and strong expertise in product management. He also immersed himself in learning Palantir and Foundry, and he picked up the platform and its concepts quickly.",
     ],
   },
   {
@@ -118,6 +117,15 @@ const testimonials = [
     quotes: [
       "Dr. Jarkko is an excellent example of what a leader should be. He promotes a culture of transparency, collaboration and clear communication.",
       "His ability to translate business expectations into simple technical requirements and vice versa makes him ideal for both business people and developers.",
+    ],
+  },
+  {
+    name: "Matti Saastamoinen",
+    role: "COO, Aplika",
+    relationship: "",
+    quotes: [
+      "In the first year of the Open Data Tampere Region project he was one of the key persons bringing bright ideas and very agilely making them happen.",
+      "Jarkko can hack, talk, listen, analyze, perform, and is a reliable and hard working character.",
     ],
   },
   {
