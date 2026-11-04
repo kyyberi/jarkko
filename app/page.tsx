@@ -492,7 +492,7 @@ export default function Home() {
             <div className="focus-title-copy">
               <div className="section-kicker">Current focus</div>
               <h2 className="section-title">
-                Five areas. One professional body of work.
+                Four areas. One professional body of work.
               </h2>
             </div>
           </div>
@@ -543,19 +543,6 @@ export default function Home() {
             <article className="focus-item">
               <div>
                 <div className="focus-number">04</div>
-                <h3>Open Data Value</h3>
-                <p>
-                  Turning real open data catalogs into data products, use
-                  cases, value graphs, analysis, and AI-agent-ready resources.
-                </p>
-              </div>
-              <a className="text-link" href={sitePath("/work/open-data-value")}>
-                Explore more <Arrow />
-              </a>
-            </article>
-            <article className="focus-item">
-              <div>
-                <div className="focus-number">05</div>
                 <h3>School 4 AI</h3>
                 <p>
                   Building a community learning initiative in Vietnam where

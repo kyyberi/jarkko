@@ -109,9 +109,9 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Data product thinking moving into practice across 56 countries/);
   assert.ok(
     html.indexOf("270% delivery speed improvement") <
-      html.indexOf("Five areas. One professional body of work."),
+      html.indexOf("Four areas. One professional body of work."),
   );
-  assert.match(html, /Five areas\. One professional body of work\./);
+  assert.match(html, /Four areas\. One professional body of work\./);
   assert.match(html, /\/images\/jarkko-current-focus\.webp/);
   assert.doesNotMatch(html, /Built in public, tested in practice\./);
   assert.doesNotMatch(html, /Selected work/);
@@ -144,9 +144,11 @@ test("server-renders the professional homepage", async () => {
   assert.match(html, /Open standards and SDK/);
   assert.match(html, /href="\/services\/odps"[\s\S]*Explore more/);
   assert.doesNotMatch(html, /Explore standards and SDK/);
-  assert.match(html, /Open Data Value/);
-  assert.match(html, /href="\/work\/open-data-value"[\s\S]*Explore more/);
-  assert.match(html, /data products, use[\s\S]*cases, value graphs, analysis, and AI-agent-ready resources/);
+  assert.equal((html.match(/class="focus-item"/g) ?? []).length, 4);
+  assert.doesNotMatch(html, /Open Data Value/);
+  assert.doesNotMatch(html, /href="\/work\/open-data-value"[\s\S]*Explore more/);
+  assert.doesNotMatch(html, /data products, use[\s\S]*cases, value graphs, analysis, and AI-agent-ready resources/);
+  assert.match(html, /focus-number">04<\/div>[\s\S]*School 4 AI/);
   assert.match(html, /School 4 AI/);
   assert.match(html, /href="\/work\/school-of-ai"[\s\S]*Explore more/);
   assert.match(html, /class="hero-residency-badge"/);
